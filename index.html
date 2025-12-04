@@ -4,10 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تحليل أداء السوق السعودي</title>
+    <title>Saudi Market Performance Analysis</title>
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <!-- DataTables CSS -->
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css">
 
@@ -44,11 +44,10 @@
             color: white;
         }
 
-        /* Shift Company column away from edge */
+        /* Ensure Company column (first column) is aligned left */
         table.dataTable thead th:first-child,
         table.dataTable tbody td:first-child {
-            padding-right: 20px !important;
-            text-align: right;
+            text-align: left;
         }
 
         .positive {
@@ -66,8 +65,8 @@
 <body>
 
     <div class="container">
-        <h1>تحليل القوة النسبية - السوق السعودي</h1>
-        <p class="last-update" id="lastUpdate">جاري تحميل البيانات...</p>
+        <h1>Relative Strength Analysis - Saudi Market</h1>
+        <p class="last-update" id="lastUpdate">Loading data...</p>
 
         <div class="table-responsive">
             <table id="analysisTable" class="table table-striped table-hover" style="width:100%">
@@ -105,13 +104,13 @@
                     const meta = results.meta;
 
                     if (data.length === 0) {
-                        $('#lastUpdate').text('لا توجد بيانات للعرض');
+                        $('#lastUpdate').text('No data to display');
                         return;
                     }
 
-                    // Update timestamp (simulation, real timestamp would come from file metadata or content)
+                    // Update timestamp
                     const now = new Date();
-                    $('#lastUpdate').text('آخر تحديث: ' + now.toLocaleDateString('ar-SA') + ' ' + now.toLocaleTimeString('ar-SA'));
+                    $('#lastUpdate').text('Last Update: ' + now.toLocaleDateString('en-US') + ' ' + now.toLocaleTimeString('en-US'));
 
                     // Generate Table Headers
                     const headers = meta.fields;
@@ -126,9 +125,6 @@
                     $('#analysisTable').DataTable({
                         data: data,
                         columns: headers.map(h => ({ data: h })),
-                        language: {
-                            url: '//cdn.datatables.net/plug-ins/1.13.7/i18n/ar.json'
-                        },
                         order: [[headers.length - 1, 'desc']], // Sort by last column (RS) by default
                         pageLength: 25,
                         createdRow: function (row, data, dataIndex) {
@@ -144,7 +140,7 @@
                 },
                 error: function (err) {
                     console.error('Error parsing CSV:', err);
-                    $('#lastUpdate').text('حدث خطأ أثناء تحميل البيانات');
+                    $('#lastUpdate').text('Error loading data');
                 }
             });
         });
