@@ -1,16 +1,21 @@
-name: Daily Saudi Exchange Scraper
+name: Daily Scraper and Deploy
 
 on:
   schedule:
-    # Runs at 13:00 UTC (16:00 Riyadh / 15:00 Cairo)
     - cron: '0 13 * * *'
   workflow_dispatch:
 
 permissions:
   contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
 
 jobs:
-  scrape-and-update:
+  scrape-and-deploy:
     runs-on: ubuntu-latest
     
     steps:
@@ -38,5 +43,16 @@ jobs:
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           git add saudiexchange_results.csv saudiexchange_results.json saudiexchange_rs_analysis.csv saudiexchange_rs_analysis.tsv saudiexchange_rs_analysis.txt
-          # Only commit if there are changes
           git diff --quiet && git diff --staged --quiet || (git commit -m "Update market data $(date +'%Y-%m-%d')" && git push)
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'  # أو المسار الذي يحتوي على ملفاتك
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
