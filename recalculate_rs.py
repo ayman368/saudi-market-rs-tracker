@@ -47,7 +47,8 @@ def calculate_rs_metrics_from_csv(input_csv: str, output_path: str) -> None:
     for p, weight in period_map.items():
         if p in df_pivot.columns:
             col_name = f"RS_{p.replace(' ', '')}"
-            df_pivot[col_name] = (df_pivot[p].rank(pct=True) * 100).round(0).clip(upper=99)
+            # Calculate rank, round, clip, and convert to nullable integer (Int64) to remove decimals
+            df_pivot[col_name] = (df_pivot[p].rank(pct=True) * 100).round(0).clip(upper=99).astype('Int64')
             rs_cols.append((col_name, weight))
         else:
             print(f"[warn] period '{p}' not found in data")
@@ -58,7 +59,7 @@ def calculate_rs_metrics_from_csv(input_csv: str, output_path: str) -> None:
     for col, weight in rs_cols:
         weighted_sum += df_pivot[col].fillna(0) * weight
     
-    df_pivot[final_rs_col] = np.ceil(weighted_sum)
+    df_pivot[final_rs_col] = np.ceil(weighted_sum).astype('Int64')
     
     # Select and reorder columns for output
     output_cols = [col for col, _ in rs_cols] + [final_rs_col]
