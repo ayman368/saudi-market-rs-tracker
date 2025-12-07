@@ -32,6 +32,9 @@ def calculate_rs_metrics_from_csv(input_csv: str, output_path: str) -> None:
 
     df = pd.DataFrame(data)
     
+    # Normalize Company names to uppercase to handle inconsistencies (e.g. WAFA INSURANCE vs WAFA Insurance)
+    df["Company"] = df["Company"].astype(str).str.strip().str.upper()
+
     # Pivot: Company and Symbol as index
     # We use a list of index columns to preserve the Symbol
     df_pivot = df.pivot(index=["Company", "Symbol"], columns="period", values="Change %")
@@ -94,6 +97,10 @@ def calculate_rs_metrics_from_csv(input_csv: str, output_path: str) -> None:
             df_sym.columns.values[1] = 'Company' 
             df_sym.columns.values[2] = 'TradingView'
             
+            # Normalize Company in symbols to uppercase
+            if 'Company' in df_sym.columns:
+                 df_sym['Company'] = df_sym['Company'].astype(str).str.strip().str.upper()
+
             # Drop duplicates if any in symbols file
             df_sym = df_sym.drop_duplicates(subset=['Company'])
             
