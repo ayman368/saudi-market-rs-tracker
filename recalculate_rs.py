@@ -21,6 +21,7 @@ def calculate_rs_metrics_from_csv(input_csv: str, output_path: str) -> None:
                 
             data.append({
                 "Company": r.get("Company", ""),
+                "Symbol": r.get("Symbol", ""),
                 "period": r.get("period", ""),
                 "Change %": change_pct
             })
@@ -31,8 +32,9 @@ def calculate_rs_metrics_from_csv(input_csv: str, output_path: str) -> None:
 
     df = pd.DataFrame(data)
     
-    # Pivot: Company as index, period as columns, values are Change %
-    df_pivot = df.pivot(index="Company", columns="period", values="Change %")
+    # Pivot: Company and Symbol as index
+    # We use a list of index columns to preserve the Symbol
+    df_pivot = df.pivot(index=["Company", "Symbol"], columns="period", values="Change %")
     
     # Define periods and weights
     period_map = {
@@ -47,7 +49,7 @@ def calculate_rs_metrics_from_csv(input_csv: str, output_path: str) -> None:
     for p, weight in period_map.items():
         if p in df_pivot.columns:
             col_name = f"RS_{p.replace(' ', '')}"
-            # Calculate rank, round, clip, and convert to nullable integer (Int64) to remove decimals
+            # Calculate rank, round, clip, and convert to nullable integer (Int64)
             df_pivot[col_name] = (df_pivot[p].rank(pct=True) * 100).round(0).clip(upper=99).astype('Int64')
             rs_cols.append((col_name, weight))
         else:
@@ -61,15 +63,84 @@ def calculate_rs_metrics_from_csv(input_csv: str, output_path: str) -> None:
     
     df_pivot[final_rs_col] = np.ceil(weighted_sum).astype('Int64')
     
+    # Reset index to make Company and Symbol regular columns again
+    df_pivot.reset_index(inplace=True)
+
+    # --- MERGE WITH USER PROVIDED SYMBOLS ---
+    try:
+        symbols_path = "company_symbols.csv"
+        # Read simple CSV with header: #,Company,الرمز على تريدنج فيو
+        # encoding might be utf-8-sig or utf-8
+        try:
+            df_sym = pd.read_csv(symbols_path)
+        except Exception:
+            # try different encoding if default fails
+            df_sym = pd.read_csv(symbols_path, encoding='utf-8-sig')
+            
+        # Rename columns to be English friendly
+        # Assuming column order: [Code, CompanyString, TradingView]
+        # Or by name if possible. Let's try by known names from file view.
+        # File header: #,Company,الرمز على تريدنج فيو
+        # We want to map 'Company' -> 'Company' to merge.
+        # And keep '#' as 'Code' and 'الرمز على تريدنج فيو' as 'TradingView'
+        
+        # Normalize columns
+        df_sym.columns = [c.strip() for c in df_sym.columns]
+        
+        # Find the company name column (exact match 'Company')
+        if 'Company' in df_sym.columns:
+            # Prepare subset to merge
+            # We want to add Code and TradingView
+            # Rename for clarity
+            rename_map = {}
+            for c in df_sym.columns:
+                if c == '#': rename_map[c] = 'SymbolCode'
+                elif 'الرمز' in c: rename_map[c] = 'TradingView'
+            
+            df_sym = df_sym.rename(columns=rename_map)
+            
+            # Drop duplicates if any in symbols file
+            df_sym = df_sym.drop_duplicates(subset=['Company'])
+            
+            # Merge
+            # left join to keep all analyzed companies even if symbol missing
+            df_pivot = pd.merge(df_pivot, df_sym[['Company', 'SymbolCode', 'TradingView']], on='Company', how='left')
+            
+            print("[analysis] Merged with company_symbols.csv")
+        else:
+            print("[warn] 'Company' column not found in company_symbols.csv")
+
+    except FileNotFoundError:
+        print("[warn] company_symbols.csv not found, skipping merge")
+    except Exception as e:
+        print(f"[warn] Failed to merge symbols: {e}")
+
+    # Remove the old 'Symbol' column extracted from scraper if we have a better one, 
+    # OR prefer the one from CSV. 
+    # The scraper extract might be empty or partial. The CSV is the master.
+    # If merged successfully, we have 'SymbolCode' and 'TradingView'.
+    # We can keep 'SymbolCode' as the main 'Code'.
+    
     # Select and reorder columns for output
-    output_cols = [col for col, _ in rs_cols] + [final_rs_col]
+    # Desired: Company, SymbolCode, TradingView, RS columns..., RS
+    
+    # Check which columns we actually have
+    final_cols = ["Company"]
+    if "SymbolCode" in df_pivot.columns:
+        final_cols.append("SymbolCode")
+    if "TradingView" in df_pivot.columns:
+        final_cols.append("TradingView")
+    # If we extracted 'Symbol' from scraper and it's not the same as SymbolCode, maybe keep it?
+    # User asked for columns from the excel. Let's prioritize those.
+    # If SymbolCode is present, use it.
+    
+    # Add RS columns
+    final_cols.extend([col for col, _ in rs_cols])
+    final_cols.append(final_rs_col)
     
     # Save as Standard CSV
-    df_pivot[output_cols].to_csv(output_path, encoding="utf-8-sig")
+    df_pivot[final_cols].to_csv(output_path, index=False, encoding="utf-8-sig")
     print(f"[analysis] saved RS analysis to {output_path}")
-
-
-
 
 if __name__ == "__main__":
     calculate_rs_metrics_from_csv("saudiexchange_results.csv", "saudiexchange_rs_analysis.csv")
