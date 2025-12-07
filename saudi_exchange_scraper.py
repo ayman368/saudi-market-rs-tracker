@@ -408,8 +408,8 @@ def _get_all_tables(driver: webdriver.Chrome) -> List[webdriver.remote.webelemen
     """Get only Gainers (Table 2) and Losers (Table 3) tables"""
     tables = []
     
-    # Only get marketPerformanceTable 2 (Gainers) and 3 (Losers)
-    for table_id in ["marketPerformanceTable2", "marketPerformanceTable3"]:
+    # Get marketPerformanceTable 1 (Main), 2 (Gainers), and 3 (Losers)
+    for table_id in ["marketPerformanceTable1", "marketPerformanceTable2", "marketPerformanceTable3"]:
         try:
             tbl = driver.find_element(By.ID, table_id)
             if tbl.is_displayed():
