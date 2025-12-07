@@ -87,28 +87,22 @@ def calculate_rs_metrics_from_csv(input_csv: str, output_path: str) -> None:
         # Normalize columns
         df_sym.columns = [c.strip() for c in df_sym.columns]
         
-        # Find the company name column (exact match 'Company')
-        if 'Company' in df_sym.columns:
-            # Prepare subset to merge
-            # We want to add Code and TradingView
-            # Rename for clarity
-            rename_map = {}
-            for c in df_sym.columns:
-                if c == '#': rename_map[c] = 'SymbolCode'
-                elif 'الرمز' in c: rename_map[c] = 'TradingView'
-            
-            df_sym = df_sym.rename(columns=rename_map)
+        # Use index-based renaming to avoid encoding issues
+        # Expecting at least 3 columns: Code (#), Company, TradingView
+        if len(df_sym.columns) >= 3:
+            df_sym.columns.values[0] = 'Code'
+            df_sym.columns.values[1] = 'Company' 
+            df_sym.columns.values[2] = 'TradingView'
             
             # Drop duplicates if any in symbols file
             df_sym = df_sym.drop_duplicates(subset=['Company'])
             
             # Merge
-            # left join to keep all analyzed companies even if symbol missing
-            df_pivot = pd.merge(df_pivot, df_sym[['Company', 'SymbolCode', 'TradingView']], on='Company', how='left')
+            df_pivot = pd.merge(df_pivot, df_sym[['Company', 'Code', 'TradingView']], on='Company', how='left')
             
             print("[analysis] Merged with company_symbols.csv")
         else:
-            print("[warn] 'Company' column not found in company_symbols.csv")
+            print(f"[warn] Unexpected columns in symbols file: {df_sym.columns}")
 
     except FileNotFoundError:
         print("[warn] company_symbols.csv not found, skipping merge")
@@ -118,16 +112,16 @@ def calculate_rs_metrics_from_csv(input_csv: str, output_path: str) -> None:
     # Remove the old 'Symbol' column extracted from scraper if we have a better one, 
     # OR prefer the one from CSV. 
     # The scraper extract might be empty or partial. The CSV is the master.
-    # If merged successfully, we have 'SymbolCode' and 'TradingView'.
-    # We can keep 'SymbolCode' as the main 'Code'.
+    # If merged successfully, we have 'Code' and 'TradingView'.
+    # We can keep 'Code' as the main 'Code'.
     
     # Select and reorder columns for output
-    # Desired: Company, SymbolCode, TradingView, RS columns..., RS
+    # Desired: Company, Code, TradingView, RS columns..., RS
     
     # Check which columns we actually have
     final_cols = ["Company"]
-    if "SymbolCode" in df_pivot.columns:
-        final_cols.append("SymbolCode")
+    if "Code" in df_pivot.columns:
+        final_cols.append("Code")
     if "TradingView" in df_pivot.columns:
         final_cols.append("TradingView")
     # If we extracted 'Symbol' from scraper and it's not the same as SymbolCode, maybe keep it?
