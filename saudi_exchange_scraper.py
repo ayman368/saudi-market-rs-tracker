@@ -576,8 +576,10 @@ def scrape_all_tables(driver: webdriver.Chrome) -> List[Dict[str, str]]:
         tables = _get_all_tables(driver)
         print(f"[info] found {len(tables)} tables via Selenium")
         
-        expected_headers = ["Company", "Open", "Highest", "Lowest", "Close", "Change", "Change %", "Volume Traded", "Value Traded"]
+        expected_headers = ["Company", "Symbol", "Open", "Highest", "Lowest", "Close", "Change", "Change %", "Volume Traded", "Value Traded"]
         
+        import re
+
         for tbl in tables:
             try:
                 # Get headers
@@ -588,8 +590,8 @@ def scrape_all_tables(driver: webdriver.Chrome) -> List[Dict[str, str]]:
                 except Exception:
                     pass
                 
-                # Use expected headers if needed
-                if len(headers) != 9 or (headers and headers[0] != "Company"):
+                # Use expected headers if needed (inject Symbol)
+                if True: # Force expected structure as we are injecting Symbol
                     headers = expected_headers
                 
                 # Get rows
@@ -604,13 +606,47 @@ def scrape_all_tables(driver: webdriver.Chrome) -> List[Dict[str, str]]:
                     if not tds:
                         continue
                     
-                    while len(headers) < len(tds):
-                        headers.append(f"Column {len(headers)+1}")
+                    # Extract Symbol from first column
+                    symbol = ""
+                    try:
+                        first_td = tds[0]
+                        # Try link href
+                        links = first_td.find_elements(By.TAG_NAME, "a")
+                        if links:
+                            href = links[0].get_attribute("href")
+                            # Look for 4 digits in href
+                            m = re.search(r'/(\d{4})', href or "")
+                            if m:
+                                symbol = m.group(1)
+                        
+                        # Fallback: check text
+                        if not symbol:
+                            txt = first_td.text.strip()
+                            # If text is like "2010 - Company", extract 2010
+                            m = re.search(r'(\d{4})', txt)
+                            if m:
+                                symbol = m.group(1)
+                    except Exception:
+                        pass
+
+                    # Our headers has "Symbol" at index 1. The original table does NOT have it.
+                    # Original columns match expected_headers indices 0, 2, 3...
+                    # We manually construct the row.
                     
                     row = {}
-                    for i, td in enumerate(tds):
-                        key = headers[i] if i < len(headers) else f"Column {i+1}"
-                        row[key] = td.text.strip()
+                    row["Company"] = tds[0].text.strip()
+                    row["Symbol"] = symbol
+                    
+                    # Map remaining columns (skip Company which is index 0)
+                    # We expect 8 value columns: Open, Highest, Lowest, Close, Change, Change %, Volume, Value
+                    # tds[1] -> Open, etc.
+                    val_headers = expected_headers[2:] # Open to Value Traded
+                    
+                    for i, h in enumerate(val_headers):
+                        if i + 1 < len(tds):
+                            row[h] = tds[i+1].text.strip()
+                        else:
+                            row[h] = ""
                     
                     all_rows.append(row)
             except Exception as e:
@@ -635,7 +671,7 @@ def save_results_json(results: Dict[str, List[Dict[str, str]]], path: str) -> No
 
 def save_results_csv(results: Dict[str, List[Dict[str, str]]], path: str) -> None:
     # Define logical order
-    logical_order = ["period", "Company", "Open", "Highest", "Lowest", "Close", "Change", "Change %", "Volume Traded", "Value Traded"]
+    logical_order = ["period", "Company", "Symbol", "Open", "Highest", "Lowest", "Close", "Change", "Change %", "Volume Traded", "Value Traded"]
     
     all_headers = set(["period"])
     for period, rows in results.items():
@@ -670,6 +706,7 @@ def calculate_rs_metrics(results: Dict[str, List[Dict[str, str]]], output_path: 
                 
             data.append({
                 "Company": r.get("Company", ""),
+                "Symbol": r.get("Symbol", ""),
                 "period": period,
                 "Change %": change_pct
             })
@@ -680,9 +717,9 @@ def calculate_rs_metrics(results: Dict[str, List[Dict[str, str]]], output_path: 
 
     df = pd.DataFrame(data)
     
-    # Pivot: Company as index, period as columns, values are Change %
+    # Pivot: Company and Symbol as index
     # We want columns like: "Change %_1 Year", "Change %_9 Months", etc.
-    df_pivot = df.pivot(index="Company", columns="period", values="Change %")
+    df_pivot = df.pivot(index=["Company", "Symbol"], columns="period", values="Change %")
     
     # Define periods and weights
     # Weights: 1Y (20%), 9M (20%), 6M (20%), 3M (40%)
