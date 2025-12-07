@@ -93,7 +93,7 @@ def calculate_rs_metrics_from_csv(input_csv: str, output_path: str) -> None:
         # Use index-based renaming to avoid encoding issues
         # Expecting at least 3 columns: Code (#), Company, TradingView
         if len(df_sym.columns) >= 3:
-            df_sym.columns.values[0] = 'Code'
+            df_sym.columns.values[0] = 'Symbol'
             df_sym.columns.values[1] = 'Company' 
             df_sym.columns.values[2] = 'TradingView'
             
@@ -105,7 +105,7 @@ def calculate_rs_metrics_from_csv(input_csv: str, output_path: str) -> None:
             df_sym = df_sym.drop_duplicates(subset=['Company'])
             
             # Merge
-            df_pivot = pd.merge(df_pivot, df_sym[['Company', 'Code', 'TradingView']], on='Company', how='left')
+            df_pivot = pd.merge(df_pivot, df_sym[['Company', 'Symbol', 'TradingView']], on='Company', how='left')
             
             print("[analysis] Merged with company_symbols.csv")
         else:
@@ -119,16 +119,15 @@ def calculate_rs_metrics_from_csv(input_csv: str, output_path: str) -> None:
     # Remove the old 'Symbol' column extracted from scraper if we have a better one, 
     # OR prefer the one from CSV. 
     # The scraper extract might be empty or partial. The CSV is the master.
-    # If merged successfully, we have 'Code' and 'TradingView'.
-    # We can keep 'Code' as the main 'Code'.
+    # If merged successfully, we have 'Symbol' and 'TradingView'.
     
     # Select and reorder columns for output
-    # Desired: Company, Code, TradingView, RS columns..., RS
+    # Desired: Company, Symbol, TradingView, RS columns..., RS
     
     # Check which columns we actually have
     final_cols = ["Company"]
-    if "Code" in df_pivot.columns:
-        final_cols.append("Code")
+    if "Symbol" in df_pivot.columns:
+        final_cols.append("Symbol")
     if "TradingView" in df_pivot.columns:
         final_cols.append("TradingView")
     # If we extracted 'Symbol' from scraper and it's not the same as SymbolCode, maybe keep it?
