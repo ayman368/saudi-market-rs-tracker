@@ -104,8 +104,10 @@ var table rsInfoTable = table.new(position.top_right, 2, 5,
 
 if barstate.islast and showTable and timeframe.isdaily
     // Header
-    table.cell(rsInfoTable, 0, 0, "Saudi RS Data", text_color = color.white, 
-               bgcolor = color.rgb(42, 46, 57), text_size = size.normal, colspan = 2)
+    table.cell(rsInfoTable, 0, 0, "Saudi RS", text_color = color.white, 
+               bgcolor = color.rgb(42, 46, 57), text_size = size.normal)
+    table.cell(rsInfoTable, 1, 0, "Data", text_color = color.white, 
+               bgcolor = color.rgb(42, 46, 57), text_size = size.normal)
     
     // Company
     table.cell(rsInfoTable, 0, 1, "Company", text_color = color.rgb(120, 123, 134), text_size = size.small)
