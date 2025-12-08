@@ -1,0 +1,11 @@
+RS Percentile Thresholds for TradingView
+==================================================
+For 99 Rating (Top 1%):  99.00
+For 90+ Rating (Top 10%): 85.00
+For 70+ Rating:           67.40
+For 50+ Rating (Median):  52.00
+For 30+ Rating:           35.00
+For 10+ Rating:           16.00
+For 1 Rating (Bottom):    4.82
+
+Copy these values to TradingView indicator settings.

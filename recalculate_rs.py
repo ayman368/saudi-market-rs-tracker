@@ -141,6 +141,67 @@ def calculate_rs_metrics_from_csv(input_csv: str, output_path: str) -> None:
     # Save as Standard CSV
     df_pivot[final_cols].to_csv(output_path, index=False, encoding="utf-8-sig")
     print(f"[analysis] saved RS analysis to {output_path}")
+    
+    # --- CALCULATE PERCENTILE THRESHOLDS FOR TRADINGVIEW ---
+    # Calculate the RS Score for each stock (same formula as TradingView)
+    # We need to compute weighted performance for comparison
+    
+    # Get the weighted performance scores (this matches totalRsScore in Pine)
+    df_scores = []
+    for idx, row in df_pivot.iterrows():
+        company = row['Company']
+        
+        # Get period data
+        periods_data = {}
+        for p in period_map.keys():
+            if p in df_pivot.columns:
+                periods_data[p] = row[p]
+        
+        # Calculate weighted performance (stock vs index would be 100 if equal)
+        # For threshold calculation, we use the RS value directly
+        # The final RS already represents the weighted percentile
+        rs_final = row[final_rs_col]
+        
+        df_scores.append({
+            'Company': company,
+            'RS': rs_final
+        })
+    
+    df_thresholds = pd.DataFrame(df_scores)
+    
+    # Calculate percentile thresholds based on RS distribution
+    # These values will be used in TradingView for calibration
+    percentiles = {
+        99: df_thresholds['RS'].quantile(0.99),  # Top 1%
+        90: df_thresholds['RS'].quantile(0.90),  # Top 10%
+        70: df_thresholds['RS'].quantile(0.70),  # Top 30%
+        50: df_thresholds['RS'].quantile(0.50),  # Median
+        30: df_thresholds['RS'].quantile(0.30),  # Bottom 70%
+        10: df_thresholds['RS'].quantile(0.10),  # Bottom 90%
+        1:  df_thresholds['RS'].quantile(0.01)   # Bottom 99%
+    }
+    
+    # Save thresholds to JSON for easy reading
+    thresholds_path = output_path.replace('.csv', '_thresholds.json')
+    with open(thresholds_path, 'w', encoding='utf-8') as f:
+        json.dump(percentiles, f, indent=2)
+    print(f"[analysis] saved percentile thresholds to {thresholds_path}")
+    
+    # Also save as simple text for easy copying to TradingView
+    thresholds_txt = output_path.replace('.csv', '_thresholds.txt')
+    with open(thresholds_txt, 'w', encoding='utf-8') as f:
+        f.write("RS Percentile Thresholds for TradingView\n")
+        f.write("=" * 50 + "\n")
+        f.write(f"For 99 Rating (Top 1%):  {percentiles[99]:.2f}\n")
+        f.write(f"For 90+ Rating (Top 10%): {percentiles[90]:.2f}\n")
+        f.write(f"For 70+ Rating:           {percentiles[70]:.2f}\n")
+        f.write(f"For 50+ Rating (Median):  {percentiles[50]:.2f}\n")
+        f.write(f"For 30+ Rating:           {percentiles[30]:.2f}\n")
+        f.write(f"For 10+ Rating:           {percentiles[10]:.2f}\n")
+        f.write(f"For 1 Rating (Bottom):    {percentiles[1]:.2f}\n")
+        f.write("\nCopy these values to TradingView indicator settings.\n")
+    print(f"[analysis] saved readable thresholds to {thresholds_txt}")
 
 if __name__ == "__main__":
     calculate_rs_metrics_from_csv("saudiexchange_results.csv", "saudiexchange_rs_analysis.csv")
+
