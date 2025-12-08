@@ -13,15 +13,16 @@ IndexValue  = input(11500, title='Approximate TASI Value', group = 'Shape & Offs
 offset      = input.int(80, minval = 0, maxval = 2000, title='Offset (%)', group = 'Shape & Offset')
 
 // Calibration Values (من بيانات السوق السعودي)
-// هذه القيم محسوبة من تحليلنا اليومي - تحتاج تحديث دوري
+// هذه القيم محسوبة يومياً من recalculate_rs.py
+// آخر تحديث: يتم تحديثها تلقائياً كل يوم
 allowReplay = input(true, title = 'Use Calibrated Thresholds', group ='Saudi Market Calibration')
-first2      = input(150.0, title='For 99 Rating (Top 1%)', group = 'Saudi Market Calibration', tooltip='Stocks with RS Score >= this get rating 99')
-scnd2       = input(125.0, title='For 90+ Rating (Top 10%)', group = 'Saudi Market Calibration')
-thrd2       = input(110.0, title='For 70+ Rating', group = 'Saudi Market Calibration')
-frth2       = input(100.0, title='For 50+ Rating (Median)', group = 'Saudi Market Calibration')
-ffth2       = input(90.0, title='For 30+ Rating', group = 'Saudi Market Calibration')
-sxth2       = input(75.0, title='For 10+ Rating', group = 'Saudi Market Calibration')
-svth2       = input(50.0, title='For 1 Rating (Bottom)', group = 'Saudi Market Calibration')
+first2      = input(99.00, title='For 99 Rating (Top 1%)', group = 'Saudi Market Calibration', tooltip='Stocks with RS Score >= this get rating 99')
+scnd2       = input(85.00, title='For 90+ Rating (Top 10%)', group = 'Saudi Market Calibration')
+thrd2       = input(67.40, title='For 70+ Rating', group = 'Saudi Market Calibration')
+frth2       = input(52.00, title='For 50+ Rating (Median)', group = 'Saudi Market Calibration')
+ffth2       = input(35.00, title='For 30+ Rating', group = 'Saudi Market Calibration')
+sxth2       = input(16.00, title='For 10+ Rating', group = 'Saudi Market Calibration')
+svth2       = input(4.82, title='For 1 Rating (Bottom)', group = 'Saudi Market Calibration')
 
 // MA Options
 boolMa      = input(false, title = 'Display MA on RS Line', group = '1st MA on RS Line')
