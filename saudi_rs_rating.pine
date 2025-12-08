@@ -29,17 +29,18 @@ lenMa       = input(21, title = 'Length', group = '1st MA on RS Line', inline = 
 colMa       = input(color.orange, title = 'Color', group = '1st MA on RS Line', inline = 'c')
 typMa       = input.string('EMA', title = 'Type', options = ['SMA', 'EMA'], group = '1st MA on RS Line', inline = 'c')
 
-// Saudi Market Calibration (Updated daily from GitHub Actions)
-// These values are calculated from actual Saudi market data
-// Last update: See https://github.com/Youssef-Waheed1/lumivst_test
+// Saudi Market Calibration (Updated from actual market data)
+// These values are calculated from Saudi market weighted performance
+// Last update: 2025-12-08
+// See: https://github.com/Youssef-Waheed1/lumivst_test/blob/main/saudiexchange_rs_analysis_tv_thresholds.txt
 allowReplay = input(true, title = 'Use Calibrated Thresholds', group ='Saudi Market Calibration')
-first2      = input(150.0, title='For 99 Rating (Top 1%)', group = 'Saudi Market Calibration', tooltip='Raw RS Score threshold for top 1%')
-scnd2       = input(125.0, title='For 90+ Rating (Top 10%)', group = 'Saudi Market Calibration')
-thrd2       = input(110.0, title='For 70+ Rating', group = 'Saudi Market Calibration')
-frth2       = input(100.0, title='For 50+ Rating (Median)', group = 'Saudi Market Calibration')
-ffth2       = input(90.0, title='For 30+ Rating', group = 'Saudi Market Calibration')
-sxth2       = input(75.0, title='For 10+ Rating', group = 'Saudi Market Calibration')
-svth2       = input(50.0, title='For 1 Rating (Bottom)', group = 'Saudi Market Calibration')
+first2      = input(148.41, title='For 99 Rating (Top 1%)', group = 'Saudi Market Calibration', tooltip='Raw RS Score threshold for top 1%')
+scnd2       = input(117.11, title='For 90+ Rating (Top 10%)', group = 'Saudi Market Calibration')
+thrd2       = input(107.82, title='For 70+ Rating', group = 'Saudi Market Calibration')
+frth2       = input(100.00, title='For 50+ Rating (Median)', group = 'Saudi Market Calibration')
+ffth2       = input(92.30, title='For 30+ Rating', group = 'Saudi Market Calibration')
+sxth2       = input(81.87, title='For 10+ Rating', group = 'Saudi Market Calibration')
+svth2       = input(69.27, title='For 1 Rating (Bottom)', group = 'Saudi Market Calibration')
 
 // ===== RS LINE CALCULATION =====
 // Using bar index to handle new listings

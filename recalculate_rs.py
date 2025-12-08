@@ -131,6 +131,115 @@ def calculate_rs_metrics_from_csv(input_csv: str, output_path: str) -> None:
     # Save as Standard CSV
     df_pivot[final_cols].to_csv(output_path, index=False, encoding="utf-8-sig")
     print(f"[analysis] saved RS analysis to {output_path}")
+    
+    # --- CALCULATE TRADINGVIEW THRESHOLDS ---
+    # Calculate weighted performance for each stock (simulates TradingView's totalRsScore)
+    print("[thresholds] calculating weighted performance scores for TradingView...")
+    
+    performance_scores = []
+    
+    for idx, row in df_pivot.iterrows():
+        company = row['Company']
+        
+        # Get raw Change % for each period
+        perfs = {}
+        valid_count = 0
+        for p in period_map.keys():
+            if p in df_pivot.columns:
+                val = row[p]
+                if pd.notna(val):
+                    perfs[p] = val
+                    valid_count += 1
+        
+        # Skip if missing data
+        if valid_count < len(period_map):
+            continue
+        
+        # Calculate weighted performance (matching TradingView formula)
+        # Using weights: 40% for 3M, 20% for 6M, 20% for 9M, 20% for 1Y
+        weighted_perf = 0
+        for p, weight in period_map.items():
+            if p in perfs:
+                # Convert percentage to ratio (e.g., 10% -> 1.10)
+                weighted_perf += (1 + perfs[p]/100) * weight
+        
+        # Store the weighted performance and RS
+        performance_scores.append({
+            'Company': company,
+            'WeightedPerformance': weighted_perf,
+            'RS': row[final_rs_col]
+        })
+    
+    df_perf = pd.DataFrame(performance_scores)
+    
+    if len(df_perf) == 0:
+        print("[warn] no performance scores calculated")
+        return
+    
+    # Calculate median as "market proxy" (like TASI average)
+    median_perf = df_perf['WeightedPerformance'].median()
+    
+    # Calculate relative score: (stock_perf / median_perf) * 100
+    # This matches TradingView's totalRsScore calculation
+    df_perf['RelativeScore'] = (df_perf['WeightedPerformance'] / median_perf) * 100
+    
+    # Now calculate percentile thresholds based on RelativeScore
+    # These are the raw score values that correspond to each percentile
+    percentiles_from_score = {
+        99: df_perf['RelativeScore'].quantile(0.99),  # Top 1%
+        90: df_perf['RelativeScore'].quantile(0.90),  # Top 10%
+        70: df_perf['RelativeScore'].quantile(0.70),  # Top 30%
+        50: df_perf['RelativeScore'].quantile(0.50),  # Median
+        30: df_perf['RelativeScore'].quantile(0.30),  # Bottom 70%
+        10: df_perf['RelativeScore'].quantile(0.10),  # Bottom 90%
+        1:  df_perf['RelativeScore'].quantile(0.01)   # Bottom 99%
+    }
+    
+    # Save thresholds to JSON
+    thresholds_path = output_path.replace('.csv', '_tv_thresholds.json')
+    with open(thresholds_path, 'w', encoding='utf-8') as f:
+        json.dump(percentiles_from_score, f, indent=2)
+    print(f"[thresholds] saved to {thresholds_path}")
+    
+    # Save as readable text for TradingView
+    thresholds_txt = output_path.replace('.csv', '_tv_thresholds.txt')
+    with open(thresholds_txt, 'w', encoding='utf-8') as f:
+        f.write("=" * 60 + "\n")
+        f.write("TradingView RS Rating Thresholds for Saudi Market\n")
+        f.write("=" * 60 + "\n\n")
+        f.write("Copy these values to your TradingView indicator settings:\n")
+        f.write("(Saudi Market Calibration section)\n\n")
+        f.write(f"For 99 Rating (Top 1%):   {percentiles_from_score[99]:.2f}\n")
+        f.write(f"For 90+ Rating (Top 10%): {percentiles_from_score[90]:.2f}\n")
+        f.write(f"For 70+ Rating:           {percentiles_from_score[70]:.2f}\n")
+        f.write(f"For 50+ Rating (Median):  {percentiles_from_score[50]:.2f}\n")
+        f.write(f"For 30+ Rating:           {percentiles_from_score[30]:.2f}\n")
+        f.write(f"For 10+ Rating:           {percentiles_from_score[10]:.2f}\n")
+        f.write(f"For 1 Rating (Bottom):    {percentiles_from_score[1]:.2f}\n")
+        f.write("\n" + "=" * 60 + "\n")
+        f.write("HOW TO USE:\n")
+        f.write("1. Open TradingView\n")
+        f.write("2. Add 'Saudi RS Rating' indicator to your chart\n")
+        f.write("3. Open indicator settings\n")
+        f.write("4. Go to 'Saudi Market Calibration' section\n")
+        f.write("5. Copy the values above into the corresponding fields\n")
+        f.write("6. Click OK\n")
+        f.write("\nThese thresholds are updated daily by GitHub Actions.\n")
+        f.write("Last update: " + pd.Timestamp.now().strftime("%Y-%m-%d %H:%M:%S") + "\n")
+    print(f"[thresholds] saved readable version to {thresholds_txt}")
+    
+    # Also print to console for easy viewing
+    print("\n" + "=" * 60)
+    print("📊 TRADINGVIEW THRESHOLDS (Copy to TradingView settings):")
+    print("=" * 60)
+    print(f"For 99 Rating (Top 1%):   {percentiles_from_score[99]:.2f}")
+    print(f"For 90+ Rating (Top 10%): {percentiles_from_score[90]:.2f}")
+    print(f"For 70+ Rating:           {percentiles_from_score[70]:.2f}")
+    print(f"For 50+ Rating (Median):  {percentiles_from_score[50]:.2f}")
+    print(f"For 30+ Rating:           {percentiles_from_score[30]:.2f}")
+    print(f"For 10+ Rating:           {percentiles_from_score[10]:.2f}")
+    print(f"For 1 Rating (Bottom):    {percentiles_from_score[1]:.2f}")
+    print("=" * 60 + "\n")
 
 if __name__ == "__main__":
     calculate_rs_metrics_from_csv("saudiexchange_results.csv", "saudiexchange_rs_analysis.csv")
