@@ -2,6 +2,7 @@
   "1 Year": [
     {
       "Company": "ALBABTAIN",
+      "Symbol": "",
       "Open": "38.20",
       "Highest": "69.85",
       "Lowest": "35.8",
@@ -13,6 +14,7 @@
     },
     {
       "Company": "RASAN",
+      "Symbol": "",
       "Open": "72.09",
       "Highest": "122",
       "Lowest": "67.59",
@@ -24,6 +26,7 @@
     },
     {
       "Company": "CENOMI RETAIL",
+      "Symbol": "",
       "Open": "12.44",
       "Highest": "35.38",
       "Lowest": "10.08",
@@ -35,6 +38,7 @@
     },
     {
       "Company": "SAUDI CABLE",
+      "Symbol": "",
       "Open": "87.00",
       "Highest": "160",
       "Lowest": "82.9",
@@ -46,6 +50,7 @@
     },
     {
       "Company": "ABO MOATI",
+      "Symbol": "",
       "Open": "30.65",
       "Highest": "53.95",
       "Lowest": "29.7",
@@ -57,6 +62,7 @@
     },
     {
       "Company": "EIC",
+      "Symbol": "",
       "Open": "7.97",
       "Highest": "12.16",
       "Lowest": "4.89",
@@ -68,6 +74,7 @@
     },
     {
       "Company": "BAHRI",
+      "Symbol": "",
       "Open": "21.96",
       "Highest": "32.5",
       "Lowest": "20.64",
@@ -79,6 +86,7 @@
     },
     {
       "Company": "ALMAWARID",
+      "Symbol": "",
       "Open": "107.40",
       "Highest": "157.6",
       "Lowest": "103.8",
@@ -90,6 +98,7 @@
     },
     {
       "Company": "ETIHAD ETISALAT",
+      "Symbol": "",
       "Open": "54.00",
       "Highest": "69",
       "Lowest": "51.5",
@@ -101,6 +110,7 @@
     },
     {
       "Company": "SEERA",
+      "Symbol": "",
       "Open": "23.12",
       "Highest": "31.6",
       "Lowest": "20.68",
@@ -112,6 +122,7 @@
     },
     {
       "Company": "ALMOOSA",
+      "Symbol": "",
       "Open": "146.00",
       "Highest": "212",
       "Lowest": "126.6",
@@ -123,6 +134,7 @@
     },
     {
       "Company": "MAADEN",
+      "Symbol": "",
       "Open": "52.00",
       "Highest": "68.45",
       "Lowest": "37.85",
@@ -134,6 +146,7 @@
     },
     {
       "Company": "AMAK",
+      "Symbol": "",
       "Open": "71.70",
       "Highest": "82.7",
       "Lowest": "46.8",
@@ -145,6 +158,7 @@
     },
     {
       "Company": "SENAAT",
+      "Symbol": "",
       "Open": "32.40",
       "Highest": "48.85",
       "Lowest": "26.3",
@@ -156,6 +170,7 @@
     },
     {
       "Company": "ANB",
+      "Symbol": "",
       "Open": "20.30",
       "Highest": "26.26",
       "Lowest": "19.5",
@@ -167,6 +182,7 @@
     },
     {
       "Company": "SNB",
+      "Symbol": "",
       "Open": "34.15",
       "Highest": "41",
       "Lowest": "31.55",
@@ -178,6 +194,7 @@
     },
     {
       "Company": "CHERRY",
+      "Symbol": "",
       "Open": "26.40",
       "Highest": "29.54",
       "Lowest": "25.9",
@@ -189,6 +206,7 @@
     },
     {
       "Company": "ALRAJHI",
+      "Symbol": "",
       "Open": "90.50",
       "Highest": "113",
       "Lowest": "87.8",
@@ -200,6 +218,7 @@
     },
     {
       "Company": "ALDREES",
+      "Symbol": "",
       "Open": "123.00",
       "Highest": "154.4",
       "Lowest": "109.6",
@@ -211,6 +230,7 @@
     },
     {
       "Company": "SABIC AGRI-NUTRIENTS",
+      "Symbol": "",
       "Open": "110.40",
       "Highest": "125.7",
       "Lowest": "94.7",
@@ -222,6 +242,7 @@
     },
     {
       "Company": "STC",
+      "Symbol": "",
       "Open": "40.25",
       "Highest": "48.3",
       "Lowest": "39.8",
@@ -233,6 +254,7 @@
     },
     {
       "Company": "JADWA REIT SAUDI",
+      "Symbol": "",
       "Open": "10.40",
       "Highest": "11.38",
       "Lowest": "9.7",
@@ -244,6 +266,7 @@
     },
     {
       "Company": "ZAIN KSA",
+      "Symbol": "",
       "Open": "10.34",
       "Highest": "13.36",
       "Lowest": "10.02",
@@ -255,6 +278,7 @@
     },
     {
       "Company": "DAR ALARKAN",
+      "Symbol": "",
       "Open": "15.18",
       "Highest": "23.94",
       "Lowest": "13.84",
@@ -266,6 +290,7 @@
     },
     {
       "Company": "SHL",
+      "Symbol": "",
       "Open": "17.40",
       "Highest": "24.9",
       "Lowest": "15.68",
@@ -277,6 +302,7 @@
     },
     {
       "Company": "BSF",
+      "Symbol": "",
       "Open": "15.73",
       "Highest": "18.94",
       "Lowest": "15.2",
@@ -288,6 +314,7 @@
     },
     {
       "Company": "BAWAN",
+      "Symbol": "",
       "Open": "48.15",
       "Highest": "63.5",
       "Lowest": "42.25",
@@ -299,6 +326,7 @@
     },
     {
       "Company": "AL AZIZIAH REIT",
+      "Symbol": "",
       "Open": "4.03",
       "Highest": "4.78",
       "Lowest": "3.48",
@@ -310,6 +338,7 @@
     },
     {
       "Company": "ALAWWAL",
+      "Symbol": "",
       "Open": "19.30",
       "Highest": "19.58",
       "Lowest": "19",
@@ -321,6 +350,7 @@
     },
     {
       "Company": "HCC",
+      "Symbol": "",
       "Open": "11.46",
       "Highest": "11.7",
       "Lowest": "11.36",
@@ -332,6 +362,7 @@
     },
     {
       "Company": "Sahara",
+      "Symbol": "",
       "Open": "17.26",
       "Highest": "17.48",
       "Lowest": "16.7",
@@ -343,6 +374,7 @@
     },
     {
       "Company": "DUR",
+      "Symbol": "",
       "Open": "26.80",
       "Highest": "27.3",
       "Lowest": "26.4",
@@ -354,6 +386,7 @@
     },
     {
       "Company": "SABB TAKAFUL",
+      "Symbol": "",
       "Open": "11.50",
       "Highest": "11.98",
       "Lowest": "11.5",
@@ -365,6 +398,7 @@
     },
     {
       "Company": "MMG",
+      "Symbol": "",
       "Open": "12.55",
       "Highest": "12.9",
       "Lowest": "11.8",
@@ -376,6 +410,7 @@
     },
     {
       "Company": "WAFA INSURANCE",
+      "Symbol": "",
       "Open": "9.50",
       "Highest": "10",
       "Lowest": "9.3",
@@ -387,6 +422,7 @@
     },
     {
       "Company": "ALAHLIA",
+      "Symbol": "",
       "Open": "14.76",
       "Highest": "15.02",
       "Lowest": "14.5",
@@ -398,6 +434,7 @@
     },
     {
       "Company": "ATC",
+      "Symbol": "",
       "Open": "34.00",
       "Highest": "34.35",
       "Lowest": "33.8",
@@ -409,6 +446,7 @@
     },
     {
       "Company": "PETROCHEM",
+      "Symbol": "",
       "Open": "45.45",
       "Highest": "46",
       "Lowest": "45.4",
@@ -420,6 +458,7 @@
     },
     {
       "Company": "SAMBA",
+      "Symbol": "",
       "Open": "38.50",
       "Highest": "39.1",
       "Lowest": "37.8",
@@ -431,6 +470,7 @@
     },
     {
       "Company": "Weqaya Takaful",
+      "Symbol": "",
       "Open": "19.39",
       "Highest": "19.75",
       "Lowest": "19.15",
@@ -442,6 +482,7 @@
     },
     {
       "Company": "ALKHODARI",
+      "Symbol": "",
       "Open": "5.39",
       "Highest": "5.76",
       "Lowest": "5.18",
@@ -453,6 +494,7 @@
     },
     {
       "Company": "Bishah Agriculture",
+      "Symbol": "",
       "Open": "69.75",
       "Highest": "81",
       "Lowest": "69.75",
@@ -464,6 +506,7 @@
     },
     {
       "Company": "ALINMA TOKIO M",
+      "Symbol": "",
       "Open": "12.80",
       "Highest": "12.84",
       "Lowest": "12.06",
@@ -475,6 +518,7 @@
     },
     {
       "Company": "SANAD",
+      "Symbol": "",
       "Open": "15.23",
       "Highest": "17.75",
       "Lowest": "14.75",
@@ -486,6 +530,7 @@
     },
     {
       "Company": "SOLIDARITY",
+      "Symbol": "",
       "Open": "14.20",
       "Highest": "14.52",
       "Lowest": "14.16",
@@ -497,6 +542,7 @@
     },
     {
       "Company": "GULF GENERAL",
+      "Symbol": "",
       "Open": "10.46",
       "Highest": "13.26",
       "Lowest": "4.22",
@@ -508,6 +554,7 @@
     },
     {
       "Company": "UCA",
+      "Symbol": "",
       "Open": "8.96",
       "Highest": "11.22",
       "Lowest": "3.63",
@@ -519,6 +566,7 @@
     },
     {
       "Company": "NICE ONE",
+      "Symbol": "",
       "Open": "45.50",
       "Highest": "69.7",
       "Lowest": "19.17",
@@ -530,6 +578,7 @@
     },
     {
       "Company": "NASEEJ",
+      "Symbol": "",
       "Open": "93.00",
       "Highest": "115.4",
       "Lowest": "42.3",
@@ -541,6 +590,7 @@
     },
     {
       "Company": "SAPTCO",
+      "Symbol": "",
       "Open": "21.90",
       "Highest": "22.2",
       "Lowest": "10.09",
@@ -552,6 +602,7 @@
     },
     {
       "Company": "BANAN",
+      "Symbol": "",
       "Open": "8.20",
       "Highest": "9.05",
       "Lowest": "3.86",
@@ -563,6 +614,7 @@
     },
     {
       "Company": "ANAAM HOLDING",
+      "Symbol": "",
       "Open": "26.20",
       "Highest": "31",
       "Lowest": "12.25",
@@ -574,6 +626,7 @@
     },
     {
       "Company": "ACWA POWER",
+      "Symbol": "",
       "Open": "398.85",
       "Highest": "435.36",
       "Lowest": "186.2",
@@ -585,6 +638,7 @@
     },
     {
       "Company": "CHEMANOL",
+      "Symbol": "",
       "Open": "18.52",
       "Highest": "18.94",
       "Lowest": "8.59",
@@ -596,6 +650,7 @@
     },
     {
       "Company": "SAUDI GERMAN HEALTH",
+      "Symbol": "",
       "Open": "76.30",
       "Highest": "84.8",
       "Lowest": "37.38",
@@ -607,6 +662,7 @@
     },
     {
       "Company": "JAHEZ",
+      "Symbol": "",
       "Open": "34.20",
       "Highest": "40",
       "Lowest": "15.23",
@@ -618,6 +674,7 @@
     },
     {
       "Company": "ALETIHAD",
+      "Symbol": "",
       "Open": "17.62",
       "Highest": "18.98",
       "Lowest": "8.38",
@@ -629,6 +686,7 @@
     },
     {
       "Company": "ALRAJHI TAKAFUL",
+      "Symbol": "",
       "Open": "175.00",
       "Highest": "187",
       "Lowest": "84",
@@ -640,6 +698,7 @@
     },
     {
       "Company": "SFICO",
+      "Symbol": "",
       "Open": "138.59",
       "Highest": "157",
       "Lowest": "67.95",
@@ -651,6 +710,7 @@
     },
     {
       "Company": "TANMIAH",
+      "Symbol": "",
       "Open": "125.20",
       "Highest": "133.4",
       "Lowest": "59.1",
@@ -662,6 +722,7 @@
     },
     {
       "Company": "SAIC",
+      "Symbol": "",
       "Open": "36.35",
       "Highest": "37.1",
       "Lowest": "17.75",
@@ -673,6 +734,7 @@
     },
     {
       "Company": "SAUDI DARB",
+      "Symbol": "",
       "Open": "4.50",
       "Highest": "5.3",
       "Lowest": "2.3",
@@ -684,6 +746,7 @@
     },
     {
       "Company": "FAKEEH CARE",
+      "Symbol": "",
       "Open": "68.20",
       "Highest": "72.9",
       "Lowest": "36.16",
@@ -695,6 +758,7 @@
     },
     {
       "Company": "ALAKARIA",
+      "Symbol": "",
       "Open": "24.56",
       "Highest": "29.95",
       "Lowest": "12.77",
@@ -706,6 +770,7 @@
     },
     {
       "Company": "ENTAJ",
+      "Symbol": "",
       "Open": "65.00",
       "Highest": "72.8",
       "Lowest": "32.9",
@@ -717,6 +782,7 @@
     },
     {
       "Company": "SALAMA",
+      "Symbol": "",
       "Open": "18.14",
       "Highest": "22.32",
       "Lowest": "9.78",
@@ -728,6 +794,7 @@
     },
     {
       "Company": "SRMG",
+      "Symbol": "",
       "Open": "266.00",
       "Highest": "300",
       "Lowest": "136.2",
@@ -739,6 +806,7 @@
     },
     {
       "Company": "UCIC",
+      "Symbol": "",
       "Open": "49.25",
       "Highest": "54.5",
       "Lowest": "26.16",
@@ -750,6 +818,7 @@
     },
     {
       "Company": "ALMUNAJEM",
+      "Symbol": "",
       "Open": "98.00",
       "Highest": "103",
       "Lowest": "53",
@@ -761,6 +830,7 @@
     },
     {
       "Company": "ALAMAR",
+      "Symbol": "",
       "Open": "77.00",
       "Highest": "83.8",
       "Lowest": "41",
@@ -772,6 +842,7 @@
     },
     {
       "Company": "MBC GROUP",
+      "Symbol": "",
       "Open": "57.50",
       "Highest": "60.5",
       "Lowest": "27.56",
@@ -783,6 +854,7 @@
     },
     {
       "Company": "AMIANTIT",
+      "Symbol": "",
       "Open": "31.10",
       "Highest": "31.5",
       "Lowest": "16.55",
@@ -794,6 +866,7 @@
     },
     {
       "Company": "RAYDAN",
+      "Symbol": "",
       "Open": "48.14",
       "Highest": "53.03",
       "Lowest": "26",
@@ -805,6 +878,7 @@
     },
     {
       "Company": "TADCO",
+      "Symbol": "",
       "Open": "15.32",
       "Highest": "16.38",
       "Lowest": "8.22",
@@ -816,6 +890,7 @@
     },
     {
       "Company": "RED SEA",
+      "Symbol": "",
       "Open": "64.00",
       "Highest": "65.6",
       "Lowest": "32.1",
@@ -827,6 +902,7 @@
     },
     {
       "Company": "WATANIYA",
+      "Symbol": "",
       "Open": "23.00",
       "Highest": "27.35",
       "Lowest": "12.87",
@@ -838,6 +914,7 @@
     },
     {
       "Company": "ENAYA",
+      "Symbol": "",
       "Open": "12.90",
       "Highest": "13.66",
       "Lowest": "7.31",
@@ -849,6 +926,7 @@
     },
     {
       "Company": "WAFRAH",
+      "Symbol": "",
       "Open": "38.30",
       "Highest": "40.9",
       "Lowest": "21.67",
@@ -860,6 +938,7 @@
     },
     {
       "Company": "AMANA INSURANCE",
+      "Symbol": "",
       "Open": "10.56",
       "Highest": "11.84",
       "Lowest": "6",
@@ -871,6 +950,7 @@
     },
     {
       "Company": "TAKWEEN",
+      "Symbol": "",
       "Open": "10.76",
       "Highest": "11.16",
       "Lowest": "6.15",
@@ -882,6 +962,7 @@
     },
     {
       "Company": "BATIC",
+      "Symbol": "",
       "Open": "3.52",
       "Highest": "4.09",
       "Lowest": "1.96",
@@ -893,6 +974,7 @@
     },
     {
       "Company": "MESC",
+      "Symbol": "",
       "Open": "39.65",
       "Highest": "48.05",
       "Lowest": "22.28",
@@ -904,6 +986,7 @@
     },
     {
       "Company": "A.OTHAIM MARKET",
+      "Symbol": "",
       "Open": "10.98",
       "Highest": "11.02",
       "Lowest": "6.5",
@@ -915,6 +998,7 @@
     },
     {
       "Company": "APC",
+      "Symbol": "",
       "Open": "8.52",
       "Highest": "10.62",
       "Lowest": "4.93",
@@ -926,6 +1010,7 @@
     },
     {
       "Company": "HB",
+      "Symbol": "",
       "Open": "55.70",
       "Highest": "58.8",
       "Lowest": "32.9",
@@ -937,6 +1022,7 @@
     },
     {
       "Company": "ALSAGR INSURANCE",
+      "Symbol": "",
       "Open": "17.38",
       "Highest": "19.26",
       "Lowest": "10.1",
@@ -948,6 +1034,7 @@
     },
     {
       "Company": "LEEJAM SPORTS",
+      "Symbol": "",
       "Open": "185.40",
       "Highest": "192.4",
       "Lowest": "111.2",
@@ -959,6 +1046,7 @@
     },
     {
       "Company": "SVCP",
+      "Symbol": "",
       "Open": "37.10",
       "Highest": "42.15",
       "Lowest": "21.95",
@@ -970,6 +1058,7 @@
     },
     {
       "Company": "MEDGULF",
+      "Symbol": "",
       "Open": "21.20",
       "Highest": "29.65",
       "Lowest": "12.8",
@@ -981,6 +1070,7 @@
     },
     {
       "Company": "ARABIAN SHIELD",
+      "Symbol": "",
       "Open": "19.00",
       "Highest": "21.54",
       "Lowest": "11.25",
@@ -992,6 +1082,7 @@
     },
     {
       "Company": "SSP",
+      "Symbol": "",
       "Open": "67.50",
       "Highest": "77.8",
       "Lowest": "39.8",
@@ -1003,6 +1094,7 @@
     },
     {
       "Company": "HERFY FOODS",
+      "Symbol": "",
       "Open": "25.35",
       "Highest": "26.85",
       "Lowest": "15.57",
@@ -1014,6 +1106,7 @@
     },
     {
       "Company": "NCLE",
+      "Symbol": "",
       "Open": "230.80",
       "Highest": "241",
       "Lowest": "138.2",
@@ -1025,6 +1118,7 @@
     },
     {
       "Company": "CATRION",
+      "Symbol": "",
       "Open": "130.00",
       "Highest": "144.4",
       "Lowest": "80.9",
@@ -1036,6 +1130,7 @@
     },
     {
       "Company": "MEPCO",
+      "Symbol": "",
       "Open": "37.00",
       "Highest": "39",
       "Lowest": "23.19",
@@ -1047,6 +1142,7 @@
     },
     {
       "Company": "ARAB SEA",
+      "Symbol": "",
       "Open": "6.95",
       "Highest": "7.06",
       "Lowest": "4.31",
@@ -1058,6 +1154,7 @@
     },
     {
       "Company": "SIPCHEM",
+      "Symbol": "",
       "Open": "24.76",
       "Highest": "25.7",
       "Lowest": "15.79",
@@ -1069,6 +1166,7 @@
     },
     {
       "Company": "MALATH INSURANCE",
+      "Symbol": "",
       "Open": "15.92",
       "Highest": "18.84",
       "Lowest": "10.13",
@@ -1080,6 +1178,7 @@
     },
     {
       "Company": "TALCO",
+      "Symbol": "",
       "Open": "57.20",
       "Highest": "61.5",
       "Lowest": "32.88",
@@ -1091,6 +1190,7 @@
     },
     {
       "Company": "SAL",
+      "Symbol": "",
       "Open": "263.40",
       "Highest": "289.2",
       "Lowest": "156",
@@ -1102,6 +1202,7 @@
     },
     {
       "Company": "RAOOM",
+      "Symbol": "",
       "Open": "91.50",
       "Highest": "101.4",
       "Lowest": "54",
@@ -1113,6 +1214,7 @@
     },
     {
       "Company": "FARM SUPERSTORES",
+      "Symbol": "",
       "Open": "22.80",
       "Highest": "23.98",
       "Lowest": "14.04",
@@ -1124,6 +1226,7 @@
     },
     {
       "Company": "EQUIPMENT HOUSE",
+      "Symbol": "",
       "Open": "51.80",
       "Highest": "52.8",
       "Lowest": "31.66",
@@ -1135,6 +1238,7 @@
     },
     {
       "Company": "YCC",
+      "Symbol": "",
       "Open": "24.60",
       "Highest": "25.5",
       "Lowest": "15.18",
@@ -1146,6 +1250,7 @@
     },
     {
       "Company": "SPCC",
+      "Symbol": "",
       "Open": "34.05",
       "Highest": "35.25",
       "Lowest": "21",
@@ -1157,6 +1262,7 @@
     },
     {
       "Company": "EMAAR EC",
+      "Symbol": "",
       "Open": "17.33",
       "Highest": "19.7",
       "Lowest": "10.72",
@@ -1168,6 +1274,7 @@
     },
     {
       "Company": "TECO",
+      "Symbol": "",
       "Open": "19.00",
       "Highest": "24.4",
       "Lowest": "12.14",
@@ -1179,6 +1286,7 @@
     },
     {
       "Company": "SINAD HOLDING",
+      "Symbol": "",
       "Open": "14.34",
       "Highest": "15.32",
       "Lowest": "9.07",
@@ -1190,6 +1298,7 @@
     },
     {
       "Company": "BURGERIZZR",
+      "Symbol": "",
       "Open": "22.18",
       "Highest": "24.24",
       "Lowest": "14.15",
@@ -1201,6 +1310,7 @@
     },
     {
       "Company": "ALKHALEEJ TRNG",
+      "Symbol": "",
       "Open": "32.00",
       "Highest": "35.65",
       "Lowest": "20.24",
@@ -1212,6 +1322,7 @@
     },
     {
       "Company": "WALAA",
+      "Symbol": "",
       "Open": "18.24",
       "Highest": "25.2",
       "Lowest": "10.8",
@@ -1223,6 +1334,7 @@
     },
     {
       "Company": "FITAIHI GROUP",
+      "Symbol": "",
       "Open": "4.42",
       "Highest": "4.87",
       "Lowest": "2.85",
@@ -1234,6 +1346,7 @@
     },
     {
       "Company": "JOUF CEMENT",
+      "Symbol": "",
       "Open": "10.20",
       "Highest": "12.94",
       "Lowest": "6.39",
@@ -1245,6 +1358,7 @@
     },
     {
       "Company": "SPPC",
+      "Symbol": "",
       "Open": "12.66",
       "Highest": "13.88",
       "Lowest": "8",
@@ -1256,6 +1370,7 @@
     },
     {
       "Company": "TAPRCO",
+      "Symbol": "",
       "Open": "26.78",
       "Highest": "31.56",
       "Lowest": "17.85",
@@ -1267,6 +1382,7 @@
     },
     {
       "Company": "MARAFIQ",
+      "Symbol": "",
       "Open": "56.70",
       "Highest": "58.3",
       "Lowest": "36.5",
@@ -1278,6 +1394,7 @@
     },
     {
       "Company": "ACIG",
+      "Symbol": "",
       "Open": "13.16",
       "Highest": "19",
       "Lowest": "8.75",
@@ -1289,6 +1406,7 @@
     },
     {
       "Company": "SMASCO",
+      "Symbol": "",
       "Open": "7.90",
       "Highest": "8.41",
       "Lowest": "5.26",
@@ -1300,6 +1418,7 @@
     },
     {
       "Company": "OASIS",
+      "Symbol": "",
       "Open": "3.33",
       "Highest": "3.57",
       "Lowest": "2.18",
@@ -1311,6 +1430,7 @@
     },
     {
       "Company": "CHUBB",
+      "Symbol": "",
       "Open": "36.08",
       "Highest": "44.7",
       "Lowest": "21.98",
@@ -1322,6 +1442,7 @@
     },
     {
       "Company": "EPCCO",
+      "Symbol": "",
       "Open": "34.55",
       "Highest": "37.2",
       "Lowest": "23",
@@ -1333,6 +1454,7 @@
     },
     {
       "Company": "LIVA",
+      "Symbol": "",
       "Open": "16.86",
       "Highest": "18.48",
       "Lowest": "10.9",
@@ -1344,6 +1466,7 @@
     },
     {
       "Company": "ZOUJAJ",
+      "Symbol": "",
       "Open": "54.40",
       "Highest": "58.6",
       "Lowest": "36.12",
@@ -1355,6 +1478,7 @@
     },
     {
       "Company": "FIPCO",
+      "Symbol": "",
       "Open": "44.50",
       "Highest": "47.1",
       "Lowest": "29.7",
@@ -1366,6 +1490,7 @@
     },
     {
       "Company": "ALDAWAA",
+      "Symbol": "",
       "Open": "80.00",
       "Highest": "87.3",
       "Lowest": "54",
@@ -1377,6 +1502,7 @@
     },
     {
       "Company": "2P",
+      "Symbol": "",
       "Open": "12.71",
       "Highest": "13.49",
       "Lowest": "8.45",
@@ -1388,6 +1514,7 @@
     },
     {
       "Company": "ALHAMMADI",
+      "Symbol": "",
       "Open": "41.40",
       "Highest": "44.6",
       "Lowest": "28.4",
@@ -1399,6 +1526,7 @@
     },
     {
       "Company": "CHEMICAL",
+      "Symbol": "",
       "Open": "10.28",
       "Highest": "10.72",
       "Lowest": "6.06",
@@ -1410,6 +1538,7 @@
     },
     {
       "Company": "SIDC",
+      "Symbol": "",
       "Open": "17.38",
       "Highest": "22.98",
       "Lowest": "11.55",
@@ -1421,6 +1550,7 @@
     },
     {
       "Company": "LUMI",
+      "Symbol": "",
       "Open": "76.60",
       "Highest": "81.3",
       "Lowest": "51.55",
@@ -1432,6 +1562,7 @@
     },
     {
       "Company": "ALOMRAN",
+      "Symbol": "",
       "Open": "38.30",
       "Highest": "41.2",
       "Lowest": "24.94",
@@ -1443,6 +1574,7 @@
     },
     {
       "Company": "MIAHONA",
+      "Symbol": "",
       "Open": "28.05",
       "Highest": "28.95",
       "Lowest": "16.62",
@@ -1454,6 +1586,7 @@
     },
     {
       "Company": "YC",
+      "Symbol": "",
       "Open": "33.45",
       "Highest": "40.55",
       "Lowest": "22.59",
@@ -1465,6 +1598,7 @@
     },
     {
       "Company": "SADAFCO",
+      "Symbol": "",
       "Open": "343.40",
       "Highest": "360",
       "Lowest": "237",
@@ -1476,6 +1610,7 @@
     },
     {
       "Company": "NADEC",
+      "Symbol": "",
       "Open": "26.00",
       "Highest": "28",
       "Lowest": "18.02",
@@ -1487,6 +1622,7 @@
     },
     {
       "Company": "ELM",
+      "Symbol": "",
       "Open": "1,105.00",
       "Highest": "1289",
       "Lowest": "745",
@@ -1498,6 +1634,7 @@
     },
     {
       "Company": "SHARQIYAH DEV",
+      "Symbol": "",
       "Open": "20.16",
       "Highest": "23.76",
       "Lowest": "13.85",
@@ -1509,6 +1646,7 @@
     },
     {
       "Company": "UACC",
+      "Symbol": "",
       "Open": "17.96",
       "Highest": "20.34",
       "Lowest": "12.29",
@@ -1520,6 +1658,7 @@
     },
     {
       "Company": "RETAL",
+      "Symbol": "",
       "Open": "17.14",
       "Highest": "18.24",
       "Lowest": "10.88",
@@ -1531,6 +1670,7 @@
     },
     {
       "Company": "JAZADCO",
+      "Symbol": "",
       "Open": "12.70",
       "Highest": "14",
       "Lowest": "8.85",
@@ -1542,6 +1682,7 @@
     },
     {
       "Company": "BUPA ARABIA",
+      "Symbol": "",
       "Open": "201.00",
       "Highest": "215",
       "Lowest": "140.6",
@@ -1553,6 +1694,7 @@
     },
     {
       "Company": "CITY CEMENT",
+      "Symbol": "",
       "Open": "18.10",
       "Highest": "21.88",
       "Lowest": "12.56",
@@ -1564,6 +1706,7 @@
     },
     {
       "Company": "OBEIKAN GLASS",
+      "Symbol": "",
       "Open": "37.00",
       "Highest": "41.6",
       "Lowest": "24.59",
@@ -1575,6 +1718,7 @@
     },
     {
       "Company": "ARTEX",
+      "Symbol": "",
       "Open": "15.60",
       "Highest": "16.9",
       "Lowest": "11.1",
@@ -1586,6 +1730,7 @@
     },
     {
       "Company": "GULF UNION ALAHLIA",
+      "Symbol": "",
       "Open": "15.92",
       "Highest": "17.94",
       "Lowest": "10.86",
@@ -1597,6 +1742,7 @@
     },
     {
       "Company": "ALJOUF",
+      "Symbol": "",
       "Open": "61.00",
       "Highest": "62.3",
       "Lowest": "40.65",
@@ -1608,6 +1754,7 @@
     },
     {
       "Company": "TADAWUL GROUP",
+      "Symbol": "",
       "Open": "224.00",
       "Highest": "230.2",
       "Lowest": "158.7",
@@ -1619,6 +1766,7 @@
     },
     {
       "Company": "JAZIRA TAKAFUL",
+      "Symbol": "",
       "Open": "16.00",
       "Highest": "17.7",
       "Lowest": "11.28",
@@ -1630,6 +1778,7 @@
     },
     {
       "Company": "BAAN",
+      "Symbol": "",
       "Open": "2.57",
       "Highest": "2.69",
       "Lowest": "1.77",
@@ -1641,6 +1790,7 @@
     },
     {
       "Company": "TAMKEEN",
+      "Symbol": "",
       "Open": "71.30",
       "Highest": "72.6",
       "Lowest": "46.8",
@@ -1652,6 +1802,7 @@
     },
     {
       "Company": "BINDAWOOD",
+      "Symbol": "",
       "Open": "6.84",
       "Highest": "7.04",
       "Lowest": "4.54",
@@ -1663,6 +1814,7 @@
     },
     {
       "Company": "GIG",
+      "Symbol": "",
       "Open": "31.30",
       "Highest": "33",
       "Lowest": "22.04",
@@ -1674,6 +1826,7 @@
     },
     {
       "Company": "RIYADH CEMENT",
+      "Symbol": "",
       "Open": "32.95",
       "Highest": "37.3",
       "Lowest": "22.98",
@@ -1685,6 +1838,7 @@
     },
     {
       "Company": "SARCO",
+      "Symbol": "",
       "Open": "73.80",
       "Highest": "75.5",
       "Lowest": "52.5",
@@ -1696,6 +1850,7 @@
     },
     {
       "Company": "JABAL OMAR",
+      "Symbol": "",
       "Open": "20.70",
       "Highest": "28.4",
       "Lowest": "14.83",
@@ -1707,6 +1862,7 @@
     },
     {
       "Company": "NAJRAN CEMENT",
+      "Symbol": "",
       "Open": "9.23",
       "Highest": "9.42",
       "Lowest": "6.8",
@@ -1718,6 +1874,7 @@
     },
     {
       "Company": "BUILD STATION",
+      "Symbol": "",
       "Open": "80.80",
       "Highest": "93",
       "Lowest": "56.95",
@@ -1729,6 +1886,7 @@
     },
     {
       "Company": "ASLAK",
+      "Symbol": "",
       "Open": "28.85",
       "Highest": "31.1",
       "Lowest": "19.84",
@@ -1740,6 +1898,7 @@
     },
     {
       "Company": "ALMARAI",
+      "Symbol": "",
       "Open": "59.30",
       "Highest": "61.5",
       "Lowest": "43.5",
@@ -1751,6 +1910,7 @@
     },
     {
       "Company": "NGC",
+      "Symbol": "",
       "Open": "21.90",
       "Highest": "24",
       "Lowest": "15.6",
@@ -1762,6 +1922,7 @@
     },
     {
       "Company": "ALUJAIN",
+      "Symbol": "",
       "Open": "39.00",
       "Highest": "40.05",
       "Lowest": "29.16",
@@ -1773,6 +1934,7 @@
     },
     {
       "Company": "ARABIAN MILLS",
+      "Symbol": "",
       "Open": "51.90",
       "Highest": "52.4",
       "Lowest": "37",
@@ -1784,6 +1946,7 @@
     },
     {
       "Company": "DERAYAH",
+      "Symbol": "",
       "Open": "39.00",
       "Highest": "43.9",
       "Lowest": "23.04",
@@ -1795,6 +1958,7 @@
     },
     {
       "Company": "SEDCO CAPITAL REIT",
+      "Symbol": "",
       "Open": "8.33",
       "Highest": "8.52",
       "Lowest": "6.14",
@@ -1806,6 +1970,7 @@
     },
     {
       "Company": "SAUDI KAYAN",
+      "Symbol": "",
       "Open": "6.93",
       "Highest": "7.15",
       "Lowest": "4.46",
@@ -1817,6 +1982,7 @@
     },
     {
       "Company": "ALKATHIRI",
+      "Symbol": "",
       "Open": "2.61",
       "Highest": "2.74",
       "Lowest": "1.86",
@@ -1828,6 +1994,7 @@
     },
     {
       "Company": "MOUWASAT",
+      "Symbol": "",
       "Open": "92.40",
       "Highest": "95.4",
       "Lowest": "65.6",
@@ -1839,6 +2006,7 @@
     },
     {
       "Company": "ASTRA INDUSTRIAL",
+      "Symbol": "",
       "Open": "175.60",
       "Highest": "207",
       "Lowest": "125.6",
@@ -1850,6 +2018,7 @@
     },
     {
       "Company": "SGS",
+      "Symbol": "",
       "Open": "52.30",
       "Highest": "57.1",
       "Lowest": "38.98",
@@ -1861,6 +2030,7 @@
     },
     {
       "Company": "SIIG",
+      "Symbol": "",
       "Open": "17.69",
       "Highest": "20",
       "Lowest": "13.34",
@@ -1872,6 +2042,7 @@
     },
     {
       "Company": "ALANDALUS",
+      "Symbol": "",
       "Open": "23.72",
       "Highest": "26.8",
       "Lowest": "16.7",
@@ -1883,6 +2054,7 @@
     },
     {
       "Company": "MODERN MILLS",
+      "Symbol": "",
       "Open": "41.45",
       "Highest": "44.8",
       "Lowest": "29.6",
@@ -1894,6 +2066,7 @@
     },
     {
       "Company": "TCC",
+      "Symbol": "",
       "Open": "12.52",
       "Highest": "14.54",
       "Lowest": "9.36",
@@ -1905,6 +2078,7 @@
     },
     {
       "Company": "SIECO",
+      "Symbol": "",
       "Open": "2.45",
       "Highest": "2.63",
       "Lowest": "1.77",
@@ -1916,6 +2090,7 @@
     },
     {
       "Company": "ALMAJDIAH",
+      "Symbol": "",
       "Open": "13.83",
       "Highest": "14.46",
       "Lowest": "9.97",
@@ -1927,6 +2102,7 @@
     },
     {
       "Company": "MAADANIYAH",
+      "Symbol": "",
       "Open": "18.38",
       "Highest": "18.9",
       "Lowest": "12.52",
@@ -1938,6 +2114,7 @@
     },
     {
       "Company": "AICC",
+      "Symbol": "",
       "Open": "12.76",
       "Highest": "14.08",
       "Lowest": "9.7",
@@ -1949,6 +2126,7 @@
     },
     {
       "Company": "THEEB",
+      "Symbol": "",
       "Open": "76.20",
       "Highest": "80.5",
       "Lowest": "57.25",
@@ -1960,6 +2138,7 @@
     },
     {
       "Company": "ALASEEL",
+      "Symbol": "",
       "Open": "4.31",
       "Highest": "4.53",
       "Lowest": "3.3",
@@ -1971,6 +2150,7 @@
     },
     {
       "Company": "ALJAZIRA REIT",
+      "Symbol": "",
       "Open": "15.56",
       "Highest": "16.48",
       "Lowest": "11.92",
@@ -1982,6 +2162,7 @@
     },
     {
       "Company": "RIYAD REIT",
+      "Symbol": "",
       "Open": "6.41",
       "Highest": "6.85",
       "Lowest": "4.95",
@@ -1993,6 +2174,7 @@
     },
     {
       "Company": "FIRST MILLS",
+      "Symbol": "",
       "Open": "62.50",
       "Highest": "64.4",
       "Lowest": "46.86",
@@ -2004,6 +2186,7 @@
     },
     {
       "Company": "MUTAKAMELA",
+      "Symbol": "",
       "Open": "15.08",
       "Highest": "20.38",
       "Lowest": "11.47",
@@ -2015,6 +2198,7 @@
     },
     {
       "Company": "GO TELECOM",
+      "Symbol": "",
       "Open": "118.20",
       "Highest": "119.8",
       "Lowest": "80",
@@ -2026,6 +2210,7 @@
     },
     {
       "Company": "QACCO",
+      "Symbol": "",
       "Open": "53.80",
       "Highest": "54.6",
       "Lowest": "40.5",
@@ -2037,6 +2222,7 @@
     },
     {
       "Company": "ACC",
+      "Symbol": "",
       "Open": "27.00",
       "Highest": "27.85",
       "Lowest": "20.43",
@@ -2048,6 +2234,7 @@
     },
     {
       "Company": "SOLUTIONS",
+      "Symbol": "",
       "Open": "286.20",
       "Highest": "340",
       "Lowest": "219.9",
@@ -2059,6 +2246,7 @@
     },
     {
       "Company": "SAICO",
+      "Symbol": "",
       "Open": "15.28",
       "Highest": "19.86",
       "Lowest": "11.84",
@@ -2070,6 +2258,7 @@
     },
     {
       "Company": "ALARABIA",
+      "Symbol": "",
       "Open": "146.00",
       "Highest": "158.8",
       "Lowest": "79.7",
@@ -2081,6 +2270,7 @@
     },
     {
       "Company": "GASCO",
+      "Symbol": "",
       "Open": "102.60",
       "Highest": "117.2",
       "Lowest": "65.8",
@@ -2092,6 +2282,7 @@
     },
     {
       "Company": "ARABIAN DRILLING",
+      "Symbol": "",
       "Open": "115.60",
       "Highest": "120",
       "Lowest": "72",
@@ -2103,6 +2294,7 @@
     },
     {
       "Company": "SABIC",
+      "Symbol": "",
       "Open": "68.80",
       "Highest": "70.6",
       "Lowest": "53",
@@ -2114,6 +2306,7 @@
     },
     {
       "Company": "ATAA",
+      "Symbol": "",
       "Open": "76.00",
       "Highest": "78.8",
       "Lowest": "58",
@@ -2125,6 +2318,7 @@
     },
     {
       "Company": "CARE",
+      "Symbol": "",
       "Open": "178.00",
       "Highest": "183.5",
       "Lowest": "139.2",
@@ -2136,6 +2330,7 @@
     },
     {
       "Company": "YANSAB",
+      "Symbol": "",
       "Open": "37.65",
       "Highest": "39.05",
       "Lowest": "28.25",
@@ -2147,6 +2342,7 @@
     },
     {
       "Company": "SAUDI CERAMICS",
+      "Symbol": "",
       "Open": "35.30",
       "Highest": "37.35",
       "Lowest": "24",
@@ -2158,6 +2354,7 @@
     },
     {
       "Company": "SACO",
+      "Symbol": "",
       "Open": "33.40",
       "Highest": "35.6",
       "Lowest": "25.3",
@@ -2169,6 +2366,7 @@
     },
     {
       "Company": "DALLAH HEALTH",
+      "Symbol": "",
       "Open": "155.00",
       "Highest": "164",
       "Lowest": "109",
@@ -2180,6 +2378,7 @@
     },
     {
       "Company": "SMC HEALTHCARE",
+      "Symbol": "",
       "Open": "24.16",
       "Highest": "25",
       "Lowest": "17.62",
@@ -2191,6 +2390,7 @@
     },
     {
       "Company": "AMERICANA",
+      "Symbol": "",
       "Open": "2.23",
       "Highest": "2.76",
       "Lowest": "1.76",
@@ -2202,6 +2402,7 @@
     },
     {
       "Company": "ALISTITHMAR REIT",
+      "Symbol": "",
       "Open": "8.90",
       "Highest": "10.6",
       "Lowest": "5.71",
@@ -2213,6 +2414,7 @@
     },
     {
       "Company": "NORTHERN CEMENT",
+      "Symbol": "",
       "Open": "9.02",
       "Highest": "10.1",
       "Lowest": "7.22",
@@ -2224,6 +2426,7 @@
     },
     {
       "Company": "LUBEREF",
+      "Symbol": "",
       "Open": "114.20",
       "Highest": "116.6",
       "Lowest": "81.3",
@@ -2235,6 +2438,7 @@
     },
     {
       "Company": "ALSAIF GALLERY",
+      "Symbol": "",
       "Open": "7.83",
       "Highest": "8.35",
       "Lowest": "6.41",
@@ -2246,6 +2450,7 @@
     },
     {
       "Company": "SADR",
+      "Symbol": "",
       "Open": "3.32",
       "Highest": "3.49",
       "Lowest": "2.58",
@@ -2257,6 +2462,7 @@
     },
     {
       "Company": "JADWA REIT ALHARAMAIN",
+      "Symbol": "",
       "Open": "5.89",
       "Highest": "6.83",
       "Lowest": "4.8",
@@ -2268,6 +2474,7 @@
     },
     {
       "Company": "BUDGET SAUDI",
+      "Symbol": "",
       "Open": "77.00",
       "Highest": "87.8",
       "Lowest": "64",
@@ -2279,6 +2486,7 @@
     },
     {
       "Company": "ALINMA",
+      "Symbol": "",
       "Open": "28.95",
       "Highest": "31.3",
       "Lowest": "23.94",
@@ -2290,6 +2498,7 @@
     },
     {
       "Company": "SHAKER",
+      "Symbol": "",
       "Open": "26.90",
       "Highest": "31.95",
       "Lowest": "22.55",
@@ -2301,6 +2510,7 @@
     },
     {
       "Company": "FLYNAS",
+      "Symbol": "",
       "Open": "77.30",
       "Highest": "84.1",
       "Lowest": "60.25",
@@ -2312,6 +2522,7 @@
     },
     {
       "Company": "GACO",
+      "Symbol": "",
       "Open": "19.20",
       "Highest": "21.46",
       "Lowest": "15.12",
@@ -2323,6 +2534,7 @@
     },
     {
       "Company": "BCI",
+      "Symbol": "",
       "Open": "31.10",
       "Highest": "33.65",
       "Lowest": "24.52",
@@ -2334,6 +2546,7 @@
     },
     {
       "Company": "SASCO",
+      "Symbol": "",
       "Open": "68.50",
       "Highest": "78.2",
       "Lowest": "49.02",
@@ -2345,6 +2558,7 @@
     },
     {
       "Company": "LAZURDE",
+      "Symbol": "",
       "Open": "13.96",
       "Highest": "14.9",
       "Lowest": "11.44",
@@ -2356,6 +2570,7 @@
     },
     {
       "Company": "SAUDI ELECTRICITY",
+      "Symbol": "",
       "Open": "16.78",
       "Highest": "17.36",
       "Lowest": "13.72",
@@ -2367,6 +2582,7 @@
     },
     {
       "Company": "BJAZ",
+      "Symbol": "",
       "Open": "13.48",
       "Highest": "15.43",
       "Lowest": "11.14",
@@ -2378,6 +2594,7 @@
     },
     {
       "Company": "TAWUNIYA",
+      "Symbol": "",
       "Open": "142.20",
       "Highest": "161",
       "Lowest": "114.2",
@@ -2389,6 +2606,7 @@
     },
     {
       "Company": "NAHDI",
+      "Symbol": "",
       "Open": "121.40",
       "Highest": "132.1",
       "Lowest": "95.6",
@@ -2400,6 +2618,7 @@
     },
     {
       "Company": "NAQI",
+      "Symbol": "",
       "Open": "65.90",
       "Highest": "70",
       "Lowest": "49.06",
@@ -2411,6 +2630,7 @@
     },
     {
       "Company": "NAMA CHEMICALS",
+      "Symbol": "",
       "Open": "26.90",
       "Highest": "31.85",
       "Lowest": "22.83",
@@ -2422,6 +2642,7 @@
     },
     {
       "Company": "CMCER",
+      "Symbol": "",
       "Open": "8.25",
       "Highest": "9.14",
       "Lowest": "6.95",
@@ -2433,6 +2654,7 @@
     },
     {
       "Company": "GAS",
+      "Symbol": "",
       "Open": "16.24",
       "Highest": "17.99",
       "Lowest": "13.52",
@@ -2444,6 +2666,7 @@
     },
     {
       "Company": "MULKIA REIT",
+      "Symbol": "",
       "Open": "5.44",
       "Highest": "5.52",
       "Lowest": "4.45",
@@ -2455,6 +2678,7 @@
     },
     {
       "Company": "KEC",
+      "Symbol": "",
       "Open": "14.20",
       "Highest": "17.7",
       "Lowest": "11.62",
@@ -2466,6 +2690,7 @@
     },
     {
       "Company": "KINGDOM",
+      "Symbol": "",
       "Open": "9.13",
       "Highest": "10.88",
       "Lowest": "7.03",
@@ -2477,6 +2702,7 @@
     },
     {
       "Company": "MUSHARAKA REIT",
+      "Symbol": "",
       "Open": "4.78",
       "Highest": "5.06",
       "Lowest": "3.99",
@@ -2488,6 +2714,7 @@
     },
     {
       "Company": "MEFIC REIT",
+      "Symbol": "",
       "Open": "4.07",
       "Highest": "4.13",
       "Lowest": "3.4",
@@ -2499,6 +2726,7 @@
     },
     {
       "Company": "FOURTH MILLING",
+      "Symbol": "",
       "Open": "4.31",
       "Highest": "4.36",
       "Lowest": "3.34",
@@ -2510,6 +2738,7 @@
     },
     {
       "Company": "SAUDI CEMENT",
+      "Symbol": "",
       "Open": "41.45",
       "Highest": "46.7",
       "Lowest": "35.4",
@@ -2521,6 +2750,7 @@
     },
     {
       "Company": "ALBILAD",
+      "Symbol": "",
       "Open": "29.50",
       "Highest": "33.88",
       "Lowest": "23.38",
@@ -2532,6 +2762,7 @@
     },
     {
       "Company": "ALMAJED OUD",
+      "Symbol": "",
       "Open": "157.60",
       "Highest": "179.4",
       "Lowest": "106.4",
@@ -2543,6 +2774,7 @@
     },
     {
       "Company": "BURUJ",
+      "Symbol": "",
       "Open": "18.44",
       "Highest": "24.08",
       "Lowest": "14.62",
@@ -2554,6 +2786,7 @@
     },
     {
       "Company": "SAUDI RE",
+      "Symbol": "",
       "Open": "31.72",
       "Highest": "44.27",
       "Lowest": "25.45",
@@ -2565,6 +2798,7 @@
     },
     {
       "Company": "SAVOLA GROUP",
+      "Symbol": "",
       "Open": "27.58",
       "Highest": "40.6",
       "Lowest": "22.52",
@@ -2576,6 +2810,7 @@
     },
     {
       "Company": "SUMOU",
+      "Symbol": "",
       "Open": "40.30",
       "Highest": "55.4",
       "Lowest": "34.75",
@@ -2587,6 +2822,7 @@
     },
     {
       "Company": "SAUDI ARAMCO",
+      "Symbol": "",
       "Open": "27.95",
       "Highest": "29",
       "Lowest": "23.04",
@@ -2598,6 +2834,7 @@
     },
     {
       "Company": "SPIMACO",
+      "Symbol": "",
       "Open": "31.10",
       "Highest": "34.8",
       "Lowest": "20.94",
@@ -2609,6 +2846,7 @@
     },
     {
       "Company": "DWF",
+      "Symbol": "",
       "Open": "129.80",
       "Highest": "149.7",
       "Lowest": "93",
@@ -2620,6 +2858,7 @@
     },
     {
       "Company": "NAYIFAT",
+      "Symbol": "",
       "Open": "14.36",
       "Highest": "15.68",
       "Lowest": "11.54",
@@ -2631,6 +2870,7 @@
     },
     {
       "Company": "AZM",
+      "Symbol": "",
       "Open": "28.60",
       "Highest": "31.7",
       "Lowest": "22.67",
@@ -2642,6 +2882,7 @@
     },
     {
       "Company": "ALAHLI REIT 1",
+      "Symbol": "",
       "Open": "7.17",
       "Highest": "7.4",
       "Lowest": "6.05",
@@ -2653,6 +2894,7 @@
     },
     {
       "Company": "MAHARAH",
+      "Symbol": "",
       "Open": "6.31",
       "Highest": "7.3",
       "Lowest": "4.39",
@@ -2664,6 +2906,7 @@
     },
     {
       "Company": "SPM",
+      "Symbol": "",
       "Open": "63.80",
       "Highest": "72.2",
       "Lowest": "48.3",
@@ -2675,6 +2918,7 @@
     },
     {
       "Company": "RIYADH CABLES",
+      "Symbol": "",
       "Open": "139.00",
       "Highest": "165",
       "Lowest": "105.4",
@@ -2686,6 +2930,7 @@
     },
     {
       "Company": "SULAIMAN ALHABIB",
+      "Symbol": "",
       "Open": "289.40",
       "Highest": "308",
       "Lowest": "227.7",
@@ -2697,6 +2942,7 @@
     },
     {
       "Company": "MRNA",
+      "Symbol": "",
       "Open": "11.10",
       "Highest": "12.73",
       "Lowest": "9.88",
@@ -2708,6 +2954,7 @@
     },
     {
       "Company": "SAIB",
+      "Symbol": "",
       "Open": "14.60",
       "Highest": "15.58",
       "Lowest": "12.85",
@@ -2719,6 +2966,7 @@
     },
     {
       "Company": "TAIBA",
+      "Symbol": "",
       "Open": "38.35",
       "Highest": "53.8",
       "Lowest": "32.85",
@@ -2730,6 +2978,7 @@
     },
     {
       "Company": "PETRO RABIGH",
+      "Symbol": "",
       "Open": "8.11",
       "Highest": "9.48",
       "Lowest": "6.26",
@@ -2741,6 +2990,7 @@
     },
     {
       "Company": "THIMAR",
+      "Symbol": "",
       "Open": "43.10",
       "Highest": "60",
       "Lowest": "31.72",
@@ -2752,6 +3002,7 @@
     },
     {
       "Company": "TALEEM REIT",
+      "Symbol": "",
       "Open": "11.12",
       "Highest": "11.28",
       "Lowest": "9.21",
@@ -2763,6 +3014,7 @@
     },
     {
       "Company": "EXTRA",
+      "Symbol": "",
       "Open": "97.60",
       "Highest": "100",
       "Lowest": "83.4",
@@ -2774,6 +3026,7 @@
     },
     {
       "Company": "ARDCO",
+      "Symbol": "",
       "Open": "27.75",
       "Highest": "38.4",
       "Lowest": "24.88",
@@ -2785,6 +3038,7 @@
     },
     {
       "Company": "DERAYAH REIT",
+      "Symbol": "",
       "Open": "6.02",
       "Highest": "6.25",
       "Lowest": "5.04",
@@ -2796,6 +3050,7 @@
     },
     {
       "Company": "AYYAN",
+      "Symbol": "",
       "Open": "14.82",
       "Highest": "18.16",
       "Lowest": "11.4",
@@ -2807,6 +3062,7 @@
     },
     {
       "Company": "ADVANCED",
+      "Symbol": "",
       "Open": "33.45",
       "Highest": "38.64",
       "Lowest": "25.85",
@@ -2818,6 +3074,7 @@
     },
     {
       "Company": "ALINMA RETAIL REIT",
+      "Symbol": "",
       "Open": "4.80",
       "Highest": "4.94",
       "Lowest": "4.31",
@@ -2829,6 +3086,7 @@
     },
     {
       "Company": "AWPT",
+      "Symbol": "",
       "Open": "148.00",
       "Highest": "172.4",
       "Lowest": "122.9",
@@ -2840,6 +3098,7 @@
     },
     {
       "Company": "MIS",
+      "Symbol": "",
       "Open": "171.40",
       "Highest": "174.8",
       "Lowest": "118",
@@ -2851,6 +3110,7 @@
     },
     {
       "Company": "METLIFE AIG ANB",
+      "Symbol": "",
       "Open": "15.50",
       "Highest": "16.56",
       "Lowest": "14.02",
@@ -2862,6 +3122,7 @@
     },
     {
       "Company": "BAAZEEM",
+      "Symbol": "",
       "Open": "6.72",
       "Highest": "7.14",
       "Lowest": "4.84",
@@ -2873,6 +3134,7 @@
     },
     {
       "Company": "SPORT CLUBS",
+      "Symbol": "",
       "Open": "9.30",
       "Highest": "13.46",
       "Lowest": "7.59",
@@ -2884,6 +3146,7 @@
     },
     {
       "Company": "MCDC",
+      "Symbol": "",
       "Open": "91.83",
       "Highest": "114.6",
       "Lowest": "67.95",
@@ -2895,6 +3158,7 @@
     },
     {
       "Company": "TASNEE",
+      "Symbol": "",
       "Open": "10.38",
       "Highest": "11.94",
       "Lowest": "8.53",
@@ -2906,6 +3170,7 @@
     },
     {
       "Company": "EAST PIPES",
+      "Symbol": "",
       "Open": "142.00",
       "Highest": "173",
       "Lowest": "100.2",
@@ -2917,6 +3182,7 @@
     },
     {
       "Company": "TASHEEL",
+      "Symbol": "",
       "Open": "168.20",
       "Highest": "199.4",
       "Lowest": "143",
@@ -2928,6 +3194,7 @@
     },
     {
       "Company": "ADES",
+      "Symbol": "",
       "Open": "18.14",
       "Highest": "18.7",
       "Lowest": "12.16",
@@ -2939,6 +3206,7 @@
     },
     {
       "Company": "MASAR",
+      "Symbol": "",
       "Open": "19.50",
       "Highest": "26.98",
       "Lowest": "16.5",
@@ -2950,6 +3218,7 @@
     },
     {
       "Company": "AMLAK",
+      "Symbol": "",
       "Open": "12.04",
       "Highest": "14",
       "Lowest": "9.3",
@@ -2961,6 +3230,7 @@
     },
     {
       "Company": "CENOMI CENTERS",
+      "Symbol": "",
       "Open": "20.78",
       "Highest": "23.52",
       "Lowest": "18.32",
@@ -2972,6 +3242,7 @@
     },
     {
       "Company": "Al RAJHI REIT",
+      "Symbol": "",
       "Open": "8.45",
       "Highest": "8.56",
       "Lowest": "8.03",
@@ -2983,6 +3254,7 @@
     },
     {
       "Company": "AL MAATHER REIT",
+      "Symbol": "",
       "Open": "9.44",
       "Highest": "10.1",
       "Lowest": "8.9",
@@ -2994,6 +3266,7 @@
     },
     {
       "Company": "BONYAN REIT",
+      "Symbol": "",
       "Open": "9.54",
       "Highest": "9.85",
       "Lowest": "8.88",
@@ -3005,6 +3278,7 @@
     },
     {
       "Company": "JARIR",
+      "Symbol": "",
       "Open": "13.04",
       "Highest": "14.56",
       "Lowest": "12",
@@ -3016,6 +3290,7 @@
     },
     {
       "Company": "JAMJOOM PHARMA",
+      "Symbol": "",
       "Open": "155.00",
       "Highest": "183.8",
       "Lowest": "134",
@@ -3027,6 +3302,7 @@
     },
     {
       "Company": "RIBL",
+      "Symbol": "",
       "Open": "27.40",
       "Highest": "33.2",
       "Lowest": "25.3",
@@ -3038,6 +3314,7 @@
     },
     {
       "Company": "ALYAMAMAH STEEL",
+      "Symbol": "",
       "Open": "34.35",
       "Highest": "41.3",
       "Lowest": "26.5",
@@ -3049,6 +3326,7 @@
     },
     {
       "Company": "ALKHABEER REIT",
+      "Symbol": "",
       "Open": "5.77",
       "Highest": "6.09",
       "Lowest": "5.51",
@@ -3060,6 +3338,7 @@
     },
     {
       "Company": "ALINMA HOSPITALITY REIT",
+      "Symbol": "",
       "Open": "8.38",
       "Highest": "8.59",
       "Lowest": "7.8",
@@ -3071,6 +3350,7 @@
     },
     {
       "Company": "AVALON PHARMA",
+      "Symbol": "",
       "Open": "122.40",
       "Highest": "140.6",
       "Lowest": "108",
@@ -3082,6 +3362,7 @@
     },
     {
       "Company": "SAB",
+      "Symbol": "",
       "Open": "32.10",
       "Highest": "38",
       "Lowest": "29.9",
@@ -3093,6 +3374,7 @@
     },
     {
       "Company": "SISCO HOLDING",
+      "Symbol": "",
       "Open": "31.60",
       "Highest": "38.38",
       "Lowest": "23.5",
@@ -3104,6 +3386,7 @@
     },
     {
       "Company": "ALMASAR ALSHAMIL",
+      "Symbol": "",
       "Open": "23.09",
       "Highest": "24.48",
       "Lowest": "18.33",
@@ -3117,6 +3400,7 @@
   "9 Months": [
     {
       "Company": "EIC",
+      "Symbol": "",
       "Open": "6.13",
       "Highest": "12.16",
       "Lowest": "4.89",
@@ -3128,6 +3412,7 @@
     },
     {
       "Company": "CENOMI RETAIL",
+      "Symbol": "",
       "Open": "12.36",
       "Highest": "35.38",
       "Lowest": "10.08",
@@ -3139,6 +3424,7 @@
     },
     {
       "Company": "ALBABTAIN",
+      "Symbol": "",
       "Open": "42.05",
       "Highest": "69.85",
       "Lowest": "37.55",
@@ -3150,6 +3436,7 @@
     },
     {
       "Company": "RASAN",
+      "Symbol": "",
       "Open": "78.60",
       "Highest": "122",
       "Lowest": "67.7",
@@ -3161,6 +3448,7 @@
     },
     {
       "Company": "AMAK",
+      "Symbol": "",
       "Open": "57.90",
       "Highest": "82.7",
       "Lowest": "46.8",
@@ -3172,6 +3460,7 @@
     },
     {
       "Company": "MAADEN",
+      "Symbol": "",
       "Open": "45.50",
       "Highest": "68.45",
       "Lowest": "37.85",
@@ -3183,6 +3472,7 @@
     },
     {
       "Company": "BAHRI",
+      "Symbol": "",
       "Open": "23.68",
       "Highest": "32.5",
       "Lowest": "21.08",
@@ -3194,6 +3484,7 @@
     },
     {
       "Company": "SENAAT",
+      "Symbol": "",
       "Open": "28.75",
       "Highest": "48.85",
       "Lowest": "26.3",
@@ -3205,6 +3496,7 @@
     },
     {
       "Company": "ABO MOATI",
+      "Symbol": "",
       "Open": "38.90",
       "Highest": "53.95",
       "Lowest": "31.6",
@@ -3216,6 +3508,7 @@
     },
     {
       "Company": "MIS",
+      "Symbol": "",
       "Open": "132.20",
       "Highest": "162.8",
       "Lowest": "118",
@@ -3227,6 +3520,7 @@
     },
     {
       "Company": "SEERA",
+      "Symbol": "",
       "Open": "23.72",
       "Highest": "31.6",
       "Lowest": "20.68",
@@ -3238,6 +3532,7 @@
     },
     {
       "Company": "ETIHAD ETISALAT",
+      "Symbol": "",
       "Open": "59.00",
       "Highest": "69",
       "Lowest": "52.9",
@@ -3249,6 +3544,7 @@
     },
     {
       "Company": "SAUDI CABLE",
+      "Symbol": "",
       "Open": "120.80",
       "Highest": "160",
       "Lowest": "107.6",
@@ -3260,6 +3556,7 @@
     },
     {
       "Company": "ALISTITHMAR REIT",
+      "Symbol": "",
       "Open": "6.50",
       "Highest": "10.6",
       "Lowest": "5.71",
@@ -3271,6 +3568,7 @@
     },
     {
       "Company": "SHL",
+      "Symbol": "",
       "Open": "16.22",
       "Highest": "24.9",
       "Lowest": "15.68",
@@ -3282,6 +3580,7 @@
     },
     {
       "Company": "JADWA REIT SAUDI",
+      "Symbol": "",
       "Open": "9.94",
       "Highest": "11.38",
       "Lowest": "9.7",
@@ -3293,6 +3592,7 @@
     },
     {
       "Company": "ALMOOSA",
+      "Symbol": "",
       "Open": "154.80",
       "Highest": "212",
       "Lowest": "126.6",
@@ -3304,6 +3604,7 @@
     },
     {
       "Company": "CHERRY",
+      "Symbol": "",
       "Open": "26.40",
       "Highest": "29.54",
       "Lowest": "25.9",
@@ -3315,6 +3616,7 @@
     },
     {
       "Company": "SNB",
+      "Symbol": "",
       "Open": "34.65",
       "Highest": "41",
       "Lowest": "31.55",
@@ -3326,6 +3628,7 @@
     },
     {
       "Company": "SAUDI CERAMICS",
+      "Symbol": "",
       "Open": "26.45",
       "Highest": "34.64",
       "Lowest": "24",
@@ -3337,6 +3640,7 @@
     },
     {
       "Company": "ADVANCED",
+      "Symbol": "",
       "Open": "28.45",
       "Highest": "38.64",
       "Lowest": "26.9",
@@ -3348,6 +3652,7 @@
     },
     {
       "Company": "TASNEE",
+      "Symbol": "",
       "Open": "8.97",
       "Highest": "11.94",
       "Lowest": "8.53",
@@ -3359,6 +3664,7 @@
     },
     {
       "Company": "PETRO RABIGH",
+      "Symbol": "",
       "Open": "6.92",
       "Highest": "9.48",
       "Lowest": "6.26",
@@ -3370,6 +3676,7 @@
     },
     {
       "Company": "SABIC AGRI-NUTRIENTS",
+      "Symbol": "",
       "Open": "109.80",
       "Highest": "125.7",
       "Lowest": "94.7",
@@ -3381,6 +3688,7 @@
     },
     {
       "Company": "ADES",
+      "Symbol": "",
       "Open": "16.30",
       "Highest": "17.85",
       "Lowest": "12.16",
@@ -3392,6 +3700,7 @@
     },
     {
       "Company": "Sahara",
+      "Symbol": "",
       "Open": "16.60",
       "Highest": "17.48",
       "Lowest": "16.3",
@@ -3403,6 +3712,7 @@
     },
     {
       "Company": "ALMAJED OUD",
+      "Symbol": "",
       "Open": "130.60",
       "Highest": "152.8",
       "Lowest": "106.4",
@@ -3414,6 +3724,7 @@
     },
     {
       "Company": "ARABIAN DRILLING",
+      "Symbol": "",
       "Open": "88.90",
       "Highest": "96.95",
       "Lowest": "72",
@@ -3425,6 +3736,7 @@
     },
     {
       "Company": "AL AZIZIAH REIT",
+      "Symbol": "",
       "Open": "3.94",
       "Highest": "4.78",
       "Lowest": "3.48",
@@ -3436,6 +3748,7 @@
     },
     {
       "Company": "ANB",
+      "Symbol": "",
       "Open": "21.78",
       "Highest": "26.26",
       "Lowest": "19.5",
@@ -3447,6 +3760,7 @@
     },
     {
       "Company": "SISCO HOLDING",
+      "Symbol": "",
       "Open": "30.45",
       "Highest": "38.38",
       "Lowest": "23.5",
@@ -3458,6 +3772,7 @@
     },
     {
       "Company": "ALYAMAMAH STEEL",
+      "Symbol": "",
       "Open": "32.50",
       "Highest": "39.5",
       "Lowest": "26.5",
@@ -3469,6 +3784,7 @@
     },
     {
       "Company": "KINGDOM",
+      "Symbol": "",
       "Open": "7.70",
       "Highest": "9.35",
       "Lowest": "7.03",
@@ -3480,6 +3796,7 @@
     },
     {
       "Company": "TAMKEEN",
+      "Symbol": "",
       "Open": "51.40",
       "Highest": "62.9",
       "Lowest": "46.8",
@@ -3491,6 +3808,7 @@
     },
     {
       "Company": "GO TELECOM",
+      "Symbol": "",
       "Open": "92.50",
       "Highest": "113.9",
       "Lowest": "80",
@@ -3502,6 +3820,7 @@
     },
     {
       "Company": "ALMAWARID",
+      "Symbol": "",
       "Open": "134.60",
       "Highest": "157.6",
       "Lowest": "111",
@@ -3513,6 +3832,7 @@
     },
     {
       "Company": "ZAIN KSA",
+      "Symbol": "",
       "Open": "10.68",
       "Highest": "13.36",
       "Lowest": "10.02",
@@ -3524,6 +3844,7 @@
     },
     {
       "Company": "BAWAN",
+      "Symbol": "",
       "Open": "49.40",
       "Highest": "61.85",
       "Lowest": "42.25",
@@ -3535,6 +3856,7 @@
     },
     {
       "Company": "JARIR",
+      "Symbol": "",
       "Open": "12.56",
       "Highest": "14.56",
       "Lowest": "12",
@@ -3546,6 +3868,7 @@
     },
     {
       "Company": "AL MAATHER REIT",
+      "Symbol": "",
       "Open": "9.06",
       "Highest": "10.1",
       "Lowest": "8.93",
@@ -3557,6 +3880,7 @@
     },
     {
       "Company": "SABB TAKAFUL",
+      "Symbol": "",
       "Open": "11.50",
       "Highest": "11.98",
       "Lowest": "11.5",
@@ -3568,6 +3892,7 @@
     },
     {
       "Company": "SAMBA",
+      "Symbol": "",
       "Open": "38.50",
       "Highest": "39.1",
       "Lowest": "37.8",
@@ -3579,6 +3904,7 @@
     },
     {
       "Company": "ATC",
+      "Symbol": "",
       "Open": "34.00",
       "Highest": "34.35",
       "Lowest": "33.8",
@@ -3590,6 +3916,7 @@
     },
     {
       "Company": "MMG",
+      "Symbol": "",
       "Open": "12.55",
       "Highest": "12.9",
       "Lowest": "11.8",
@@ -3601,6 +3928,7 @@
     },
     {
       "Company": "METLIFE AIG ANB",
+      "Symbol": "",
       "Open": "14.30",
       "Highest": "15.4",
       "Lowest": "14.02",
@@ -3612,6 +3940,7 @@
     },
     {
       "Company": "ALAHLIA",
+      "Symbol": "",
       "Open": "14.76",
       "Highest": "15.02",
       "Lowest": "14.5",
@@ -3623,6 +3952,7 @@
     },
     {
       "Company": "Weqaya Takaful",
+      "Symbol": "",
       "Open": "19.39",
       "Highest": "19.75",
       "Lowest": "19.15",
@@ -3634,6 +3964,7 @@
     },
     {
       "Company": "PETROCHEM",
+      "Symbol": "",
       "Open": "45.45",
       "Highest": "46",
       "Lowest": "45.4",
@@ -3645,6 +3976,7 @@
     },
     {
       "Company": "SOLIDARITY",
+      "Symbol": "",
       "Open": "14.20",
       "Highest": "14.52",
       "Lowest": "14.16",
@@ -3656,6 +3988,7 @@
     },
     {
       "Company": "ALKHODARI",
+      "Symbol": "",
       "Open": "5.39",
       "Highest": "5.76",
       "Lowest": "5.18",
@@ -3667,6 +4000,7 @@
     },
     {
       "Company": "Bishah Agriculture",
+      "Symbol": "",
       "Open": "69.75",
       "Highest": "81",
       "Lowest": "69.75",
@@ -3678,6 +4012,7 @@
     },
     {
       "Company": "DUR",
+      "Symbol": "",
       "Open": "27.00",
       "Highest": "27.1",
       "Lowest": "26.4",
@@ -3689,6 +4024,7 @@
     },
     {
       "Company": "HCC",
+      "Symbol": "",
       "Open": "11.60",
       "Highest": "11.7",
       "Lowest": "11.54",
@@ -3700,6 +4036,7 @@
     },
     {
       "Company": "ALINMA TOKIO M",
+      "Symbol": "",
       "Open": "12.80",
       "Highest": "12.84",
       "Lowest": "12.06",
@@ -3711,6 +4048,7 @@
     },
     {
       "Company": "SANAD",
+      "Symbol": "",
       "Open": "15.23",
       "Highest": "17.75",
       "Lowest": "14.75",
@@ -3722,6 +4060,7 @@
     },
     {
       "Company": "ALAWWAL",
+      "Symbol": "",
       "Open": "19.58",
       "Highest": "19.58",
       "Lowest": "19",
@@ -3733,6 +4072,7 @@
     },
     {
       "Company": "WAFA INSURANCE",
+      "Symbol": "",
       "Open": "9.50",
       "Highest": "10",
       "Lowest": "9.3",
@@ -3744,6 +4084,7 @@
     },
     {
       "Company": "UCA",
+      "Symbol": "",
       "Open": "9.27",
       "Highest": "9.59",
       "Lowest": "3.63",
@@ -3755,6 +4096,7 @@
     },
     {
       "Company": "GULF GENERAL",
+      "Symbol": "",
       "Open": "10.70",
       "Highest": "10.9",
       "Lowest": "4.22",
@@ -3766,6 +4108,7 @@
     },
     {
       "Company": "NASEEJ",
+      "Symbol": "",
       "Open": "96.00",
       "Highest": "110.8",
       "Lowest": "42.3",
@@ -3777,6 +4120,7 @@
     },
     {
       "Company": "NICE ONE",
+      "Symbol": "",
       "Open": "41.65",
       "Highest": "46.05",
       "Lowest": "19.17",
@@ -3788,6 +4132,7 @@
     },
     {
       "Company": "TANMIAH",
+      "Symbol": "",
       "Open": "125.80",
       "Highest": "131",
       "Lowest": "59.1",
@@ -3799,6 +4144,7 @@
     },
     {
       "Company": "ALAKARIA",
+      "Symbol": "",
       "Open": "25.20",
       "Highest": "26.15",
       "Lowest": "12.77",
@@ -3810,6 +4156,7 @@
     },
     {
       "Company": "SAUDI GERMAN HEALTH",
+      "Symbol": "",
       "Open": "71.60",
       "Highest": "74.2",
       "Lowest": "37.38",
@@ -3821,6 +4168,7 @@
     },
     {
       "Company": "ENTAJ",
+      "Symbol": "",
       "Open": "65.00",
       "Highest": "72.8",
       "Lowest": "32.9",
@@ -3832,6 +4180,7 @@
     },
     {
       "Company": "UCIC",
+      "Symbol": "",
       "Open": "49.25",
       "Highest": "54.5",
       "Lowest": "26.16",
@@ -3843,6 +4192,7 @@
     },
     {
       "Company": "JAHEZ",
+      "Symbol": "",
       "Open": "30.70",
       "Highest": "34.4",
       "Lowest": "15.23",
@@ -3854,6 +4204,7 @@
     },
     {
       "Company": "ACWA POWER",
+      "Symbol": "",
       "Open": "347.26",
       "Highest": "352.02",
       "Lowest": "186.2",
@@ -3865,6 +4216,7 @@
     },
     {
       "Company": "MEDGULF",
+      "Symbol": "",
       "Open": "23.80",
       "Highest": "25.15",
       "Lowest": "12.8",
@@ -3876,6 +4228,7 @@
     },
     {
       "Company": "ALAMAR",
+      "Symbol": "",
       "Open": "75.90",
       "Highest": "76.5",
       "Lowest": "41",
@@ -3887,6 +4240,7 @@
     },
     {
       "Company": "ALRAJHI TAKAFUL",
+      "Symbol": "",
       "Open": "152.40",
       "Highest": "154.6",
       "Lowest": "84",
@@ -3898,6 +4252,7 @@
     },
     {
       "Company": "SAIC",
+      "Symbol": "",
       "Open": "32.10",
       "Highest": "33.35",
       "Lowest": "17.75",
@@ -3909,6 +4264,7 @@
     },
     {
       "Company": "ALETIHAD",
+      "Symbol": "",
       "Open": "14.92",
       "Highest": "15.72",
       "Lowest": "8.38",
@@ -3920,6 +4276,7 @@
     },
     {
       "Company": "RAYDAN",
+      "Symbol": "",
       "Open": "45.55",
       "Highest": "46.37",
       "Lowest": "26",
@@ -3931,6 +4288,7 @@
     },
     {
       "Company": "WATANIYA",
+      "Symbol": "",
       "Open": "22.10",
       "Highest": "23.4",
       "Lowest": "12.87",
@@ -3942,6 +4300,7 @@
     },
     {
       "Company": "BANAN",
+      "Symbol": "",
       "Open": "6.61",
       "Highest": "6.98",
       "Lowest": "3.86",
@@ -3953,6 +4312,7 @@
     },
     {
       "Company": "SAPTCO",
+      "Symbol": "",
       "Open": "17.40",
       "Highest": "18.18",
       "Lowest": "10.09",
@@ -3964,6 +4324,7 @@
     },
     {
       "Company": "ACIG",
+      "Symbol": "",
       "Open": "14.98",
       "Highest": "16.98",
       "Lowest": "8.75",
@@ -3975,6 +4336,7 @@
     },
     {
       "Company": "JABAL OMAR",
+      "Symbol": "",
       "Open": "25.30",
       "Highest": "26.5",
       "Lowest": "14.83",
@@ -3986,6 +4348,7 @@
     },
     {
       "Company": "SALAMA",
+      "Symbol": "",
       "Open": "16.14",
       "Highest": "16.72",
       "Lowest": "9.78",
@@ -3997,6 +4360,7 @@
     },
     {
       "Company": "TAPRCO",
+      "Symbol": "",
       "Open": "29.29",
       "Highest": "31",
       "Lowest": "17.85",
@@ -4008,6 +4372,7 @@
     },
     {
       "Company": "YC",
+      "Symbol": "",
       "Open": "38.00",
       "Highest": "40.55",
       "Lowest": "22.59",
@@ -4019,6 +4384,7 @@
     },
     {
       "Company": "MESC",
+      "Symbol": "",
       "Open": "37.85",
       "Highest": "41.05",
       "Lowest": "22.28",
@@ -4030,6 +4396,7 @@
     },
     {
       "Company": "ALMUNAJEM",
+      "Symbol": "",
       "Open": "87.00",
       "Highest": "90.3",
       "Lowest": "53",
@@ -4041,6 +4408,7 @@
     },
     {
       "Company": "AMANA INSURANCE",
+      "Symbol": "",
       "Open": "9.90",
       "Highest": "10.1",
       "Lowest": "6",
@@ -4052,6 +4420,7 @@
     },
     {
       "Company": "ENAYA",
+      "Symbol": "",
       "Open": "11.84",
       "Highest": "12.1",
       "Lowest": "7.31",
@@ -4063,6 +4432,7 @@
     },
     {
       "Company": "JOUF CEMENT",
+      "Symbol": "",
       "Open": "10.70",
       "Highest": "10.84",
       "Lowest": "6.39",
@@ -4074,6 +4444,7 @@
     },
     {
       "Company": "SFICO",
+      "Symbol": "",
       "Open": "108.80",
       "Highest": "120",
       "Lowest": "67.95",
@@ -4085,6 +4456,7 @@
     },
     {
       "Company": "TADCO",
+      "Symbol": "",
       "Open": "13.50",
       "Highest": "13.72",
       "Lowest": "8.22",
@@ -4096,6 +4468,7 @@
     },
     {
       "Company": "SAUDI DARB",
+      "Symbol": "",
       "Open": "3.70",
       "Highest": "4.34",
       "Lowest": "2.3",
@@ -4107,6 +4480,7 @@
     },
     {
       "Company": "CHEMANOL",
+      "Symbol": "",
       "Open": "14.06",
       "Highest": "14.7",
       "Lowest": "8.59",
@@ -4118,6 +4492,7 @@
     },
     {
       "Company": "WALAA",
+      "Symbol": "",
       "Open": "18.74",
       "Highest": "20.3",
       "Lowest": "10.8",
@@ -4129,6 +4504,7 @@
     },
     {
       "Company": "CITY CEMENT",
+      "Symbol": "",
       "Open": "20.08",
       "Highest": "21.88",
       "Lowest": "12.56",
@@ -4140,6 +4516,7 @@
     },
     {
       "Company": "APC",
+      "Symbol": "",
       "Open": "7.89",
       "Highest": "8.54",
       "Lowest": "4.93",
@@ -4151,6 +4528,7 @@
     },
     {
       "Company": "WAFRAH",
+      "Symbol": "",
       "Open": "34.50",
       "Highest": "35.5",
       "Lowest": "21.67",
@@ -4162,6 +4540,7 @@
     },
     {
       "Company": "SVCP",
+      "Symbol": "",
       "Open": "35.40",
       "Highest": "36.5",
       "Lowest": "21.95",
@@ -4173,6 +4552,7 @@
     },
     {
       "Company": "A.OTHAIM MARKET",
+      "Symbol": "",
       "Open": "9.98",
       "Highest": "10.02",
       "Lowest": "6.5",
@@ -4184,6 +4564,7 @@
     },
     {
       "Company": "CATRION",
+      "Symbol": "",
       "Open": "123.00",
       "Highest": "126.4",
       "Lowest": "80.9",
@@ -4195,6 +4576,7 @@
     },
     {
       "Company": "ARABIAN SHIELD",
+      "Symbol": "",
       "Open": "17.82",
       "Highest": "18.48",
       "Lowest": "11.25",
@@ -4206,6 +4588,7 @@
     },
     {
       "Company": "RIYADH CEMENT",
+      "Symbol": "",
       "Open": "36.20",
       "Highest": "37.25",
       "Lowest": "22.98",
@@ -4217,6 +4600,7 @@
     },
     {
       "Company": "FAKEEH CARE",
+      "Symbol": "",
       "Open": "54.00",
       "Highest": "54.8",
       "Lowest": "36.16",
@@ -4228,6 +4612,7 @@
     },
     {
       "Company": "SSP",
+      "Symbol": "",
       "Open": "62.30",
       "Highest": "64.4",
       "Lowest": "39.8",
@@ -4239,6 +4624,7 @@
     },
     {
       "Company": "UACC",
+      "Symbol": "",
       "Open": "18.74",
       "Highest": "20.34",
       "Lowest": "12.29",
@@ -4250,6 +4636,7 @@
     },
     {
       "Company": "ANAAM HOLDING",
+      "Symbol": "",
       "Open": "18.54",
       "Highest": "19.72",
       "Lowest": "12.25",
@@ -4261,6 +4648,7 @@
     },
     {
       "Company": "HB",
+      "Symbol": "",
       "Open": "49.25",
       "Highest": "51.6",
       "Lowest": "32.9",
@@ -4272,6 +4660,7 @@
     },
     {
       "Company": "LIVA",
+      "Symbol": "",
       "Open": "16.80",
       "Highest": "16.94",
       "Lowest": "10.9",
@@ -4283,6 +4672,7 @@
     },
     {
       "Company": "SINAD HOLDING",
+      "Symbol": "",
       "Open": "13.50",
       "Highest": "14.28",
       "Lowest": "9.07",
@@ -4294,6 +4684,7 @@
     },
     {
       "Company": "TAKWEEN",
+      "Symbol": "",
       "Open": "9.14",
       "Highest": "9.65",
       "Lowest": "6.15",
@@ -4305,6 +4696,7 @@
     },
     {
       "Company": "TCC",
+      "Symbol": "",
       "Open": "13.70",
       "Highest": "13.98",
       "Lowest": "9.36",
@@ -4316,6 +4708,7 @@
     },
     {
       "Company": "RAOOM",
+      "Symbol": "",
       "Open": "84.90",
       "Highest": "93.8",
       "Lowest": "54",
@@ -4327,6 +4720,7 @@
     },
     {
       "Company": "ALHAMMADI",
+      "Symbol": "",
       "Open": "40.80",
       "Highest": "42.2",
       "Lowest": "28.4",
@@ -4338,6 +4732,7 @@
     },
     {
       "Company": "ALANDALUS",
+      "Symbol": "",
       "Open": "25.80",
       "Highest": "26.1",
       "Lowest": "16.7",
@@ -4349,6 +4744,7 @@
     },
     {
       "Company": "SAVOLA GROUP",
+      "Symbol": "",
       "Open": "34.20",
       "Highest": "35.35",
       "Lowest": "22.52",
@@ -4360,6 +4756,7 @@
     },
     {
       "Company": "JAZADCO",
+      "Symbol": "",
       "Open": "12.82",
       "Highest": "13.2",
       "Lowest": "8.85",
@@ -4371,6 +4768,7 @@
     },
     {
       "Company": "FARM SUPERSTORES",
+      "Symbol": "",
       "Open": "20.98",
       "Highest": "21.94",
       "Lowest": "14.04",
@@ -4382,6 +4780,7 @@
     },
     {
       "Company": "SIDC",
+      "Symbol": "",
       "Open": "16.93",
       "Highest": "22.98",
       "Lowest": "11.55",
@@ -4393,6 +4792,7 @@
     },
     {
       "Company": "EPCCO",
+      "Symbol": "",
       "Open": "33.20",
       "Highest": "36.4",
       "Lowest": "23",
@@ -4404,6 +4804,7 @@
     },
     {
       "Company": "SPCC",
+      "Symbol": "",
       "Open": "31.10",
       "Highest": "34.3",
       "Lowest": "21",
@@ -4415,6 +4816,7 @@
     },
     {
       "Company": "TAIBA",
+      "Symbol": "",
       "Open": "48.55",
       "Highest": "50",
       "Lowest": "32.85",
@@ -4426,6 +4828,7 @@
     },
     {
       "Company": "CHUBB",
+      "Symbol": "",
       "Open": "34.50",
       "Highest": "35.85",
       "Lowest": "21.98",
@@ -4437,6 +4840,7 @@
     },
     {
       "Company": "YCC",
+      "Symbol": "",
       "Open": "22.36",
       "Highest": "23.94",
       "Lowest": "15.18",
@@ -4448,6 +4852,7 @@
     },
     {
       "Company": "OBEIKAN GLASS",
+      "Symbol": "",
       "Open": "37.00",
       "Highest": "41.6",
       "Lowest": "24.59",
@@ -4459,6 +4864,7 @@
     },
     {
       "Company": "AMIANTIT",
+      "Symbol": "",
       "Open": "24.00",
       "Highest": "25",
       "Lowest": "16.55",
@@ -4470,6 +4876,7 @@
     },
     {
       "Company": "FITAIHI GROUP",
+      "Symbol": "",
       "Open": "4.04",
       "Highest": "4.44",
       "Lowest": "2.85",
@@ -4481,6 +4888,7 @@
     },
     {
       "Company": "2P",
+      "Symbol": "",
       "Open": "12.02",
       "Highest": "12.51",
       "Lowest": "8.45",
@@ -4492,6 +4900,7 @@
     },
     {
       "Company": "ALKHALEEJ TRNG",
+      "Symbol": "",
       "Open": "28.70",
       "Highest": "30.55",
       "Lowest": "20.24",
@@ -4503,6 +4912,7 @@
     },
     {
       "Company": "SUMOU",
+      "Symbol": "",
       "Open": "48.15",
       "Highest": "51.1",
       "Lowest": "34.75",
@@ -4514,6 +4924,7 @@
     },
     {
       "Company": "MBC GROUP",
+      "Symbol": "",
       "Open": "43.60",
       "Highest": "49.4",
       "Lowest": "27.56",
@@ -4525,6 +4936,7 @@
     },
     {
       "Company": "GULF UNION ALAHLIA",
+      "Symbol": "",
       "Open": "15.66",
       "Highest": "15.94",
       "Lowest": "10.86",
@@ -4536,6 +4948,7 @@
     },
     {
       "Company": "LEEJAM SPORTS",
+      "Symbol": "",
       "Open": "153.80",
       "Highest": "160",
       "Lowest": "111.2",
@@ -4547,6 +4960,7 @@
     },
     {
       "Company": "OASIS",
+      "Symbol": "",
       "Open": "3.08",
       "Highest": "3.19",
       "Lowest": "2.18",
@@ -4558,6 +4972,7 @@
     },
     {
       "Company": "BUILD STATION",
+      "Symbol": "",
       "Open": "80.80",
       "Highest": "93",
       "Lowest": "56.95",
@@ -4569,6 +4984,7 @@
     },
     {
       "Company": "SIPCHEM",
+      "Symbol": "",
       "Open": "21.32",
       "Highest": "22.12",
       "Lowest": "15.79",
@@ -4580,6 +4996,7 @@
     },
     {
       "Company": "SOLUTIONS",
+      "Symbol": "",
       "Open": "304.60",
       "Highest": "319",
       "Lowest": "219.9",
@@ -4591,6 +5008,7 @@
     },
     {
       "Company": "BATIC",
+      "Symbol": "",
       "Open": "2.79",
       "Highest": "3",
       "Lowest": "1.96",
@@ -4602,6 +5020,7 @@
     },
     {
       "Company": "NADEC",
+      "Symbol": "",
       "Open": "24.56",
       "Highest": "25.3",
       "Lowest": "18.02",
@@ -4613,6 +5032,7 @@
     },
     {
       "Company": "EMAAR EC",
+      "Symbol": "",
       "Open": "15.08",
       "Highest": "15.96",
       "Lowest": "10.72",
@@ -4624,6 +5044,7 @@
     },
     {
       "Company": "DERAYAH",
+      "Symbol": "",
       "Open": "39.00",
       "Highest": "43.9",
       "Lowest": "23.04",
@@ -4635,6 +5056,7 @@
     },
     {
       "Company": "ARAB SEA",
+      "Symbol": "",
       "Open": "5.91",
       "Highest": "6.3",
       "Lowest": "4.31",
@@ -4646,6 +5068,7 @@
     },
     {
       "Company": "TALCO",
+      "Symbol": "",
       "Open": "48.90",
       "Highest": "50.1",
       "Lowest": "32.88",
@@ -4657,6 +5080,7 @@
     },
     {
       "Company": "TECO",
+      "Symbol": "",
       "Open": "16.40",
       "Highest": "24.4",
       "Lowest": "12.14",
@@ -4668,6 +5092,7 @@
     },
     {
       "Company": "LUMI",
+      "Symbol": "",
       "Open": "70.20",
       "Highest": "71.5",
       "Lowest": "51.55",
@@ -4679,6 +5104,7 @@
     },
     {
       "Company": "BURGERIZZR",
+      "Symbol": "",
       "Open": "19.12",
       "Highest": "20.7",
       "Lowest": "14.15",
@@ -4690,6 +5116,7 @@
     },
     {
       "Company": "HERFY FOODS",
+      "Symbol": "",
       "Open": "20.90",
       "Highest": "26.75",
       "Lowest": "15.57",
@@ -4701,6 +5128,7 @@
     },
     {
       "Company": "SHARQIYAH DEV",
+      "Symbol": "",
       "Open": "18.74",
       "Highest": "19.64",
       "Lowest": "13.85",
@@ -4712,6 +5140,7 @@
     },
     {
       "Company": "ALSAGR INSURANCE",
+      "Symbol": "",
       "Open": "13.80",
       "Highest": "15.6",
       "Lowest": "10.1",
@@ -4723,6 +5152,7 @@
     },
     {
       "Company": "SPPC",
+      "Symbol": "",
       "Open": "10.98",
       "Highest": "13.88",
       "Lowest": "8",
@@ -4734,6 +5164,7 @@
     },
     {
       "Company": "SAICO",
+      "Symbol": "",
       "Open": "15.82",
       "Highest": "16.56",
       "Lowest": "11.84",
@@ -4745,6 +5176,7 @@
     },
     {
       "Company": "ALMAJDIAH",
+      "Symbol": "",
       "Open": "13.83",
       "Highest": "14.46",
       "Lowest": "9.97",
@@ -4756,6 +5188,7 @@
     },
     {
       "Company": "SADAFCO",
+      "Symbol": "",
       "Open": "313.20",
       "Highest": "317.4",
       "Lowest": "237",
@@ -4767,6 +5200,7 @@
     },
     {
       "Company": "ASTRA INDUSTRIAL",
+      "Symbol": "",
       "Open": "171.80",
       "Highest": "175",
       "Lowest": "125.6",
@@ -4778,6 +5212,7 @@
     },
     {
       "Company": "MALATH INSURANCE",
+      "Symbol": "",
       "Open": "13.28",
       "Highest": "14.8",
       "Lowest": "10.13",
@@ -4789,6 +5224,7 @@
     },
     {
       "Company": "BINDAWOOD",
+      "Symbol": "",
       "Open": "6.49",
       "Highest": "6.69",
       "Lowest": "4.54",
@@ -4800,6 +5236,7 @@
     },
     {
       "Company": "FIPCO",
+      "Symbol": "",
       "Open": "39.50",
       "Highest": "41.5",
       "Lowest": "29.7",
@@ -4811,6 +5248,7 @@
     },
     {
       "Company": "ZOUJAJ",
+      "Symbol": "",
       "Open": "48.05",
       "Highest": "50",
       "Lowest": "36.12",
@@ -4822,6 +5260,7 @@
     },
     {
       "Company": "MCDC",
+      "Symbol": "",
       "Open": "109.40",
       "Highest": "113.4",
       "Lowest": "67.95",
@@ -4833,6 +5272,7 @@
     },
     {
       "Company": "JAZIRA TAKAFUL",
+      "Symbol": "",
       "Open": "14.88",
       "Highest": "15.2",
       "Lowest": "11.28",
@@ -4844,6 +5284,7 @@
     },
     {
       "Company": "ELM",
+      "Symbol": "",
       "Open": "1,000.80",
       "Highest": "1090",
       "Lowest": "745",
@@ -4855,6 +5296,7 @@
     },
     {
       "Company": "ARDCO",
+      "Symbol": "",
       "Open": "32.05",
       "Highest": "36.2",
       "Lowest": "24.88",
@@ -4866,6 +5308,7 @@
     },
     {
       "Company": "EQUIPMENT HOUSE",
+      "Symbol": "",
       "Open": "42.80",
       "Highest": "45.15",
       "Lowest": "31.66",
@@ -4877,6 +5320,7 @@
     },
     {
       "Company": "RED SEA",
+      "Symbol": "",
       "Open": "45.80",
       "Highest": "49.94",
       "Lowest": "32.1",
@@ -4888,6 +5332,7 @@
     },
     {
       "Company": "ALMARAI",
+      "Symbol": "",
       "Open": "56.10",
       "Highest": "57.6",
       "Lowest": "43.5",
@@ -4899,6 +5344,7 @@
     },
     {
       "Company": "AICC",
+      "Symbol": "",
       "Open": "12.52",
       "Highest": "13.06",
       "Lowest": "9.7",
@@ -4910,6 +5356,7 @@
     },
     {
       "Company": "ALOMRAN",
+      "Symbol": "",
       "Open": "33.75",
       "Highest": "36",
       "Lowest": "24.94",
@@ -4921,6 +5368,7 @@
     },
     {
       "Company": "SHAKER",
+      "Symbol": "",
       "Open": "28.55",
       "Highest": "31.55",
       "Lowest": "22.55",
@@ -4932,6 +5380,7 @@
     },
     {
       "Company": "AYYAN",
+      "Symbol": "",
       "Open": "17.02",
       "Highest": "17.32",
       "Lowest": "11.4",
@@ -4943,6 +5392,7 @@
     },
     {
       "Company": "MEPCO",
+      "Symbol": "",
       "Open": "29.60",
       "Highest": "31.52",
       "Lowest": "23.19",
@@ -4954,6 +5404,7 @@
     },
     {
       "Company": "MARAFIQ",
+      "Symbol": "",
       "Open": "48.20",
       "Highest": "48.5",
       "Lowest": "36.5",
@@ -4965,6 +5416,7 @@
     },
     {
       "Company": "NGC",
+      "Symbol": "",
       "Open": "20.62",
       "Highest": "24",
       "Lowest": "15.6",
@@ -4976,6 +5428,7 @@
     },
     {
       "Company": "SRMG",
+      "Symbol": "",
       "Open": "181.80",
       "Highest": "202.1",
       "Lowest": "136.2",
@@ -4987,6 +5440,7 @@
     },
     {
       "Company": "TADAWUL GROUP",
+      "Symbol": "",
       "Open": "202.40",
       "Highest": "215",
       "Lowest": "158.7",
@@ -4998,6 +5452,7 @@
     },
     {
       "Company": "AMERICANA",
+      "Symbol": "",
       "Open": "2.25",
       "Highest": "2.43",
       "Lowest": "1.76",
@@ -5009,6 +5464,7 @@
     },
     {
       "Company": "NAMA CHEMICALS",
+      "Symbol": "",
       "Open": "28.55",
       "Highest": "31.85",
       "Lowest": "22.83",
@@ -5020,6 +5476,7 @@
     },
     {
       "Company": "RIYAD REIT",
+      "Symbol": "",
       "Open": "6.28",
       "Highest": "6.35",
       "Lowest": "4.95",
@@ -5031,6 +5488,7 @@
     },
     {
       "Company": "JADWA REIT ALHARAMAIN",
+      "Symbol": "",
       "Open": "6.12",
       "Highest": "6.78",
       "Lowest": "4.8",
@@ -5042,6 +5500,7 @@
     },
     {
       "Company": "ALDAWAA",
+      "Symbol": "",
       "Open": "68.30",
       "Highest": "87.3",
       "Lowest": "54",
@@ -5053,6 +5512,7 @@
     },
     {
       "Company": "BAAN",
+      "Symbol": "",
       "Open": "2.32",
       "Highest": "2.69",
       "Lowest": "1.77",
@@ -5064,6 +5524,7 @@
     },
     {
       "Company": "MUTAKAMELA",
+      "Symbol": "",
       "Open": "14.76",
       "Highest": "17.84",
       "Lowest": "11.47",
@@ -5075,6 +5536,7 @@
     },
     {
       "Company": "SMC HEALTHCARE",
+      "Symbol": "",
       "Open": "24.16",
       "Highest": "25",
       "Lowest": "17.62",
@@ -5086,6 +5548,7 @@
     },
     {
       "Company": "SGS",
+      "Symbol": "",
       "Open": "48.85",
       "Highest": "53.5",
       "Lowest": "38.98",
@@ -5097,6 +5560,7 @@
     },
     {
       "Company": "RETAL",
+      "Symbol": "",
       "Open": "15.00",
       "Highest": "18.24",
       "Lowest": "10.88",
@@ -5108,6 +5572,7 @@
     },
     {
       "Company": "ALINMA",
+      "Symbol": "",
       "Open": "30.00",
       "Highest": "31.3",
       "Lowest": "23.94",
@@ -5119,6 +5584,7 @@
     },
     {
       "Company": "ALBILAD",
+      "Symbol": "",
       "Open": "31.50",
       "Highest": "31.75",
       "Lowest": "23.38",
@@ -5130,6 +5596,7 @@
     },
     {
       "Company": "NORTHERN CEMENT",
+      "Symbol": "",
       "Open": "9.04",
       "Highest": "9.3",
       "Lowest": "7.22",
@@ -5141,6 +5608,7 @@
     },
     {
       "Company": "SIECO",
+      "Symbol": "",
       "Open": "2.31",
       "Highest": "2.63",
       "Lowest": "1.77",
@@ -5152,6 +5620,7 @@
     },
     {
       "Company": "NAJRAN CEMENT",
+      "Symbol": "",
       "Open": "8.38",
       "Highest": "9",
       "Lowest": "6.8",
@@ -5163,6 +5632,7 @@
     },
     {
       "Company": "ARABIAN MILLS",
+      "Symbol": "",
       "Open": "47.75",
       "Highest": "49",
       "Lowest": "37",
@@ -5174,6 +5644,7 @@
     },
     {
       "Company": "ASLAK",
+      "Symbol": "",
       "Open": "26.10",
       "Highest": "28",
       "Lowest": "19.84",
@@ -5185,6 +5656,7 @@
     },
     {
       "Company": "FIRST MILLS",
+      "Symbol": "",
       "Open": "60.00",
       "Highest": "62.8",
       "Lowest": "46.86",
@@ -5196,6 +5668,7 @@
     },
     {
       "Company": "SEDCO CAPITAL REIT",
+      "Symbol": "",
       "Open": "7.61",
       "Highest": "7.77",
       "Lowest": "6.14",
@@ -5207,6 +5680,7 @@
     },
     {
       "Company": "ALJOUF",
+      "Symbol": "",
       "Open": "53.40",
       "Highest": "54",
       "Lowest": "40.65",
@@ -5218,6 +5692,7 @@
     },
     {
       "Company": "SASCO",
+      "Symbol": "",
       "Open": "70.30",
       "Highest": "73.45",
       "Lowest": "49.02",
@@ -5229,6 +5704,7 @@
     },
     {
       "Company": "ALSAIF GALLERY",
+      "Symbol": "",
       "Open": "7.82",
       "Highest": "8",
       "Lowest": "6.41",
@@ -5240,6 +5716,7 @@
     },
     {
       "Company": "ALARABIA",
+      "Symbol": "",
       "Open": "141.00",
       "Highest": "142.2",
       "Lowest": "79.7",
@@ -5251,6 +5728,7 @@
     },
     {
       "Company": "BJAZ",
+      "Symbol": "",
       "Open": "13.83",
       "Highest": "14.18",
       "Lowest": "11.14",
@@ -5262,6 +5740,7 @@
     },
     {
       "Company": "SMASCO",
+      "Symbol": "",
       "Open": "6.51",
       "Highest": "7.16",
       "Lowest": "5.26",
@@ -5273,6 +5752,7 @@
     },
     {
       "Company": "MODERN MILLS",
+      "Symbol": "",
       "Open": "38.20",
       "Highest": "41.05",
       "Lowest": "29.6",
@@ -5284,6 +5764,7 @@
     },
     {
       "Company": "CHEMICAL",
+      "Symbol": "",
       "Open": "8.60",
       "Highest": "9.3",
       "Lowest": "6.06",
@@ -5295,6 +5776,7 @@
     },
     {
       "Company": "CARE",
+      "Symbol": "",
       "Open": "172.80",
       "Highest": "183.5",
       "Lowest": "139.2",
@@ -5306,6 +5788,7 @@
     },
     {
       "Company": "THEEB",
+      "Symbol": "",
       "Open": "71.40",
       "Highest": "74",
       "Lowest": "57.25",
@@ -5317,6 +5800,7 @@
     },
     {
       "Company": "TAWUNIYA",
+      "Symbol": "",
       "Open": "145.20",
       "Highest": "161",
       "Lowest": "114.2",
@@ -5328,6 +5812,7 @@
     },
     {
       "Company": "SARCO",
+      "Symbol": "",
       "Open": "65.50",
       "Highest": "73",
       "Lowest": "52.5",
@@ -5339,6 +5824,7 @@
     },
     {
       "Company": "QACCO",
+      "Symbol": "",
       "Open": "51.10",
       "Highest": "54.3",
       "Lowest": "40.5",
@@ -5350,6 +5836,7 @@
     },
     {
       "Company": "BUPA ARABIA",
+      "Symbol": "",
       "Open": "171.00",
       "Highest": "186.2",
       "Lowest": "140.6",
@@ -5361,6 +5848,7 @@
     },
     {
       "Company": "SIIG",
+      "Symbol": "",
       "Open": "16.04",
       "Highest": "20",
       "Lowest": "13.34",
@@ -5372,6 +5860,7 @@
     },
     {
       "Company": "GIG",
+      "Symbol": "",
       "Open": "27.30",
       "Highest": "27.9",
       "Lowest": "22.04",
@@ -5383,6 +5872,7 @@
     },
     {
       "Company": "ACC",
+      "Symbol": "",
       "Open": "25.45",
       "Highest": "27.25",
       "Lowest": "20.43",
@@ -5394,6 +5884,7 @@
     },
     {
       "Company": "ALKATHIRI",
+      "Symbol": "",
       "Open": "2.34",
       "Highest": "2.52",
       "Lowest": "1.86",
@@ -5405,6 +5896,7 @@
     },
     {
       "Company": "BURUJ",
+      "Symbol": "",
       "Open": "19.00",
       "Highest": "21.18",
       "Lowest": "14.62",
@@ -5416,6 +5908,7 @@
     },
     {
       "Company": "FLYNAS",
+      "Symbol": "",
       "Open": "77.30",
       "Highest": "84.1",
       "Lowest": "60.25",
@@ -5427,6 +5920,7 @@
     },
     {
       "Company": "ALJAZIRA REIT",
+      "Symbol": "",
       "Open": "14.40",
       "Highest": "16.48",
       "Lowest": "11.92",
@@ -5438,6 +5932,7 @@
     },
     {
       "Company": "CMCER",
+      "Symbol": "",
       "Open": "8.25",
       "Highest": "9.14",
       "Lowest": "6.95",
@@ -5449,6 +5944,7 @@
     },
     {
       "Company": "GAS",
+      "Symbol": "",
       "Open": "16.24",
       "Highest": "17.99",
       "Lowest": "13.52",
@@ -5460,6 +5956,7 @@
     },
     {
       "Company": "SAUDI CEMENT",
+      "Symbol": "",
       "Open": "42.00",
       "Highest": "46.7",
       "Lowest": "35.4",
@@ -5471,6 +5968,7 @@
     },
     {
       "Company": "NCLE",
+      "Symbol": "",
       "Open": "168.80",
       "Highest": "183",
       "Lowest": "138.2",
@@ -5482,6 +5980,7 @@
     },
     {
       "Company": "ALASEEL",
+      "Symbol": "",
       "Open": "3.91",
       "Highest": "4.3",
       "Lowest": "3.3",
@@ -5493,6 +5992,7 @@
     },
     {
       "Company": "DAR ALARKAN",
+      "Symbol": "",
       "Open": "18.40",
       "Highest": "23.94",
       "Lowest": "15",
@@ -5504,6 +6004,7 @@
     },
     {
       "Company": "BUDGET SAUDI",
+      "Symbol": "",
       "Open": "75.00",
       "Highest": "83.4",
       "Lowest": "64",
@@ -5515,6 +6016,7 @@
     },
     {
       "Company": "SACO",
+      "Symbol": "",
       "Open": "31.25",
       "Highest": "34.8",
       "Lowest": "25.3",
@@ -5526,6 +6028,7 @@
     },
     {
       "Company": "SAL",
+      "Symbol": "",
       "Open": "196.00",
       "Highest": "212.4",
       "Lowest": "156",
@@ -5537,6 +6040,7 @@
     },
     {
       "Company": "ARTEX",
+      "Symbol": "",
       "Open": "12.88",
       "Highest": "14.78",
       "Lowest": "11.1",
@@ -5548,6 +6052,7 @@
     },
     {
       "Company": "AWPT",
+      "Symbol": "",
       "Open": "156.40",
       "Highest": "172.4",
       "Lowest": "122.9",
@@ -5559,6 +6064,7 @@
     },
     {
       "Company": "NAHDI",
+      "Symbol": "",
       "Open": "118.00",
       "Highest": "132.1",
       "Lowest": "95.6",
@@ -5570,6 +6076,7 @@
     },
     {
       "Company": "SAB",
+      "Symbol": "",
       "Open": "35.60",
       "Highest": "38",
       "Lowest": "29.9",
@@ -5581,6 +6088,7 @@
     },
     {
       "Company": "SABIC",
+      "Symbol": "",
       "Open": "62.50",
       "Highest": "65.8",
       "Lowest": "53",
@@ -5592,6 +6100,7 @@
     },
     {
       "Company": "GASCO",
+      "Symbol": "",
       "Open": "93.00",
       "Highest": "96.4",
       "Lowest": "65.8",
@@ -5603,6 +6112,7 @@
     },
     {
       "Company": "MRNA",
+      "Symbol": "",
       "Open": "11.28",
       "Highest": "12.73",
       "Lowest": "9.88",
@@ -5614,6 +6124,7 @@
     },
     {
       "Company": "SAUDI KAYAN",
+      "Symbol": "",
       "Open": "5.90",
       "Highest": "6.41",
       "Lowest": "4.46",
@@ -5625,6 +6136,7 @@
     },
     {
       "Company": "SAUDI ELECTRICITY",
+      "Symbol": "",
       "Open": "16.06",
       "Highest": "16.26",
       "Lowest": "13.72",
@@ -5636,6 +6148,7 @@
     },
     {
       "Company": "YANSAB",
+      "Symbol": "",
       "Open": "34.20",
       "Highest": "37.28",
       "Lowest": "28.25",
@@ -5647,6 +6160,7 @@
     },
     {
       "Company": "GACO",
+      "Symbol": "",
       "Open": "18.28",
       "Highest": "19.55",
       "Lowest": "15.12",
@@ -5658,6 +6172,7 @@
     },
     {
       "Company": "SADR",
+      "Symbol": "",
       "Open": "3.11",
       "Highest": "3.21",
       "Lowest": "2.58",
@@ -5669,6 +6184,7 @@
     },
     {
       "Company": "AZM",
+      "Symbol": "",
       "Open": "28.60",
       "Highest": "31.7",
       "Lowest": "22.67",
@@ -5680,6 +6196,7 @@
     },
     {
       "Company": "MEFIC REIT",
+      "Symbol": "",
       "Open": "3.93",
       "Highest": "4.11",
       "Lowest": "3.4",
@@ -5691,6 +6208,7 @@
     },
     {
       "Company": "AVALON PHARMA",
+      "Symbol": "",
       "Open": "133.80",
       "Highest": "139",
       "Lowest": "108",
@@ -5702,6 +6220,7 @@
     },
     {
       "Company": "KEC",
+      "Symbol": "",
       "Open": "13.58",
       "Highest": "15.78",
       "Lowest": "11.62",
@@ -5713,6 +6232,7 @@
     },
     {
       "Company": "SAUDI RE",
+      "Symbol": "",
       "Open": "30.77",
       "Highest": "37.25",
       "Lowest": "25.45",
@@ -5724,6 +6244,7 @@
     },
     {
       "Company": "ALAHLI REIT 1",
+      "Symbol": "",
       "Open": "7.08",
       "Highest": "7.35",
       "Lowest": "6.05",
@@ -5735,6 +6256,7 @@
     },
     {
       "Company": "MAADANIYAH",
+      "Symbol": "",
       "Open": "15.70",
       "Highest": "18.5",
       "Lowest": "12.52",
@@ -5746,6 +6268,7 @@
     },
     {
       "Company": "EXTRA",
+      "Symbol": "",
       "Open": "97.80",
       "Highest": "98",
       "Lowest": "83.4",
@@ -5757,6 +6280,7 @@
     },
     {
       "Company": "AMLAK",
+      "Symbol": "",
       "Open": "12.70",
       "Highest": "13.9",
       "Lowest": "9.3",
@@ -5768,6 +6292,7 @@
     },
     {
       "Company": "RIBL",
+      "Symbol": "",
       "Open": "29.10",
       "Highest": "33.2",
       "Lowest": "25.3",
@@ -5779,6 +6304,7 @@
     },
     {
       "Company": "ALUJAIN",
+      "Symbol": "",
       "Open": "32.05",
       "Highest": "40.05",
       "Lowest": "29.16",
@@ -5790,6 +6316,7 @@
     },
     {
       "Company": "SAUDI ARAMCO",
+      "Symbol": "",
       "Open": "26.65",
       "Highest": "26.75",
       "Lowest": "23.04",
@@ -5801,6 +6328,7 @@
     },
     {
       "Company": "JAMJOOM PHARMA",
+      "Symbol": "",
       "Open": "163.00",
       "Highest": "183.8",
       "Lowest": "134",
@@ -5812,6 +6340,7 @@
     },
     {
       "Company": "SPM",
+      "Symbol": "",
       "Open": "62.00",
       "Highest": "72.2",
       "Lowest": "48.3",
@@ -5823,6 +6352,7 @@
     },
     {
       "Company": "NAYIFAT",
+      "Symbol": "",
       "Open": "13.80",
       "Highest": "14.26",
       "Lowest": "11.54",
@@ -5834,6 +6364,7 @@
     },
     {
       "Company": "MULKIA REIT",
+      "Symbol": "",
       "Open": "5.05",
       "Highest": "5.52",
       "Lowest": "4.45",
@@ -5845,6 +6376,7 @@
     },
     {
       "Company": "SPORT CLUBS",
+      "Symbol": "",
       "Open": "9.30",
       "Highest": "13.46",
       "Lowest": "7.59",
@@ -5856,6 +6388,7 @@
     },
     {
       "Company": "LAZURDE",
+      "Symbol": "",
       "Open": "12.76",
       "Highest": "14.4",
       "Lowest": "11.44",
@@ -5867,6 +6400,7 @@
     },
     {
       "Company": "LUBEREF",
+      "Symbol": "",
       "Open": "101.20",
       "Highest": "108",
       "Lowest": "81.3",
@@ -5878,6 +6412,7 @@
     },
     {
       "Company": "SAIB",
+      "Symbol": "",
       "Open": "14.16",
       "Highest": "15.28",
       "Lowest": "12.85",
@@ -5889,6 +6424,7 @@
     },
     {
       "Company": "EAST PIPES",
+      "Symbol": "",
       "Open": "144.00",
       "Highest": "157.6",
       "Lowest": "100.2",
@@ -5900,6 +6436,7 @@
     },
     {
       "Company": "BCI",
+      "Symbol": "",
       "Open": "28.25",
       "Highest": "29.4",
       "Lowest": "24.52",
@@ -5911,6 +6448,7 @@
     },
     {
       "Company": "FOURTH MILLING",
+      "Symbol": "",
       "Open": "4.00",
       "Highest": "4.23",
       "Lowest": "3.34",
@@ -5922,6 +6460,7 @@
     },
     {
       "Company": "THIMAR",
+      "Symbol": "",
       "Open": "41.45",
       "Highest": "50.85",
       "Lowest": "31.72",
@@ -5933,6 +6472,7 @@
     },
     {
       "Company": "MIAHONA",
+      "Symbol": "",
       "Open": "20.90",
       "Highest": "28.14",
       "Lowest": "16.62",
@@ -5944,6 +6484,7 @@
     },
     {
       "Company": "MAHARAH",
+      "Symbol": "",
       "Open": "5.97",
       "Highest": "6.23",
       "Lowest": "4.39",
@@ -5955,6 +6496,7 @@
     },
     {
       "Company": "ATAA",
+      "Symbol": "",
       "Open": "64.80",
       "Highest": "75.8",
       "Lowest": "58",
@@ -5966,6 +6508,7 @@
     },
     {
       "Company": "ALDREES",
+      "Symbol": "",
       "Open": "137.00",
       "Highest": "154.1",
       "Lowest": "109.6",
@@ -5977,6 +6520,7 @@
     },
     {
       "Company": "MUSHARAKA REIT",
+      "Symbol": "",
       "Open": "4.36",
       "Highest": "5.06",
       "Lowest": "3.99",
@@ -5988,6 +6532,7 @@
     },
     {
       "Company": "MASAR",
+      "Symbol": "",
       "Open": "19.50",
       "Highest": "26.98",
       "Lowest": "16.5",
@@ -5999,6 +6544,7 @@
     },
     {
       "Company": "DWF",
+      "Symbol": "",
       "Open": "120.00",
       "Highest": "149.7",
       "Lowest": "93",
@@ -6010,6 +6556,7 @@
     },
     {
       "Company": "SULAIMAN ALHABIB",
+      "Symbol": "",
       "Open": "272.80",
       "Highest": "290.6",
       "Lowest": "227.7",
@@ -6021,6 +6568,7 @@
     },
     {
       "Company": "SPIMACO",
+      "Symbol": "",
       "Open": "28.70",
       "Highest": "31.06",
       "Lowest": "20.94",
@@ -6032,6 +6580,7 @@
     },
     {
       "Company": "DALLAH HEALTH",
+      "Symbol": "",
       "Open": "131.40",
       "Highest": "157.3",
       "Lowest": "109",
@@ -6043,6 +6592,7 @@
     },
     {
       "Company": "MOUWASAT",
+      "Symbol": "",
       "Open": "73.30",
       "Highest": "80.7",
       "Lowest": "65.6",
@@ -6054,6 +6604,7 @@
     },
     {
       "Company": "ALRAJHI",
+      "Symbol": "",
       "Open": "100.80",
       "Highest": "113",
       "Lowest": "87.8",
@@ -6065,6 +6616,7 @@
     },
     {
       "Company": "NAQI",
+      "Symbol": "",
       "Open": "58.70",
       "Highest": "60.1",
       "Lowest": "49.06",
@@ -6076,6 +6628,7 @@
     },
     {
       "Company": "BSF",
+      "Symbol": "",
       "Open": "17.02",
       "Highest": "18.94",
       "Lowest": "15.49",
@@ -6087,6 +6640,7 @@
     },
     {
       "Company": "STC",
+      "Symbol": "",
       "Open": "43.90",
       "Highest": "48.3",
       "Lowest": "40.7",
@@ -6098,6 +6652,7 @@
     },
     {
       "Company": "ALINMA RETAIL REIT",
+      "Symbol": "",
       "Open": "4.59",
       "Highest": "4.92",
       "Lowest": "4.31",
@@ -6109,6 +6664,7 @@
     },
     {
       "Company": "BONYAN REIT",
+      "Symbol": "",
       "Open": "9.54",
       "Highest": "9.69",
       "Lowest": "8.88",
@@ -6120,6 +6676,7 @@
     },
     {
       "Company": "RIYADH CABLES",
+      "Symbol": "",
       "Open": "127.80",
       "Highest": "147.7",
       "Lowest": "105.4",
@@ -6131,6 +6688,7 @@
     },
     {
       "Company": "CENOMI CENTERS",
+      "Symbol": "",
       "Open": "20.42",
       "Highest": "23.52",
       "Lowest": "18.32",
@@ -6142,6 +6700,7 @@
     },
     {
       "Company": "ALKHABEER REIT",
+      "Symbol": "",
       "Open": "5.70",
       "Highest": "6.09",
       "Lowest": "5.51",
@@ -6153,6 +6712,7 @@
     },
     {
       "Company": "Al RAJHI REIT",
+      "Symbol": "",
       "Open": "8.25",
       "Highest": "8.56",
       "Lowest": "8.03",
@@ -6164,6 +6724,7 @@
     },
     {
       "Company": "BAAZEEM",
+      "Symbol": "",
       "Open": "6.27",
       "Highest": "7.1",
       "Lowest": "4.84",
@@ -6175,6 +6736,7 @@
     },
     {
       "Company": "ALINMA HOSPITALITY REIT",
+      "Symbol": "",
       "Open": "8.26",
       "Highest": "8.5",
       "Lowest": "7.8",
@@ -6186,6 +6748,7 @@
     },
     {
       "Company": "TASHEEL",
+      "Symbol": "",
       "Open": "160.00",
       "Highest": "181.2",
       "Lowest": "143",
@@ -6197,6 +6760,7 @@
     },
     {
       "Company": "TALEEM REIT",
+      "Symbol": "",
       "Open": "10.10",
       "Highest": "11.04",
       "Lowest": "9.21",
@@ -6208,6 +6772,7 @@
     },
     {
       "Company": "ALMASAR ALSHAMIL",
+      "Symbol": "",
       "Open": "23.09",
       "Highest": "24.48",
       "Lowest": "18.33",
@@ -6219,6 +6784,7 @@
     },
     {
       "Company": "DERAYAH REIT",
+      "Symbol": "",
       "Open": "5.49",
       "Highest": "5.95",
       "Lowest": "5.04",
@@ -6232,6 +6798,7 @@
   "6 Months": [
     {
       "Company": "EIC",
+      "Symbol": "",
       "Open": "7.81",
       "Highest": "12.16",
       "Lowest": "6.86",
@@ -6243,6 +6810,7 @@
     },
     {
       "Company": "RASAN",
+      "Symbol": "",
       "Open": "83.20",
       "Highest": "122",
       "Lowest": "74.1",
@@ -6254,6 +6822,7 @@
     },
     {
       "Company": "AMAK",
+      "Symbol": "",
       "Open": "61.30",
       "Highest": "82.7",
       "Lowest": "53.5",
@@ -6265,6 +6834,7 @@
     },
     {
       "Company": "ABO MOATI",
+      "Symbol": "",
       "Open": "36.90",
       "Highest": "53.95",
       "Lowest": "31.6",
@@ -6276,6 +6846,7 @@
     },
     {
       "Company": "ADES",
+      "Symbol": "",
       "Open": "13.48",
       "Highest": "17.85",
       "Lowest": "12.16",
@@ -6287,6 +6858,7 @@
     },
     {
       "Company": "ALBABTAIN",
+      "Symbol": "",
       "Open": "53.10",
       "Highest": "69.85",
       "Lowest": "46.55",
@@ -6298,6 +6870,7 @@
     },
     {
       "Company": "BAHRI",
+      "Symbol": "",
       "Open": "24.76",
       "Highest": "32.5",
       "Lowest": "21.08",
@@ -6309,6 +6882,7 @@
     },
     {
       "Company": "SEERA",
+      "Symbol": "",
       "Open": "23.28",
       "Highest": "31.6",
       "Lowest": "20.68",
@@ -6320,6 +6894,7 @@
     },
     {
       "Company": "SABIC AGRI-NUTRIENTS",
+      "Symbol": "",
       "Open": "98.50",
       "Highest": "125.7",
       "Lowest": "95",
@@ -6331,6 +6906,7 @@
     },
     {
       "Company": "ETIHAD ETISALAT",
+      "Symbol": "",
       "Open": "58.00",
       "Highest": "69",
       "Lowest": "54.6",
@@ -6342,6 +6918,7 @@
     },
     {
       "Company": "EAST PIPES",
+      "Symbol": "",
       "Open": "117.00",
       "Highest": "146.6",
       "Lowest": "100.2",
@@ -6353,6 +6930,7 @@
     },
     {
       "Company": "MAADEN",
+      "Symbol": "",
       "Open": "52.00",
       "Highest": "68.45",
       "Lowest": "46.8",
@@ -6364,6 +6942,7 @@
     },
     {
       "Company": "ARABIAN DRILLING",
+      "Symbol": "",
       "Open": "81.80",
       "Highest": "96.95",
       "Lowest": "72",
@@ -6375,6 +6954,7 @@
     },
     {
       "Company": "DERAYAH",
+      "Symbol": "",
       "Open": "26.00",
       "Highest": "32",
       "Lowest": "23.04",
@@ -6386,6 +6966,7 @@
     },
     {
       "Company": "BAAZEEM",
+      "Symbol": "",
       "Open": "5.50",
       "Highest": "7.1",
       "Lowest": "4.84",
@@ -6397,6 +6978,7 @@
     },
     {
       "Company": "MIS",
+      "Symbol": "",
       "Open": "140.80",
       "Highest": "162.8",
       "Lowest": "125",
@@ -6408,6 +6990,7 @@
     },
     {
       "Company": "MAHARAH",
+      "Symbol": "",
       "Open": "5.07",
       "Highest": "5.84",
       "Lowest": "4.39",
@@ -6419,6 +7002,7 @@
     },
     {
       "Company": "AMLAK",
+      "Symbol": "",
       "Open": "10.56",
       "Highest": "13.9",
       "Lowest": "9.3",
@@ -6430,6 +7014,7 @@
     },
     {
       "Company": "ALARABIA",
+      "Symbol": "",
       "Open": "106.60",
       "Highest": "124.5",
       "Lowest": "79.7",
@@ -6441,6 +7026,7 @@
     },
     {
       "Company": "GASCO",
+      "Symbol": "",
       "Open": "75.70",
       "Highest": "90",
       "Lowest": "65.8",
@@ -6452,6 +7038,7 @@
     },
     {
       "Company": "CHERRY",
+      "Symbol": "",
       "Open": "26.40",
       "Highest": "29.54",
       "Lowest": "25.9",
@@ -6463,6 +7050,7 @@
     },
     {
       "Company": "ALMOOSA",
+      "Symbol": "",
       "Open": "156.20",
       "Highest": "212",
       "Lowest": "143",
@@ -6474,6 +7062,7 @@
     },
     {
       "Company": "JADWA REIT SAUDI",
+      "Symbol": "",
       "Open": "10.08",
       "Highest": "11.38",
       "Lowest": "9.8",
@@ -6485,6 +7074,7 @@
     },
     {
       "Company": "SISCO HOLDING",
+      "Symbol": "",
       "Open": "29.15",
       "Highest": "38.38",
       "Lowest": "23.5",
@@ -6496,6 +7086,7 @@
     },
     {
       "Company": "ANB",
+      "Symbol": "",
       "Open": "20.90",
       "Highest": "26.26",
       "Lowest": "20.2",
@@ -6507,6 +7098,7 @@
     },
     {
       "Company": "SPIMACO",
+      "Symbol": "",
       "Open": "25.50",
       "Highest": "31.06",
       "Lowest": "21.76",
@@ -6518,6 +7110,7 @@
     },
     {
       "Company": "ALYAMAMAH STEEL",
+      "Symbol": "",
       "Open": "31.20",
       "Highest": "39.5",
       "Lowest": "26.5",
@@ -6529,6 +7122,7 @@
     },
     {
       "Company": "SNB",
+      "Symbol": "",
       "Open": "35.00",
       "Highest": "41",
       "Lowest": "33.3",
@@ -6540,6 +7134,7 @@
     },
     {
       "Company": "DWF",
+      "Symbol": "",
       "Open": "107.80",
       "Highest": "149.7",
       "Lowest": "93",
@@ -6551,6 +7146,7 @@
     },
     {
       "Company": "SAUDI KAYAN",
+      "Symbol": "",
       "Open": "4.96",
       "Highest": "6.41",
       "Lowest": "4.46",
@@ -6562,6 +7158,7 @@
     },
     {
       "Company": "ALDREES",
+      "Symbol": "",
       "Open": "123.20",
       "Highest": "154.1",
       "Lowest": "109.6",
@@ -6573,6 +7170,7 @@
     },
     {
       "Company": "SAMBA",
+      "Symbol": "",
       "Open": "36.80",
       "Highest": "39.1",
       "Lowest": "36.5",
@@ -6584,6 +7182,7 @@
     },
     {
       "Company": "PETRO RABIGH",
+      "Symbol": "",
       "Open": "7.00",
       "Highest": "9.48",
       "Lowest": "6.26",
@@ -6595,6 +7194,7 @@
     },
     {
       "Company": "NAQI",
+      "Symbol": "",
       "Open": "53.70",
       "Highest": "57.55",
       "Lowest": "49.06",
@@ -6606,6 +7206,7 @@
     },
     {
       "Company": "TASNEE",
+      "Symbol": "",
       "Open": "9.25",
       "Highest": "11.94",
       "Lowest": "8.57",
@@ -6617,6 +7218,7 @@
     },
     {
       "Company": "DALLAH HEALTH",
+      "Symbol": "",
       "Open": "120.60",
       "Highest": "157.3",
       "Lowest": "109",
@@ -6628,6 +7230,7 @@
     },
     {
       "Company": "ADVANCED",
+      "Symbol": "",
       "Open": "29.50",
       "Highest": "38.64",
       "Lowest": "27.7",
@@ -6639,6 +7242,7 @@
     },
     {
       "Company": "THIMAR",
+      "Symbol": "",
       "Open": "37.90",
       "Highest": "50.85",
       "Lowest": "31.72",
@@ -6650,6 +7254,7 @@
     },
     {
       "Company": "YANSAB",
+      "Symbol": "",
       "Open": "29.50",
       "Highest": "37.28",
       "Lowest": "28.25",
@@ -6661,6 +7266,7 @@
     },
     {
       "Company": "CENOMI CENTERS",
+      "Symbol": "",
       "Open": "19.44",
       "Highest": "23.52",
       "Lowest": "18.32",
@@ -6672,6 +7278,7 @@
     },
     {
       "Company": "MAADANIYAH",
+      "Symbol": "",
       "Open": "13.82",
       "Highest": "18.5",
       "Lowest": "12.54",
@@ -6683,6 +7290,7 @@
     },
     {
       "Company": "ALRAJHI",
+      "Symbol": "",
       "Open": "93.70",
       "Highest": "113",
       "Lowest": "88.1",
@@ -6694,6 +7302,7 @@
     },
     {
       "Company": "CENOMI RETAIL",
+      "Symbol": "",
       "Open": "19.70",
       "Highest": "35.38",
       "Lowest": "18",
@@ -6705,6 +7314,7 @@
     },
     {
       "Company": "SHL",
+      "Symbol": "",
       "Open": "17.78",
       "Highest": "24.9",
       "Lowest": "15.7",
@@ -6716,6 +7326,7 @@
     },
     {
       "Company": "TALEEM REIT",
+      "Symbol": "",
       "Open": "9.93",
       "Highest": "10.55",
       "Lowest": "9.21",
@@ -6727,6 +7338,7 @@
     },
     {
       "Company": "Sahara",
+      "Symbol": "",
       "Open": "17.26",
       "Highest": "17.48",
       "Lowest": "16.7",
@@ -6738,6 +7350,7 @@
     },
     {
       "Company": "BONYAN REIT",
+      "Symbol": "",
       "Open": "9.10",
       "Highest": "9.69",
       "Lowest": "8.88",
@@ -6749,6 +7362,7 @@
     },
     {
       "Company": "JARIR",
+      "Symbol": "",
       "Open": "12.50",
       "Highest": "14.56",
       "Lowest": "12",
@@ -6760,6 +7374,7 @@
     },
     {
       "Company": "BCI",
+      "Symbol": "",
       "Open": "26.15",
       "Highest": "29.16",
       "Lowest": "24.52",
@@ -6771,6 +7386,7 @@
     },
     {
       "Company": "NAYIFAT",
+      "Symbol": "",
       "Open": "12.62",
       "Highest": "14.18",
       "Lowest": "11.8",
@@ -6782,6 +7398,7 @@
     },
     {
       "Company": "SULAIMAN ALHABIB",
+      "Symbol": "",
       "Open": "258.40",
       "Highest": "281.2",
       "Lowest": "227.7",
@@ -6793,6 +7410,7 @@
     },
     {
       "Company": "WAFA Insurance",
+      "Symbol": "",
       "Open": "9.50",
       "Highest": "10",
       "Lowest": "9.3",
@@ -6804,6 +7422,7 @@
     },
     {
       "Company": "ALAWWAL",
+      "Symbol": "",
       "Open": "19.58",
       "Highest": "19.58",
       "Lowest": "19",
@@ -6815,6 +7434,7 @@
     },
     {
       "Company": "MMG",
+      "Symbol": "",
       "Open": "12.55",
       "Highest": "12.9",
       "Lowest": "11.8",
@@ -6826,6 +7446,7 @@
     },
     {
       "Company": "METLIFE AIG ANB",
+      "Symbol": "",
       "Open": "14.30",
       "Highest": "15.4",
       "Lowest": "14.02",
@@ -6837,6 +7458,7 @@
     },
     {
       "Company": "SANAD",
+      "Symbol": "",
       "Open": "15.23",
       "Highest": "17.75",
       "Lowest": "14.75",
@@ -6848,6 +7470,7 @@
     },
     {
       "Company": "ALAHLIA",
+      "Symbol": "",
       "Open": "14.76",
       "Highest": "15.02",
       "Lowest": "14.5",
@@ -6859,6 +7482,7 @@
     },
     {
       "Company": "PETROCHEM",
+      "Symbol": "",
       "Open": "45.45",
       "Highest": "46",
       "Lowest": "45.4",
@@ -6870,6 +7494,7 @@
     },
     {
       "Company": "SOLIDARITY",
+      "Symbol": "",
       "Open": "14.20",
       "Highest": "14.52",
       "Lowest": "14.16",
@@ -6881,6 +7506,7 @@
     },
     {
       "Company": "Weqaya Takaful",
+      "Symbol": "",
       "Open": "19.39",
       "Highest": "19.75",
       "Lowest": "19.15",
@@ -6892,6 +7518,7 @@
     },
     {
       "Company": "ALKHODARI",
+      "Symbol": "",
       "Open": "5.39",
       "Highest": "5.76",
       "Lowest": "5.18",
@@ -6903,6 +7530,7 @@
     },
     {
       "Company": "DUR",
+      "Symbol": "",
       "Open": "27.00",
       "Highest": "27.1",
       "Lowest": "26.4",
@@ -6914,6 +7542,7 @@
     },
     {
       "Company": "Bishah Agriculture",
+      "Symbol": "",
       "Open": "69.75",
       "Highest": "81",
       "Lowest": "69.75",
@@ -6925,6 +7554,7 @@
     },
     {
       "Company": "HCC",
+      "Symbol": "",
       "Open": "11.60",
       "Highest": "11.7",
       "Lowest": "11.54",
@@ -6936,6 +7566,7 @@
     },
     {
       "Company": "ALINMA TOKIO M",
+      "Symbol": "",
       "Open": "12.80",
       "Highest": "12.84",
       "Lowest": "12.06",
@@ -6947,6 +7578,7 @@
     },
     {
       "Company": "SABB TAKAFUL",
+      "Symbol": "",
       "Open": "11.50",
       "Highest": "11.98",
       "Lowest": "11.5",
@@ -6958,6 +7590,7 @@
     },
     {
       "Company": "ATC",
+      "Symbol": "",
       "Open": "34.00",
       "Highest": "34.35",
       "Lowest": "33.25",
@@ -6969,6 +7602,7 @@
     },
     {
       "Company": "UCA",
+      "Symbol": "",
       "Open": "7.23",
       "Highest": "7.61",
       "Lowest": "3.63",
@@ -6980,6 +7614,7 @@
     },
     {
       "Company": "NASEEJ",
+      "Symbol": "",
       "Open": "82.90",
       "Highest": "110.8",
       "Lowest": "42.3",
@@ -6991,6 +7626,7 @@
     },
     {
       "Company": "NICE ONE",
+      "Symbol": "",
       "Open": "32.90",
       "Highest": "35.28",
       "Lowest": "19.17",
@@ -7002,6 +7638,7 @@
     },
     {
       "Company": "JAHEZ",
+      "Symbol": "",
       "Open": "27.45",
       "Highest": "28.46",
       "Lowest": "15.23",
@@ -7013,6 +7650,7 @@
     },
     {
       "Company": "ALETIHAD",
+      "Symbol": "",
       "Open": "13.90",
       "Highest": "14.27",
       "Lowest": "8.38",
@@ -7024,6 +7662,7 @@
     },
     {
       "Company": "ALAKARIA",
+      "Symbol": "",
       "Open": "20.40",
       "Highest": "21.07",
       "Lowest": "12.77",
@@ -7035,6 +7674,7 @@
     },
     {
       "Company": "SAUDI GERMAN HEALTH",
+      "Symbol": "",
       "Open": "57.80",
       "Highest": "60.7",
       "Lowest": "37.38",
@@ -7046,6 +7686,7 @@
     },
     {
       "Company": "SAUDI DARB",
+      "Symbol": "",
       "Open": "3.61",
       "Highest": "3.69",
       "Lowest": "2.3",
@@ -7057,6 +7698,7 @@
     },
     {
       "Company": "TANMIAH",
+      "Symbol": "",
       "Open": "97.10",
       "Highest": "98.9",
       "Lowest": "59.1",
@@ -7068,6 +7710,7 @@
     },
     {
       "Company": "GULF GENERAL",
+      "Symbol": "",
       "Open": "6.42",
       "Highest": "6.6",
       "Lowest": "4.22",
@@ -7079,6 +7722,7 @@
     },
     {
       "Company": "YC",
+      "Symbol": "",
       "Open": "35.35",
       "Highest": "36.8",
       "Lowest": "22.59",
@@ -7090,6 +7734,7 @@
     },
     {
       "Company": "MEDGULF",
+      "Symbol": "",
       "Open": "19.54",
       "Highest": "20.75",
       "Lowest": "12.8",
@@ -7101,6 +7746,7 @@
     },
     {
       "Company": "WALAA",
+      "Symbol": "",
       "Open": "17.70",
       "Highest": "18.1",
       "Lowest": "10.8",
@@ -7112,6 +7758,7 @@
     },
     {
       "Company": "UCIC",
+      "Symbol": "",
       "Open": "39.40",
       "Highest": "41.05",
       "Lowest": "26.16",
@@ -7123,6 +7770,7 @@
     },
     {
       "Company": "TAPRCO",
+      "Symbol": "",
       "Open": "26.19",
       "Highest": "31",
       "Lowest": "17.85",
@@ -7134,6 +7782,7 @@
     },
     {
       "Company": "SFICO",
+      "Symbol": "",
       "Open": "100.00",
       "Highest": "107",
       "Lowest": "67.95",
@@ -7145,6 +7794,7 @@
     },
     {
       "Company": "ALDAWAA",
+      "Symbol": "",
       "Open": "79.60",
       "Highest": "80.05",
       "Lowest": "54",
@@ -7156,6 +7806,7 @@
     },
     {
       "Company": "CATRION",
+      "Symbol": "",
       "Open": "116.60",
       "Highest": "126.4",
       "Lowest": "80.9",
@@ -7167,6 +7818,7 @@
     },
     {
       "Company": "ACIG",
+      "Symbol": "",
       "Open": "12.54",
       "Highest": "12.98",
       "Lowest": "8.75",
@@ -7178,6 +7830,7 @@
     },
     {
       "Company": "OBEIKAN GLASS",
+      "Symbol": "",
       "Open": "37.00",
       "Highest": "41.6",
       "Lowest": "24.59",
@@ -7189,6 +7842,7 @@
     },
     {
       "Company": "ALAMAR",
+      "Symbol": "",
       "Open": "59.30",
       "Highest": "60.9",
       "Lowest": "41",
@@ -7200,6 +7854,7 @@
     },
     {
       "Company": "SAIC",
+      "Symbol": "",
       "Open": "25.70",
       "Highest": "29.18",
       "Lowest": "17.75",
@@ -7211,6 +7866,7 @@
     },
     {
       "Company": "SIDC",
+      "Symbol": "",
       "Open": "16.64",
       "Highest": "22.98",
       "Lowest": "11.55",
@@ -7222,6 +7878,7 @@
     },
     {
       "Company": "HERFY FOODS",
+      "Symbol": "",
       "Open": "21.86",
       "Highest": "26.36",
       "Lowest": "15.57",
@@ -7233,6 +7890,7 @@
     },
     {
       "Company": "JABAL OMAR",
+      "Symbol": "",
       "Open": "21.06",
       "Highest": "21.98",
       "Lowest": "14.83",
@@ -7244,6 +7902,7 @@
     },
     {
       "Company": "MBC GROUP",
+      "Symbol": "",
       "Open": "43.75",
       "Highest": "44.4",
       "Lowest": "27.56",
@@ -7255,6 +7914,7 @@
     },
     {
       "Company": "ALRAJHI TAKAFUL",
+      "Symbol": "",
       "Open": "118.20",
       "Highest": "132.8",
       "Lowest": "84",
@@ -7266,6 +7926,7 @@
     },
     {
       "Company": "MESC",
+      "Symbol": "",
       "Open": "32.00",
       "Highest": "35.2",
       "Lowest": "22.28",
@@ -7277,6 +7938,7 @@
     },
     {
       "Company": "CITY CEMENT",
+      "Symbol": "",
       "Open": "17.48",
       "Highest": "17.96",
       "Lowest": "12.56",
@@ -7288,6 +7950,7 @@
     },
     {
       "Company": "GULF UNION ALAHLIA",
+      "Symbol": "",
       "Open": "15.56",
       "Highest": "15.64",
       "Lowest": "10.86",
@@ -7299,6 +7962,7 @@
     },
     {
       "Company": "RIYADH CEMENT",
+      "Symbol": "",
       "Open": "32.80",
       "Highest": "33",
       "Lowest": "22.98",
@@ -7310,6 +7974,7 @@
     },
     {
       "Company": "BUILD STATION",
+      "Symbol": "",
       "Open": "80.80",
       "Highest": "93",
       "Lowest": "56.95",
@@ -7321,6 +7986,7 @@
     },
     {
       "Company": "SAPTCO",
+      "Symbol": "",
       "Open": "13.90",
       "Highest": "15",
       "Lowest": "10.09",
@@ -7332,6 +7998,7 @@
     },
     {
       "Company": "AMANA INSURANCE",
+      "Symbol": "",
       "Open": "8.32",
       "Highest": "9.27",
       "Lowest": "6",
@@ -7343,6 +8010,7 @@
     },
     {
       "Company": "UACC",
+      "Symbol": "",
       "Open": "17.00",
       "Highest": "17.26",
       "Lowest": "12.29",
@@ -7354,6 +8022,7 @@
     },
     {
       "Company": "ARABIAN SHIELD",
+      "Symbol": "",
       "Open": "15.78",
       "Highest": "16.58",
       "Lowest": "11.25",
@@ -7365,6 +8034,7 @@
     },
     {
       "Company": "EPCCO",
+      "Symbol": "",
       "Open": "31.40",
       "Highest": "32.06",
       "Lowest": "23",
@@ -7376,6 +8046,7 @@
     },
     {
       "Company": "SPCC",
+      "Symbol": "",
       "Open": "29.40",
       "Highest": "30",
       "Lowest": "21",
@@ -7387,6 +8058,7 @@
     },
     {
       "Company": "CHEMANOL",
+      "Symbol": "",
       "Open": "11.88",
       "Highest": "13.96",
       "Lowest": "8.59",
@@ -7398,6 +8070,7 @@
     },
     {
       "Company": "MALATH INSURANCE",
+      "Symbol": "",
       "Open": "13.58",
       "Highest": "14",
       "Lowest": "10.13",
@@ -7409,6 +8082,7 @@
     },
     {
       "Company": "SSP",
+      "Symbol": "",
       "Open": "55.90",
       "Highest": "58.75",
       "Lowest": "39.8",
@@ -7420,6 +8094,7 @@
     },
     {
       "Company": "WATANIYA",
+      "Symbol": "",
       "Open": "17.26",
       "Highest": "18.32",
       "Lowest": "12.87",
@@ -7431,6 +8106,7 @@
     },
     {
       "Company": "ACWA POWER",
+      "Symbol": "",
       "Open": "253.40",
       "Highest": "274.8",
       "Lowest": "186.2",
@@ -7442,6 +8118,7 @@
     },
     {
       "Company": "ALHAMMADI",
+      "Symbol": "",
       "Open": "37.65",
       "Highest": "38.8",
       "Lowest": "28.4",
@@ -7453,6 +8130,7 @@
     },
     {
       "Company": "HB",
+      "Symbol": "",
       "Open": "44.05",
       "Highest": "47.76",
       "Lowest": "32.9",
@@ -7464,6 +8142,7 @@
     },
     {
       "Company": "ALMAJDIAH",
+      "Symbol": "",
       "Open": "13.83",
       "Highest": "14.46",
       "Lowest": "9.97",
@@ -7475,6 +8154,7 @@
     },
     {
       "Company": "APC",
+      "Symbol": "",
       "Open": "6.60",
       "Highest": "6.81",
       "Lowest": "4.93",
@@ -7486,6 +8166,7 @@
     },
     {
       "Company": "DAR ALARKAN",
+      "Symbol": "",
       "Open": "20.40",
       "Highest": "20.97",
       "Lowest": "15",
@@ -7497,6 +8178,7 @@
     },
     {
       "Company": "SPPC",
+      "Symbol": "",
       "Open": "10.86",
       "Highest": "13.87",
       "Lowest": "8",
@@ -7508,6 +8190,7 @@
     },
     {
       "Company": "SALAMA",
+      "Symbol": "",
       "Open": "12.70",
       "Highest": "14.34",
       "Lowest": "9.78",
@@ -7519,6 +8202,7 @@
     },
     {
       "Company": "JOUF CEMENT",
+      "Symbol": "",
       "Open": "8.69",
       "Highest": "8.71",
       "Lowest": "6.39",
@@ -7530,6 +8214,7 @@
     },
     {
       "Company": "ARDCO",
+      "Symbol": "",
       "Open": "32.40",
       "Highest": "35.92",
       "Lowest": "24.88",
@@ -7541,6 +8226,7 @@
     },
     {
       "Company": "WAFRAH",
+      "Symbol": "",
       "Open": "28.60",
       "Highest": "30.7",
       "Lowest": "21.67",
@@ -7552,6 +8238,7 @@
     },
     {
       "Company": "SIIG",
+      "Symbol": "",
       "Open": "17.20",
       "Highest": "20",
       "Lowest": "13.34",
@@ -7563,6 +8250,7 @@
     },
     {
       "Company": "ALMUNAJEM",
+      "Symbol": "",
       "Open": "69.30",
       "Highest": "79.5",
       "Lowest": "53",
@@ -7574,6 +8262,7 @@
     },
     {
       "Company": "ENTAJ",
+      "Symbol": "",
       "Open": "44.75",
       "Highest": "45.7",
       "Lowest": "32.9",
@@ -7585,6 +8274,7 @@
     },
     {
       "Company": "TECO",
+      "Symbol": "",
       "Open": "15.80",
       "Highest": "24.4",
       "Lowest": "12.14",
@@ -7596,6 +8286,7 @@
     },
     {
       "Company": "YCC",
+      "Symbol": "",
       "Open": "20.38",
       "Highest": "20.88",
       "Lowest": "15.18",
@@ -7607,6 +8298,7 @@
     },
     {
       "Company": "ALUJAIN",
+      "Symbol": "",
       "Open": "37.30",
       "Highest": "38.3",
       "Lowest": "29.16",
@@ -7618,6 +8310,7 @@
     },
     {
       "Company": "MUTAKAMELA",
+      "Symbol": "",
       "Open": "15.02",
       "Highest": "17.17",
       "Lowest": "11.47",
@@ -7629,6 +8322,7 @@
     },
     {
       "Company": "SAICO",
+      "Symbol": "",
       "Open": "15.28",
       "Highest": "15.89",
       "Lowest": "11.84",
@@ -7640,6 +8334,7 @@
     },
     {
       "Company": "ALANDALUS",
+      "Symbol": "",
       "Open": "22.66",
       "Highest": "23.08",
       "Lowest": "16.7",
@@ -7651,6 +8346,7 @@
     },
     {
       "Company": "SVCP",
+      "Symbol": "",
       "Open": "28.70",
       "Highest": "32.42",
       "Lowest": "21.95",
@@ -7662,6 +8358,7 @@
     },
     {
       "Company": "ENAYA",
+      "Symbol": "",
       "Open": "9.26",
       "Highest": "10.43",
       "Lowest": "7.31",
@@ -7673,6 +8370,7 @@
     },
     {
       "Company": "ANAAM HOLDING",
+      "Symbol": "",
       "Open": "15.70",
       "Highest": "17.52",
       "Lowest": "12.25",
@@ -7684,6 +8382,7 @@
     },
     {
       "Company": "ALKHALEEJ TRNG",
+      "Symbol": "",
       "Open": "26.00",
       "Highest": "29.38",
       "Lowest": "20.24",
@@ -7695,6 +8394,7 @@
     },
     {
       "Company": "MIAHONA",
+      "Symbol": "",
       "Open": "24.38",
       "Highest": "28.14",
       "Lowest": "18.75",
@@ -7706,6 +8406,7 @@
     },
     {
       "Company": "SMC HEALTHCARE",
+      "Symbol": "",
       "Open": "24.16",
       "Highest": "25",
       "Lowest": "17.62",
@@ -7717,6 +8418,7 @@
     },
     {
       "Company": "TADCO",
+      "Symbol": "",
       "Open": "10.58",
       "Highest": "11.94",
       "Lowest": "8.22",
@@ -7728,6 +8430,7 @@
     },
     {
       "Company": "RETAL",
+      "Symbol": "",
       "Open": "15.00",
       "Highest": "16.43",
       "Lowest": "10.88",
@@ -7739,6 +8442,7 @@
     },
     {
       "Company": "MASAR",
+      "Symbol": "",
       "Open": "22.78",
       "Highest": "26.98",
       "Lowest": "18.13",
@@ -7750,6 +8454,7 @@
     },
     {
       "Company": "FARM SUPERSTORES",
+      "Symbol": "",
       "Open": "18.22",
       "Highest": "18.6",
       "Lowest": "14.04",
@@ -7761,6 +8466,7 @@
     },
     {
       "Company": "NAJRAN CEMENT",
+      "Symbol": "",
       "Open": "8.40",
       "Highest": "8.46",
       "Lowest": "6.8",
@@ -7772,6 +8478,7 @@
     },
     {
       "Company": "ELM",
+      "Symbol": "",
       "Open": "959.20",
       "Highest": "1033.6",
       "Lowest": "745",
@@ -7783,6 +8490,7 @@
     },
     {
       "Company": "TAKWEEN",
+      "Symbol": "",
       "Open": "7.80",
       "Highest": "8.67",
       "Lowest": "6.15",
@@ -7794,6 +8502,7 @@
     },
     {
       "Company": "A.OTHAIM MARKET",
+      "Symbol": "",
       "Open": "8.02",
       "Highest": "8.15",
       "Lowest": "6.5",
@@ -7805,6 +8514,7 @@
     },
     {
       "Company": "AMERICANA",
+      "Symbol": "",
       "Open": "2.21",
       "Highest": "2.43",
       "Lowest": "1.76",
@@ -7816,6 +8526,7 @@
     },
     {
       "Company": "NAHDI",
+      "Symbol": "",
       "Open": "126.20",
       "Highest": "132.1",
       "Lowest": "95.6",
@@ -7827,6 +8538,7 @@
     },
     {
       "Company": "AMIANTIT",
+      "Symbol": "",
       "Open": "21.22",
       "Highest": "23.6",
       "Lowest": "16.55",
@@ -7838,6 +8550,7 @@
     },
     {
       "Company": "TAWUNIYA",
+      "Symbol": "",
       "Open": "147.20",
       "Highest": "161",
       "Lowest": "114.2",
@@ -7849,6 +8562,7 @@
     },
     {
       "Company": "FITAIHI GROUP",
+      "Symbol": "",
       "Open": "3.55",
       "Highest": "3.75",
       "Lowest": "2.85",
@@ -7860,6 +8574,7 @@
     },
     {
       "Company": "SAUDI RE",
+      "Symbol": "",
       "Open": "33.36",
       "Highest": "36.09",
       "Lowest": "27.1",
@@ -7871,6 +8586,7 @@
     },
     {
       "Company": "NAMA CHEMICALS",
+      "Symbol": "",
       "Open": "27.70",
       "Highest": "29.48",
       "Lowest": "22.83",
@@ -7882,6 +8598,7 @@
     },
     {
       "Company": "ALASEEL",
+      "Symbol": "",
       "Open": "4.05",
       "Highest": "4.24",
       "Lowest": "3.3",
@@ -7893,6 +8610,7 @@
     },
     {
       "Company": "QACCO",
+      "Symbol": "",
       "Open": "51.30",
       "Highest": "51.7",
       "Lowest": "40.5",
@@ -7904,6 +8622,7 @@
     },
     {
       "Company": "ARAB SEA",
+      "Symbol": "",
       "Open": "5.35",
       "Highest": "5.78",
       "Lowest": "4.31",
@@ -7915,6 +8634,7 @@
     },
     {
       "Company": "TALCO",
+      "Symbol": "",
       "Open": "44.05",
       "Highest": "45.62",
       "Lowest": "32.88",
@@ -7926,6 +8646,7 @@
     },
     {
       "Company": "MEPCO",
+      "Symbol": "",
       "Open": "28.10",
       "Highest": "31.52",
       "Lowest": "23.19",
@@ -7937,6 +8658,7 @@
     },
     {
       "Company": "JADWA REIT ALHARAMAIN",
+      "Symbol": "",
       "Open": "5.89",
       "Highest": "5.93",
       "Lowest": "4.8",
@@ -7948,6 +8670,7 @@
     },
     {
       "Company": "AICC",
+      "Symbol": "",
       "Open": "11.74",
       "Highest": "12.62",
       "Lowest": "9.7",
@@ -7959,6 +8682,7 @@
     },
     {
       "Company": "BANAN",
+      "Symbol": "",
       "Open": "4.64",
       "Highest": "5.32",
       "Lowest": "3.86",
@@ -7970,6 +8694,7 @@
     },
     {
       "Company": "FLYNAS",
+      "Symbol": "",
       "Open": "77.30",
       "Highest": "84.1",
       "Lowest": "60.25",
@@ -7981,6 +8706,7 @@
     },
     {
       "Company": "FAKEEH CARE",
+      "Symbol": "",
       "Open": "42.90",
       "Highest": "43.3",
       "Lowest": "36.16",
@@ -7992,6 +8718,7 @@
     },
     {
       "Company": "BUPA ARABIA",
+      "Symbol": "",
       "Open": "169.00",
       "Highest": "182.4",
       "Lowest": "140.6",
@@ -8003,6 +8730,7 @@
     },
     {
       "Company": "SHAKER",
+      "Symbol": "",
       "Open": "26.75",
       "Highest": "29.78",
       "Lowest": "22.55",
@@ -8014,6 +8742,7 @@
     },
     {
       "Company": "ZOUJAJ",
+      "Symbol": "",
       "Open": "44.10",
       "Highest": "45.92",
       "Lowest": "36.12",
@@ -8025,6 +8754,7 @@
     },
     {
       "Company": "SGS",
+      "Symbol": "",
       "Open": "46.65",
       "Highest": "51.7",
       "Lowest": "38.98",
@@ -8036,6 +8766,7 @@
     },
     {
       "Company": "ALSAGR INSURANCE",
+      "Symbol": "",
       "Open": "12.40",
       "Highest": "15.1",
       "Lowest": "10.1",
@@ -8047,6 +8778,7 @@
     },
     {
       "Company": "2P",
+      "Symbol": "",
       "Open": "10.31",
       "Highest": "10.77",
       "Lowest": "8.45",
@@ -8058,6 +8790,7 @@
     },
     {
       "Company": "TCC",
+      "Symbol": "",
       "Open": "11.22",
       "Highest": "11.4",
       "Lowest": "9.36",
@@ -8069,6 +8802,7 @@
     },
     {
       "Company": "CMCER",
+      "Symbol": "",
       "Open": "8.25",
       "Highest": "9.14",
       "Lowest": "6.95",
@@ -8080,6 +8814,7 @@
     },
     {
       "Company": "CARE",
+      "Symbol": "",
       "Open": "167.60",
       "Highest": "183.5",
       "Lowest": "140.3",
@@ -8091,6 +8826,7 @@
     },
     {
       "Company": "SIPCHEM",
+      "Symbol": "",
       "Open": "18.60",
       "Highest": "21.23",
       "Lowest": "15.79",
@@ -8102,6 +8838,7 @@
     },
     {
       "Company": "JAZIRA TAKAFUL",
+      "Symbol": "",
       "Open": "13.58",
       "Highest": "14",
       "Lowest": "11.28",
@@ -8113,6 +8850,7 @@
     },
     {
       "Company": "GAS",
+      "Symbol": "",
       "Open": "16.24",
       "Highest": "17.99",
       "Lowest": "13.52",
@@ -8124,6 +8862,7 @@
     },
     {
       "Company": "BINDAWOOD",
+      "Symbol": "",
       "Open": "5.86",
       "Highest": "6.69",
       "Lowest": "4.54",
@@ -8135,6 +8874,7 @@
     },
     {
       "Company": "LUMI",
+      "Symbol": "",
       "Open": "62.00",
       "Highest": "65",
       "Lowest": "51.55",
@@ -8146,6 +8886,7 @@
     },
     {
       "Company": "JAMJOOM PHARMA",
+      "Symbol": "",
       "Open": "174.00",
       "Highest": "181.3",
       "Lowest": "141.9",
@@ -8157,6 +8898,7 @@
     },
     {
       "Company": "SMASCO",
+      "Symbol": "",
       "Open": "6.24",
       "Highest": "6.55",
       "Lowest": "5.26",
@@ -8168,6 +8910,7 @@
     },
     {
       "Company": "ASTRA INDUSTRIAL",
+      "Symbol": "",
       "Open": "153.40",
       "Highest": "161.7",
       "Lowest": "130.9",
@@ -8179,6 +8922,7 @@
     },
     {
       "Company": "MRNA",
+      "Symbol": "",
       "Open": "11.52",
       "Highest": "12.73",
       "Lowest": "9.88",
@@ -8190,6 +8934,7 @@
     },
     {
       "Company": "EMAAR EC",
+      "Symbol": "",
       "Open": "13.02",
       "Highest": "14.76",
       "Lowest": "10.72",
@@ -8201,6 +8946,7 @@
     },
     {
       "Company": "BURGERIZZR",
+      "Symbol": "",
       "Open": "16.70",
       "Highest": "18.1",
       "Lowest": "14.15",
@@ -8212,6 +8958,7 @@
     },
     {
       "Company": "SHARQIYAH DEV",
+      "Symbol": "",
       "Open": "16.40",
       "Highest": "18.3",
       "Lowest": "13.85",
@@ -8223,6 +8970,7 @@
     },
     {
       "Company": "SARCO",
+      "Symbol": "",
       "Open": "62.60",
       "Highest": "65.8",
       "Lowest": "53.5",
@@ -8234,6 +8982,7 @@
     },
     {
       "Company": "RAOOM",
+      "Symbol": "",
       "Open": "68.10",
       "Highest": "70.6",
       "Lowest": "54",
@@ -8245,6 +8994,7 @@
     },
     {
       "Company": "SADAFCO",
+      "Symbol": "",
       "Open": "277.00",
       "Highest": "297.2",
       "Lowest": "237",
@@ -8256,6 +9006,7 @@
     },
     {
       "Company": "ARTEX",
+      "Symbol": "",
       "Open": "12.84",
       "Highest": "14.78",
       "Lowest": "11.1",
@@ -8267,6 +9018,7 @@
     },
     {
       "Company": "SOLUTIONS",
+      "Symbol": "",
       "Open": "259.80",
       "Highest": "272",
       "Lowest": "219.9",
@@ -8278,6 +9030,7 @@
     },
     {
       "Company": "SIECO",
+      "Symbol": "",
       "Open": "2.15",
       "Highest": "2.42",
       "Lowest": "1.77",
@@ -8289,6 +9042,7 @@
     },
     {
       "Company": "LEEJAM SPORTS",
+      "Symbol": "",
       "Open": "129.00",
       "Highest": "151.7",
       "Lowest": "111.2",
@@ -8300,6 +9054,7 @@
     },
     {
       "Company": "SUMOU",
+      "Symbol": "",
       "Open": "40.05",
       "Highest": "43.7",
       "Lowest": "34.75",
@@ -8311,6 +9066,7 @@
     },
     {
       "Company": "SAVOLA GROUP",
+      "Symbol": "",
       "Open": "27.35",
       "Highest": "28.45",
       "Lowest": "22.52",
@@ -8322,6 +9078,7 @@
     },
     {
       "Company": "OASIS",
+      "Symbol": "",
       "Open": "2.58",
       "Highest": "2.76",
       "Lowest": "2.18",
@@ -8333,6 +9090,7 @@
     },
     {
       "Company": "JAZADCO",
+      "Symbol": "",
       "Open": "10.22",
       "Highest": "11.5",
       "Lowest": "8.85",
@@ -8344,6 +9102,7 @@
     },
     {
       "Company": "KINGDOM",
+      "Symbol": "",
       "Open": "8.88",
       "Highest": "8.94",
       "Lowest": "7.03",
@@ -8355,6 +9114,7 @@
     },
     {
       "Company": "RIYADH CABLES",
+      "Symbol": "",
       "Open": "141.00",
       "Highest": "147.7",
       "Lowest": "114.5",
@@ -8366,6 +9126,7 @@
     },
     {
       "Company": "ALJAZIRA REIT",
+      "Symbol": "",
       "Open": "13.84",
       "Highest": "14.5",
       "Lowest": "11.92",
@@ -8377,6 +9138,7 @@
     },
     {
       "Company": "ALMARAI",
+      "Symbol": "",
       "Open": "49.95",
       "Highest": "54.05",
       "Lowest": "43.5",
@@ -8388,6 +9150,7 @@
     },
     {
       "Company": "NADEC",
+      "Symbol": "",
       "Open": "20.72",
       "Highest": "22.7",
       "Lowest": "18.02",
@@ -8399,6 +9162,7 @@
     },
     {
       "Company": "NGC",
+      "Symbol": "",
       "Open": "18.54",
       "Highest": "24",
       "Lowest": "15.6",
@@ -8410,6 +9174,7 @@
     },
     {
       "Company": "AZM",
+      "Symbol": "",
       "Open": "28.60",
       "Highest": "31.7",
       "Lowest": "22.67",
@@ -8421,6 +9186,7 @@
     },
     {
       "Company": "ALSAIF GALLERY",
+      "Symbol": "",
       "Open": "7.26",
       "Highest": "7.37",
       "Lowest": "6.41",
@@ -8432,6 +9198,7 @@
     },
     {
       "Company": "SINAD HOLDING",
+      "Symbol": "",
       "Open": "10.52",
       "Highest": "11.8",
       "Lowest": "9.07",
@@ -8443,6 +9210,7 @@
     },
     {
       "Company": "RAYDAN",
+      "Symbol": "",
       "Open": "30.21",
       "Highest": "32.4",
       "Lowest": "26",
@@ -8454,6 +9222,7 @@
     },
     {
       "Company": "SAIB",
+      "Symbol": "",
       "Open": "14.70",
       "Highest": "14.81",
       "Lowest": "12.85",
@@ -8465,6 +9234,7 @@
     },
     {
       "Company": "SPM",
+      "Symbol": "",
       "Open": "63.80",
       "Highest": "66.8",
       "Lowest": "48.82",
@@ -8476,6 +9246,7 @@
     },
     {
       "Company": "FIPCO",
+      "Symbol": "",
       "Open": "34.25",
       "Highest": "37.2",
       "Lowest": "29.7",
@@ -8487,6 +9258,7 @@
     },
     {
       "Company": "THEEB",
+      "Symbol": "",
       "Open": "66.10",
       "Highest": "68.6",
       "Lowest": "57.25",
@@ -8498,6 +9270,7 @@
     },
     {
       "Company": "RIYAD REIT",
+      "Symbol": "",
       "Open": "5.64",
       "Highest": "5.82",
       "Lowest": "4.95",
@@ -8509,6 +9282,7 @@
     },
     {
       "Company": "BJAZ",
+      "Symbol": "",
       "Open": "12.72",
       "Highest": "13.31",
       "Lowest": "11.14",
@@ -8520,6 +9294,7 @@
     },
     {
       "Company": "SAUDI CEMENT",
+      "Symbol": "",
       "Open": "39.95",
       "Highest": "41.58",
       "Lowest": "35.4",
@@ -8531,6 +9306,7 @@
     },
     {
       "Company": "NCLE",
+      "Symbol": "",
       "Open": "160.60",
       "Highest": "183",
       "Lowest": "138.4",
@@ -8542,6 +9318,7 @@
     },
     {
       "Company": "EQUIPMENT HOUSE",
+      "Symbol": "",
       "Open": "37.35",
       "Highest": "41",
       "Lowest": "31.66",
@@ -8553,6 +9330,7 @@
     },
     {
       "Company": "KEC",
+      "Symbol": "",
       "Open": "13.46",
       "Highest": "14.5",
       "Lowest": "11.62",
@@ -8564,6 +9342,7 @@
     },
     {
       "Company": "BATIC",
+      "Symbol": "",
       "Open": "2.30",
       "Highest": "2.57",
       "Lowest": "1.96",
@@ -8575,6 +9354,7 @@
     },
     {
       "Company": "MARAFIQ",
+      "Symbol": "",
       "Open": "42.20",
       "Highest": "45.3",
       "Lowest": "36.5",
@@ -8586,6 +9366,7 @@
     },
     {
       "Company": "FIRST MILLS",
+      "Symbol": "",
       "Open": "54.30",
       "Highest": "60.2",
       "Lowest": "46.86",
@@ -8597,6 +9378,7 @@
     },
     {
       "Company": "MODERN MILLS",
+      "Symbol": "",
       "Open": "34.75",
       "Highest": "35.72",
       "Lowest": "29.6",
@@ -8608,6 +9390,7 @@
     },
     {
       "Company": "AL AZIZIAH REIT",
+      "Symbol": "",
       "Open": "4.50",
       "Highest": "4.65",
       "Lowest": "3.72",
@@ -8619,6 +9402,7 @@
     },
     {
       "Company": "ACC",
+      "Symbol": "",
       "Open": "23.44",
       "Highest": "23.93",
       "Lowest": "20.43",
@@ -8630,6 +9414,7 @@
     },
     {
       "Company": "TAIBA",
+      "Symbol": "",
       "Open": "37.85",
       "Highest": "43",
       "Lowest": "32.85",
@@ -8641,6 +9426,7 @@
     },
     {
       "Company": "NORTHERN CEMENT",
+      "Symbol": "",
       "Open": "8.02",
       "Highest": "8.65",
       "Lowest": "7.22",
@@ -8652,6 +9438,7 @@
     },
     {
       "Company": "ALAHLI REIT 1",
+      "Symbol": "",
       "Open": "6.95",
       "Highest": "7.25",
       "Lowest": "6.05",
@@ -8663,6 +9450,7 @@
     },
     {
       "Company": "SENAAT",
+      "Symbol": "",
       "Open": "39.15",
       "Highest": "47.96",
       "Lowest": "28.68",
@@ -8674,6 +9462,7 @@
     },
     {
       "Company": "BUDGET SAUDI",
+      "Symbol": "",
       "Open": "70.00",
       "Highest": "78.95",
       "Lowest": "64",
@@ -8685,6 +9474,7 @@
     },
     {
       "Company": "ALOMRAN",
+      "Symbol": "",
       "Open": "28.95",
       "Highest": "33.7",
       "Lowest": "24.94",
@@ -8696,6 +9486,7 @@
     },
     {
       "Company": "LUBEREF",
+      "Symbol": "",
       "Open": "101.60",
       "Highest": "108",
       "Lowest": "81.3",
@@ -8707,6 +9498,7 @@
     },
     {
       "Company": "SEDCO CAPITAL REIT",
+      "Symbol": "",
       "Open": "6.79",
       "Highest": "7.25",
       "Lowest": "6.14",
@@ -8718,6 +9510,7 @@
     },
     {
       "Company": "SPORT CLUBS",
+      "Symbol": "",
       "Open": "9.30",
       "Highest": "13.46",
       "Lowest": "7.59",
@@ -8729,6 +9522,7 @@
     },
     {
       "Company": "MEFIC REIT",
+      "Symbol": "",
       "Open": "3.80",
       "Highest": "3.85",
       "Lowest": "3.4",
@@ -8740,6 +9534,7 @@
     },
     {
       "Company": "GIG",
+      "Symbol": "",
       "Open": "24.82",
       "Highest": "27.5",
       "Lowest": "22.04",
@@ -8751,6 +9546,7 @@
     },
     {
       "Company": "BAAN",
+      "Symbol": "",
       "Open": "2.02",
       "Highest": "2.69",
       "Lowest": "1.77",
@@ -8762,6 +9558,7 @@
     },
     {
       "Company": "ALISTITHMAR REIT",
+      "Symbol": "",
       "Open": "7.80",
       "Highest": "9.87",
       "Lowest": "6.7",
@@ -8773,6 +9570,7 @@
     },
     {
       "Company": "BSF",
+      "Symbol": "",
       "Open": "17.44",
       "Highest": "18.93",
       "Lowest": "15.49",
@@ -8784,6 +9582,7 @@
     },
     {
       "Company": "MCDC",
+      "Symbol": "",
       "Open": "91.00",
       "Highest": "94.65",
       "Lowest": "67.95",
@@ -8795,6 +9594,7 @@
     },
     {
       "Company": "SACO",
+      "Symbol": "",
       "Open": "28.80",
       "Highest": "33.34",
       "Lowest": "25.3",
@@ -8806,6 +9606,7 @@
     },
     {
       "Company": "CHUBB",
+      "Symbol": "",
       "Open": "26.25",
       "Highest": "33.2",
       "Lowest": "21.98",
@@ -8817,6 +9618,7 @@
     },
     {
       "Company": "ARABIAN MILLS",
+      "Symbol": "",
       "Open": "41.45",
       "Highest": "48.9",
       "Lowest": "37",
@@ -8828,6 +9630,7 @@
     },
     {
       "Company": "RED SEA",
+      "Symbol": "",
       "Open": "38.25",
       "Highest": "49.94",
       "Lowest": "32.1",
@@ -8839,6 +9642,7 @@
     },
     {
       "Company": "MOUWASAT",
+      "Symbol": "",
       "Open": "74.00",
       "Highest": "80.7",
       "Lowest": "67.9",
@@ -8850,6 +9654,7 @@
     },
     {
       "Company": "LAZURDE",
+      "Symbol": "",
       "Open": "12.54",
       "Highest": "13.89",
       "Lowest": "11.44",
@@ -8861,6 +9666,7 @@
     },
     {
       "Company": "ALINMA",
+      "Symbol": "",
       "Open": "25.80",
       "Highest": "28.02",
       "Lowest": "23.94",
@@ -8872,6 +9678,7 @@
     },
     {
       "Company": "CHEMICAL",
+      "Symbol": "",
       "Open": "7.53",
       "Highest": "7.93",
       "Lowest": "6.06",
@@ -8883,6 +9690,7 @@
     },
     {
       "Company": "RIBL",
+      "Symbol": "",
       "Open": "28.05",
       "Highest": "29.22",
       "Lowest": "25.3",
@@ -8894,6 +9702,7 @@
     },
     {
       "Company": "ASLAK",
+      "Symbol": "",
       "Open": "22.68",
       "Highest": "26.1",
       "Lowest": "19.84",
@@ -8905,6 +9714,7 @@
     },
     {
       "Company": "TASHEEL",
+      "Symbol": "",
       "Open": "168.00",
       "Highest": "178.9",
       "Lowest": "143",
@@ -8916,6 +9726,7 @@
     },
     {
       "Company": "LIVA",
+      "Symbol": "",
       "Open": "12.18",
       "Highest": "14.47",
       "Lowest": "10.9",
@@ -8927,6 +9738,7 @@
     },
     {
       "Company": "ALMAJED OUD",
+      "Symbol": "",
       "Open": "143.60",
       "Highest": "152.8",
       "Lowest": "106.4",
@@ -8938,6 +9750,7 @@
     },
     {
       "Company": "ATAA",
+      "Symbol": "",
       "Open": "64.10",
       "Highest": "70.6",
       "Lowest": "58",
@@ -8949,6 +9762,7 @@
     },
     {
       "Company": "SAL",
+      "Symbol": "",
       "Open": "178.20",
       "Highest": "192",
       "Lowest": "156",
@@ -8960,6 +9774,7 @@
     },
     {
       "Company": "BURUJ",
+      "Symbol": "",
       "Open": "16.78",
       "Highest": "19.9",
       "Lowest": "14.62",
@@ -8971,6 +9786,7 @@
     },
     {
       "Company": "GO TELECOM",
+      "Symbol": "",
       "Open": "97.80",
       "Highest": "113.9",
       "Lowest": "83.7",
@@ -8982,6 +9798,7 @@
     },
     {
       "Company": "GACO",
+      "Symbol": "",
       "Open": "16.94",
       "Highest": "19.55",
       "Lowest": "15.12",
@@ -8993,6 +9810,7 @@
     },
     {
       "Company": "SASCO",
+      "Symbol": "",
       "Open": "60.40",
       "Highest": "73.45",
       "Lowest": "49.02",
@@ -9004,6 +9822,7 @@
     },
     {
       "Company": "TADAWUL GROUP",
+      "Symbol": "",
       "Open": "168.60",
       "Highest": "215",
       "Lowest": "158.7",
@@ -9015,6 +9834,7 @@
     },
     {
       "Company": "MUSHARAKA REIT",
+      "Symbol": "",
       "Open": "4.29",
       "Highest": "4.53",
       "Lowest": "3.99",
@@ -9026,6 +9846,7 @@
     },
     {
       "Company": "ALINMA RETAIL REIT",
+      "Symbol": "",
       "Open": "4.58",
       "Highest": "4.92",
       "Lowest": "4.31",
@@ -9037,6 +9858,7 @@
     },
     {
       "Company": "TAMKEEN",
+      "Symbol": "",
       "Open": "54.00",
       "Highest": "62.9",
       "Lowest": "46.8",
@@ -9048,6 +9870,7 @@
     },
     {
       "Company": "ALJOUF",
+      "Symbol": "",
       "Open": "45.60",
       "Highest": "48.44",
       "Lowest": "40.65",
@@ -9059,6 +9882,7 @@
     },
     {
       "Company": "MULKIA REIT",
+      "Symbol": "",
       "Open": "4.81",
       "Highest": "4.95",
       "Lowest": "4.45",
@@ -9070,6 +9894,7 @@
     },
     {
       "Company": "ALKATHIRI",
+      "Symbol": "",
       "Open": "2.03",
       "Highest": "2.29",
       "Lowest": "1.86",
@@ -9081,6 +9906,7 @@
     },
     {
       "Company": "ALMAWARID",
+      "Symbol": "",
       "Open": "139.60",
       "Highest": "148.7",
       "Lowest": "111",
@@ -9092,6 +9918,7 @@
     },
     {
       "Company": "AVALON PHARMA",
+      "Symbol": "",
       "Open": "123.00",
       "Highest": "138.4",
       "Lowest": "108",
@@ -9103,6 +9930,7 @@
     },
     {
       "Company": "AWPT",
+      "Symbol": "",
       "Open": "139.60",
       "Highest": "157.2",
       "Lowest": "122.9",
@@ -9114,6 +9942,7 @@
     },
     {
       "Company": "SAB",
+      "Symbol": "",
       "Open": "32.20",
       "Highest": "34.9",
       "Lowest": "29.9",
@@ -9125,6 +9954,7 @@
     },
     {
       "Company": "ALKHABEER REIT",
+      "Symbol": "",
       "Open": "5.73",
       "Highest": "5.85",
       "Lowest": "5.51",
@@ -9136,6 +9966,7 @@
     },
     {
       "Company": "SADR",
+      "Symbol": "",
       "Open": "2.82",
       "Highest": "3.17",
       "Lowest": "2.58",
@@ -9147,6 +9978,7 @@
     },
     {
       "Company": "SRMG",
+      "Symbol": "",
       "Open": "148.00",
       "Highest": "202.1",
       "Lowest": "137.2",
@@ -9158,6 +9990,7 @@
     },
     {
       "Company": "SAUDI ARAMCO",
+      "Symbol": "",
       "Open": "24.92",
       "Highest": "26.16",
       "Lowest": "23.04",
@@ -9169,6 +10002,7 @@
     },
     {
       "Company": "DERAYAH REIT",
+      "Symbol": "",
       "Open": "5.59",
       "Highest": "5.75",
       "Lowest": "5.29",
@@ -9180,6 +10014,7 @@
     },
     {
       "Company": "Al RAJHI REIT",
+      "Symbol": "",
       "Open": "8.26",
       "Highest": "8.42",
       "Lowest": "8.05",
@@ -9191,6 +10026,7 @@
     },
     {
       "Company": "FOURTH MILLING",
+      "Symbol": "",
       "Open": "3.79",
       "Highest": "4.23",
       "Lowest": "3.34",
@@ -9202,6 +10038,7 @@
     },
     {
       "Company": "ALINMA HOSPITALITY REIT",
+      "Symbol": "",
       "Open": "8.30",
       "Highest": "8.47",
       "Lowest": "8.03",
@@ -9213,6 +10050,7 @@
     },
     {
       "Company": "ALBILAD",
+      "Symbol": "",
       "Open": "25.85",
       "Highest": "30.16",
       "Lowest": "23.38",
@@ -9224,6 +10062,7 @@
     },
     {
       "Company": "ZAIN KSA",
+      "Symbol": "",
       "Open": "10.86",
       "Highest": "11.74",
       "Lowest": "10.02",
@@ -9235,6 +10074,7 @@
     },
     {
       "Company": "STC",
+      "Symbol": "",
       "Open": "42.50",
       "Highest": "45.38",
       "Lowest": "40.7",
@@ -9246,6 +10086,7 @@
     },
     {
       "Company": "SAUDI ELECTRICITY",
+      "Symbol": "",
       "Open": "14.32",
       "Highest": "16.05",
       "Lowest": "13.72",
@@ -9257,6 +10098,7 @@
     },
     {
       "Company": "AL MAATHER REIT",
+      "Symbol": "",
       "Open": "9.14",
       "Highest": "9.85",
       "Lowest": "8.94",
@@ -9268,6 +10110,7 @@
     },
     {
       "Company": "AYYAN",
+      "Symbol": "",
       "Open": "13.60",
       "Highest": "14.6",
       "Lowest": "11.4",
@@ -9279,6 +10122,7 @@
     },
     {
       "Company": "SAUDI CERAMICS",
+      "Symbol": "",
       "Open": "28.55",
       "Highest": "34.64",
       "Lowest": "24",
@@ -9290,6 +10134,7 @@
     },
     {
       "Company": "ALMASAR ALSHAMIL",
+      "Symbol": "",
       "Open": "23.09",
       "Highest": "24.48",
       "Lowest": "18.33",
@@ -9301,6 +10146,7 @@
     },
     {
       "Company": "EXTRA",
+      "Symbol": "",
       "Open": "88.80",
       "Highest": "93.5",
       "Lowest": "83.4",
@@ -9312,6 +10158,7 @@
     },
     {
       "Company": "BAWAN",
+      "Symbol": "",
       "Open": "49.75",
       "Highest": "61.85",
       "Lowest": "42.25",
@@ -9323,6 +10170,7 @@
     },
     {
       "Company": "SABIC",
+      "Symbol": "",
       "Open": "55.40",
       "Highest": "64",
       "Lowest": "53",
@@ -9334,6 +10182,7 @@
     },
     {
       "Company": "SAUDI CABLE",
+      "Symbol": "",
       "Open": "135.40",
       "Highest": "160",
       "Lowest": "119.2",
@@ -9347,6 +10196,7 @@
   "3 Months": [
     {
       "Company": "ALARABIA",
+      "Symbol": "",
       "Open": "80.65",
       "Highest": "124.5",
       "Lowest": "79.7",
@@ -9358,6 +10208,7 @@
     },
     {
       "Company": "BAHRI",
+      "Symbol": "",
       "Open": "21.40",
       "Highest": "32.5",
       "Lowest": "21.24",
@@ -9369,6 +10220,7 @@
     },
     {
       "Company": "EIC",
+      "Symbol": "",
       "Open": "9.18",
       "Highest": "12.16",
       "Lowest": "8.5",
@@ -9380,6 +10232,7 @@
     },
     {
       "Company": "ARABIAN DRILLING",
+      "Symbol": "",
       "Open": "72.40",
       "Highest": "96.95",
       "Lowest": "72.15",
@@ -9391,6 +10244,7 @@
     },
     {
       "Company": "ABO MOATI",
+      "Symbol": "",
       "Open": "36.98",
       "Highest": "53.95",
       "Lowest": "35.5",
@@ -9402,6 +10256,7 @@
     },
     {
       "Company": "EAST PIPES",
+      "Symbol": "",
       "Open": "106.00",
       "Highest": "146.6",
       "Lowest": "102.9",
@@ -9413,6 +10268,7 @@
     },
     {
       "Company": "ALMAJED OUD",
+      "Symbol": "",
       "Open": "109.20",
       "Highest": "147.5",
       "Lowest": "106.4",
@@ -9424,6 +10280,7 @@
     },
     {
       "Company": "MCDC",
+      "Symbol": "",
       "Open": "68.65",
       "Highest": "90.6",
       "Lowest": "67.95",
@@ -9435,6 +10292,7 @@
     },
     {
       "Company": "RASAN",
+      "Symbol": "",
       "Open": "94.80",
       "Highest": "122",
       "Lowest": "91.5",
@@ -9446,6 +10304,7 @@
     },
     {
       "Company": "ALBABTAIN",
+      "Symbol": "",
       "Open": "54.55",
       "Highest": "69.85",
       "Lowest": "53.2",
@@ -9457,6 +10316,7 @@
     },
     {
       "Company": "MIS",
+      "Symbol": "",
       "Open": "129.00",
       "Highest": "162.8",
       "Lowest": "126.7",
@@ -9468,6 +10328,7 @@
     },
     {
       "Company": "AMAK",
+      "Symbol": "",
       "Open": "65.95",
       "Highest": "82.7",
       "Lowest": "63.2",
@@ -9479,6 +10340,7 @@
     },
     {
       "Company": "ADES",
+      "Symbol": "",
       "Open": "14.42",
       "Highest": "17.85",
       "Lowest": "14.27",
@@ -9490,6 +10352,7 @@
     },
     {
       "Company": "MAHARAH",
+      "Symbol": "",
       "Open": "4.72",
       "Highest": "5.84",
       "Lowest": "4.39",
@@ -9501,6 +10364,7 @@
     },
     {
       "Company": "AYYAN",
+      "Symbol": "",
       "Open": "11.64",
       "Highest": "14.08",
       "Lowest": "11.54",
@@ -9512,6 +10376,7 @@
     },
     {
       "Company": "DERAYAH",
+      "Symbol": "",
       "Open": "25.44",
       "Highest": "32",
       "Lowest": "23.49",
@@ -9523,6 +10388,7 @@
     },
     {
       "Company": "MBC GROUP",
+      "Symbol": "",
       "Open": "28.08",
       "Highest": "38",
       "Lowest": "27.56",
@@ -9534,6 +10400,7 @@
     },
     {
       "Company": "BAAZEEM",
+      "Symbol": "",
       "Open": "5.46",
       "Highest": "7.1",
       "Lowest": "5.34",
@@ -9545,6 +10412,7 @@
     },
     {
       "Company": "SENAAT",
+      "Symbol": "",
       "Open": "31.76",
       "Highest": "39.56",
       "Lowest": "28.68",
@@ -9556,6 +10424,7 @@
     },
     {
       "Company": "SASCO",
+      "Symbol": "",
       "Open": "51.40",
       "Highest": "73.45",
       "Lowest": "50.5",
@@ -9567,6 +10436,7 @@
     },
     {
       "Company": "LUBEREF",
+      "Symbol": "",
       "Open": "83.20",
       "Highest": "97.35",
       "Lowest": "81.3",
@@ -9578,6 +10448,7 @@
     },
     {
       "Company": "ALMAWARID",
+      "Symbol": "",
       "Open": "120.50",
       "Highest": "148.7",
       "Lowest": "111",
@@ -9589,6 +10460,7 @@
     },
     {
       "Company": "SPM",
+      "Symbol": "",
       "Open": "50.60",
       "Highest": "60.45",
       "Lowest": "48.82",
@@ -9600,6 +10472,7 @@
     },
     {
       "Company": "PETRO RABIGH",
+      "Symbol": "",
       "Open": "6.53",
       "Highest": "9.48",
       "Lowest": "6.48",
@@ -9611,6 +10484,7 @@
     },
     {
       "Company": "GASCO",
+      "Symbol": "",
       "Open": "73.45",
       "Highest": "90",
       "Lowest": "66.05",
@@ -9622,6 +10496,7 @@
     },
     {
       "Company": "MAADEN",
+      "Symbol": "",
       "Open": "52.90",
       "Highest": "68.45",
       "Lowest": "52.5",
@@ -9633,6 +10508,7 @@
     },
     {
       "Company": "CHEMICAL",
+      "Symbol": "",
       "Open": "6.41",
       "Highest": "7.93",
       "Lowest": "6.06",
@@ -9644,6 +10520,7 @@
     },
     {
       "Company": "ALDREES",
+      "Symbol": "",
       "Open": "116.70",
       "Highest": "154.1",
       "Lowest": "110.7",
@@ -9655,6 +10532,7 @@
     },
     {
       "Company": "RETAL",
+      "Symbol": "",
       "Open": "10.99",
       "Highest": "13.58",
       "Lowest": "10.88",
@@ -9666,6 +10544,7 @@
     },
     {
       "Company": "ETIHAD ETISALAT",
+      "Symbol": "",
       "Open": "61.55",
       "Highest": "69",
       "Lowest": "59.5",
@@ -9677,6 +10556,7 @@
     },
     {
       "Company": "NAQI",
+      "Symbol": "",
       "Open": "51.00",
       "Highest": "57.55",
       "Lowest": "49.12",
@@ -9688,6 +10568,7 @@
     },
     {
       "Company": "TASHEEL",
+      "Symbol": "",
       "Open": "146.00",
       "Highest": "178.9",
       "Lowest": "143",
@@ -9699,6 +10580,7 @@
     },
     {
       "Company": "CHERRY",
+      "Symbol": "",
       "Open": "26.40",
       "Highest": "29.54",
       "Lowest": "25.9",
@@ -9710,6 +10592,7 @@
     },
     {
       "Company": "SNB",
+      "Symbol": "",
       "Open": "34.50",
       "Highest": "41",
       "Lowest": "33.3",
@@ -9721,6 +10604,7 @@
     },
     {
       "Company": "SAUDI KAYAN",
+      "Symbol": "",
       "Open": "4.85",
       "Highest": "6.41",
       "Lowest": "4.77",
@@ -9732,6 +10616,7 @@
     },
     {
       "Company": "RAOOM",
+      "Symbol": "",
       "Open": "55.35",
       "Highest": "67.5",
       "Lowest": "54",
@@ -9743,6 +10628,7 @@
     },
     {
       "Company": "SULAIMAN ALHABIB",
+      "Symbol": "",
       "Open": "243.20",
       "Highest": "281.2",
       "Lowest": "227.7",
@@ -9754,6 +10640,7 @@
     },
     {
       "Company": "SMC HEALTHCARE",
+      "Symbol": "",
       "Open": "18.30",
       "Highest": "21.19",
       "Lowest": "17.62",
@@ -9765,6 +10652,7 @@
     },
     {
       "Company": "JADWA REIT SAUDI",
+      "Symbol": "",
       "Open": "10.20",
       "Highest": "11.38",
       "Lowest": "10.18",
@@ -9776,6 +10664,7 @@
     },
     {
       "Company": "SAUDI ARAMCO",
+      "Symbol": "",
       "Open": "23.25",
       "Highest": "26.16",
       "Lowest": "23.04",
@@ -9787,6 +10676,7 @@
     },
     {
       "Company": "AWPT",
+      "Symbol": "",
       "Open": "129.50",
       "Highest": "157.2",
       "Lowest": "122.9",
@@ -9798,6 +10688,7 @@
     },
     {
       "Company": "QACCO",
+      "Symbol": "",
       "Open": "40.60",
       "Highest": "44.36",
       "Lowest": "40.5",
@@ -9809,6 +10700,7 @@
     },
     {
       "Company": "SAMBA",
+      "Symbol": "",
       "Open": "36.80",
       "Highest": "39.1",
       "Lowest": "36.5",
@@ -9820,6 +10712,7 @@
     },
     {
       "Company": "ZAIN KSA",
+      "Symbol": "",
       "Open": "10.31",
       "Highest": "11.74",
       "Lowest": "10.15",
@@ -9831,6 +10724,7 @@
     },
     {
       "Company": "SAB",
+      "Symbol": "",
       "Open": "30.18",
       "Highest": "33",
       "Lowest": "29.9",
@@ -9842,6 +10736,7 @@
     },
     {
       "Company": "WALAA",
+      "Symbol": "",
       "Open": "11.53",
       "Highest": "13.24",
       "Lowest": "10.8",
@@ -9853,6 +10748,7 @@
     },
     {
       "Company": "KINGDOM",
+      "Symbol": "",
       "Open": "7.53",
       "Highest": "8.24",
       "Lowest": "7.03",
@@ -9864,6 +10760,7 @@
     },
     {
       "Company": "JOUF CEMENT",
+      "Symbol": "",
       "Open": "6.50",
       "Highest": "7.26",
       "Lowest": "6.39",
@@ -9875,6 +10772,7 @@
     },
     {
       "Company": "ALRAJHI",
+      "Symbol": "",
       "Open": "92.85",
       "Highest": "113",
       "Lowest": "90.15",
@@ -9886,6 +10784,7 @@
     },
     {
       "Company": "CHUBB",
+      "Symbol": "",
       "Open": "23.85",
       "Highest": "33.2",
       "Lowest": "23.76",
@@ -9897,6 +10796,7 @@
     },
     {
       "Company": "MARAFIQ",
+      "Symbol": "",
       "Open": "37.20",
       "Highest": "45.3",
       "Lowest": "36.5",
@@ -9908,6 +10808,7 @@
     },
     {
       "Company": "RIYADH CABLES",
+      "Symbol": "",
       "Open": "121.40",
       "Highest": "143.8",
       "Lowest": "114.5",
@@ -9919,6 +10820,7 @@
     },
     {
       "Company": "ALYAMAMAH STEEL",
+      "Symbol": "",
       "Open": "32.52",
       "Highest": "39.5",
       "Lowest": "31.02",
@@ -9930,6 +10832,7 @@
     },
     {
       "Company": "SAL",
+      "Symbol": "",
       "Open": "166.00",
       "Highest": "186",
       "Lowest": "162.8",
@@ -9941,6 +10844,7 @@
     },
     {
       "Company": "RIBL",
+      "Symbol": "",
       "Open": "25.90",
       "Highest": "28.5",
       "Lowest": "25.3",
@@ -9952,6 +10856,7 @@
     },
     {
       "Company": "SAVOLA GROUP",
+      "Symbol": "",
       "Open": "23.46",
       "Highest": "27.76",
       "Lowest": "22.52",
@@ -9963,6 +10868,7 @@
     },
     {
       "Company": "TALEEM REIT",
+      "Symbol": "",
       "Open": "9.85",
       "Highest": "10.55",
       "Lowest": "9.69",
@@ -9974,6 +10880,7 @@
     },
     {
       "Company": "SEERA",
+      "Symbol": "",
       "Open": "27.06",
       "Highest": "31.6",
       "Lowest": "26.44",
@@ -9985,6 +10892,7 @@
     },
     {
       "Company": "ALBILAD",
+      "Symbol": "",
       "Open": "25.12",
       "Highest": "30.16",
       "Lowest": "24.91",
@@ -9996,6 +10904,7 @@
     },
     {
       "Company": "Sahara",
+      "Symbol": "",
       "Open": "17.20",
       "Highest": "17.48",
       "Lowest": "16.3",
@@ -10007,6 +10916,7 @@
     },
     {
       "Company": "SABIC AGRI-NUTRIENTS",
+      "Symbol": "",
       "Open": "114.10",
       "Highest": "125.7",
       "Lowest": "112.6",
@@ -10018,6 +10928,7 @@
     },
     {
       "Company": "AL AZIZIAH REIT",
+      "Symbol": "",
       "Open": "4.04",
       "Highest": "4.39",
       "Lowest": "3.72",
@@ -10029,6 +10940,7 @@
     },
     {
       "Company": "STC",
+      "Symbol": "",
       "Open": "41.62",
       "Highest": "45.38",
       "Lowest": "41.14",
@@ -10040,6 +10952,7 @@
     },
     {
       "Company": "ALMUNAJEM",
+      "Symbol": "",
       "Open": "53.55",
       "Highest": "62.6",
       "Lowest": "53",
@@ -10051,6 +10964,7 @@
     },
     {
       "Company": "MULKIA REIT",
+      "Symbol": "",
       "Open": "4.60",
       "Highest": "4.92",
       "Lowest": "4.54",
@@ -10062,6 +10976,7 @@
     },
     {
       "Company": "ANB",
+      "Symbol": "",
       "Open": "22.21",
       "Highest": "26.26",
       "Lowest": "21.62",
@@ -10073,6 +10988,7 @@
     },
     {
       "Company": "MODERN MILLS",
+      "Symbol": "",
       "Open": "31.26",
       "Highest": "35.72",
       "Lowest": "30.14",
@@ -10084,6 +11000,7 @@
     },
     {
       "Company": "BSF",
+      "Symbol": "",
       "Open": "16.10",
       "Highest": "18.93",
       "Lowest": "15.49",
@@ -10095,6 +11012,7 @@
     },
     {
       "Company": "BONYAN REIT",
+      "Symbol": "",
       "Open": "9.08",
       "Highest": "9.69",
       "Lowest": "9",
@@ -10106,6 +11024,7 @@
     },
     {
       "Company": "DUR",
+      "Symbol": "",
       "Open": "26.80",
       "Highest": "27.3",
       "Lowest": "26.4",
@@ -10117,6 +11036,7 @@
     },
     {
       "Company": "ALINMA HOSPITALITY REIT",
+      "Symbol": "",
       "Open": "8.13",
       "Highest": "8.45",
       "Lowest": "8.09",
@@ -10128,6 +11048,7 @@
     },
     {
       "Company": "EXTRA",
+      "Symbol": "",
       "Open": "87.85",
       "Highest": "93.5",
       "Lowest": "84.45",
@@ -10139,6 +11060,7 @@
     },
     {
       "Company": "ALMOOSA",
+      "Symbol": "",
       "Open": "167.30",
       "Highest": "212",
       "Lowest": "159.8",
@@ -10150,6 +11072,7 @@
     },
     {
       "Company": "TAWUNIYA",
+      "Symbol": "",
       "Open": "120.20",
       "Highest": "140.8",
       "Lowest": "118.4",
@@ -10161,6 +11084,7 @@
     },
     {
       "Company": "AL MAATHER REIT",
+      "Symbol": "",
       "Open": "9.05",
       "Highest": "9.1",
       "Lowest": "8.94",
@@ -10172,6 +11096,7 @@
     },
     {
       "Company": "BURUJ",
+      "Symbol": "",
       "Open": "15.99",
       "Highest": "17.56",
       "Lowest": "15",
@@ -10183,6 +11108,7 @@
     },
     {
       "Company": "SABB TAKAFUL",
+      "Symbol": "",
       "Open": "11.50",
       "Highest": "11.98",
       "Lowest": "11.5",
@@ -10194,6 +11120,7 @@
     },
     {
       "Company": "WAFA Insurance",
+      "Symbol": "",
       "Open": "9.50",
       "Highest": "10",
       "Lowest": "9.3",
@@ -10205,6 +11132,7 @@
     },
     {
       "Company": "ALAHLIA",
+      "Symbol": "",
       "Open": "14.76",
       "Highest": "15.02",
       "Lowest": "14.5",
@@ -10216,6 +11144,7 @@
     },
     {
       "Company": "MMG",
+      "Symbol": "",
       "Open": "12.55",
       "Highest": "12.9",
       "Lowest": "11.8",
@@ -10227,6 +11156,7 @@
     },
     {
       "Company": "SANAD",
+      "Symbol": "",
       "Open": "15.23",
       "Highest": "17.75",
       "Lowest": "14.75",
@@ -10238,6 +11168,7 @@
     },
     {
       "Company": "Weqaya Takaful",
+      "Symbol": "",
       "Open": "19.39",
       "Highest": "19.75",
       "Lowest": "19.15",
@@ -10249,6 +11180,7 @@
     },
     {
       "Company": "ATC",
+      "Symbol": "",
       "Open": "34.00",
       "Highest": "34.35",
       "Lowest": "33.8",
@@ -10260,6 +11192,7 @@
     },
     {
       "Company": "ALKHODARI",
+      "Symbol": "",
       "Open": "5.39",
       "Highest": "5.76",
       "Lowest": "5.18",
@@ -10271,6 +11204,7 @@
     },
     {
       "Company": "SAUDI CERAMICS",
+      "Symbol": "",
       "Open": "28.40",
       "Highest": "32.86",
       "Lowest": "27",
@@ -10282,6 +11216,7 @@
     },
     {
       "Company": "HCC",
+      "Symbol": "",
       "Open": "11.60",
       "Highest": "11.7",
       "Lowest": "11.54",
@@ -10293,6 +11228,7 @@
     },
     {
       "Company": "ALINMA TOKIO M",
+      "Symbol": "",
       "Open": "12.80",
       "Highest": "12.84",
       "Lowest": "12.06",
@@ -10304,6 +11240,7 @@
     },
     {
       "Company": "ALAWWAL",
+      "Symbol": "",
       "Open": "19.58",
       "Highest": "19.58",
       "Lowest": "19",
@@ -10315,6 +11252,7 @@
     },
     {
       "Company": "SOLIDARITY",
+      "Symbol": "",
       "Open": "14.20",
       "Highest": "14.52",
       "Lowest": "14.16",
@@ -10326,6 +11264,7 @@
     },
     {
       "Company": "NASEEJ",
+      "Symbol": "",
       "Open": "91.00",
       "Highest": "96.2",
       "Lowest": "42.3",
@@ -10337,6 +11276,7 @@
     },
     {
       "Company": "SIDC",
+      "Symbol": "",
       "Open": "18.79",
       "Highest": "22.4",
       "Lowest": "11.55",
@@ -10348,6 +11288,7 @@
     },
     {
       "Company": "SAUDI GERMAN HEALTH",
+      "Symbol": "",
       "Open": "56.90",
       "Highest": "59.2",
       "Lowest": "37.38",
@@ -10359,6 +11300,7 @@
     },
     {
       "Company": "TECO",
+      "Symbol": "",
       "Open": "18.40",
       "Highest": "19.4",
       "Lowest": "12.14",
@@ -10370,6 +11312,7 @@
     },
     {
       "Company": "TAPRCO",
+      "Symbol": "",
       "Open": "26.67",
       "Highest": "30.9",
       "Lowest": "17.85",
@@ -10381,6 +11324,7 @@
     },
     {
       "Company": "SFICO",
+      "Symbol": "",
       "Open": "92.40",
       "Highest": "97.95",
       "Lowest": "67.95",
@@ -10392,6 +11336,7 @@
     },
     {
       "Company": "SIIG",
+      "Symbol": "",
       "Open": "17.71",
       "Highest": "19.65",
       "Lowest": "13.34",
@@ -10403,6 +11348,7 @@
     },
     {
       "Company": "ALRAJHI TAKAFUL",
+      "Symbol": "",
       "Open": "114.60",
       "Highest": "124.9",
       "Lowest": "84",
@@ -10414,6 +11360,7 @@
     },
     {
       "Company": "SPPC",
+      "Symbol": "",
       "Open": "11.05",
       "Highest": "11.5",
       "Lowest": "8",
@@ -10425,6 +11372,7 @@
     },
     {
       "Company": "YC",
+      "Symbol": "",
       "Open": "30.70",
       "Highest": "32.7",
       "Lowest": "22.59",
@@ -10436,6 +11384,7 @@
     },
     {
       "Company": "LEEJAM SPORTS",
+      "Symbol": "",
       "Open": "147.80",
       "Highest": "150.7",
       "Lowest": "111.2",
@@ -10447,6 +11396,7 @@
     },
     {
       "Company": "ANAAM HOLDING",
+      "Symbol": "",
       "Open": "16.40",
       "Highest": "17.52",
       "Lowest": "12.25",
@@ -10458,6 +11408,7 @@
     },
     {
       "Company": "ALMAJDIAH",
+      "Symbol": "",
       "Open": "13.83",
       "Highest": "14.46",
       "Lowest": "9.97",
@@ -10469,6 +11420,7 @@
     },
     {
       "Company": "HERFY FOODS",
+      "Symbol": "",
       "Open": "20.55",
       "Highest": "22.98",
       "Lowest": "15.57",
@@ -10480,6 +11432,7 @@
     },
     {
       "Company": "SAPTCO",
+      "Symbol": "",
       "Open": "13.25",
       "Highest": "13.8",
       "Lowest": "10.09",
@@ -10491,6 +11444,7 @@
     },
     {
       "Company": "SAIC",
+      "Symbol": "",
       "Open": "23.70",
       "Highest": "26.1",
       "Lowest": "17.75",
@@ -10502,6 +11456,7 @@
     },
     {
       "Company": "JAHEZ",
+      "Symbol": "",
       "Open": "21.44",
       "Highest": "22.9",
       "Lowest": "15.23",
@@ -10513,6 +11468,7 @@
     },
     {
       "Company": "MESC",
+      "Symbol": "",
       "Open": "29.84",
       "Highest": "32.2",
       "Lowest": "22.28",
@@ -10524,6 +11480,7 @@
     },
     {
       "Company": "UCA",
+      "Symbol": "",
       "Open": "4.61",
       "Highest": "5.74",
       "Lowest": "3.63",
@@ -10535,6 +11492,7 @@
     },
     {
       "Company": "MALATH INSURANCE",
+      "Symbol": "",
       "Open": "12.85",
       "Highest": "13.68",
       "Lowest": "10.13",
@@ -10546,6 +11504,7 @@
     },
     {
       "Company": "ALAKARIA",
+      "Symbol": "",
       "Open": "16.49",
       "Highest": "17.54",
       "Lowest": "12.77",
@@ -10557,6 +11516,7 @@
     },
     {
       "Company": "SAUDI DARB",
+      "Symbol": "",
       "Open": "2.94",
       "Highest": "3.13",
       "Lowest": "2.3",
@@ -10568,6 +11528,7 @@
     },
     {
       "Company": "RIYADH CEMENT",
+      "Symbol": "",
       "Open": "30.00",
       "Highest": "30.28",
       "Lowest": "22.98",
@@ -10579,6 +11540,7 @@
     },
     {
       "Company": "ARDCO",
+      "Symbol": "",
       "Open": "30.98",
       "Highest": "32",
       "Lowest": "24.88",
@@ -10590,6 +11552,7 @@
     },
     {
       "Company": "METLIFE AIG ANB",
+      "Symbol": "",
       "Open": "17.58",
       "Highest": "17.78",
       "Lowest": "14.02",
@@ -10601,6 +11564,7 @@
     },
     {
       "Company": "NICE ONE",
+      "Symbol": "",
       "Open": "23.57",
       "Highest": "26",
       "Lowest": "19.17",
@@ -10612,6 +11576,7 @@
     },
     {
       "Company": "ALUJAIN",
+      "Symbol": "",
       "Open": "35.74",
       "Highest": "36.58",
       "Lowest": "29.16",
@@ -10623,6 +11588,7 @@
     },
     {
       "Company": "MASAR",
+      "Symbol": "",
       "Open": "22.50",
       "Highest": "25.16",
       "Lowest": "18.13",
@@ -10634,6 +11600,7 @@
     },
     {
       "Company": "ENAYA",
+      "Symbol": "",
       "Open": "9.00",
       "Highest": "9.5",
       "Lowest": "7.31",
@@ -10645,6 +11612,7 @@
     },
     {
       "Company": "TANMIAH",
+      "Symbol": "",
       "Open": "77.00",
       "Highest": "85.8",
       "Lowest": "59.1",
@@ -10656,6 +11624,7 @@
     },
     {
       "Company": "CARE",
+      "Symbol": "",
       "Open": "173.10",
       "Highest": "183.5",
       "Lowest": "140.3",
@@ -10667,6 +11636,7 @@
     },
     {
       "Company": "ALETIHAD",
+      "Symbol": "",
       "Open": "10.48",
       "Highest": "11.74",
       "Lowest": "8.38",
@@ -10678,6 +11648,7 @@
     },
     {
       "Company": "CATRION",
+      "Symbol": "",
       "Open": "98.50",
       "Highest": "102.2",
       "Lowest": "80.9",
@@ -10689,6 +11660,7 @@
     },
     {
       "Company": "AMANA INSURANCE",
+      "Symbol": "",
       "Open": "7.47",
       "Highest": "8.15",
       "Lowest": "6",
@@ -10700,6 +11672,7 @@
     },
     {
       "Company": "SPORT CLUBS",
+      "Symbol": "",
       "Open": "10.34",
       "Highest": "11.45",
       "Lowest": "8.42",
@@ -10711,6 +11684,7 @@
     },
     {
       "Company": "RED SEA",
+      "Symbol": "",
       "Open": "43.14",
       "Highest": "47.6",
       "Lowest": "34.14",
@@ -10722,6 +11696,7 @@
     },
     {
       "Company": "FIPCO",
+      "Symbol": "",
       "Open": "36.64",
       "Highest": "37.2",
       "Lowest": "29.7",
@@ -10733,6 +11708,7 @@
     },
     {
       "Company": "CITY CEMENT",
+      "Symbol": "",
       "Open": "15.42",
       "Highest": "16.2",
       "Lowest": "12.56",
@@ -10744,6 +11720,7 @@
     },
     {
       "Company": "SRMG",
+      "Symbol": "",
       "Open": "172.70",
       "Highest": "199",
       "Lowest": "137.2",
@@ -10755,6 +11732,7 @@
     },
     {
       "Company": "ALSAGR INSURANCE",
+      "Symbol": "",
       "Open": "12.50",
       "Highest": "13.72",
       "Lowest": "10.1",
@@ -10766,6 +11744,7 @@
     },
     {
       "Company": "MEDGULF",
+      "Symbol": "",
       "Open": "15.67",
       "Highest": "17.52",
       "Lowest": "12.8",
@@ -10777,6 +11756,7 @@
     },
     {
       "Company": "MIAHONA",
+      "Symbol": "",
       "Open": "23.28",
       "Highest": "26.2",
       "Lowest": "18.75",
@@ -10788,6 +11768,7 @@
     },
     {
       "Company": "GO TELECOM",
+      "Symbol": "",
       "Open": "110.00",
       "Highest": "113.3",
       "Lowest": "88.1",
@@ -10799,6 +11780,7 @@
     },
     {
       "Company": "CMCER",
+      "Symbol": "",
       "Open": "8.25",
       "Highest": "9.14",
       "Lowest": "6.95",
@@ -10810,6 +11792,7 @@
     },
     {
       "Company": "SVCP",
+      "Symbol": "",
       "Open": "26.86",
       "Highest": "28.8",
       "Lowest": "21.95",
@@ -10821,6 +11804,7 @@
     },
     {
       "Company": "JABAL OMAR",
+      "Symbol": "",
       "Open": "17.90",
       "Highest": "19.85",
       "Lowest": "14.83",
@@ -10832,6 +11816,7 @@
     },
     {
       "Company": "GAS",
+      "Symbol": "",
       "Open": "16.24",
       "Highest": "17.99",
       "Lowest": "13.52",
@@ -10843,6 +11828,7 @@
     },
     {
       "Company": "ALDAWAA",
+      "Symbol": "",
       "Open": "64.35",
       "Highest": "68.95",
       "Lowest": "54",
@@ -10854,6 +11840,7 @@
     },
     {
       "Company": "SALAMA",
+      "Symbol": "",
       "Open": "11.49",
       "Highest": "12.73",
       "Lowest": "9.78",
@@ -10865,6 +11852,7 @@
     },
     {
       "Company": "CENOMI RETAIL",
+      "Symbol": "",
       "Open": "23.42",
       "Highest": "31.16",
       "Lowest": "18.75",
@@ -10876,6 +11864,7 @@
     },
     {
       "Company": "NAJRAN CEMENT",
+      "Symbol": "",
       "Open": "7.94",
       "Highest": "8.07",
       "Lowest": "6.8",
@@ -10887,6 +11876,7 @@
     },
     {
       "Company": "WAFRAH",
+      "Symbol": "",
       "Open": "25.76",
       "Highest": "29.76",
       "Lowest": "21.67",
@@ -10898,6 +11888,7 @@
     },
     {
       "Company": "THIMAR",
+      "Symbol": "",
       "Open": "45.06",
       "Highest": "50.85",
       "Lowest": "37.72",
@@ -10909,6 +11900,7 @@
     },
     {
       "Company": "SSP",
+      "Symbol": "",
       "Open": "48.82",
       "Highest": "56.45",
       "Lowest": "39.8",
@@ -10920,6 +11912,7 @@
     },
     {
       "Company": "BAAN",
+      "Symbol": "",
       "Open": "2.16",
       "Highest": "2.38",
       "Lowest": "1.79",
@@ -10931,6 +11924,7 @@
     },
     {
       "Company": "ALANDALUS",
+      "Symbol": "",
       "Open": "20.86",
       "Highest": "21.15",
       "Lowest": "16.7",
@@ -10942,6 +11936,7 @@
     },
     {
       "Company": "SPCC",
+      "Symbol": "",
       "Open": "25.56",
       "Highest": "28",
       "Lowest": "21",
@@ -10953,6 +11948,7 @@
     },
     {
       "Company": "TADCO",
+      "Symbol": "",
       "Open": "9.86",
       "Highest": "10.85",
       "Lowest": "8.22",
@@ -10964,6 +11960,7 @@
     },
     {
       "Company": "SHAKER",
+      "Symbol": "",
       "Open": "26.06",
       "Highest": "28.58",
       "Lowest": "22.55",
@@ -10975,6 +11972,7 @@
     },
     {
       "Company": "ALAMAR",
+      "Symbol": "",
       "Open": "49.14",
       "Highest": "53.2",
       "Lowest": "41",
@@ -10986,6 +11984,7 @@
     },
     {
       "Company": "FLYNAS",
+      "Symbol": "",
       "Open": "75.00",
       "Highest": "81.7",
       "Lowest": "60.25",
@@ -10997,6 +11996,7 @@
     },
     {
       "Company": "ARAB SEA",
+      "Symbol": "",
       "Open": "5.10",
       "Highest": "5.58",
       "Lowest": "4.31",
@@ -11008,6 +12008,7 @@
     },
     {
       "Company": "BANAN",
+      "Symbol": "",
       "Open": "4.48",
       "Highest": "4.76",
       "Lowest": "3.86",
@@ -11019,6 +12020,7 @@
     },
     {
       "Company": "ALHAMMADI",
+      "Symbol": "",
       "Open": "32.70",
       "Highest": "36",
       "Lowest": "28.4",
@@ -11030,6 +12032,7 @@
     },
     {
       "Company": "JAZADCO",
+      "Symbol": "",
       "Open": "10.32",
       "Highest": "10.96",
       "Lowest": "8.85",
@@ -11041,6 +12044,7 @@
     },
     {
       "Company": "BUILD STATION",
+      "Symbol": "",
       "Open": "68.45",
       "Highest": "77.15",
       "Lowest": "56.95",
@@ -11052,6 +12056,7 @@
     },
     {
       "Company": "SIPCHEM",
+      "Symbol": "",
       "Open": "18.11",
       "Highest": "21.05",
       "Lowest": "15.79",
@@ -11063,6 +12068,7 @@
     },
     {
       "Company": "DAR ALARKAN",
+      "Symbol": "",
       "Open": "18.00",
       "Highest": "20.97",
       "Lowest": "15",
@@ -11074,6 +12080,7 @@
     },
     {
       "Company": "TAKWEEN",
+      "Symbol": "",
       "Open": "7.20",
       "Highest": "7.94",
       "Lowest": "6.15",
@@ -11085,6 +12092,7 @@
     },
     {
       "Company": "CHEMANOL",
+      "Symbol": "",
       "Open": "10.14",
       "Highest": "11.22",
       "Lowest": "8.59",
@@ -11096,6 +12104,7 @@
     },
     {
       "Company": "UACC",
+      "Symbol": "",
       "Open": "14.38",
       "Highest": "15.3",
       "Lowest": "12.29",
@@ -11107,6 +12116,7 @@
     },
     {
       "Company": "BAWAN",
+      "Symbol": "",
       "Open": "56.05",
       "Highest": "60.4",
       "Lowest": "48.4",
@@ -11118,6 +12128,7 @@
     },
     {
       "Company": "HB",
+      "Symbol": "",
       "Open": "38.10",
       "Highest": "42.92",
       "Lowest": "32.9",
@@ -11129,6 +12140,7 @@
     },
     {
       "Company": "SHARQIYAH DEV",
+      "Symbol": "",
       "Open": "16.10",
       "Highest": "17.56",
       "Lowest": "13.85",
@@ -11140,6 +12152,7 @@
     },
     {
       "Company": "FARM SUPERSTORES",
+      "Symbol": "",
       "Open": "16.68",
       "Highest": "17.97",
       "Lowest": "14.04",
@@ -11151,6 +12164,7 @@
     },
     {
       "Company": "A.OTHAIM MARKET",
+      "Symbol": "",
       "Open": "7.36",
       "Highest": "7.95",
       "Lowest": "6.5",
@@ -11162,6 +12176,7 @@
     },
     {
       "Company": "NADEC",
+      "Symbol": "",
       "Open": "20.68",
       "Highest": "22.7",
       "Lowest": "18.02",
@@ -11173,6 +12188,7 @@
     },
     {
       "Company": "AMLAK",
+      "Symbol": "",
       "Open": "13.00",
       "Highest": "13.9",
       "Lowest": "11.25",
@@ -11184,6 +12200,7 @@
     },
     {
       "Company": "ALISTITHMAR REIT",
+      "Symbol": "",
       "Open": "8.14",
       "Highest": "8.5",
       "Lowest": "7.05",
@@ -11195,6 +12212,7 @@
     },
     {
       "Company": "MEPCO",
+      "Symbol": "",
       "Open": "26.48",
       "Highest": "29.12",
       "Lowest": "23.19",
@@ -11206,6 +12224,7 @@
     },
     {
       "Company": "SGS",
+      "Symbol": "",
       "Open": "44.40",
       "Highest": "47.68",
       "Lowest": "38.98",
@@ -11217,6 +12236,7 @@
     },
     {
       "Company": "ACIG",
+      "Symbol": "",
       "Open": "10.02",
       "Highest": "12.36",
       "Lowest": "8.75",
@@ -11228,6 +12248,7 @@
     },
     {
       "Company": "TAMKEEN",
+      "Symbol": "",
       "Open": "58.20",
       "Highest": "62.9",
       "Lowest": "49.78",
@@ -11239,6 +12260,7 @@
     },
     {
       "Company": "SHL",
+      "Symbol": "",
       "Open": "20.17",
       "Highest": "24.13",
       "Lowest": "17",
@@ -11250,6 +12272,7 @@
     },
     {
       "Company": "MUTAKAMELA",
+      "Symbol": "",
       "Open": "13.30",
       "Highest": "14.58",
       "Lowest": "11.47",
@@ -11261,6 +12284,7 @@
     },
     {
       "Company": "DWF",
+      "Symbol": "",
       "Open": "126.90",
       "Highest": "149.7",
       "Lowest": "108.8",
@@ -11272,6 +12296,7 @@
     },
     {
       "Company": "NAHDI",
+      "Symbol": "",
       "Open": "114.50",
       "Highest": "124.8",
       "Lowest": "95.6",
@@ -11283,6 +12308,7 @@
     },
     {
       "Company": "WATANIYA",
+      "Symbol": "",
       "Open": "14.52",
       "Highest": "16.8",
       "Lowest": "12.87",
@@ -11294,6 +12320,7 @@
     },
     {
       "Company": "MAADANIYAH",
+      "Symbol": "",
       "Open": "15.75",
       "Highest": "18.5",
       "Lowest": "13.23",
@@ -11305,6 +12332,7 @@
     },
     {
       "Company": "NGC",
+      "Symbol": "",
       "Open": "18.26",
       "Highest": "21.9",
       "Lowest": "16",
@@ -11316,6 +12344,7 @@
     },
     {
       "Company": "SEDCO CAPITAL REIT",
+      "Symbol": "",
       "Open": "6.95",
       "Highest": "7.25",
       "Lowest": "6.14",
@@ -11327,6 +12356,7 @@
     },
     {
       "Company": "SUMOU",
+      "Symbol": "",
       "Open": "38.74",
       "Highest": "42",
       "Lowest": "34.9",
@@ -11338,6 +12368,7 @@
     },
     {
       "Company": "MRNA",
+      "Symbol": "",
       "Open": "10.99",
       "Highest": "11.39",
       "Lowest": "9.88",
@@ -11349,6 +12380,7 @@
     },
     {
       "Company": "RAYDAN",
+      "Symbol": "",
       "Open": "29.60",
       "Highest": "32.4",
       "Lowest": "26",
@@ -11360,6 +12392,7 @@
     },
     {
       "Company": "LAZURDE",
+      "Symbol": "",
       "Open": "13.02",
       "Highest": "13.48",
       "Lowest": "11.44",
@@ -11371,6 +12404,7 @@
     },
     {
       "Company": "EQUIPMENT HOUSE",
+      "Symbol": "",
       "Open": "37.04",
       "Highest": "41",
       "Lowest": "31.66",
@@ -11382,6 +12416,7 @@
     },
     {
       "Company": "AICC",
+      "Symbol": "",
       "Open": "10.84",
       "Highest": "11.49",
       "Lowest": "9.7",
@@ -11393,6 +12428,7 @@
     },
     {
       "Company": "GULF GENERAL",
+      "Symbol": "",
       "Open": "4.63",
       "Highest": "5.51",
       "Lowest": "4.22",
@@ -11404,6 +12440,7 @@
     },
     {
       "Company": "EPCCO",
+      "Symbol": "",
       "Open": "25.90",
       "Highest": "27.6",
       "Lowest": "23",
@@ -11415,6 +12452,7 @@
     },
     {
       "Company": "ARABIAN SHIELD",
+      "Symbol": "",
       "Open": "13.01",
       "Highest": "14.19",
       "Lowest": "11.25",
@@ -11426,6 +12464,7 @@
     },
     {
       "Company": "SINAD HOLDING",
+      "Symbol": "",
       "Open": "10.24",
       "Highest": "10.97",
       "Lowest": "9.07",
@@ -11437,6 +12476,7 @@
     },
     {
       "Company": "ADVANCED",
+      "Symbol": "",
       "Open": "33.38",
       "Highest": "38.64",
       "Lowest": "30.46",
@@ -11448,6 +12488,7 @@
     },
     {
       "Company": "ZOUJAJ",
+      "Symbol": "",
       "Open": "40.70",
       "Highest": "42.5",
       "Lowest": "36.12",
@@ -11459,6 +12500,7 @@
     },
     {
       "Company": "LUMI",
+      "Symbol": "",
       "Open": "57.70",
       "Highest": "65",
       "Lowest": "51.55",
@@ -11470,6 +12512,7 @@
     },
     {
       "Company": "TASNEE",
+      "Symbol": "",
       "Open": "10.45",
       "Highest": "11.94",
       "Lowest": "9.57",
@@ -11481,6 +12524,7 @@
     },
     {
       "Company": "ELM",
+      "Symbol": "",
       "Open": "845.00",
       "Highest": "972",
       "Lowest": "745",
@@ -11492,6 +12536,7 @@
     },
     {
       "Company": "NAMA CHEMICALS",
+      "Symbol": "",
       "Open": "24.79",
       "Highest": "27.6",
       "Lowest": "22.83",
@@ -11503,6 +12548,7 @@
     },
     {
       "Company": "EMAAR EC",
+      "Symbol": "",
       "Open": "12.21",
       "Highest": "14.1",
       "Lowest": "10.72",
@@ -11514,6 +12560,7 @@
     },
     {
       "Company": "AMIANTIT",
+      "Symbol": "",
       "Open": "18.70",
       "Highest": "22.58",
       "Lowest": "16.55",
@@ -11525,6 +12572,7 @@
     },
     {
       "Company": "FAKEEH CARE",
+      "Symbol": "",
       "Open": "38.90",
       "Highest": "42.84",
       "Lowest": "36.16",
@@ -11536,6 +12584,7 @@
     },
     {
       "Company": "ALSAIF GALLERY",
+      "Symbol": "",
       "Open": "6.93",
       "Highest": "7.15",
       "Lowest": "6.41",
@@ -11547,6 +12596,7 @@
     },
     {
       "Company": "SMASCO",
+      "Symbol": "",
       "Open": "5.78",
       "Highest": "6.35",
       "Lowest": "5.26",
@@ -11558,6 +12608,7 @@
     },
     {
       "Company": "TALCO",
+      "Symbol": "",
       "Open": "39.60",
       "Highest": "43.3",
       "Lowest": "32.88",
@@ -11569,6 +12620,7 @@
     },
     {
       "Company": "BATIC",
+      "Symbol": "",
       "Open": "2.23",
       "Highest": "2.4",
       "Lowest": "2.04",
@@ -11580,6 +12632,7 @@
     },
     {
       "Company": "SAUDI RE",
+      "Symbol": "",
       "Open": "29.54",
       "Highest": "36.09",
       "Lowest": "27.1",
@@ -11591,6 +12644,7 @@
     },
     {
       "Company": "SABIC",
+      "Symbol": "",
       "Open": "59.15",
       "Highest": "64",
       "Lowest": "54",
@@ -11602,6 +12656,7 @@
     },
     {
       "Company": "ENTAJ",
+      "Symbol": "",
       "Open": "37.52",
       "Highest": "42.08",
       "Lowest": "32.9",
@@ -11613,6 +12668,7 @@
     },
     {
       "Company": "SIECO",
+      "Symbol": "",
       "Open": "2.01",
       "Highest": "2.22",
       "Lowest": "1.77",
@@ -11624,6 +12680,7 @@
     },
     {
       "Company": "MOUWASAT",
+      "Symbol": "",
       "Open": "74.50",
       "Highest": "79.75",
       "Lowest": "68",
@@ -11635,6 +12692,7 @@
     },
     {
       "Company": "ALMARAI",
+      "Symbol": "",
       "Open": "47.10",
       "Highest": "54.05",
       "Lowest": "43.5",
@@ -11646,6 +12704,7 @@
     },
     {
       "Company": "SAUDI CEMENT",
+      "Symbol": "",
       "Open": "38.30",
       "Highest": "41.58",
       "Lowest": "35.4",
@@ -11657,6 +12716,7 @@
     },
     {
       "Company": "ACWA POWER",
+      "Symbol": "",
       "Open": "204.70",
       "Highest": "252.6",
       "Lowest": "186.2",
@@ -11668,6 +12728,7 @@
     },
     {
       "Company": "ALKHALEEJ TRNG",
+      "Symbol": "",
       "Open": "22.30",
       "Highest": "29.38",
       "Lowest": "20.24",
@@ -11679,6 +12740,7 @@
     },
     {
       "Company": "ARTEX",
+      "Symbol": "",
       "Open": "11.92",
       "Highest": "14.78",
       "Lowest": "11.1",
@@ -11690,6 +12752,7 @@
     },
     {
       "Company": "TCC",
+      "Symbol": "",
       "Open": "10.17",
       "Highest": "10.9",
       "Lowest": "9.36",
@@ -11701,6 +12764,7 @@
     },
     {
       "Company": "ALJAZIRA REIT",
+      "Symbol": "",
       "Open": "13.01",
       "Highest": "14",
       "Lowest": "11.92",
@@ -11712,6 +12776,7 @@
     },
     {
       "Company": "SADAFCO",
+      "Symbol": "",
       "Open": "256.20",
       "Highest": "297.2",
       "Lowest": "237",
@@ -11723,6 +12788,7 @@
     },
     {
       "Company": "ASLAK",
+      "Symbol": "",
       "Open": "22.75",
       "Highest": "26.1",
       "Lowest": "21.01",
@@ -11734,6 +12800,7 @@
     },
     {
       "Company": "SAICO",
+      "Symbol": "",
       "Open": "12.89",
       "Highest": "14.88",
       "Lowest": "11.84",
@@ -11745,6 +12812,7 @@
     },
     {
       "Company": "CENOMI CENTERS",
+      "Symbol": "",
       "Open": "21.09",
       "Highest": "23.52",
       "Lowest": "19.5",
@@ -11756,6 +12824,7 @@
     },
     {
       "Company": "YANSAB",
+      "Symbol": "",
       "Open": "31.98",
       "Highest": "37.28",
       "Lowest": "30.14",
@@ -11767,6 +12836,7 @@
     },
     {
       "Company": "APC",
+      "Symbol": "",
       "Open": "5.37",
       "Highest": "6.36",
       "Lowest": "4.93",
@@ -11778,6 +12848,7 @@
     },
     {
       "Company": "BINDAWOOD",
+      "Symbol": "",
       "Open": "5.28",
       "Highest": "5.92",
       "Lowest": "4.54",
@@ -11789,6 +12860,7 @@
     },
     {
       "Company": "ALASEEL",
+      "Symbol": "",
       "Open": "3.53",
       "Highest": "3.85",
       "Lowest": "3.3",
@@ -11800,6 +12872,7 @@
     },
     {
       "Company": "ATAA",
+      "Symbol": "",
       "Open": "64.30",
       "Highest": "70.6",
       "Lowest": "58.25",
@@ -11811,6 +12884,7 @@
     },
     {
       "Company": "OASIS",
+      "Symbol": "",
       "Open": "2.39",
       "Highest": "2.69",
       "Lowest": "2.18",
@@ -11822,6 +12896,7 @@
     },
     {
       "Company": "SOLUTIONS",
+      "Symbol": "",
       "Open": "238.70",
       "Highest": "271.6",
       "Lowest": "219.9",
@@ -11833,6 +12908,7 @@
     },
     {
       "Company": "SARCO",
+      "Symbol": "",
       "Open": "57.20",
       "Highest": "63.95",
       "Lowest": "53.5",
@@ -11844,6 +12920,7 @@
     },
     {
       "Company": "GIG",
+      "Symbol": "",
       "Open": "24.12",
       "Highest": "27.22",
       "Lowest": "22.04",
@@ -11855,6 +12932,7 @@
     },
     {
       "Company": "ALKATHIRI",
+      "Symbol": "",
       "Open": "2.07",
       "Highest": "2.23",
       "Lowest": "1.92",
@@ -11866,6 +12944,7 @@
     },
     {
       "Company": "JADWA REIT ALHARAMAIN",
+      "Symbol": "",
       "Open": "5.18",
       "Highest": "5.33",
       "Lowest": "4.8",
@@ -11877,6 +12956,7 @@
     },
     {
       "Company": "AMERICANA",
+      "Symbol": "",
       "Open": "1.89",
       "Highest": "2.25",
       "Lowest": "1.76",
@@ -11888,6 +12968,7 @@
     },
     {
       "Company": "SISCO HOLDING",
+      "Symbol": "",
       "Open": "32.80",
       "Highest": "38.38",
       "Lowest": "30",
@@ -11899,6 +12980,7 @@
     },
     {
       "Company": "BURGERIZZR",
+      "Symbol": "",
       "Open": "15.19",
       "Highest": "17.33",
       "Lowest": "14.15",
@@ -11910,6 +12992,7 @@
     },
     {
       "Company": "NCLE",
+      "Symbol": "",
       "Open": "151.00",
       "Highest": "183",
       "Lowest": "141.5",
@@ -11921,6 +13004,7 @@
     },
     {
       "Company": "GULF UNION ALAHLIA",
+      "Symbol": "",
       "Open": "12.00",
       "Highest": "14.18",
       "Lowest": "10.86",
@@ -11932,6 +13016,7 @@
     },
     {
       "Company": "SAUDI CABLE",
+      "Symbol": "",
       "Open": "141.00",
       "Highest": "160",
       "Lowest": "130",
@@ -11943,6 +13028,7 @@
     },
     {
       "Company": "BUDGET SAUDI",
+      "Symbol": "",
       "Open": "67.10",
       "Highest": "78.95",
       "Lowest": "64",
@@ -11954,6 +13040,7 @@
     },
     {
       "Company": "UCIC",
+      "Symbol": "",
       "Open": "28.00",
       "Highest": "32.44",
       "Lowest": "26.16",
@@ -11965,6 +13052,7 @@
     },
     {
       "Company": "JAZIRA TAKAFUL",
+      "Symbol": "",
       "Open": "12.01",
       "Highest": "13.12",
       "Lowest": "11.28",
@@ -11976,6 +13064,7 @@
     },
     {
       "Company": "NORTHERN CEMENT",
+      "Symbol": "",
       "Open": "7.60",
       "Highest": "8.28",
       "Lowest": "7.22",
@@ -11987,6 +13076,7 @@
     },
     {
       "Company": "BJAZ",
+      "Symbol": "",
       "Open": "11.80",
       "Highest": "13.31",
       "Lowest": "11.14",
@@ -11998,6 +13088,7 @@
     },
     {
       "Company": "MEFIC REIT",
+      "Symbol": "",
       "Open": "3.62",
       "Highest": "3.83",
       "Lowest": "3.4",
@@ -12009,6 +13100,7 @@
     },
     {
       "Company": "DALLAH HEALTH",
+      "Symbol": "",
       "Open": "128.80",
       "Highest": "157.3",
       "Lowest": "119.5",
@@ -12020,6 +13112,7 @@
     },
     {
       "Company": "TAIBA",
+      "Symbol": "",
       "Open": "35.62",
       "Highest": "43",
       "Lowest": "33.74",
@@ -12031,6 +13124,7 @@
     },
     {
       "Company": "ARABIAN MILLS",
+      "Symbol": "",
       "Open": "40.16",
       "Highest": "43.5",
       "Lowest": "38.08",
@@ -12042,6 +13136,7 @@
     },
     {
       "Company": "MUSHARAKA REIT",
+      "Symbol": "",
       "Open": "4.24",
       "Highest": "4.53",
       "Lowest": "4.03",
@@ -12053,6 +13148,7 @@
     },
     {
       "Company": "SADR",
+      "Symbol": "",
       "Open": "2.84",
       "Highest": "3.11",
       "Lowest": "2.69",
@@ -12064,6 +13160,7 @@
     },
     {
       "Company": "2P",
+      "Symbol": "",
       "Open": "8.99",
       "Highest": "10.23",
       "Lowest": "8.45",
@@ -12075,6 +13172,7 @@
     },
     {
       "Company": "TADAWUL GROUP",
+      "Symbol": "",
       "Open": "165.80",
       "Highest": "215",
       "Lowest": "158.7",
@@ -12086,6 +13184,7 @@
     },
     {
       "Company": "FIRST MILLS",
+      "Symbol": "",
       "Open": "50.50",
       "Highest": "54.4",
       "Lowest": "46.86",
@@ -12097,6 +13196,7 @@
     },
     {
       "Company": "AVALON PHARMA",
+      "Symbol": "",
       "Open": "122.50",
       "Highest": "138.4",
       "Lowest": "117.6",
@@ -12108,6 +13208,7 @@
     },
     {
       "Company": "SAUDI ELECTRICITY",
+      "Symbol": "",
       "Open": "14.53",
       "Highest": "16.05",
       "Lowest": "13.97",
@@ -12119,6 +13220,7 @@
     },
     {
       "Company": "DERAYAH REIT",
+      "Symbol": "",
       "Open": "5.60",
       "Highest": "5.75",
       "Lowest": "5.29",
@@ -12130,6 +13232,7 @@
     },
     {
       "Company": "BUPA ARABIA",
+      "Symbol": "",
       "Open": "145.80",
       "Highest": "167.5",
       "Lowest": "140.6",
@@ -12141,6 +13244,7 @@
     },
     {
       "Company": "ALKHABEER REIT",
+      "Symbol": "",
       "Open": "5.72",
       "Highest": "5.82",
       "Lowest": "5.58",
@@ -12152,6 +13256,7 @@
     },
     {
       "Company": "ALAHLI REIT 1",
+      "Symbol": "",
       "Open": "6.50",
       "Highest": "6.91",
       "Lowest": "6.05",
@@ -12163,6 +13268,7 @@
     },
     {
       "Company": "SAIB",
+      "Symbol": "",
       "Open": "13.39",
       "Highest": "14.81",
       "Lowest": "12.85",
@@ -12174,6 +13280,7 @@
     },
     {
       "Company": "LIVA",
+      "Symbol": "",
       "Open": "11.75",
       "Highest": "14.47",
       "Lowest": "11.31",
@@ -12185,6 +13292,7 @@
     },
     {
       "Company": "FOURTH MILLING",
+      "Symbol": "",
       "Open": "3.80",
       "Highest": "3.99",
       "Lowest": "3.66",
@@ -12196,6 +13304,7 @@
     },
     {
       "Company": "KEC",
+      "Symbol": "",
       "Open": "12.38",
       "Highest": "13.16",
       "Lowest": "11.85",
@@ -12207,6 +13316,7 @@
     },
     {
       "Company": "FITAIHI GROUP",
+      "Symbol": "",
       "Open": "2.97",
       "Highest": "3.44",
       "Lowest": "2.85",
@@ -12218,6 +13328,7 @@
     },
     {
       "Company": "OBEIKAN GLASS",
+      "Symbol": "",
       "Open": "26.90",
       "Highest": "38.44",
       "Lowest": "24.59",
@@ -12229,6 +13340,7 @@
     },
     {
       "Company": "ALJOUF",
+      "Symbol": "",
       "Open": "44.68",
       "Highest": "48.44",
       "Lowest": "40.9",
@@ -12240,6 +13352,7 @@
     },
     {
       "Company": "THEEB",
+      "Symbol": "",
       "Open": "59.95",
       "Highest": "66.9",
       "Lowest": "57.25",
@@ -12251,6 +13364,7 @@
     },
     {
       "Company": "PETROCHEM",
+      "Symbol": "",
       "Open": "46.05",
       "Highest": "46.05",
       "Lowest": "45.4",
@@ -12262,6 +13376,7 @@
     },
     {
       "Company": "ALINMA",
+      "Symbol": "",
       "Open": "24.63",
       "Highest": "28.02",
       "Lowest": "23.94",
@@ -12273,6 +13388,7 @@
     },
     {
       "Company": "BCI",
+      "Symbol": "",
       "Open": "26.60",
       "Highest": "29.16",
       "Lowest": "25.72",
@@ -12284,6 +13400,7 @@
     },
     {
       "Company": "ALINMA RETAIL REIT",
+      "Symbol": "",
       "Open": "4.46",
       "Highest": "4.69",
       "Lowest": "4.32",
@@ -12295,6 +13412,7 @@
     },
     {
       "Company": "JAMJOOM PHARMA",
+      "Symbol": "",
       "Open": "151.40",
       "Highest": "165.3",
       "Lowest": "141.9",
@@ -12306,6 +13424,7 @@
     },
     {
       "Company": "JARIR",
+      "Symbol": "",
       "Open": "12.71",
       "Highest": "14.56",
       "Lowest": "12.26",
@@ -12317,6 +13436,7 @@
     },
     {
       "Company": "Al RAJHI REIT",
+      "Symbol": "",
       "Open": "8.19",
       "Highest": "8.4",
       "Lowest": "8.08",
@@ -12328,6 +13448,7 @@
     },
     {
       "Company": "GACO",
+      "Symbol": "",
       "Open": "16.35",
       "Highest": "19.55",
       "Lowest": "15.81",
@@ -12339,6 +13460,7 @@
     },
     {
       "Company": "NAYIFAT",
+      "Symbol": "",
       "Open": "12.80",
       "Highest": "13.73",
       "Lowest": "12.42",
@@ -12350,6 +13472,7 @@
     },
     {
       "Company": "ALOMRAN",
+      "Symbol": "",
       "Open": "26.88",
       "Highest": "33.7",
       "Lowest": "25.74",
@@ -12361,6 +13484,7 @@
     },
     {
       "Company": "ASTRA INDUSTRIAL",
+      "Symbol": "",
       "Open": "133.60",
       "Highest": "151.2",
       "Lowest": "130.9",
@@ -12372,6 +13496,7 @@
     },
     {
       "Company": "YCC",
+      "Symbol": "",
       "Open": "16.11",
       "Highest": "17.3",
       "Lowest": "15.18",
@@ -12383,6 +13508,7 @@
     },
     {
       "Company": "AZM",
+      "Symbol": "",
       "Open": "25.56",
       "Highest": "29.3",
       "Lowest": "22.67",
@@ -12394,6 +13520,7 @@
     },
     {
       "Company": "RIYAD REIT",
+      "Symbol": "",
       "Open": "5.08",
       "Highest": "5.46",
       "Lowest": "4.95",
@@ -12405,6 +13532,7 @@
     },
     {
       "Company": "ALMASAR ALSHAMIL",
+      "Symbol": "",
       "Open": "23.09",
       "Highest": "24.48",
       "Lowest": "18.33",
@@ -12416,6 +13544,7 @@
     },
     {
       "Company": "SPIMACO",
+      "Symbol": "",
       "Open": "27.40",
       "Highest": "31.06",
       "Lowest": "26.5",
@@ -12427,6 +13556,7 @@
     },
     {
       "Company": "ACC",
+      "Symbol": "",
       "Open": "21.48",
       "Highest": "22.7",
       "Lowest": "20.85",
@@ -12438,6 +13568,7 @@
     },
     {
       "Company": "SACO",
+      "Symbol": "",
       "Open": "26.96",
       "Highest": "33.34",
       "Lowest": "26.16",
