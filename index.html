@@ -4,60 +4,129 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Saudi Market Performance Analysis</title>
+    <title>Saudi Market RS Analysis</title>
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <!-- DataTables CSS -->
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f8f9fa;
-            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px 0;
         }
 
         .container {
             background-color: white;
             padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
             margin-top: 20px;
+            margin-bottom: 40px;
         }
 
         h1 {
             color: #2c3e50;
-            margin-bottom: 30px;
+            margin-bottom: 10px;
             text-align: center;
             font-weight: bold;
+            font-size: 2.5rem;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #7f8c8d;
+            margin-bottom: 30px;
+            font-size: 1.1rem;
         }
 
         .last-update {
             text-align: center;
             color: #6c757d;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
+            padding: 10px;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+
+        .stats-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .stats-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .stats-card .number {
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+
+        .chart-container {
+            position: relative;
+            height: 400px;
+            margin: 30px 0;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 15px;
         }
 
         table.dataTable thead th {
             background-color: #2c3e50;
             color: white;
+            font-weight: 600;
         }
 
-        /* Ensure Company column (first column) is aligned left */
         table.dataTable thead th:first-child,
         table.dataTable tbody td:first-child {
             text-align: left;
         }
 
-        .positive {
-            color: green;
+        .rs-badge {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 20px;
             font-weight: bold;
+            min-width: 50px;
+            text-align: center;
         }
 
-        .negative {
-            color: red;
-            font-weight: bold;
+        .rs-high {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .rs-medium {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .rs-low {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        .filter-section {
+            margin: 20px 0;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 15px;
+        }
+
+        .filter-btn {
+            margin: 5px;
         }
     </style>
 </head>
@@ -65,9 +134,40 @@
 <body>
 
     <div class="container">
-        <h1>Relative Strength Analysis - Saudi Market</h1>
+        <h1>🚀 Saudi Market RS Analysis</h1>
+        <p class="subtitle">Relative Strength Rating · Based on IBD Methodology</p>
         <p class="last-update" id="lastUpdate">Loading data...</p>
 
+        <!-- Stats Cards -->
+        <div class="row" id="statsCards">
+            <!-- Will be populated by JavaScript -->
+        </div>
+
+        <!-- Charts Section -->
+        <div class="row">
+            <div class="col-md-6">
+                <div class="chart-container">
+                    <canvas id="topPerformersChart"></canvas>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="chart-container">
+                    <canvas id="rsDistributionChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- Filter Section -->
+        <div class="filter-section">
+            <h5>Quick Filters:</h5>
+            <button class="btn btn-success filter-btn" onclick="filterRS(80, 100)">Top Tier (RS 80+)</button>
+            <button class="btn btn-primary filter-btn" onclick="filterRS(50, 79)">Above Average (RS 50-79)</button>
+            <button class="btn btn-warning filter-btn" onclick="filterRS(20, 49)">Below Average (RS 20-49)</button>
+            <button class="btn btn-danger filter-btn" onclick="filterRS(0, 19)">Weak (RS < 20)</button>
+                    <button class="btn btn-secondary filter-btn" onclick="resetFilter()">Show All</button>
+        </div>
+
+        <!-- Data Table -->
         <div class="table-responsive">
             <table id="analysisTable" class="table table-striped table-hover" style="width:100%">
                 <thead>
@@ -84,15 +184,17 @@
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- PapaParse (Local file to ensure compatibility across all browsers) -->
+    <!-- PapaParse -->
     <script src="papaparse.min.js"></script>
     <!-- DataTables JS -->
     <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
 
     <script>
+        let globalData = [];
+        let dataTable;
+
         $(document).ready(function () {
-            // Path to your CSV file
             const csvFilePath = 'saudiexchange_rs_analysis.csv';
 
             Papa.parse(csvFilePath, {
@@ -102,6 +204,7 @@
                 complete: function (results) {
                     const data = results.data;
                     const meta = results.meta;
+                    globalData = data;
 
                     if (data.length === 0) {
                         $('#lastUpdate').text('No data to display');
@@ -110,7 +213,14 @@
 
                     // Update timestamp
                     const now = new Date();
-                    $('#lastUpdate').text('Last Update: ' + now.toLocaleDateString('en-US') + ' ' + now.toLocaleTimeString('en-US'));
+                    $('#lastUpdate').html(`<strong>Last Updated:</strong> ${now.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })} at ${now.toLocaleTimeString('en-US')}`);
+
+                    // Calculate stats
+                    calculateStats(data);
+
+                    // Create charts
+                    createTopPerformersChart(data);
+                    createRSDistributionChart(data);
 
                     // Generate Table Headers
                     const headers = meta.fields;
@@ -122,19 +232,26 @@
                     $('#analysisTable thead').html(headerHtml);
 
                     // Initialize DataTable
-                    $('#analysisTable').DataTable({
+                    dataTable = $('#analysisTable').DataTable({
                         data: data,
-                        columns: headers.map(h => ({ data: h })),
-                        order: [[headers.length - 1, 'desc']], // Sort by last column (RS) by default
-                        pageLength: 25,
-                        createdRow: function (row, data, dataIndex) {
-                            // Example: Color code RS column if > 80
-                            const rsVal = parseFloat(data['RS']);
-                            if (rsVal >= 90) {
-                                $('td', row).last().addClass('positive');
-                            } else if (rsVal <= 30) {
-                                $('td', row).last().addClass('negative');
+                        columns: headers.map(h => ({
+                            data: h,
+                            render: function (data, type, row) {
+                                if (h === 'RS' && type === 'display') {
+                                    const rsValue = parseFloat(data);
+                                    let badgeClass = 'rs-low';
+                                    if (rsValue >= 80) badgeClass = 'rs-high';
+                                    else if (rsValue >= 50) badgeClass = 'rs-medium';
+                                    return `<span class="rs-badge ${badgeClass}">${data}</span>`;
+                                }
+                                return data;
                             }
+                        })),
+                        order: [[headers.indexOf('RS'), 'desc']], // Sort by RS
+                        pageLength: 25,
+                        language: {
+                            search: "Search stocks:",
+                            lengthMenu: "Show _MENU_ stocks per page"
                         }
                     });
                 },
@@ -144,6 +261,123 @@
                 }
             });
         });
+
+        function calculateStats(data) {
+            const rsValues = data.map(d => parseFloat(d.RS)).filter(v => !isNaN(v));
+            const avgRS = (rsValues.reduce((a, b) => a + b, 0) / rsValues.length).toFixed(1);
+            const highRS = rsValues.filter(v => v >= 80).length;
+            const total = rsValues.length;
+
+            const statsHtml = `
+                <div class="col-md-4">
+                    <div class="stats-card">
+                        <h3>Total Stocks</h3>
+                        <div class="number">${total}</div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="stats-card">
+                        <h3>Average RS</h3>
+                        <div class="number">${avgRS}</div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="stats-card">
+                        <h3>High RS (80+)</h3>
+                        <div class="number">${highRS}</div>
+                    </div>
+                </div>
+            `;
+            $('#statsCards').html(statsHtml);
+        }
+
+        function createTopPerformersChart(data) {
+            const sorted = data.sort((a, b) => parseFloat(b.RS) - parseFloat(a.RS)).slice(0, 10);
+            const ctx = document.getElementById('topPerformersChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: sorted.map(d => d.Company),
+                    datasets: [{
+                        label: 'RS Rating',
+                        data: sorted.map(d => parseFloat(d.RS)),
+                        backgroundColor: 'rgba(102, 126, 234, 0.8)',
+                        borderColor: 'rgba(102, 126, 234, 1)',
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    indexAxis: 'y',
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'Top 10 Stocks by RS Rating',
+                            font: { size: 16, weight: 'bold' }
+                        },
+                        legend: { display: false }
+                    },
+                    scales: {
+                        x: { beginAtZero: true, max: 100 }
+                    }
+                }
+            });
+        }
+
+        function createRSDistributionChart(data) {
+            const rsValues = data.map(d => parseFloat(d.RS)).filter(v => !isNaN(v));
+            const ranges = { '0-20': 0, '20-40': 0, '40-60': 0, '60-80': 0, '80-100': 0 };
+
+            rsValues.forEach(v => {
+                if (v >= 80) ranges['80-100']++;
+                else if (v >= 60) ranges['60-80']++;
+                else if (v >= 40) ranges['40-60']++;
+                else if (v >= 20) ranges['20-40']++;
+                else ranges['0-20']++;
+            });
+
+            const ctx = document.getElementById('rs DistributionChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: Object.keys(ranges),
+                    datasets: [{
+                        data: Object.values(ranges),
+                        backgroundColor: [
+                            'rgba(220, 53, 69, 0.8)',
+                            'rgba(255, 193, 7, 0.8)',
+                            'rgba(13, 202, 240, 0.8)',
+                            'rgba(25, 135, 84, 0.8)',
+                            'rgba(102, 126, 234, 0.8)'
+                        ]
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'RS Distribution',
+                            font: { size: 16, weight: 'bold' }
+                        }
+                    }
+                }
+            });
+        }
+
+        function filterRS(min, max) {
+            if (!dataTable) return;
+            dataTable.column(dataTable.columns().header().toArray().findIndex(th => th.textContent === 'RS'))
+                .search(`^([${min}-${max}]|[${min}-9][0-9])$`, true, false)
+                .draw();
+        }
+
+        function resetFilter() {
+            if (!dataTable) return;
+            dataTable.search('').columns().search('').draw();
+        }
     </script>
 </body>
 
