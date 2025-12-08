@@ -70,6 +70,11 @@ def calculate_rs_metrics_from_csv(input_csv: str, output_path: str) -> None:
     df_pivot.reset_index(inplace=True)
 
     # --- MERGE WITH USER PROVIDED SYMBOLS ---
+    # First, drop the 'Symbol' column from pivot if it exists (from scraper)
+    # We'll use the Symbol from company_symbols.csv instead
+    if 'Symbol' in df_pivot.columns:
+        df_pivot = df_pivot.drop(columns=['Symbol'])
+    
     try:
         symbols_path = "company_symbols.csv"
         # Read simple CSV with header: #,Company,الرمز على تريدنج فيو
