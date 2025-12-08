@@ -168,17 +168,7 @@
                     $('#analysisTable').DataTable({
                         data: data,
                         columns: headers.map(h => ({
-                            data: h,
-                            render: function (data, type, row) {
-                                if (h === 'RS' && type === 'display') {
-                                    const rsValue = parseFloat(data);
-                                    let badgeClass = 'rs-low';
-                                    if (rsValue >= 80) badgeClass = 'rs-high';
-                                    else if (rsValue >= 50) badgeClass = 'rs-medium';
-                                    return `<span class="rs-badge ${badgeClass}">${data}</span>`;
-                                }
-                                return data;
-                            }
+                            data: h
                         })),
                         order: [[headers.indexOf('RS'), 'desc']],
                         pageLength: 25,

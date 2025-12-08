@@ -6,12 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Saudi Market RS - Charts View</title>
 
-    <!-- TradingView Lightweight Charts -->
-    <script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <!-- PapaParse -->
-    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
 
     <style>
         * {
@@ -232,6 +228,8 @@
             background: #1e222d;
             border-radius: 4px;
             position: relative;
+            padding: 20px;
+            min-height: 400px;
         }
 
         .stats-panel {
@@ -329,7 +327,9 @@
                 <div class="rs-score-display" id="rsScore">--</div>
             </div>
 
-            <div id="chart-container"></div>
+            <div id="chart-container">
+                <canvas id="myChart"></canvas>
+            </div>
 
             <div class="stats-panel" id="statsPanel">
                 <!-- Will be populated by JavaScript -->
@@ -337,10 +337,15 @@
         </div>
     </div>
 
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <!-- PapaParse -->
+    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+
     <script>
         let allStocks = [];
         let filteredStocks = [];
-        let chart = null;
+        let myChart = null;
         let currentStock = null;
 
         // Load data
@@ -355,20 +360,20 @@
 
                 // Load first stock by default
                 if (allStocks.length > 0) {
-                    loadStock(allStocks[0]);
+                    loadStock(allStocks[0], null);
                 }
             }
         });
 
         function renderStockList() {
-            const listHtml = filteredStocks.map(stock => {
+            const listHtml = filteredStocks.map((stock, index) => {
                 const rs = parseFloat(stock.RS);
                 let rsClass = 'rs-low';
                 if (rs >= 80) rsClass = 'rs-high';
                 else if (rs >= 50) rsClass = 'rs-medium';
 
                 return `
-                    <div class="stock-item" onclick='loadStock(${JSON.stringify(stock).replace(/'/g, "\\'")})'}>
+                    <div class="stock-item" data-index="${index}">
                         <div class="stock-rs ${rsClass}">${stock.RS}</div>
                         <div class="stock-symbol">${stock.Symbol || stock.Company}</div>
                         <div class="stock-name">${stock.Company}</div>
@@ -377,6 +382,14 @@
             }).join('');
 
             document.getElementById('stockList').innerHTML = listHtml || '<p style="text-align:center; color: #787b86;">No stocks found</p>';
+
+            // Add click listeners
+            document.querySelectorAll('.stock-item').forEach(item => {
+                item.addEventListener('click', function () {
+                    const index = parseInt(this.getAttribute('data-index'));
+                    loadStock(filteredStocks[index], this);
+                });
+            });
         }
 
         function filterStocks(min, max) {
@@ -396,7 +409,7 @@
             renderStockList();
         }
 
-        function loadStock(stock) {
+        function loadStock(stock, clickedElement) {
             currentStock = stock;
 
             // Update header
@@ -441,72 +454,114 @@
 
             // Highlight active stock
             document.querySelectorAll('.stock-item').forEach(item => item.classList.remove('active'));
-            event.currentTarget && event.currentTarget.classList.add('active');
+            if (clickedElement) {
+                clickedElement.classList.add('active');
+            }
         }
 
         function createChart(stock) {
-            const container = document.getElementById('chart-container');
-            container.innerHTML = '';
+            // Destroy previous chart
+            if (myChart) {
+                myChart.destroy();
+            }
 
-            chart = LightweightCharts.createChart(container, {
-                layout: {
-                    background: { color: '#1e222d' },
-                    textColor: '#d1d4dc',
+            // Prepare data
+            const labels = [];
+            const data = [];
+
+            if (stock.RS_1Year) {
+                labels.push('1 Year Ago');
+                data.push(parseFloat(stock.RS_1Year));
+            }
+
+            if (stock.RS_9Months) {
+                labels.push('9 Months Ago');
+                data.push(parseFloat(stock.RS_9Months));
+            }
+
+            if (stock.RS_6Months) {
+                labels.push('6 Months Ago');
+                data.push(parseFloat(stock.RS_6Months));
+            }
+
+            if (stock.RS_3Months) {
+                labels.push('3 Months Ago');
+                data.push(parseFloat(stock.RS_3Months));
+            }
+
+            labels.push('Current');
+            data.push(parseFloat(stock.RS));
+
+            // Create gradient
+            const ctx = document.getElementById('myChart').getContext('2d');
+            const gradient = ctx.createLinearGradient(0, 0, 0, 400);
+            gradient.addColorStop(0, 'rgba(41, 98, 255, 0.4)');
+            gradient.addColorStop(1, 'rgba(41, 98, 255, 0.0)');
+
+            // Create chart
+            myChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'RS Rating',
+                        data: data,
+                        borderColor: 'rgba(41, 98, 255, 1)',
+                        backgroundColor: gradient,
+                        borderWidth: 3,
+                        fill: true,
+                        tension: 0.4,
+                        pointRadius: 5,
+                        pointHoverRadius: 7,
+                        pointBackgroundColor: 'rgba(41, 98, 255, 1)',
+                        pointBorderColor: '#fff',
+                        pointBorderWidth: 2
+                    }]
                 },
-                grid: {
-                    vertLines: { color: '#2a2e39' },
-                    horzLines: { color: '#2a2e39' },
-                },
-                width: container.clientWidth,
-                height: container.clientHeight,
-                timeScale: {
-                    borderColor: '#2a2e39',
-                },
-                rightPriceScale: {
-                    borderColor: '#2a2e39',
-                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        tooltip: {
+                            backgroundColor: '#1e222d',
+                            titleColor: '#fff',
+                            bodyColor: '#d1d4dc',
+                            borderColor: '#2a2e39',
+                            borderWidth: 1,
+                            padding: 12,
+                            displayColors: false,
+                            callbacks: {
+                                label: function (context) {
+                                    return 'RS: ' + context.parsed.y;
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 100,
+                            grid: {
+                                color: '#2a2e39'
+                            },
+                            ticks: {
+                                color: '#787b86'
+                            }
+                        },
+                        x: {
+                            grid: {
+                                color: '#2a2e39'
+                            },
+                            ticks: {
+                                color: '#787b86'
+                            }
+                        }
+                    }
+                }
             });
-
-            // Create sample RS trend data (since we don't have historical data)
-            const lineSeries = chart.addLineSeries({
-                color: '#2962ff',
-                lineWidth: 2,
-            });
-
-            // Generate sample trend data based on current RS values
-            const now = new Date();
-            const data = [
-                { time: getDateString(-252), value: parseFloat(stock.RS_1Year) || 50 },
-                { time: getDateString(-189), value: parseFloat(stock.RS_9Months) || 50 },
-                { time: getDateString(-126), value: parseFloat(stock.RS_6Months) || 50 },
-                { time: getDateString(-63), value: parseFloat(stock.RS_3Months) || 50 },
-                { time: getDateString(0), value: parseFloat(stock.RS) },
-            ].filter(d => d.value);
-
-            lineSeries.setData(data);
-
-            // Add area series for visual effect
-            const areaSeries = chart.addAreaSeries({
-                topColor: 'rgba(41, 98, 255, 0.4)',
-                bottomColor: 'rgba(41, 98, 255, 0.0)',
-                lineColor: 'rgba(41, 98, 255, 1)',
-                lineWidth: 2,
-            });
-            areaSeries.setData(data);
-
-            // Fit content
-            chart.timeScale().fitContent();
-
-            // Responsive resize
-            window.addEventListener('resize', () => {
-                chart.applyOptions({ width: container.clientWidth });
-            });
-        }
-
-        function getDateString(daysOffset) {
-            const date = new Date();
-            date.setDate(date.getDate() + daysOffset);
-            return date.toISOString().split('T')[0];
         }
     </script>
 
