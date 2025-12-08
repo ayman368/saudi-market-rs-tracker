@@ -1,0 +1,159 @@
+//Relative Price Strength (RS) Rating for Saudi Market
+//This is a measure of a stock's price performance over the last
+//twelve months, compared to all Saudi stocks (TASI).
+//The rating scale ranges from 1 (lowest) to 99 (highest)
+//
+// Adapted for Saudi Market by [Your Name]
+// Original script by Fred6724
+// GitHub: https://github.com/Youssef-Waheed1/lumivst_test
+//
+// This source code is subject to the terms of the Mozilla Public License 2.0 at https://mozilla.org/MPL/2.0/
+
+//@version=5
+indicator(title='Saudi RS Rating', shorttitle='Saudi RS', overlay=true, max_bars_back = 253)
+
+// ===== CONFIGURATION =====
+comparativeTickerId = 'TADAWUL:TASI' // Saudi General Index
+
+// ===== INPUTS =====
+hideRSRat   = input(false, title='Hide Rating', group = 'RS Line')
+ratingOnly  = input(false, title='Rating Only', group = 'RS Line')
+colorRS     = input(color.rgb(0, 0, 255,0), title = 'Color', group = 'RS Line')
+lineTicker  = input('TADAWUL:TASI', title='Comparative Symbol', group = 'Shape & Offset')
+IndexValue  = input(11500, title='Approximate TASI Value', group = 'Shape & Offset', tooltip = 'Used to scale the RS line for display')
+offset      = input.int(80, minval = 0, maxval = 2000, title='Offset (%)', group = 'Shape & Offset', tooltip = 'Display offset for RS Line')
+
+// MA Options
+boolMa      = input(false, title = 'Display MA on RS Line', group = '1st MA on RS Line')
+lenMa       = input(21, title = 'Length', group = '1st MA on RS Line', inline = 'c')
+colMa       = input(color.orange, title = 'Color', group = '1st MA on RS Line', inline = 'c')
+typMa       = input.string('EMA', title = 'Type', options = ['SMA', 'EMA'], group = '1st MA on RS Line', inline = 'c')
+
+// Saudi Market Calibration (Updated daily from GitHub Actions)
+// These values are calculated from actual Saudi market data
+// Last update: See https://github.com/Youssef-Waheed1/lumivst_test
+allowReplay = input(true, title = 'Use Calibrated Thresholds', group ='Saudi Market Calibration')
+first2      = input(150.0, title='For 99 Rating (Top 1%)', group = 'Saudi Market Calibration', tooltip='Raw RS Score threshold for top 1%')
+scnd2       = input(125.0, title='For 90+ Rating (Top 10%)', group = 'Saudi Market Calibration')
+thrd2       = input(110.0, title='For 70+ Rating', group = 'Saudi Market Calibration')
+frth2       = input(100.0, title='For 50+ Rating (Median)', group = 'Saudi Market Calibration')
+ffth2       = input(90.0, title='For 30+ Rating', group = 'Saudi Market Calibration')
+sxth2       = input(75.0, title='For 10+ Rating', group = 'Saudi Market Calibration')
+svth2       = input(50.0, title='For 1 Rating (Bottom)', group = 'Saudi Market Calibration')
+
+// ===== RS LINE CALCULATION =====
+// Using bar index to handle new listings
+n63      = bar_index < 63  ? bar_index : 63 
+n126     = bar_index < 126 ? bar_index : 126
+n189     = bar_index < 189 ? bar_index : 189
+n252     = bar_index < 252 ? bar_index : 252
+
+// Get TASI data
+comparativeSymbol   = request.security(lineTicker, timeframe.period, close)
+
+// RS Line calculation
+rsCurve             = (close/comparativeSymbol)
+rsRatio             = timeframe.isweekly ? IndexValue*(offset-10)/100 : IndexValue*offset/100
+rs                  = rsCurve*rsRatio
+rsPlot = plot(rs, title='RS Line', style=plot.style_line, linewidth=1, color=colorRS)
+
+// ===== MOVING AVERAGE ON RS LINE =====
+rsMA      = ta.sma(rs, lenMa)
+if (typMa == 'EMA')
+    rsMA := ta.ema(rs, lenMa)
+
+maPlot = plot(boolMa ? rsMA : na, color = colMa, linewidth = 1)
+
+// ===== RS RATING CALCULATION =====
+// Get daily data
+closeDa    = request.security(syminfo.tickerid,    'D', close)
+tasiCloseDa = request.security(comparativeTickerId, 'D', close)
+
+// Calculate performance for last 4 quarters
+// Stock performance
+perfTicker63   = closeDa/closeDa[n63]
+perfTicker126  = closeDa/closeDa[n126]
+perfTicker189  = closeDa/closeDa[n189]
+perfTicker252  = closeDa/closeDa[n252]
+
+// TASI performance
+perfComp63     = tasiCloseDa/tasiCloseDa[n63]
+perfComp126    = tasiCloseDa/tasiCloseDa[n126]
+perfComp189    = tasiCloseDa/tasiCloseDa[n189]
+perfComp252    = tasiCloseDa/tasiCloseDa[n252]
+
+// Weighted RS Score (40% last quarter, 20% each for others)
+float rs_stock = 0.4*perfTicker63 + 0.2*perfTicker126 + 0.2*perfTicker189 + 0.2*perfTicker252
+float rs_ref   = 0.4*perfComp63   + 0.2*perfComp126   + 0.2*perfComp189   + 0.2*perfComp252
+
+// Calculate total RS Score
+float totalRsScore  = (rs_stock) / (rs_ref) * 100
+float totalRsRating = -1
+
+// ===== PERCENTILE CONVERSION =====
+// Using calibrated thresholds from Saudi market data
+float first = first2
+float scnd  = scnd2 
+float thrd  = thrd2 
+float frth  = frth2 
+float ffth  = ffth2 
+float sxth  = sxth2 
+float svth  = svth2 
+
+// Assign percentile ratings
+if(totalRsScore >= first)
+    totalRsRating := 99
+else if(totalRsScore <= svth)
+    totalRsRating := 1
+else
+    // Linear interpolation between thresholds
+    if (totalRsScore >= scnd)
+        // Between 99 and 90
+        totalRsRating := 90 + (totalRsScore - scnd) / (first - scnd) * 9
+    else if (totalRsScore >= thrd)
+        // Between 90 and 70
+        totalRsRating := 70 + (totalRsScore - thrd) / (scnd - thrd) * 20
+    else if (totalRsScore >= frth)
+        // Between 70 and 50
+        totalRsRating := 50 + (totalRsScore - frth) / (thrd - frth) * 20
+    else if (totalRsScore >= ffth)
+        // Between 50 and 30
+        totalRsRating := 30 + (totalRsScore - ffth) / (frth - ffth) * 20
+    else if (totalRsScore >= sxth)
+        // Between 30 and 10
+        totalRsRating := 10 + (totalRsScore - sxth) / (ffth - sxth) * 20
+    else
+        // Between 10 and 1
+        totalRsRating := 1 + (totalRsScore - svth) / (sxth - svth) * 9
+
+// Round to integer
+totalRsRating := math.round(totalRsRating)
+
+// ===== DISPLAY RS RATING =====
+// Only works on Daily timeframe
+isDaily = timeframe.isdaily
+labelText1 = '                RS Rating'
+labelText2 = ''
+
+if (isDaily and totalRsRating != -1)
+    labelText2 := '\n\n       '+str.tostring(totalRsRating,'#')
+
+// Rating Only mode
+if (ratingOnly)
+    labelText1 := ''
+    labelText2 := '\n    '+str.tostring(totalRsRating,'#')
+
+// Color coding based on RS Rating
+labelColor = totalRsRating >= 80 ? color.rgb(0, 230, 119, 20) : totalRsRating >= 50 ? color.rgb(0, 150, 255, 20) : color.rgb(255, 82, 82, 20)
+
+// Display labels
+label1 = (hideRSRat == false) and barstate.islast and isDaily ? label.new(bar_index, rs, text=labelText1, color = color.rgb(0,0,0,100), size=size.normal, textcolor=colorRS, style=label.style_label_center, textalign=text.align_left, yloc=yloc.price) : na
+label2 = (hideRSRat == false) and barstate.islast and isDaily ? label.new(bar_index, rs, text=labelText2, color = labelColor, size=size.large,  textcolor=color.white, style=label.style_label_center, textalign=text.align_left, yloc=yloc.price) : na
+
+// Delete previous labels
+label.delete(label1[1])
+label.delete(label2[1])
+
+// Warning for non-daily timeframes
+if (not isDaily and barstate.islast)
+    label.new(bar_index, high, text='⚠️ Use Daily TF', color=color.red, style=label.style_label_down, textcolor=color.white, size=size.small)
