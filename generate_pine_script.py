@@ -20,7 +20,8 @@ def generate_pine_script(csv_path='saudiexchange_rs_analysis.csv',
     df = df.sort_values('Symbol').reset_index(drop=True)
     
     # Prepare data arrays
-    symbols = df['Symbol'].tolist()
+    # Ensure symbols are clean strings (remove .0 if interpreted as float)
+    symbols = df['Symbol'].astype(str).str.replace(r'\.0$', '', regex=True).tolist()
     companies = df['Company'].tolist()
     rs_values = df['RS'].tolist()
     
