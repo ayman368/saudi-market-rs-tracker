@@ -26,7 +26,7 @@ def generate_pine_script(csv_path='saudiexchange_rs_analysis.csv',
     
     # Generate arrays as Pine Script code
     symbols_array = ', '.join([f'"{s}"' for s in symbols])
-    companies_array = ', '.join([f'"{c.replace('"', "'")}"' for c in companies])
+    companies_array = ', '.join([f'"{c.replace(chr(34), chr(39))}"' for c in companies])
     rs_array = ', '.join([str(int(r)) for r in rs_values])
     
     total_stocks = len(df)
