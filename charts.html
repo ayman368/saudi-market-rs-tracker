@@ -246,6 +246,8 @@
             header: true,
             complete: function (results) {
                 allStocks = results.data.filter(d => d.Company && d.RS);
+                // Sort by RS descending initially
+                allStocks.sort((a, b) => parseFloat(b.RS) - parseFloat(a.RS));
                 filteredStocks = [...allStocks];
                 renderList();
                 if (allStocks.length > 0) {
@@ -262,8 +264,8 @@
                 else if (rs >= 50) c = 'rs-medium';
                 return `<div class="stock-item" data-i="${i}">
                     <div class="stock-rs ${c}">${s.RS}</div>
-                    <div style="font-weight:600; color:#fff;">${s.Symbol || s.Company}</div>
-                    <div style="font-size:0.85rem; color:#787b86;">${s.Company}</div>
+                    <div style="font-weight:600; color:#fff;">${s.Company}</div>
+                    <div style="font-size:0.85rem; color:#787b86;">${s.Symbol}</div>
                 </div>`;
             }).join('');
             document.getElementById('stockList').innerHTML = html || '<p style="color:#787b86;">No stocks</p>';
@@ -281,6 +283,8 @@
                 const rs = parseFloat(s.RS);
                 return rs >= min && rs <= max;
             });
+            // Sort by RS descending
+            filteredStocks.sort((a, b) => parseFloat(b.RS) - parseFloat(a.RS));
             renderList();
         }
 
@@ -290,6 +294,8 @@
                 s.Company.toLowerCase().includes(query) ||
                 (s.Symbol && s.Symbol.toLowerCase().includes(query))
             );
+            // Sort by RS descending
+            filteredStocks.sort((a, b) => parseFloat(b.RS) - parseFloat(a.RS));
             renderList();
         }
 
