@@ -96,53 +96,17 @@ rs = rsCurve*rsRatio
 
 rsPlot = plot(rs, title='RS Line', style=plot.style_line, linewidth=1, color=colorRS)
 
-// ===== RS TABLE =====
-var table rsInfoTable = table.new(position.top_right, 2, 5, 
-     bgcolor = color.new(color.rgb(30, 34, 45), 10), 
-     border_width = 1, 
-     border_color = color.new(color.rgb(42, 46, 57), 50))
-
-if barstate.islast and showTable and timeframe.isdaily
-    // Header
-    table.cell(rsInfoTable, 0, 0, "Saudi RS", text_color = color.white, 
-               bgcolor = color.rgb(42, 46, 57), text_size = size.normal)
-    table.cell(rsInfoTable, 1, 0, "Data", text_color = color.white, 
-               bgcolor = color.rgb(42, 46, 57), text_size = size.normal)
-    
-    // Company
-    table.cell(rsInfoTable, 0, 1, "Company", text_color = color.rgb(120, 123, 134), text_size = size.small)
-    companyText = stockIndex >= 0 ? currentCompany : "N/A"
-    table.cell(rsInfoTable, 1, 1, companyText, text_color = color.white, text_size = size.small)
-    
-    // Symbol
-    table.cell(rsInfoTable, 0, 2, "Symbol", text_color = color.rgb(120, 123, 134), text_size = size.small)
-    table.cell(rsInfoTable, 1, 2, currentSymbol, text_color = color.white, text_size = size.small)
-    
-    // RS Rating
-    table.cell(rsInfoTable, 0, 3, "RS Rating", text_color = color.rgb(120, 123, 134), text_size = size.small)
-    rsText = stockIndex >= 0 ? str.tostring(currentRS) : "N/A"
-    rsColor = currentRS >= 80 ? color.new(color.rgb(0, 230, 119), 20) : 
-              currentRS >= 50 ? color.new(color.rgb(0, 150, 255), 20) : 
-              color.new(color.rgb(255, 82, 82), 20)
-    table.cell(rsInfoTable, 1, 3, rsText, text_color = color.white, 
-               bgcolor = stockIndex >= 0 ? rsColor : na, text_size = size.large)
-    
-    // Rank
-    table.cell(rsInfoTable, 0, 4, "Rank", text_color = color.rgb(120, 123, 134), text_size = size.small)
-    rankText = stockIndex >= 0 ? "#" + str.tostring(TOTAL_STOCKS - stockIndex) + " / " + str.tostring(TOTAL_STOCKS) : "N/A"
-    table.cell(rsInfoTable, 1, 4, rankText, text_color = color.rgb(209, 212, 220), text_size = size.tiny)
-
 // ===== DISPLAY RS LABEL =====
 isDaily = timeframe.isdaily
 labelText = stockIndex >= 0 ? str.tostring(currentRS) : "N/A"
-labelColor = currentRS >= 80 ? color.new(color.rgb(0, 230, 119), 20) : 
-             currentRS >= 50 ? color.new(color.rgb(0, 150, 255), 20) : 
-             color.new(color.rgb(255, 82, 82), 20)
 
+// Simple label without background
+// Shows: "RS: 84" next to the line
 label1 = (hideRSRat == false) and barstate.islast and isDaily and stockIndex >= 0 ? 
-         label.new(bar_index, rs, text='     RS: ' + labelText, 
-                   color = labelColor, size=size.normal, 
-                   textcolor=color.white, 
+         label.new(bar_index, rs, text='  RS: ' + labelText, 
+                   color = color.new(color.white, 100), // Transparent background
+                   size=size.normal, 
+                   textcolor=colorRS, // Use the line color for text
                    style=label.style_label_left, 
                    yloc=yloc.price) : na
 
@@ -151,15 +115,15 @@ label.delete(label1[1])
 
 // Warning for non-Saudi stocks
 if barstate.islast and stockIndex < 0
-    label.new(bar_index, high, text='⚠️ Not a Saudi stock\\nor data not available', 
-              color=color.red, style=label.style_label_down, 
-              textcolor=color.white, size=size.small)
+    label.new(bar_index, high, text='⚠️ Not a Saudi stock', 
+              color=color.new(color.white, 100), 
+              textcolor=color.red, size=size.small, style=label.style_label_down)
 
 // Warning for non-daily timeframe
 if (not isDaily and barstate.islast)
-    label.new(bar_index + 10, high, text='⚠️ Use Daily (1D)', 
-              color=color.orange, style=label.style_label_down, 
-              textcolor=color.white, size=size.small)
+    label.new(bar_index + 10, high, text='Use Daily (1D)', 
+              color=color.new(color.white, 100), 
+              textcolor=color.orange, size=size.small, style=label.style_label_down)
 
 // ===== INFO =====
 // Data updated: {last_update}
