@@ -102,9 +102,9 @@ isDaily = timeframe.isdaily
 labelText = stockIndex >= 0 ? str.tostring(currentRS) : "N/A"
 
 // Simple label without background
-// Shows: "RS: 84" next to the line
+// Shows: "RS Rating: 84" next to the line
 label1 = (hideRSRat == false) and barstate.islast and isDaily and stockIndex >= 0 ? 
-         label.new(bar_index, rs, text='  RS: ' + labelText, 
+         label.new(bar_index, rs, text='  RS Rating: ' + labelText, 
                    color = color.new(color.white, 100), // Transparent background
                    size=size.normal, 
                    textcolor=colorRS, // Use the line color for text
