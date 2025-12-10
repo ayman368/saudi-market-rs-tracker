@@ -5,7 +5,7 @@
 //
 // Adapted for Saudi Market by [Your Name]
 // Original script by Fred6724
-// GitHub: https://github.com/Youssef-Waheed1/lumivst_test
+// GitHub: https://github.com/ayman368/saudi-market-rs-tracker
 //
 // This source code is subject to the terms of the Mozilla Public License 2.0 at https://mozilla.org/MPL/2.0/
 
@@ -32,7 +32,7 @@ typMa       = input.string('EMA', title = 'Type', options = ['SMA', 'EMA'], grou
 // Saudi Market Calibration (Updated from actual market data)
 // These values are calculated from Saudi market weighted performance
 // Last update: 2025-12-08
-// See: https://github.com/Youssef-Waheed1/lumivst_test/blob/main/saudiexchange_rs_analysis_tv_thresholds.txt
+// See: https://github.com/ayman368/saudi-market-rs-tracker/blob/main/saudiexchange_rs_analysis_tv_thresholds.txt
 allowReplay = input(true, title = 'Use Calibrated Thresholds', group ='Saudi Market Calibration')
 first2      = input(148.41, title='For 99 Rating (Top 1%)', group = 'Saudi Market Calibration', tooltip='Raw RS Score threshold for top 1%')
 scnd2       = input(117.11, title='For 90+ Rating (Top 10%)', group = 'Saudi Market Calibration')

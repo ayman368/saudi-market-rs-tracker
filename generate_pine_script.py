@@ -36,7 +36,7 @@ def generate_pine_script(csv_path='saudiexchange_rs_analysis.csv',
     # Generate Pine Script
     pine_code = f'''//=============================================================================
 // Saudi Market RS Rating - Auto-Generated
-// Data Source: https://github.com/Youssef-Waheed1/lumivst_test
+// Data Source: https://github.com/ayman368/saudi-market-rs-tracker
 // Total Stocks: {total_stocks}
 // Last Update: {last_update}
 // 
@@ -129,7 +129,7 @@ if (not isDaily and barstate.islast)
 // ===== INFO =====
 // Data updated: {last_update}
 // Total stocks: {total_stocks}
-// GitHub: https://github.com/Youssef-Waheed1/lumivst_test
+// GitHub: https://github.com/ayman368/saudi-market-rs-tracker
 '''
 
     # Save to file

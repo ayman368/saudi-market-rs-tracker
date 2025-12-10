@@ -52,14 +52,14 @@ Every day at **4:00 PM Saudi time**, GitHub Actions will:
 3. **Generate new Pine Script**
 4. Commit & push to GitHub
 
-**Check:** [GitHub Actions](https://github.com/Youssef-Waheed1/lumivst_test/actions)
+**Check:** [GitHub Actions](https://github.com/ayman368/saudi-market-rs-tracker/actions)
 
 ---
 
 ### **Step 2: Get Latest Pine Script**
 
 **Option A: From GitHub Web:**
-1. Go to: https://github.com/Youssef-Waheed1/lumivst_test
+1. Go to: https://github.com/ayman368/saudi-market-rs-tracker
 2. Open: `saudi_rs_auto_generated.pine`
 3. Click **Raw**
 4. Copy all code
@@ -275,7 +275,7 @@ git push
 
 ## 📞 Support
 
-- **GitHub:** https://github.com/Youssef-Waheed1/lumivst_test
+- **GitHub:** https://github.com/ayman368/saudi-market-rs-tracker
 - **Issues:** Create an issue on GitHub
 - **Latest Code:** Always check `saudi_rs_auto_generated.pine`
 
