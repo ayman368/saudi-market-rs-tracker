@@ -2,8 +2,9 @@ name: Daily Saudi Exchange Scraper
 
 on:
   schedule:
-    # Runs at 13:00 UTC (16:00 Riyadh / 15:00 Cairo)
-    - cron: '0 13 * * *'
+    # Runs at 14:00 UTC (17:00 Riyadh / 16:00 Cairo)
+    # Runs Sunday-Thursday (Saudi market days: 0-4)
+    - cron: '0 14 * * 0-4'
   workflow_dispatch:
 
 permissions:
