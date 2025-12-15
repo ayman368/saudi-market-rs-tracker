@@ -295,41 +295,39 @@
         let dataMap = [];
         let currentFilter = 'all';
 
-        // Initialize Chart
-        function initChart() {
-            const container = document.getElementById('chartContainer');
-            chart = LightweightCharts.createChart(container, {
-                layout: {
-                    background: { color: '#131722' },
-                    textColor: '#d1d4dc',
-                },
-                grid: {
-                    vertLines: { color: '#2a2e39' },
-                    horzLines: { color: '#2a2e39' },
-                },
-                rightPriceScale: {
-                    borderVisible: false,
-                    scaleMargins: { top: 0.1, bottom: 0.1 },
-                },
-                timeScale: {
-                    borderVisible: false,
-                },
-                crosshair: {
-                    vertLine: { labelVisible: false },
-                },
-            });
+        // Initialize Chart immediately
+        const container = document.getElementById('chartContainer');
+        chart = LightweightCharts.createChart(container, {
+            layout: {
+                background: { color: '#131722' },
+                textColor: '#d1d4dc',
+            },
+            grid: {
+                vertLines: { color: '#2a2e39' },
+                horzLines: { color: '#2a2e39' },
+            },
+            rightPriceScale: {
+                borderVisible: false,
+                scaleMargins: { top: 0.1, bottom: 0.1 },
+            },
+            timeScale: {
+                borderVisible: false,
+            },
+            crosshair: {
+                vertLine: { labelVisible: false },
+            },
+        });
 
-            mainSeries = chart.addAreaSeries({
-                topColor: 'rgba(41, 98, 255, 0.4)',
-                bottomColor: 'rgba(41, 98, 255, 0.0)',
-                lineColor: '#2962ff',
-                lineWidth: 3,
-            });
+        mainSeries = chart.addAreaSeries({
+            topColor: 'rgba(41, 98, 255, 0.4)',
+            bottomColor: 'rgba(41, 98, 255, 0.0)',
+            lineColor: '#2962ff',
+            lineWidth: 3,
+        });
 
-            window.addEventListener('resize', () => {
-                chart.resize(container.clientWidth, container.clientHeight);
-            });
-        }
+        window.addEventListener('resize', () => {
+            chart.resize(container.clientWidth, container.clientHeight);
+        });
 
         // Load Data
         Papa.parse('saudiexchange_rs_analysis.csv', {
@@ -396,7 +394,7 @@
         }
 
         function loadStock(item) {
-            if (!chart) initChart();
+
 
             document.getElementById('displayTicker').innerText = item.Symbol;
             document.getElementById('displayName').innerText = item.Company;
