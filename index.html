@@ -69,6 +69,26 @@
             background: #2c3e50;
         }
 
+        .btn-export {
+            margin: 0 10px;
+            padding: 10px 20px;
+            background: #27ae60;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: transform 0.2s;
+            border: none;
+            display: inline-block;
+            font-weight: 500;
+        }
+
+        .btn-export:hover {
+            background: #219150;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(39, 174, 96, 0.4);
+        }
+
         table.dataTable thead th {
             background-color: #2c3e50;
             color: white;
@@ -115,7 +135,9 @@
         <!-- Navigation -->
         <div class="nav-links">
             <a href="index.html" class="active">📋 Table View</a>
-            <a href="charts.html">📈 Charts View</a>
+            <a href="charts_pro.html">📈 Charts View</a>
+            <a href="saudiexchange_rs_analysis.csv" download="saudi_market_rs_analysis.csv" class="btn-export">📥 Export
+                CSV</a>
         </div>
 
         <!-- Data Table -->
