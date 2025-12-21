@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RS Matrix Map</title>
+    <title>RS Matrix Bubbles</title>
     <link rel="icon" type="image/jpeg" href="favicon.jpg?v=2">
     <style>
         body {
@@ -56,42 +56,37 @@
             grid-template-rows: 1fr 1fr;
             height: 100%;
             width: 100%;
+            position: relative;
         }
 
         .quadrant {
             position: relative;
-            padding: 10px;
-            overflow-y: auto;
             border: 1px solid rgba(0, 0, 0, 0.05);
-            display: flex;
-            flex-content: flex-start;
-            flex-wrap: wrap;
-            align-content: flex-start;
-            gap: 6px;
+            overflow: hidden;
+            /* Hide bubbles that might slightly clip edge */
         }
 
-        .quadrant-label {
+        /* Background Labels */
+        .quadrant-bg-label {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            font-size: 4rem;
+            font-size: 3rem;
             font-weight: bold;
-            opacity: 0.05;
-            pointer-events: none;
+            opacity: 0.07;
             text-transform: uppercase;
+            pointer-events: none;
             z-index: 0;
         }
 
-        .quadrant-header {
-            width: 100%;
+        .quadrant-info {
+            position: absolute;
+            top: 10px;
+            left: 15px;
             font-weight: bold;
-            font-size: 1.1rem;
-            margin-bottom: 10px;
-            border-bottom: 2px solid rgba(0, 0, 0, 0.1);
-            padding-bottom: 5px;
-            display: flex;
-            justify-content: space-between;
+            font-size: 0.9rem;
+            opacity: 0.6;
             z-index: 1;
         }
 
@@ -100,75 +95,60 @@
             background-color: #ffebee;
         }
 
-        /* Weakening - Red 50 */
         #q-strong {
             background-color: #e8f5e9;
         }
 
-        /* Strong - Green 50 */
         #q-weak {
             background-color: #ffcdd2;
         }
 
-        /* Weak - Red 100 */
         #q-improving {
             background-color: #e1f5fe;
         }
 
-        /* Improving - Light Blue 50 */
-
-        /* Stock Chip Style */
-        .stock-chip {
-            z-index: 2;
-            background: white;
-            border: 1px solid rgba(0, 0, 0, 0.1);
-            border-radius: 4px;
-            padding: 6px 10px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            cursor: pointer;
-            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
-            transition: all 0.2s;
+        /* Bubble Style */
+        .bubble {
+            position: absolute;
+            border-radius: 50%;
             display: flex;
-            flex-direction: column;
+            justify-content: center;
             align-items: center;
-            min-width: 60px;
             text-align: center;
-        }
-
-        .stock-chip:hover {
-            transform: translateY(-2px) scale(1.05);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-            z-index: 10;
-            border-color: #2962ff;
-        }
-
-        .chip-symbol {
-            color: #333;
-            margin-bottom: 2px;
-        }
-
-        .chip-rs {
+            font-weight: bold;
             font-size: 0.75rem;
             color: white;
-            background: #555;
-            padding: 1px 6px;
-            border-radius: 10px;
-            width: 100%;
+            cursor: pointer;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s, z-index 0.2s;
+            z-index: 10;
+            /* Size will be set dynamically or fixed */
+            width: 45px;
+            height: 45px;
+            line-height: 1.1;
+            padding: 2px;
+            box-sizing: border-box;
+            word-break: break-all;
         }
 
-        /* Custom Scrollbar */
-        .quadrant::-webkit-scrollbar {
-            width: 6px;
+        .bubble:hover {
+            transform: scale(1.2);
+            z-index: 100;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         }
 
-        .quadrant::-webkit-scrollbar-thumb {
-            background: rgba(0, 0, 0, 0.2);
-            border-radius: 3px;
-        }
-
-        .quadrant::-webkit-scrollbar-track {
-            background: transparent;
+        /* Tooltip */
+        #tooltip {
+            position: absolute;
+            background: rgba(0, 0, 0, 0.85);
+            color: white;
+            padding: 8px 12px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            pointer-events: none;
+            display: none;
+            z-index: 1000;
+            white-space: nowrap;
         }
     </style>
 </head>
@@ -176,7 +156,7 @@
 <body>
 
     <div class="header">
-        <h1>💠 RS Matrix Map</h1>
+        <h1>💠 RS Matrix Bubbles</h1>
         <div class="nav-links">
             <a href="index.html">📋 Table View</a>
             <a href="charts.html">📈 Charts View</a>
@@ -185,125 +165,193 @@
     </div>
 
     <div class="matrix-container">
-        <!-- Top Left: WEAKENING -->
+        <!-- Top Left -->
         <div id="q-weakening" class="quadrant">
-            <div class="quadrant-label">Weakening</div>
-            <div class="quadrant-header">
-                <span>Weakening (70-80)</span>
-                <span id="count-weakening">0</span>
+            <div class="quadrant-bg-label">Weakening</div>
+            <div class="quadrant-info">70 < RS <=80</div>
             </div>
-            <!-- Chips go here -->
-        </div>
-
-        <!-- Top Right: STRONG -->
-        <div id="q-strong" class="quadrant">
-            <div class="quadrant-label">Strong</div>
-            <div class="quadrant-header">
-                <span>Strong (>90)</span>
-                <span id="count-strong">0</span>
+            <!-- Top Right -->
+            <div id="q-strong" class="quadrant">
+                <div class="quadrant-bg-label">Strong</div>
+                <div class="quadrant-info">RS > 90</div>
             </div>
-            <!-- Chips go here -->
-        </div>
+            <!-- Bottom Left -->
+            <div id="q-weak" class="quadrant">
+                <div class="quadrant-bg-label">Weak</div>
+                <div class="quadrant-info">RS <= 70</div>
+                </div>
+                <!-- Bottom Right -->
+                <div id="q-improving" class="quadrant">
+                    <div class="quadrant-bg-label">Improving</div>
+                    <div class="quadrant-info">80 < RS <=90</div>
+                    </div>
+                </div>
 
-        <!-- Bottom Left: WEAK -->
-        <div id="q-weak" class="quadrant">
-            <div class="quadrant-label">Weak</div>
-            <div class="quadrant-header">
-                <span>Weak (<70)< /span>
-                        <span id="count-weak">0</span>
-            </div>
-            <!-- Chips go here -->
-        </div>
+                <div id="tooltip"></div>
 
-        <!-- Bottom Right: IMPROVING -->
-        <div id="q-improving" class="quadrant">
-            <div class="quadrant-label">Improving</div>
-            <div class="quadrant-header">
-                <span>Improving (80-90)</span>
-                <span id="count-improving">0</span>
-            </div>
-            <!-- Chips go here -->
-        </div>
-    </div>
+                <!-- PapaParse -->
+                <script src="papaparse.min.js"></script>
+                <script>
+                    if (typeof Papa === 'undefined') {
+                        document.write('<script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"><\/script>');
+                    }
 
-    <!-- PapaParse -->
-    <script src="papaparse.min.js"></script>
-    <script>
-        if (typeof Papa === 'undefined') {
-            document.write('<script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"><\/script>');
-        }
+                    document.addEventListener('DOMContentLoaded', function () {
+                        Papa.parse('saudiexchange_rs_analysis.csv', {
+                            download: true,
+                            header: true,
+                            skipEmptyLines: true,
+                            complete: function (results) {
+                                initMatrix(results.data);
+                            },
+                            error: function (err) {
+                                console.error('Error loading CSV:', err);
+                            }
+                        });
+                    });
 
-        document.addEventListener('DOMContentLoaded', function () {
-            Papa.parse('saudiexchange_rs_analysis.csv', {
-                download: true,
-                header: true,
-                skipEmptyLines: true,
-                complete: function (results) {
-                    renderMatrix(results.data);
-                },
-                error: function (err) {
-                    console.error('Error loading CSV:', err);
-                }
-            });
-        });
+                    // Config
+                    const BUBBLE_SIZE = 45; // px
+                    const PADDING = 5; // px padding inside quadrant
 
-        function renderMatrix(data) {
-            const containerStrong = document.getElementById('q-strong');
-            const containerImproving = document.getElementById('q-improving');
-            const containerWeakening = document.getElementById('q-weakening');
-            const containerWeak = document.getElementById('q-weak');
+                    function initMatrix(data) {
+                        const qStrong = document.getElementById('q-strong');
+                        const qImp = document.getElementById('q-improving');
+                        const qWkng = document.getElementById('q-weakening');
+                        const qWeak = document.getElementById('q-weak');
 
-            let cStrong = 0, cImp = 0, cWkng = 0, cWeak = 0;
+                        // Segregate Data
+                        const stocks = {
+                            strong: [],
+                            improving: [],
+                            weakening: [],
+                            weak: []
+                        };
 
-            // Sort by RS Descending
-            data.sort((a, b) => parseFloat(b.RS) - parseFloat(a.RS));
+                        data.forEach(d => {
+                            if (!d.Company || !d.RS) return;
+                            const rs = parseFloat(d.RS);
+                            d._rs = rs; // Store parsed RS
 
-            data.forEach(stock => {
-                if (!stock.Company || !stock.RS) return;
-                const rs = parseFloat(stock.RS);
+                            if (rs > 90) stocks.strong.push(d);
+                            else if (rs > 80) stocks.improving.push(d);
+                            else if (rs > 70) stocks.weakening.push(d);
+                            else stocks.weak.push(d);
+                        });
 
-                let targetContainer = null;
-                let bgClass = '';
+                        // Sort by RS so most important ones get placed first (better chance of center/top placement if we wanted)
+                        // Or just random placement. Let's do random placement to look like a cloud.
 
-                if (rs > 90) {
-                    targetContainer = containerStrong;
-                    cStrong++;
-                    bgClass = '#2e7d32'; // Strong Green
-                } else if (rs > 80) {
-                    targetContainer = containerImproving;
-                    cImp++;
-                    bgClass = '#0277bd'; // Blue
-                } else if (rs > 70) {
-                    targetContainer = containerWeakening;
-                    cWkng++;
-                    bgClass = '#c62828'; // Red
-                } else {
-                    targetContainer = containerWeak;
-                    cWeak++;
-                    bgClass = '#880e4f'; // Dark Pink
-                }
+                        placeBubbles(qStrong, stocks.strong, '#2e7d32');
+                        placeBubbles(qImp, stocks.improving, '#0277bd');
+                        placeBubbles(qWkng, stocks.weakening, '#c62828');
+                        placeBubbles(qWeak, stocks.weak, '#880e4f');
+                    }
 
-                // Create Chip
-                const chip = document.createElement('div');
-                chip.className = 'stock-chip';
-                chip.title = `${stock.Company}\nRS: ${stock.RS}`; // Native Tooltip
-                chip.onclick = () => window.location.href = `charts.html?symbol=${stock.Symbol}`; // Link to charts
+                    function placeBubbles(container, list, color) {
+                        // Wait for layout to know width/height
+                        // We use a small timeout or just run immediately if loaded. 
+                        // Better to use container.offsetWidth.
 
-                chip.innerHTML = `
-                    <div class="chip-symbol">${stock.Symbol}</div>
-                    <div class="chip-rs" style="background:${bgClass}">${stock.RS}</div>
-                `;
+                        const w = container.offsetWidth;
+                        const h = container.offsetHeight;
 
-                targetContainer.appendChild(chip);
-            });
+                        const existingBubbles = []; // Store {x, y, r}
 
-            // Update counts
-            document.getElementById('count-strong').innerText = cStrong;
-            document.getElementById('count-improving').innerText = cImp;
-            document.getElementById('count-weakening').innerText = cWkng;
-            document.getElementById('count-weak').innerText = cWeak;
-        }
-    </script>
+                        list.forEach(stock => {
+                            const bubble = document.createElement('div');
+                            bubble.className = 'bubble';
+                            bubble.style.backgroundColor = color;
+
+                            // Content: Symbol (cleaner) or Company (might overflow)
+                            // Using Symbol as requested "name inside" but usually symbol fits better in circle
+                            // We'll try Symbol.
+                            bubble.innerText = stock.Symbol || stock.Company.substring(0, 4);
+
+                            // Tooltip logic
+                            bubble.onmouseenter = (e) => showTooltip(e, stock);
+                            bubble.onmouseleave = hideTooltip;
+                            bubble.onclick = () => window.location.href = `charts.html?symbol=${stock.Symbol}`;
+
+                            // Find random position without overlap
+                            const pos = findFreePosition(w, h, BUBBLE_SIZE, existingBubbles);
+
+                            if (pos) {
+                                bubble.style.left = pos.x + 'px';
+                                bubble.style.top = pos.y + 'px';
+                                container.appendChild(bubble);
+                                existingBubbles.push({
+                                    x: pos.x + BUBBLE_SIZE / 2,
+                                    y: pos.y + BUBBLE_SIZE / 2,
+                                    r: BUBBLE_SIZE / 2 + 2 // +2 margin
+                                });
+                            } else {
+                                // Could not place (too full) - optional: stack or hide
+                                console.log('Skipping overlapping bubble:', stock.Symbol);
+                            }
+                        });
+                    }
+
+                    function findFreePosition(w, h, size, circles) {
+                        const maxAttempts = 50;
+                        for (let i = 0; i < maxAttempts; i++) {
+                            const x = Math.random() * (w - size - PADDING * 2) + PADDING;
+                            const y = Math.random() * (h - size - PADDING * 2) + PADDING;
+
+                            // Check collision
+                            const centerX = x + size / 2;
+                            const centerY = y + size / 2;
+                            const r = size / 2;
+
+                            let overlap = false;
+                            for (let c of circles) {
+                                const dx = centerX - c.x;
+                                const dy = centerY - c.y;
+                                const dist = Math.sqrt(dx * dx + dy * dy);
+                                if (dist < (r + c.r)) {
+                                    overlap = true;
+                                    break;
+                                }
+                            }
+
+                            if (!overlap) {
+                                return { x, y };
+                            }
+                        }
+                        return null; // Failed to find spot
+                    }
+
+                    // Custom Tooltip
+                    const tooltip = document.getElementById('tooltip');
+                    function showTooltip(e, stock) {
+                        tooltip.style.display = 'block';
+                        tooltip.innerHTML = `<strong>${stock.Company}</strong><br>Symbol: ${stock.Symbol}<br>RS: ${stock._rs}`;
+                        moveTooltip(e);
+                    }
+                    function moveTooltip(e) {
+                        const x = e.pageX + 10;
+                        const y = e.pageY + 10;
+                        tooltip.style.left = x + 'px';
+                        tooltip.style.top = y + 'px';
+                    }
+                    function hideTooltip() {
+                        tooltip.style.display = 'none';
+                    }
+                    document.onmousemove = (e) => {
+                        if (tooltip.style.display === 'block') moveTooltip(e);
+                    }
+
+                    // Re-run on resize for responsiveness? 
+                    // For now, reload on resize is simplest or just CSS relative pos. 
+                    // Since we calculate absolute pos, resize breaks it. 
+                    // Simple fix: reload page on resize end.
+                    let resizeTimer;
+                    window.onresize = () => {
+                        clearTimeout(resizeTimer);
+                        resizeTimer = setTimeout(() => location.reload(), 500);
+                    };
+
+                </script>
 </body>
 
 </html>
