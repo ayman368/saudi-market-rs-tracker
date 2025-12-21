@@ -4,14 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RS Matrix</title>
+    <title>RS Matrix Map</title>
     <link rel="icon" type="image/jpeg" href="favicon.jpg?v=2">
     <style>
         body {
             margin: 0;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: #ffffff;
-            /* White background like the image */
             color: #333;
             height: 100vh;
             display: flex;
@@ -49,18 +48,127 @@
             background: #f23645;
         }
 
-        .chart-container {
+        /* Matrix Container */
+        .matrix-container {
             flex-grow: 1;
-            position: relative;
-            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
             height: 100%;
-            padding: 10px;
-            box-sizing: border-box;
+            width: 100%;
         }
 
-        #matrixChart {
+        .quadrant {
+            position: relative;
+            padding: 10px;
+            overflow-y: auto;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-content: flex-start;
+            flex-wrap: wrap;
+            align-content: flex-start;
+            gap: 6px;
+        }
+
+        .quadrant-label {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 4rem;
+            font-weight: bold;
+            opacity: 0.05;
+            pointer-events: none;
+            text-transform: uppercase;
+            z-index: 0;
+        }
+
+        .quadrant-header {
             width: 100%;
-            height: 100%;
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+            padding-bottom: 5px;
+            display: flex;
+            justify-content: space-between;
+            z-index: 1;
+        }
+
+        /* Colors */
+        #q-weakening {
+            background-color: #ffebee;
+        }
+
+        /* Weakening - Red 50 */
+        #q-strong {
+            background-color: #e8f5e9;
+        }
+
+        /* Strong - Green 50 */
+        #q-weak {
+            background-color: #ffcdd2;
+        }
+
+        /* Weak - Red 100 */
+        #q-improving {
+            background-color: #e1f5fe;
+        }
+
+        /* Improving - Light Blue 50 */
+
+        /* Stock Chip Style */
+        .stock-chip {
+            z-index: 2;
+            background: white;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 4px;
+            padding: 6px 10px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+            transition: all 0.2s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-width: 60px;
+            text-align: center;
+        }
+
+        .stock-chip:hover {
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+            z-index: 10;
+            border-color: #2962ff;
+        }
+
+        .chip-symbol {
+            color: #333;
+            margin-bottom: 2px;
+        }
+
+        .chip-rs {
+            font-size: 0.75rem;
+            color: white;
+            background: #555;
+            padding: 1px 6px;
+            border-radius: 10px;
+            width: 100%;
+        }
+
+        /* Custom Scrollbar */
+        .quadrant::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .quadrant::-webkit-scrollbar-thumb {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 3px;
+        }
+
+        .quadrant::-webkit-scrollbar-track {
+            background: transparent;
         }
     </style>
 </head>
@@ -68,7 +176,7 @@
 <body>
 
     <div class="header">
-        <h1>� RS Matrix</h1>
+        <h1>💠 RS Matrix Map</h1>
         <div class="nav-links">
             <a href="index.html">📋 Table View</a>
             <a href="charts.html">📈 Charts View</a>
@@ -76,14 +184,48 @@
         </div>
     </div>
 
-    <div class="chart-container">
-        <canvas id="matrixChart"></canvas>
+    <div class="matrix-container">
+        <!-- Top Left: WEAKENING -->
+        <div id="q-weakening" class="quadrant">
+            <div class="quadrant-label">Weakening</div>
+            <div class="quadrant-header">
+                <span>Weakening (70-80)</span>
+                <span id="count-weakening">0</span>
+            </div>
+            <!-- Chips go here -->
+        </div>
+
+        <!-- Top Right: STRONG -->
+        <div id="q-strong" class="quadrant">
+            <div class="quadrant-label">Strong</div>
+            <div class="quadrant-header">
+                <span>Strong (>90)</span>
+                <span id="count-strong">0</span>
+            </div>
+            <!-- Chips go here -->
+        </div>
+
+        <!-- Bottom Left: WEAK -->
+        <div id="q-weak" class="quadrant">
+            <div class="quadrant-label">Weak</div>
+            <div class="quadrant-header">
+                <span>Weak (<70)< /span>
+                        <span id="count-weak">0</span>
+            </div>
+            <!-- Chips go here -->
+        </div>
+
+        <!-- Bottom Right: IMPROVING -->
+        <div id="q-improving" class="quadrant">
+            <div class="quadrant-label">Improving</div>
+            <div class="quadrant-header">
+                <span>Improving (80-90)</span>
+                <span id="count-improving">0</span>
+            </div>
+            <!-- Chips go here -->
+        </div>
     </div>
 
-    <!-- Chart.js -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
-    <script
-        src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0/dist/chartjs-plugin-datalabels.min.js"></script>
     <!-- PapaParse -->
     <script src="papaparse.min.js"></script>
     <script>
@@ -97,7 +239,7 @@
                 header: true,
                 skipEmptyLines: true,
                 complete: function (results) {
-                    renderChart(results.data);
+                    renderMatrix(results.data);
                 },
                 error: function (err) {
                     console.error('Error loading CSV:', err);
@@ -105,179 +247,61 @@
             });
         });
 
-        function renderChart(data) {
+        function renderMatrix(data) {
+            const containerStrong = document.getElementById('q-strong');
+            const containerImproving = document.getElementById('q-improving');
+            const containerWeakening = document.getElementById('q-weakening');
+            const containerWeak = document.getElementById('q-weak');
 
-            // Map data to quadrants based on logic
-            const points = [];
+            let cStrong = 0, cImp = 0, cWkng = 0, cWeak = 0;
 
-            data.forEach(d => {
-                if (!d.Company || !d.RS) return;
-                const rs = parseFloat(d.RS);
+            // Sort by RS Descending
+            data.sort((a, b) => parseFloat(b.RS) - parseFloat(a.RS));
 
-                // Determine Quadrant
-                // Bounds (using 0-100 scale for internal positioning)
-                // Center is 50,50
-                // Strong (>90) -> Top Right (50-100, 50-100)
-                // Improving (80-90) -> Bottom Right (50-100, 0-50)
-                // Weakening (70-80) -> Top Left (0-50, 50-100)
-                // Weak (<70) -> Bottom Left (0-50, 0-50)
+            data.forEach(stock => {
+                if (!stock.Company || !stock.RS) return;
+                const rs = parseFloat(stock.RS);
 
-                let xMin, xMax, yMin, yMax;
+                let targetContainer = null;
+                let bgClass = '';
 
                 if (rs > 90) {
-                    // Strong (Top Right)
-                    xMin = 55; xMax = 95;
-                    yMin = 55; yMax = 95;
+                    targetContainer = containerStrong;
+                    cStrong++;
+                    bgClass = '#2e7d32'; // Strong Green
                 } else if (rs > 80) {
-                    // Improving (Bottom Right)
-                    xMin = 55; xMax = 95;
-                    yMin = 5; yMax = 45;
+                    targetContainer = containerImproving;
+                    cImp++;
+                    bgClass = '#0277bd'; // Blue
                 } else if (rs > 70) {
-                    // Weakening (Top Left)
-                    xMin = 5; xMax = 45;
-                    yMin = 55; yMax = 95;
+                    targetContainer = containerWeakening;
+                    cWkng++;
+                    bgClass = '#c62828'; // Red
                 } else {
-                    // Weak (Bottom Left)
-                    xMin = 5; xMax = 45;
-                    yMin = 5; yMax = 45;
+                    targetContainer = containerWeak;
+                    cWeak++;
+                    bgClass = '#880e4f'; // Dark Pink
                 }
 
-                // Generate coordinate within the quadrant
-                // We use the RS value itself to influence position so it's not totally random
-                // but we add some "noise" based on the Company name hash or similar so they don't overlap perfectly
+                // Create Chip
+                const chip = document.createElement('div');
+                chip.className = 'stock-chip';
+                chip.title = `${stock.Company}\nRS: ${stock.RS}`; // Native Tooltip
+                chip.onclick = () => window.location.href = `charts.html?symbol=${stock.Symbol}`; // Link to charts
 
-                const seed = d.Company.split('').reduce((a, b) => a + b.charCodeAt(0), 0);
-                const randomX = (seed % 100) / 100;
-                const randomY = ((seed * 13) % 100) / 100;
+                chip.innerHTML = `
+                    <div class="chip-symbol">${stock.Symbol}</div>
+                    <div class="chip-rs" style="background:${bgClass}">${stock.RS}</div>
+                `;
 
-                // Position:
-                // X: distributed within x range
-                // Y: distributed within y range
-                const x = xMin + (randomX * (xMax - xMin));
-                const y = yMin + (randomY * (yMax - yMin));
-
-                points.push({
-                    x: x,
-                    y: y,
-                    company: d.Company,
-                    symbol: d.Symbol,
-                    rs: rs
-                });
+                targetContainer.appendChild(chip);
             });
 
-            const ctx = document.getElementById('matrixChart').getContext('2d');
-
-            const quadrantPlugin = {
-                id: 'quadrants',
-                beforeDraw: (chart) => {
-                    const { ctx, chartArea: { left, top, right, bottom, width, height } } = chart;
-                    const midX = left + width / 2;
-                    const midY = top + height / 2;
-
-                    ctx.save();
-
-                    // 1. Weakening (Top Left) - Pink/Red ish
-                    ctx.fillStyle = 'rgba(255, 235, 238, 1)';
-                    ctx.fillRect(left, top, midX - left, midY - top);
-
-                    // 2. Strong (Top Right) - Green
-                    ctx.fillStyle = 'rgba(232, 245, 233, 1)';
-                    ctx.fillRect(midX, top, right - midX, midY - top);
-
-                    // 3. Weak (Bottom Left) - Redder
-                    ctx.fillStyle = 'rgba(255, 205, 210, 0.6)';
-                    ctx.fillRect(left, midY, midX - left, bottom - midY);
-
-                    // 4. Improving (Bottom Right) - Light Blue/Green
-                    ctx.fillStyle = 'rgba(225, 245, 254, 1)';
-                    ctx.fillRect(midX, midY, right - midX, bottom - midY);
-
-                    // Draw Cross Lines
-                    ctx.beginPath();
-                    ctx.moveTo(midX, top);
-                    ctx.lineTo(midX, bottom);
-                    ctx.moveTo(left, midY);
-                    ctx.lineTo(right, midY);
-                    ctx.lineWidth = 2;
-                    ctx.strokeStyle = '#ccc';
-                    ctx.stroke();
-
-                    // Labels
-                    ctx.font = 'bold 24px Arial';
-                    ctx.textAlign = 'center';
-                    ctx.textBaseline = 'middle';
-                    ctx.fillStyle = 'rgba(0,0,0,0.7)';
-
-                    ctx.fillText('Weakening', (left + midX) / 2, (top + midY) / 2);
-                    ctx.fillText('Strong', (midX + right) / 2, (top + midY) / 2);
-                    ctx.fillText('Weak', (left + midX) / 2, (midY + bottom) / 2);
-                    ctx.fillText('Improving', (midX + right) / 2, (midY + bottom) / 2);
-
-                    ctx.restore();
-                }
-            };
-
-            new Chart(ctx, {
-                type: 'scatter',
-                data: {
-                    datasets: [{
-                        label: 'Stocks',
-                        data: points,
-                        backgroundColor: (ctx) => {
-                            const rs = ctx.raw?.rs;
-                            if (rs > 90) return '#1b5e20'; // Dark Green
-                            if (rs > 80) return '#01579b'; // Dark Blue
-                            if (rs > 70) return '#b71c1c'; // Dark Red (Weakening)
-                            return '#880e4f'; // Deep Pink/Red (Weak)
-                        },
-                        pointRadius: 5,
-                        pointHoverRadius: 8
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    interaction: {
-                        mode: 'nearest',
-                        intersect: true
-                    },
-                    scales: {
-                        x: {
-                            min: 0,
-                            max: 100,
-                            display: false, // Hide Axis
-                            grid: { display: false }
-                        },
-                        y: {
-                            min: 0,
-                            max: 100,
-                            display: false, // Hide Axis
-                            grid: { display: false }
-                        }
-                    },
-                    plugins: {
-                        legend: { display: false },
-                        tooltip: {
-                            callbacks: {
-                                label: (context) => {
-                                    const p = context.raw;
-                                    return `${p.company} (${p.rs})`;
-                                }
-                            }
-                        },
-                        // Show symbols on map
-                        datalabels: {
-                            formatter: (value) => value.symbol,
-                            align: 'right',
-                            offset: 4,
-                            font: { size: 10, weight: 'bold' },
-                            color: '#444',
-                            display: 'auto' // Avoid too much overlap
-                        }
-                    }
-                },
-                plugins: [quadrantPlugin, ChartDataLabels]
-            });
+            // Update counts
+            document.getElementById('count-strong').innerText = cStrong;
+            document.getElementById('count-improving').innerText = cImp;
+            document.getElementById('count-weakening').innerText = cWkng;
+            document.getElementById('count-weak').innerText = cWeak;
         }
     </script>
 </body>
