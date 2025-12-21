@@ -18,10 +18,7 @@
             background: #ffffff;
             color: #333;
             height: 100vh;
-            display: flex;
-            flex-direction: column;
             overflow: hidden;
-            /* Prevent scrolling of the whole page */
         }
 
         .header {
@@ -33,7 +30,6 @@
             justify-content: space-between;
             align-items: center;
             height: 60px;
-            /* Fixed height for calculation */
             z-index: 1000;
         }
 
@@ -59,15 +55,9 @@
 
         /* Matrix Container */
         .matrix-container {
-            /* 
-               Trick to Zoom 70% and Fill Screen:
-               1. Set dimensions to 100% / 0.7 = 142.857% 
-               2. Scale down by 0.7
-               3. Origin top-left so it snaps to corner
-            */
+            /* Full Screen Zoomed Logic */
             width: 142.857%;
             height: calc((100vh - 60px) * 1.42857);
-            /* Fill remaining height scaled */
 
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -82,8 +72,13 @@
             position: relative;
             border: 1px solid rgba(0, 0, 0, 0.1);
             overflow-y: auto;
-            /* Enable scroll inside quadrants */
             overflow-x: hidden;
+            display: flex;
+            flex-wrap: wrap;
+            align-content: flex-start;
+            /* Stack from top */
+            padding: 20px;
+            /* Padding for grid items */
         }
 
         .quadrant-bg-label {
@@ -91,7 +86,7 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            font-size: 2.5rem;
+            font-size: 3rem;
             font-weight: bold;
             opacity: 0.06;
             text-transform: uppercase;
@@ -106,11 +101,12 @@
             font-weight: bold;
             font-size: 0.75rem;
             opacity: 0.5;
-            z-index: 1;
+            z-index: 10;
             background: rgba(255, 255, 255, 0.8);
             padding: 3px 8px;
             border-radius: 3px;
             display: inline-block;
+            margin-bottom: 10px;
         }
 
         #q-weakening {
@@ -129,14 +125,27 @@
             background-color: #e1f5fe;
         }
 
-        /* Stock Point (Dot + Label) */
-        .stock-point {
-            position: absolute;
+        /* Stock Item Cell - Invisible grid cell */
+        .stock-cell {
+            position: relative;
+            /* Fixed width/height cell to guarantee no overlap */
+            width: 140px;
+            height: 30px;
             display: flex;
             align-items: center;
-            gap: 3px;
+            justify-content: flex-start;
+            /* Align left */
+        }
+
+        /* The actual visual point inside the cell */
+        .stock-point {
+            position: absolute;
+            /* Relative to cell */
+            display: flex;
+            align-items: center;
+            gap: 4px;
             cursor: pointer;
-            z-index: 10;
+            z-index: 5;
             transition: transform 0.15s;
         }
 
@@ -154,11 +163,14 @@
         }
 
         .stock-label {
-            font-size: 0.7rem;
+            font-size: 0.75rem;
             font-weight: 600;
             white-space: nowrap;
             color: #222;
-            text-shadow: 0 0 3px rgba(255, 255, 255, 0.8);
+            text-shadow: 0 0 3px rgba(255, 255, 255, 0.5);
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 130px;
         }
 
         #tooltip {
@@ -172,12 +184,11 @@
             display: none;
             z-index: 10000;
             white-space: nowrap;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
         }
 
         /* Scrollbar */
         .quadrant::-webkit-scrollbar {
-            width: 6px;
+            width: 8px;
         }
 
         .quadrant::-webkit-scrollbar-track {
@@ -186,7 +197,7 @@
 
         .quadrant::-webkit-scrollbar-thumb {
             background: rgba(0, 0, 0, 0.2);
-            border-radius: 3px;
+            border-radius: 4px;
         }
     </style>
 </head>
@@ -205,24 +216,24 @@
     <div class="matrix-container">
         <!-- Top Left: Weakening -->
         <div id="q-weakening" class="quadrant">
-            <div class="quadrant-bg-label">Weakening</div>
             <div class="quadrant-info">70-80 RS</div>
+            <div class="quadrant-bg-label">Weakening</div>
         </div>
         <!-- Top Right: Strong -->
         <div id="q-strong" class="quadrant">
-            <div class="quadrant-bg-label">Strong</div>
             <div class="quadrant-info">>90 RS</div>
+            <div class="quadrant-bg-label">Strong</div>
         </div>
         <!-- Bottom Left: Weak -->
         <div id="q-weak" class="quadrant">
-            <div class="quadrant-bg-label">Weak</div>
             <div class="quadrant-info">
                 <70 RS</div>
+                    <div class="quadrant-bg-label">Weak</div>
             </div>
             <!-- Bottom Right: Improving -->
             <div id="q-improving" class="quadrant">
-                <div class="quadrant-bg-label">Improving</div>
                 <div class="quadrant-info">80-90 RS</div>
+                <div class="quadrant-bg-label">Improving</div>
             </div>
         </div>
 
@@ -248,11 +259,6 @@
                 });
             });
 
-            const DOT_SIZE = 7;
-            const LABEL_AVG_WIDTH = 80;
-            const POINT_HEIGHT = 18;
-            const PADDING = 15;
-
             function initMatrix(data) {
                 const qStrong = document.getElementById('q-strong');
                 const qImp = document.getElementById('q-improving');
@@ -277,34 +283,38 @@
                     else stocks.weak.push(d);
                 });
 
-                placePoints(qStrong, stocks.strong, '#2e7d32');
-                placePoints(qImp, stocks.improving, '#0277bd');
-                placePoints(qWkng, stocks.weakening, '#c62828');
-                placePoints(qWeak, stocks.weak, '#880e4f');
+                // Sort to make it look nicer (optional)
+                const sortFn = (a, b) => b._rs - a._rs;
+                stocks.strong.sort(sortFn);
+                stocks.improving.sort(sortFn);
+                stocks.weakening.sort(sortFn);
+                stocks.weak.sort(sortFn);
+
+                placeGridPoints(qStrong, stocks.strong, '#2e7d32');
+                placeGridPoints(qImp, stocks.improving, '#0277bd');
+                placeGridPoints(qWkng, stocks.weakening, '#c62828');
+                placeGridPoints(qWeak, stocks.weak, '#880e4f');
             }
 
-            function placePoints(container, list, color) {
-                // For placement logic, we need the "zoomed" dimensions (large logic space)
-                // But offsetWidth gives "layout" width.
-                // Since we scaled container, layout width is 142%. Perfect.
-
-                const w = container.offsetWidth;
-                // Height logic: calculate required scrolling height if needed
-                // But we need to spread them out. 
-                // Let's ensure min-height covers the visual requirement.
-
-                const existingPoints = [];
-
-                // Calculate a virtual height that fits all if cramped
-                // But user wants "scattered". 
-                // We use the full container height (which is large now).
-                // If overflow, scroll works.
-
-                const h = container.offsetHeight;
+            function placeGridPoints(container, list, color) {
+                // "Scattered Grid" logic:
+                // Create cells, but offset the content inside randomly.
 
                 list.forEach(stock => {
+                    const cell = document.createElement('div');
+                    cell.className = 'stock-cell';
+
                     const point = document.createElement('div');
                     point.className = 'stock-point';
+
+                    // Random offset within the cell to simulate scattering
+                    // Cell is 140x30. Point is small.
+                    // We add some randomness to top/left relative to cell.
+                    const randomX = Math.random() * 20; // 0-20px shift right
+                    const randomY = (Math.random() - 0.5) * 10; // -5 to +5px shift up/down
+
+                    point.style.left = randomX + 'px';
+                    point.style.top = (15 + randomY - 5) + 'px'; // Center roughly
 
                     const dot = document.createElement('div');
                     dot.className = 'stock-dot';
@@ -312,7 +322,6 @@
 
                     const label = document.createElement('div');
                     label.className = 'stock-label';
-                    // USE COMPANY NAME
                     label.innerText = stock.Company;
 
                     point.appendChild(dot);
@@ -322,52 +331,9 @@
                     point.onmouseleave = hideTooltip;
                     point.onclick = () => window.location.href = `charts.html?symbol=${stock.Symbol}`;
 
-                    const pos = findFreePosition(w, h, existingPoints);
-
-                    if (pos) {
-                        point.style.left = pos.x + 'px';
-                        point.style.top = pos.y + 'px';
-                        container.appendChild(point);
-                        existingPoints.push({
-                            x: pos.x,
-                            y: pos.y,
-                            w: LABEL_AVG_WIDTH, // Approximation for overlap check
-                            h: POINT_HEIGHT
-                        });
-                    } else {
-                        // Fallback
-                        const fallbackX = PADDING + (Math.random() * (w - 100));
-                        const fallbackY = PADDING + (Math.random() * (h - 20));
-                        point.style.left = fallbackX + 'px';
-                        point.style.top = fallbackY + 'px';
-                        container.appendChild(point);
-                    }
+                    cell.appendChild(point);
+                    container.appendChild(cell);
                 });
-            }
-
-            function findFreePosition(w, h, rects) {
-                const maxAttempts = 100;
-                for (let i = 0; i < maxAttempts; i++) {
-                    const x = Math.random() * (w - LABEL_AVG_WIDTH - PADDING * 2) + PADDING;
-                    const y = Math.random() * (h - POINT_HEIGHT - PADDING * 2) + PADDING;
-
-                    let overlap = false;
-                    for (let r of rects) {
-                        // Simple AABB overlap
-                        if (x < r.x + r.w &&
-                            x + LABEL_AVG_WIDTH > r.x &&
-                            y < r.y + r.h &&
-                            y + POINT_HEIGHT > r.y) {
-                            overlap = true;
-                            break;
-                        }
-                    }
-
-                    if (!overlap) {
-                        return { x, y };
-                    }
-                }
-                return null;
             }
 
             const tooltip = document.getElementById('tooltip');
@@ -377,8 +343,6 @@
                 moveTooltip(e);
             }
             function moveTooltip(e) {
-                // Adjust for scale? 
-                // e.clientX is screen coords. Tooltip is fixed. No scale adjustment needed for fixed tooltip.
                 tooltip.style.left = (e.clientX + 15) + 'px';
                 tooltip.style.top = (e.clientY + 15) + 'px';
             }
