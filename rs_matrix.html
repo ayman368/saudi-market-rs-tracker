@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RS Matrix Bubbles</title>
+    <title>RS Matrix Map</title>
     <link rel="icon" type="image/jpeg" href="favicon.jpg?v=2">
     <style>
         body {
@@ -57,11 +57,13 @@
             height: 100%;
             width: 100%;
             position: relative;
+            transform: scale(0.7);
+            transform-origin: center center;
         }
 
         .quadrant {
             position: relative;
-            border: 1px solid rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(0, 0, 0, 0.1);
             overflow: hidden;
         }
 
@@ -70,9 +72,9 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            font-size: 3rem;
+            font-size: 3.5rem;
             font-weight: bold;
-            opacity: 0.07;
+            opacity: 0.08;
             text-transform: uppercase;
             pointer-events: none;
             z-index: 0;
@@ -83,8 +85,8 @@
             top: 10px;
             left: 15px;
             font-weight: bold;
-            font-size: 0.9rem;
-            opacity: 0.6;
+            font-size: 0.85rem;
+            opacity: 0.5;
             z-index: 1;
         }
 
@@ -104,38 +106,35 @@
             background-color: #e1f5fe;
         }
 
-        /* Bubble Style */
-        .bubble {
+        /* Stock Point (Dot + Label) */
+        .stock-point {
             position: absolute;
-            border-radius: 50%;
             display: flex;
-            justify-content: center;
             align-items: center;
-            text-align: center;
-            font-weight: bold;
-            font-size: 0.55rem;
-            /* Small font to fit names */
-            color: white;
+            gap: 4px;
             cursor: pointer;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-            transition: transform 0.2s, z-index 0.2s;
             z-index: 10;
-            width: 55px;
-            /* Compact size */
-            height: 55px;
-            line-height: 1.1;
-            padding: 2px;
-            box-sizing: border-box;
-            word-break: break-all;
-            overflow: hidden;
+            transition: transform 0.2s;
         }
 
-        .bubble:hover {
-            transform: scale(1.5);
+        .stock-point:hover {
+            transform: scale(1.1);
             z-index: 100;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-            white-space: normal;
-            word-break: normal;
+        }
+
+        .stock-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            flex-shrink: 0;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        .stock-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            white-space: nowrap;
+            color: #333;
         }
 
         #tooltip {
@@ -156,7 +155,7 @@
 <body>
 
     <div class="header">
-        <h1>💠 RS Matrix Bubbles</h1>
+        <h1>💠 RS Matrix Map</h1>
         <div class="nav-links">
             <a href="index.html">📋 Table View</a>
             <a href="charts.html">📈 Charts View</a>
@@ -165,169 +164,175 @@
     </div>
 
     <div class="matrix-container">
-        <!-- Top Left -->
+        <!-- Top Left: Weakening -->
         <div id="q-weakening" class="quadrant">
             <div class="quadrant-bg-label">Weakening</div>
-            <div class="quadrant-info">70 < RS <=80</div>
+            <div class="quadrant-info">70-80 RS</div>
+        </div>
+        <!-- Top Right: Strong -->
+        <div id="q-strong" class="quadrant">
+            <div class="quadrant-bg-label">Strong</div>
+            <div class="quadrant-info">>90 RS</div>
+        </div>
+        <!-- Bottom Left: Weak -->
+        <div id="q-weak" class="quadrant">
+            <div class="quadrant-bg-label">Weak</div>
+            <div class="quadrant-info">
+                <70 RS</div>
             </div>
-            <!-- Top Right -->
-            <div id="q-strong" class="quadrant">
-                <div class="quadrant-bg-label">Strong</div>
-                <div class="quadrant-info">RS > 90</div>
+            <!-- Bottom Right: Improving -->
+            <div id="q-improving" class="quadrant">
+                <div class="quadrant-bg-label">Improving</div>
+                <div class="quadrant-info">80-90 RS</div>
             </div>
-            <!-- Bottom Left -->
-            <div id="q-weak" class="quadrant">
-                <div class="quadrant-bg-label">Weak</div>
-                <div class="quadrant-info">RS <= 70</div>
-                </div>
-                <!-- Bottom Right -->
-                <div id="q-improving" class="quadrant">
-                    <div class="quadrant-bg-label">Improving</div>
-                    <div class="quadrant-info">80 < RS <=90</div>
-                    </div>
-                </div>
+        </div>
 
-                <div id="tooltip"></div>
+        <div id="tooltip"></div>
 
-                <script src="papaparse.min.js"></script>
-                <script>
-                    if (typeof Papa === 'undefined') {
-                        document.write('<script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"><\/script>');
+        <script src="papaparse.min.js"></script>
+        <script>
+            if (typeof Papa === 'undefined') {
+                document.write('<script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"><\/script>');
+            }
+
+            document.addEventListener('DOMContentLoaded', function () {
+                Papa.parse('saudiexchange_rs_analysis.csv', {
+                    download: true,
+                    header: true,
+                    skipEmptyLines: true,
+                    complete: function (results) {
+                        initMatrix(results.data);
+                    },
+                    error: function (err) {
+                        console.error('Error loading CSV:', err);
                     }
+                });
+            });
 
-                    document.addEventListener('DOMContentLoaded', function () {
-                        Papa.parse('saudiexchange_rs_analysis.csv', {
-                            download: true,
-                            header: true,
-                            skipEmptyLines: true,
-                            complete: function (results) {
-                                initMatrix(results.data);
-                            },
-                            error: function (err) {
-                                console.error('Error loading CSV:', err);
-                            }
-                        });
-                    });
+            const DOT_SIZE = 8; // Small dot
+            const LABEL_WIDTH = 60; // Approximate label width
+            const PADDING = 20;
 
-                    const BUBBLE_SIZE = 55; // Compact but enough for name
-                    const PADDING = 2;
+            function initMatrix(data) {
+                const qStrong = document.getElementById('q-strong');
+                const qImp = document.getElementById('q-improving');
+                const qWkng = document.getElementById('q-weakening');
+                const qWeak = document.getElementById('q-weak');
 
-                    function initMatrix(data) {
-                        const qStrong = document.getElementById('q-strong');
-                        const qImp = document.getElementById('q-improving');
-                        const qWkng = document.getElementById('q-weakening');
-                        const qWeak = document.getElementById('q-weak');
+                const stocks = {
+                    strong: [],
+                    improving: [],
+                    weakening: [],
+                    weak: []
+                };
 
-                        const stocks = {
-                            strong: [],
-                            improving: [],
-                            weakening: [],
-                            weak: []
-                        };
+                data.forEach(d => {
+                    if (!d.Company || !d.RS) return;
+                    const rs = parseFloat(d.RS);
+                    d._rs = rs;
 
-                        data.forEach(d => {
-                            if (!d.Company || !d.RS) return;
-                            const rs = parseFloat(d.RS);
-                            d._rs = rs;
+                    if (rs > 90) stocks.strong.push(d);
+                    else if (rs > 80) stocks.improving.push(d);
+                    else if (rs > 70) stocks.weakening.push(d);
+                    else stocks.weak.push(d);
+                });
 
-                            if (rs > 90) stocks.strong.push(d);
-                            else if (rs > 80) stocks.improving.push(d);
-                            else if (rs > 70) stocks.weakening.push(d);
-                            else stocks.weak.push(d);
-                        });
+                placePoints(qStrong, stocks.strong, '#2e7d32');
+                placePoints(qImp, stocks.improving, '#0277bd');
+                placePoints(qWkng, stocks.weakening, '#c62828');
+                placePoints(qWeak, stocks.weak, '#880e4f');
+            }
 
-                        placeBubbles(qStrong, stocks.strong, '#2e7d32');
-                        placeBubbles(qImp, stocks.improving, '#0277bd');
-                        placeBubbles(qWkng, stocks.weakening, '#c62828');
-                        placeBubbles(qWeak, stocks.weak, '#880e4f');
-                    }
+            function placePoints(container, list, color) {
+                const w = container.offsetWidth;
+                const h = container.offsetHeight;
+                const existingPoints = [];
 
-                    function placeBubbles(container, list, color) {
-                        const w = container.offsetWidth;
-                        const h = container.offsetHeight;
-                        const existingBubbles = [];
+                list.forEach(stock => {
+                    const point = document.createElement('div');
+                    point.className = 'stock-point';
 
-                        list.forEach(stock => {
-                            const bubble = document.createElement('div');
-                            bubble.className = 'bubble';
-                            bubble.style.backgroundColor = color;
+                    const dot = document.createElement('div');
+                    dot.className = 'stock-dot';
+                    dot.style.backgroundColor = color;
 
-                            // Content: Company Name
-                            bubble.innerText = stock.Company;
+                    const label = document.createElement('div');
+                    label.className = 'stock-label';
+                    label.innerText = stock.Symbol || stock.Company.substring(0, 6);
 
-                            bubble.onmouseenter = (e) => showTooltip(e, stock);
-                            bubble.onmouseleave = hideTooltip;
-                            bubble.onclick = () => window.location.href = `charts.html?symbol=${stock.Symbol}`;
+                    point.appendChild(dot);
+                    point.appendChild(label);
 
-                            const pos = findFreePosition(w, h, BUBBLE_SIZE, existingBubbles);
+                    point.onmouseenter = (e) => showTooltip(e, stock);
+                    point.onmouseleave = hideTooltip;
+                    point.onclick = () => window.location.href = `charts.html?symbol=${stock.Symbol}`;
 
-                            if (pos) {
-                                bubble.style.left = pos.x + 'px';
-                                bubble.style.top = pos.y + 'px';
-                                container.appendChild(bubble);
-                                existingBubbles.push({
-                                    x: pos.x + BUBBLE_SIZE / 2,
-                                    y: pos.y + BUBBLE_SIZE / 2,
-                                    r: BUBBLE_SIZE / 2 + 2
-                                });
-                            }
+                    // Find free position
+                    const pos = findFreePosition(w, h, existingPoints);
+
+                    if (pos) {
+                        point.style.left = pos.x + 'px';
+                        point.style.top = pos.y + 'px';
+                        container.appendChild(point);
+                        existingPoints.push({
+                            x: pos.x,
+                            y: pos.y,
+                            w: LABEL_WIDTH + DOT_SIZE,
+                            h: 20 // Height of point + label
                         });
                     }
+                });
+            }
 
-                    function findFreePosition(w, h, size, circles) {
-                        const maxAttempts = 50;
-                        for (let i = 0; i < maxAttempts; i++) {
-                            const x = Math.random() * (w - size - PADDING * 2) + PADDING;
-                            const y = Math.random() * (h - size - PADDING * 2) + PADDING;
+            function findFreePosition(w, h, rects) {
+                const maxAttempts = 100;
+                for (let i = 0; i < maxAttempts; i++) {
+                    const x = Math.random() * (w - LABEL_WIDTH - PADDING * 2) + PADDING;
+                    const y = Math.random() * (h - 30 - PADDING * 2) + PADDING;
 
-                            const centerX = x + size / 2;
-                            const centerY = y + size / 2;
-                            const r = size / 2;
-
-                            let overlap = false;
-                            for (let c of circles) {
-                                const dx = centerX - c.x;
-                                const dy = centerY - c.y;
-                                const dist = Math.sqrt(dx * dx + dy * dy);
-                                if (dist < (r + c.r)) {
-                                    overlap = true;
-                                    break;
-                                }
-                            }
-
-                            if (!overlap) {
-                                return { x, y };
-                            }
+                    // Check overlap with existing rectangles
+                    let overlap = false;
+                    for (let r of rects) {
+                        if (!(x + LABEL_WIDTH < r.x ||
+                            x > r.x + r.w ||
+                            y + 20 < r.y ||
+                            y > r.y + r.h)) {
+                            overlap = true;
+                            break;
                         }
-                        return null;
                     }
 
-                    const tooltip = document.getElementById('tooltip');
-                    function showTooltip(e, stock) {
-                        tooltip.style.display = 'block';
-                        tooltip.innerHTML = `<strong>${stock.Company}</strong><br>Symbol: ${stock.Symbol}<br>RS: ${stock._rs}`;
-                        moveTooltip(e);
+                    if (!overlap) {
+                        return { x, y };
                     }
-                    function moveTooltip(e) {
-                        const x = e.pageX + 10;
-                        const y = e.pageY + 10;
-                        tooltip.style.left = x + 'px';
-                        tooltip.style.top = y + 'px';
-                    }
-                    function hideTooltip() {
-                        tooltip.style.display = 'none';
-                    }
-                    document.onmousemove = (e) => {
-                        if (tooltip.style.display === 'block') moveTooltip(e);
-                    }
+                }
+                return null;
+            }
 
-                    let resizeTimer;
-                    window.onresize = () => {
-                        clearTimeout(resizeTimer);
-                        resizeTimer = setTimeout(() => location.reload(), 500);
-                    };
+            const tooltip = document.getElementById('tooltip');
+            function showTooltip(e, stock) {
+                tooltip.style.display = 'block';
+                tooltip.innerHTML = `<strong>${stock.Company}</strong><br>Symbol: ${stock.Symbol}<br>RS: ${stock._rs}`;
+                moveTooltip(e);
+            }
+            function moveTooltip(e) {
+                tooltip.style.left = (e.pageX + 10) + 'px';
+                tooltip.style.top = (e.pageY + 10) + 'px';
+            }
+            function hideTooltip() {
+                tooltip.style.display = 'none';
+            }
+            document.onmousemove = (e) => {
+                if (tooltip.style.display === 'block') moveTooltip(e);
+            }
 
-                </script>
+            let resizeTimer;
+            window.onresize = () => {
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(() => location.reload(), 500);
+            };
+
+        </script>
 </body>
 
 </html>
