@@ -63,10 +63,8 @@
             position: relative;
             border: 1px solid rgba(0, 0, 0, 0.05);
             overflow: hidden;
-            /* Hide bubbles that might slightly clip edge */
         }
 
-        /* Background Labels */
         .quadrant-bg-label {
             position: absolute;
             top: 50%;
@@ -90,7 +88,6 @@
             z-index: 1;
         }
 
-        /* Colors */
         #q-weakening {
             background-color: #ffebee;
         }
@@ -116,28 +113,28 @@
             align-items: center;
             text-align: center;
             font-weight: bold;
-            font-size: 0.75rem;
+            font-size: 0.6rem;
             color: white;
             cursor: pointer;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
             transition: transform 0.2s, z-index 0.2s;
             z-index: 10;
-            /* Size will be set dynamically or fixed */
-            width: 45px;
-            height: 45px;
+            width: 60px;
+            /* Increased Size */
+            height: 60px;
             line-height: 1.1;
             padding: 2px;
             box-sizing: border-box;
-            word-break: break-all;
+            word-break: break-word;
+            overflow: hidden;
         }
 
         .bubble:hover {
-            transform: scale(1.2);
+            transform: scale(1.5);
             z-index: 100;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         }
 
-        /* Tooltip */
         #tooltip {
             position: absolute;
             background: rgba(0, 0, 0, 0.85);
@@ -189,7 +186,6 @@
 
                 <div id="tooltip"></div>
 
-                <!-- PapaParse -->
                 <script src="papaparse.min.js"></script>
                 <script>
                     if (typeof Papa === 'undefined') {
@@ -210,9 +206,8 @@
                         });
                     });
 
-                    // Config
-                    const BUBBLE_SIZE = 45; // px
-                    const PADDING = 5; // px padding inside quadrant
+                    const BUBBLE_SIZE = 60; // Size to fit names
+                    const PADDING = 2;
 
                     function initMatrix(data) {
                         const qStrong = document.getElementById('q-strong');
@@ -220,7 +215,6 @@
                         const qWkng = document.getElementById('q-weakening');
                         const qWeak = document.getElementById('q-weak');
 
-                        // Segregate Data
                         const stocks = {
                             strong: [],
                             improving: [],
@@ -231,16 +225,13 @@
                         data.forEach(d => {
                             if (!d.Company || !d.RS) return;
                             const rs = parseFloat(d.RS);
-                            d._rs = rs; // Store parsed RS
+                            d._rs = rs;
 
                             if (rs > 90) stocks.strong.push(d);
                             else if (rs > 80) stocks.improving.push(d);
                             else if (rs > 70) stocks.weakening.push(d);
                             else stocks.weak.push(d);
                         });
-
-                        // Sort by RS so most important ones get placed first (better chance of center/top placement if we wanted)
-                        // Or just random placement. Let's do random placement to look like a cloud.
 
                         placeBubbles(qStrong, stocks.strong, '#2e7d32');
                         placeBubbles(qImp, stocks.improving, '#0277bd');
@@ -249,31 +240,22 @@
                     }
 
                     function placeBubbles(container, list, color) {
-                        // Wait for layout to know width/height
-                        // We use a small timeout or just run immediately if loaded. 
-                        // Better to use container.offsetWidth.
-
                         const w = container.offsetWidth;
                         const h = container.offsetHeight;
-
-                        const existingBubbles = []; // Store {x, y, r}
+                        const existingBubbles = [];
 
                         list.forEach(stock => {
                             const bubble = document.createElement('div');
                             bubble.className = 'bubble';
                             bubble.style.backgroundColor = color;
 
-                            // Content: Symbol (cleaner) or Company (might overflow)
-                            // Using Symbol as requested "name inside" but usually symbol fits better in circle
-                            // We'll try Symbol.
-                            bubble.innerText = stock.Symbol || stock.Company.substring(0, 4);
+                            // Show Company Name
+                            bubble.innerText = stock.Company;
 
-                            // Tooltip logic
                             bubble.onmouseenter = (e) => showTooltip(e, stock);
                             bubble.onmouseleave = hideTooltip;
                             bubble.onclick = () => window.location.href = `charts.html?symbol=${stock.Symbol}`;
 
-                            // Find random position without overlap
                             const pos = findFreePosition(w, h, BUBBLE_SIZE, existingBubbles);
 
                             if (pos) {
@@ -283,11 +265,8 @@
                                 existingBubbles.push({
                                     x: pos.x + BUBBLE_SIZE / 2,
                                     y: pos.y + BUBBLE_SIZE / 2,
-                                    r: BUBBLE_SIZE / 2 + 2 // +2 margin
+                                    r: BUBBLE_SIZE / 2 + 2
                                 });
-                            } else {
-                                // Could not place (too full) - optional: stack or hide
-                                console.log('Skipping overlapping bubble:', stock.Symbol);
                             }
                         });
                     }
@@ -298,7 +277,6 @@
                             const x = Math.random() * (w - size - PADDING * 2) + PADDING;
                             const y = Math.random() * (h - size - PADDING * 2) + PADDING;
 
-                            // Check collision
                             const centerX = x + size / 2;
                             const centerY = y + size / 2;
                             const r = size / 2;
@@ -318,10 +296,9 @@
                                 return { x, y };
                             }
                         }
-                        return null; // Failed to find spot
+                        return null;
                     }
 
-                    // Custom Tooltip
                     const tooltip = document.getElementById('tooltip');
                     function showTooltip(e, stock) {
                         tooltip.style.display = 'block';
@@ -341,10 +318,6 @@
                         if (tooltip.style.display === 'block') moveTooltip(e);
                     }
 
-                    // Re-run on resize for responsiveness? 
-                    // For now, reload on resize is simplest or just CSS relative pos. 
-                    // Since we calculate absolute pos, resize breaks it. 
-                    // Simple fix: reload page on resize end.
                     let resizeTimer;
                     window.onresize = () => {
                         clearTimeout(resizeTimer);
