@@ -3,12 +3,17 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=0.7, minimum-scale=0.5, maximum-scale=2.0">
     <title>RS Matrix Map</title>
     <link rel="icon" type="image/jpeg" href="favicon.jpg?v=2">
     <style>
-        body {
+        * {
             margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: #ffffff;
             color: #333;
@@ -20,7 +25,7 @@
 
         .header {
             background: #1e222d;
-            padding: 15px 20px;
+            padding: 12px 20px;
             border-bottom: 1px solid #2a2e39;
             flex-shrink: 0;
             display: flex;
@@ -31,17 +36,17 @@
         .header h1 {
             margin: 0;
             color: #fff;
-            font-size: 1.5rem;
+            font-size: 1.3rem;
         }
 
         .nav-links a {
             text-decoration: none;
             color: white;
             background: #2962ff;
-            padding: 8px 16px;
-            margin-left: 10px;
+            padding: 6px 14px;
+            margin-left: 8px;
             border-radius: 4px;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
         }
 
         .nav-links a.active {
@@ -56,15 +61,15 @@
             grid-template-rows: 1fr 1fr;
             height: 100%;
             width: 100%;
-            position: relative;
-            transform: scale(0.7);
-            transform-origin: center center;
+            gap: 0;
         }
 
         .quadrant {
             position: relative;
             border: 1px solid rgba(0, 0, 0, 0.1);
-            overflow: hidden;
+            overflow-y: auto;
+            overflow-x: hidden;
+            min-height: 0;
         }
 
         .quadrant-bg-label {
@@ -72,22 +77,26 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            font-size: 3.5rem;
+            font-size: 2.5rem;
             font-weight: bold;
-            opacity: 0.08;
+            opacity: 0.06;
             text-transform: uppercase;
             pointer-events: none;
             z-index: 0;
         }
 
         .quadrant-info {
-            position: absolute;
-            top: 10px;
-            left: 15px;
+            position: sticky;
+            top: 5px;
+            left: 10px;
             font-weight: bold;
-            font-size: 0.85rem;
+            font-size: 0.75rem;
             opacity: 0.5;
             z-index: 1;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 3px 8px;
+            border-radius: 3px;
+            display: inline-block;
         }
 
         #q-weakening {
@@ -111,43 +120,59 @@
             position: absolute;
             display: flex;
             align-items: center;
-            gap: 4px;
+            gap: 3px;
             cursor: pointer;
             z-index: 10;
-            transition: transform 0.2s;
+            transition: transform 0.15s;
         }
 
         .stock-point:hover {
-            transform: scale(1.1);
+            transform: scale(1.15);
             z-index: 100;
         }
 
         .stock-dot {
-            width: 8px;
-            height: 8px;
+            width: 7px;
+            height: 7px;
             border-radius: 50%;
             flex-shrink: 0;
             box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
         }
 
         .stock-label {
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             font-weight: 600;
             white-space: nowrap;
-            color: #333;
+            color: #222;
+            text-shadow: 0 0 3px rgba(255, 255, 255, 0.8);
         }
 
         #tooltip {
-            position: absolute;
-            background: rgba(0, 0, 0, 0.85);
+            position: fixed;
+            background: rgba(0, 0, 0, 0.9);
             color: white;
             padding: 8px 12px;
             border-radius: 4px;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             pointer-events: none;
             display: none;
-            z-index: 1000;
+            z-index: 10000;
             white-space: nowrap;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Scrollbar */
+        .quadrant::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .quadrant::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.05);
+        }
+
+        .quadrant::-webkit-scrollbar-thumb {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 3px;
         }
     </style>
 </head>
@@ -157,9 +182,9 @@
     <div class="header">
         <h1>💠 RS Matrix Map</h1>
         <div class="nav-links">
-            <a href="index.html">📋 Table View</a>
-            <a href="charts.html">📈 Charts View</a>
-            <a href="rs_matrix.html" class="active">💠 Matrix View</a>
+            <a href="index.html">📋 Table</a>
+            <a href="charts.html">📈 Charts</a>
+            <a href="rs_matrix.html" class="active">💠 Matrix</a>
         </div>
     </div>
 
@@ -209,9 +234,10 @@
                 });
             });
 
-            const DOT_SIZE = 8; // Small dot
-            const LABEL_WIDTH = 60; // Approximate label width
-            const PADDING = 20;
+            const DOT_SIZE = 7;
+            const LABEL_AVG_WIDTH = 80; // Average company name width
+            const POINT_HEIGHT = 18;
+            const PADDING = 15;
 
             function initMatrix(data) {
                 const qStrong = document.getElementById('q-strong');
@@ -246,6 +272,13 @@
             function placePoints(container, list, color) {
                 const w = container.offsetWidth;
                 const h = container.offsetHeight;
+
+                // Calculate required height based on number of stocks
+                const estimatedHeight = Math.max(h, list.length * POINT_HEIGHT * 0.5);
+
+                // Set container min-height to allow scrolling if needed
+                container.style.minHeight = estimatedHeight + 'px';
+
                 const existingPoints = [];
 
                 list.forEach(stock => {
@@ -258,7 +291,7 @@
 
                     const label = document.createElement('div');
                     label.className = 'stock-label';
-                    label.innerText = stock.Symbol || stock.Company.substring(0, 6);
+                    label.innerText = stock.Company; // Show full company name
 
                     point.appendChild(dot);
                     point.appendChild(label);
@@ -267,8 +300,8 @@
                     point.onmouseleave = hideTooltip;
                     point.onclick = () => window.location.href = `charts.html?symbol=${stock.Symbol}`;
 
-                    // Find free position
-                    const pos = findFreePosition(w, h, existingPoints);
+                    // Find free position with more attempts
+                    const pos = findFreePosition(w, estimatedHeight, existingPoints);
 
                     if (pos) {
                         point.style.left = pos.x + 'px';
@@ -277,25 +310,31 @@
                         existingPoints.push({
                             x: pos.x,
                             y: pos.y,
-                            w: LABEL_WIDTH + DOT_SIZE,
-                            h: 20 // Height of point + label
+                            w: LABEL_AVG_WIDTH,
+                            h: POINT_HEIGHT
                         });
+                    } else {
+                        // Fallback: place anyway in a grid-like pattern
+                        const fallbackX = PADDING + (existingPoints.length % 3) * (w / 3);
+                        const fallbackY = PADDING + Math.floor(existingPoints.length / 3) * POINT_HEIGHT;
+                        point.style.left = fallbackX + 'px';
+                        point.style.top = fallbackY + 'px';
+                        container.appendChild(point);
                     }
                 });
             }
 
             function findFreePosition(w, h, rects) {
-                const maxAttempts = 100;
+                const maxAttempts = 150;
                 for (let i = 0; i < maxAttempts; i++) {
-                    const x = Math.random() * (w - LABEL_WIDTH - PADDING * 2) + PADDING;
-                    const y = Math.random() * (h - 30 - PADDING * 2) + PADDING;
+                    const x = Math.random() * (w - LABEL_AVG_WIDTH - PADDING * 2) + PADDING;
+                    const y = Math.random() * (h - POINT_HEIGHT - PADDING * 2) + PADDING;
 
-                    // Check overlap with existing rectangles
                     let overlap = false;
                     for (let r of rects) {
-                        if (!(x + LABEL_WIDTH < r.x ||
+                        if (!(x + LABEL_AVG_WIDTH < r.x ||
                             x > r.x + r.w ||
-                            y + 20 < r.y ||
+                            y + POINT_HEIGHT < r.y ||
                             y > r.y + r.h)) {
                             overlap = true;
                             break;
@@ -316,8 +355,8 @@
                 moveTooltip(e);
             }
             function moveTooltip(e) {
-                tooltip.style.left = (e.pageX + 10) + 'px';
-                tooltip.style.top = (e.pageY + 10) + 'px';
+                tooltip.style.left = (e.clientX + 10) + 'px';
+                tooltip.style.top = (e.clientY + 10) + 'px';
             }
             function hideTooltip() {
                 tooltip.style.display = 'none';
@@ -325,12 +364,6 @@
             document.onmousemove = (e) => {
                 if (tooltip.style.display === 'block') moveTooltip(e);
             }
-
-            let resizeTimer;
-            window.onresize = () => {
-                clearTimeout(resizeTimer);
-                resizeTimer = setTimeout(() => location.reload(), 500);
-            };
 
         </script>
 </body>
