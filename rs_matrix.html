@@ -4,14 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RS Matrix Phases</title>
+    <title>RS Matrix</title>
     <link rel="icon" type="image/jpeg" href="favicon.jpg?v=2">
     <style>
         body {
             margin: 0;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #131722;
-            color: #d1d4dc;
+            background: #ffffff;
+            /* White background like the image */
+            color: #333;
             height: 100vh;
             display: flex;
             flex-direction: column;
@@ -48,137 +49,18 @@
             background: #f23645;
         }
 
-        /* Matrix Grid Layout */
-        .matrix-container {
+        .chart-container {
             flex-grow: 1;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            grid-template-rows: 1fr 1fr;
-            gap: 2px;
-            background-color: #2a2e39;
-            /* Grid line color */
-            padding: 2px;
-            overflow: hidden;
-        }
-
-        .quadrant {
             position: relative;
-            padding: 15px;
-            overflow-y: auto;
-            display: flex;
-            flex-direction: column;
+            width: 100%;
+            height: 100%;
+            padding: 10px;
+            box-sizing: border-box;
         }
 
-        /* Quadrant Colors & Positions */
-
-        /* Top Left: Weakening (70 < RS <= 80) */
-        #q-weakening {
-            background-color: rgba(255, 230, 230, 0.95);
-            /* Light Pink */
-            color: #333;
-        }
-
-        /* Top Right: Strong (RS > 90) */
-        #q-strong {
-            background-color: rgba(220, 255, 220, 0.95);
-            /* Light Green */
-            color: #333;
-        }
-
-        /* Bottom Left: Weak (RS <= 70) */
-        #q-weak {
-            background-color: rgba(255, 200, 200, 0.95);
-            /* Light Red */
-            color: #333;
-        }
-
-        /* Bottom Right: Improving (80 < RS <= 90) */
-        #q-improving {
-            background-color: rgba(235, 255, 255, 0.95);
-            /* Light Cyan/Greenish */
-            color: #333;
-        }
-
-        .quadrant-title {
-            font-size: 1.2rem;
-            font-weight: bold;
-            margin-bottom: 10px;
-            text-transform: uppercase;
-            padding-bottom: 5px;
-            border-bottom: 2px solid rgba(0, 0, 0, 0.1);
-            position: sticky;
-            top: 0;
-            background: inherit;
-            z-index: 10;
-            display: flex;
-            justify-content: space-between;
-        }
-
-        .stock-list {
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
-        }
-
-        .stock-card {
-            background: rgba(255, 255, 255, 0.6);
-            padding: 8px 12px;
-            border-radius: 4px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            cursor: pointer;
-            transition: background 0.2s;
-            color: #000;
-        }
-
-        .stock-card:hover {
-            background: rgba(255, 255, 255, 0.9);
-            transform: translateX(2px);
-        }
-
-        .stock-info {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .stock-symbol {
-            font-weight: bold;
-            font-size: 0.95rem;
-        }
-
-        .stock-name {
-            font-size: 0.8rem;
-            color: #555;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            max-width: 200px;
-        }
-
-        .stock-rs-badge {
-            background: #333;
-            color: #fff;
-            padding: 4px 8px;
-            border-radius: 12px;
-            font-weight: bold;
-            font-size: 0.85rem;
-            min-width: 30px;
-            text-align: center;
-        }
-
-        /* Scrollbar styling */
-        .quadrant::-webkit-scrollbar {
-            width: 8px;
-        }
-
-        .quadrant::-webkit-scrollbar-track {
-            background: rgba(0, 0, 0, 0.05);
-        }
-
-        .quadrant::-webkit-scrollbar-thumb {
-            background: rgba(0, 0, 0, 0.2);
-            border-radius: 4px;
+        #matrixChart {
+            width: 100%;
+            height: 100%;
         }
     </style>
 </head>
@@ -186,7 +68,7 @@
 <body>
 
     <div class="header">
-        <h1>💠 RS Matrix Phases</h1>
+        <h1>� RS Matrix</h1>
         <div class="nav-links">
             <a href="index.html">📋 Table View</a>
             <a href="charts.html">📈 Charts View</a>
@@ -194,48 +76,17 @@
         </div>
     </div>
 
-    <div class="matrix-container">
-        <!-- Top Left: WEAKENING -->
-        <div id="q-weakening" class="quadrant">
-            <div class="quadrant-title">
-                <span>Weakening (70-80)</span>
-                <span id="count-weakening" style="font-size:0.9rem; opacity:0.7">0</span>
-            </div>
-            <div id="list-weakening" class="stock-list"></div>
-        </div>
-
-        <!-- Top Right: STRONG -->
-        <div id="q-strong" class="quadrant">
-            <div class="quadrant-title">
-                <span>Strong (>90)</span>
-                <span id="count-strong" style="font-size:0.9rem; opacity:0.7">0</span>
-            </div>
-            <div id="list-strong" class="stock-list"></div>
-        </div>
-
-        <!-- Bottom Left: WEAK -->
-        <div id="q-weak" class="quadrant">
-            <div class="quadrant-title">
-                <span>Weak (<70)< /span>
-                        <span id="count-weak" style="font-size:0.9rem; opacity:0.7">0</span>
-            </div>
-            <div id="list-weak" class="stock-list"></div>
-        </div>
-
-        <!-- Bottom Right: IMPROVING -->
-        <div id="q-improving" class="quadrant">
-            <div class="quadrant-title">
-                <span>Improving (80-90)</span>
-                <span id="count-improving" style="font-size:0.9rem; opacity:0.7">0</span>
-            </div>
-            <div id="list-improving" class="stock-list"></div>
-        </div>
+    <div class="chart-container">
+        <canvas id="matrixChart"></canvas>
     </div>
 
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <script
+        src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0/dist/chartjs-plugin-datalabels.min.js"></script>
     <!-- PapaParse -->
     <script src="papaparse.min.js"></script>
     <script>
-        // Fallback if local file missing
         if (typeof Papa === 'undefined') {
             document.write('<script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"><\/script>');
         }
@@ -246,7 +97,7 @@
                 header: true,
                 skipEmptyLines: true,
                 complete: function (results) {
-                    renderMatrix(results.data);
+                    renderChart(results.data);
                 },
                 error: function (err) {
                     console.error('Error loading CSV:', err);
@@ -254,75 +105,174 @@
             });
         });
 
-        function renderMatrix(data) {
-            // Buckets
-            const strong = [];     // > 90
-            const improving = [];  // > 80 and <= 90
-            const weakening = [];  // > 70 and <= 80
-            const weak = [];       // <= 70
+        function renderChart(data) {
 
-            data.forEach(stock => {
-                if (!stock.Company || !stock.RS) return;
+            // Map data to quadrants based on logic
+            const points = [];
 
-                const rs = parseFloat(stock.RS);
+            data.forEach(d => {
+                if (!d.Company || !d.RS) return;
+                const rs = parseFloat(d.RS);
 
-                // User Logic:
-                // Strong: > 90
-                // Improving: <= 90 but > 80
-                // Weakening: <= 80 but > 70
-                // Weak: <= 70
+                // Determine Quadrant
+                // Bounds (using 0-100 scale for internal positioning)
+                // Center is 50,50
+                // Strong (>90) -> Top Right (50-100, 50-100)
+                // Improving (80-90) -> Bottom Right (50-100, 0-50)
+                // Weakening (70-80) -> Top Left (0-50, 50-100)
+                // Weak (<70) -> Bottom Left (0-50, 0-50)
+
+                let xMin, xMax, yMin, yMax;
 
                 if (rs > 90) {
-                    strong.push(stock);
+                    // Strong (Top Right)
+                    xMin = 55; xMax = 95;
+                    yMin = 55; yMax = 95;
                 } else if (rs > 80) {
-                    improving.push(stock);
+                    // Improving (Bottom Right)
+                    xMin = 55; xMax = 95;
+                    yMin = 5; yMax = 45;
                 } else if (rs > 70) {
-                    weakening.push(stock);
+                    // Weakening (Top Left)
+                    xMin = 5; xMax = 45;
+                    yMin = 55; yMax = 95;
                 } else {
-                    weak.push(stock);
+                    // Weak (Bottom Left)
+                    xMin = 5; xMax = 45;
+                    yMin = 5; yMax = 45;
                 }
+
+                // Generate coordinate within the quadrant
+                // We use the RS value itself to influence position so it's not totally random
+                // but we add some "noise" based on the Company name hash or similar so they don't overlap perfectly
+
+                const seed = d.Company.split('').reduce((a, b) => a + b.charCodeAt(0), 0);
+                const randomX = (seed % 100) / 100;
+                const randomY = ((seed * 13) % 100) / 100;
+
+                // Position:
+                // X: distributed within x range
+                // Y: distributed within y range
+                const x = xMin + (randomX * (xMax - xMin));
+                const y = yMin + (randomY * (yMax - yMin));
+
+                points.push({
+                    x: x,
+                    y: y,
+                    company: d.Company,
+                    symbol: d.Symbol,
+                    rs: rs
+                });
             });
 
-            // Sort all buckets by RS descending
-            const sortFn = (a, b) => parseFloat(b.RS) - parseFloat(a.RS);
-            strong.sort(sortFn);
-            improving.sort(sortFn);
-            weakening.sort(sortFn);
-            weak.sort(sortFn);
+            const ctx = document.getElementById('matrixChart').getContext('2d');
 
-            // Render
-            fillList('list-strong', 'count-strong', strong);
-            fillList('list-improving', 'count-improving', improving);
-            fillList('list-weakening', 'count-weakening', weakening);
-            fillList('list-weak', 'count-weak', weak);
-        }
+            const quadrantPlugin = {
+                id: 'quadrants',
+                beforeDraw: (chart) => {
+                    const { ctx, chartArea: { left, top, right, bottom, width, height } } = chart;
+                    const midX = left + width / 2;
+                    const midY = top + height / 2;
 
-        function fillList(elementId, countId, stocks) {
-            const container = document.getElementById(elementId);
-            const countEl = document.getElementById(countId);
+                    ctx.save();
 
-            countEl.textContent = `${stocks.length} Stocks`;
-            container.innerHTML = '';
+                    // 1. Weakening (Top Left) - Pink/Red ish
+                    ctx.fillStyle = 'rgba(255, 235, 238, 1)';
+                    ctx.fillRect(left, top, midX - left, midY - top);
 
-            stocks.forEach(s => {
-                const rs = parseFloat(s.RS);
-                // Color code the badge slightly just for flair, though background handles main grouping
-                let badgeColor = '#333';
-                if (rs > 95) badgeColor = '#006400';
+                    // 2. Strong (Top Right) - Green
+                    ctx.fillStyle = 'rgba(232, 245, 233, 1)';
+                    ctx.fillRect(midX, top, right - midX, midY - top);
 
-                const div = document.createElement('div');
-                div.className = 'stock-card';
-                div.innerHTML = `
-                    <div class="stock-info">
-                        <span class="stock-symbol">${s.Symbol || ''}</span>
-                        <span class="stock-name">${s.Company}</span>
-                    </div>
-                    <div class="stock-rs-badge" style="background:${badgeColor}">${s.RS}</div>
-                `;
-                // Add click to verify? Maybe link to charts later
-                div.onclick = () => window.location.href = `charts.html?symbol=${s.Symbol}`;
+                    // 3. Weak (Bottom Left) - Redder
+                    ctx.fillStyle = 'rgba(255, 205, 210, 0.6)';
+                    ctx.fillRect(left, midY, midX - left, bottom - midY);
 
-                container.appendChild(div);
+                    // 4. Improving (Bottom Right) - Light Blue/Green
+                    ctx.fillStyle = 'rgba(225, 245, 254, 1)';
+                    ctx.fillRect(midX, midY, right - midX, bottom - midY);
+
+                    // Draw Cross Lines
+                    ctx.beginPath();
+                    ctx.moveTo(midX, top);
+                    ctx.lineTo(midX, bottom);
+                    ctx.moveTo(left, midY);
+                    ctx.lineTo(right, midY);
+                    ctx.lineWidth = 2;
+                    ctx.strokeStyle = '#ccc';
+                    ctx.stroke();
+
+                    // Labels
+                    ctx.font = 'bold 24px Arial';
+                    ctx.textAlign = 'center';
+                    ctx.textBaseline = 'middle';
+                    ctx.fillStyle = 'rgba(0,0,0,0.7)';
+
+                    ctx.fillText('Weakening', (left + midX) / 2, (top + midY) / 2);
+                    ctx.fillText('Strong', (midX + right) / 2, (top + midY) / 2);
+                    ctx.fillText('Weak', (left + midX) / 2, (midY + bottom) / 2);
+                    ctx.fillText('Improving', (midX + right) / 2, (midY + bottom) / 2);
+
+                    ctx.restore();
+                }
+            };
+
+            new Chart(ctx, {
+                type: 'scatter',
+                data: {
+                    datasets: [{
+                        label: 'Stocks',
+                        data: points,
+                        backgroundColor: (ctx) => {
+                            const rs = ctx.raw?.rs;
+                            if (rs > 90) return '#1b5e20'; // Dark Green
+                            if (rs > 80) return '#01579b'; // Dark Blue
+                            if (rs > 70) return '#b71c1c'; // Dark Red (Weakening)
+                            return '#880e4f'; // Deep Pink/Red (Weak)
+                        },
+                        pointRadius: 5,
+                        pointHoverRadius: 8
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        x: {
+                            min: 0,
+                            max: 100,
+                            display: false, // Hide Axis
+                            grid: { display: false }
+                        },
+                        y: {
+                            min: 0,
+                            max: 100,
+                            display: false, // Hide Axis
+                            grid: { display: false }
+                        }
+                    },
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            callbacks: {
+                                label: (context) => {
+                                    const p = context.raw;
+                                    return `${p.company} (${p.rs})`;
+                                }
+                            }
+                        },
+                        // Show symbols on map
+                        datalabels: {
+                            formatter: (value) => value.symbol,
+                            align: 'right',
+                            offset: 4,
+                            font: { size: 10, weight: 'bold' },
+                            color: '#444',
+                            display: 'auto' // Avoid too much overlap
+                        }
+                    }
+                },
+                plugins: [quadrantPlugin, ChartDataLabels]
             });
         }
     </script>
