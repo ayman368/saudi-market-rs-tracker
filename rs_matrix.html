@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=0.7, minimum-scale=0.5, maximum-scale=2.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RS Matrix Map</title>
     <link rel="icon" type="image/jpeg" href="favicon.jpg?v=2">
     <style>
@@ -21,6 +21,7 @@
             display: flex;
             flex-direction: column;
             overflow: hidden;
+            /* Prevent scrolling of the whole page */
         }
 
         .header {
@@ -31,6 +32,9 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            height: 60px;
+            /* Fixed height for calculation */
+            z-index: 1000;
         }
 
         .header h1 {
@@ -55,21 +59,31 @@
 
         /* Matrix Container */
         .matrix-container {
-            flex-grow: 1;
+            /* 
+               Trick to Zoom 70% and Fill Screen:
+               1. Set dimensions to 100% / 0.7 = 142.857% 
+               2. Scale down by 0.7
+               3. Origin top-left so it snaps to corner
+            */
+            width: 142.857%;
+            height: calc((100vh - 60px) * 1.42857);
+            /* Fill remaining height scaled */
+
             display: grid;
             grid-template-columns: 1fr 1fr;
             grid-template-rows: 1fr 1fr;
-            height: 100%;
-            width: 100%;
             gap: 0;
+
+            transform: scale(0.7);
+            transform-origin: 0 0;
         }
 
         .quadrant {
             position: relative;
             border: 1px solid rgba(0, 0, 0, 0.1);
             overflow-y: auto;
+            /* Enable scroll inside quadrants */
             overflow-x: hidden;
-            min-height: 0;
         }
 
         .quadrant-bg-label {
@@ -235,7 +249,7 @@
             });
 
             const DOT_SIZE = 7;
-            const LABEL_AVG_WIDTH = 80; // Average company name width
+            const LABEL_AVG_WIDTH = 80;
             const POINT_HEIGHT = 18;
             const PADDING = 15;
 
@@ -270,16 +284,23 @@
             }
 
             function placePoints(container, list, color) {
+                // For placement logic, we need the "zoomed" dimensions (large logic space)
+                // But offsetWidth gives "layout" width.
+                // Since we scaled container, layout width is 142%. Perfect.
+
                 const w = container.offsetWidth;
-                const h = container.offsetHeight;
-
-                // Calculate required height based on number of stocks
-                const estimatedHeight = Math.max(h, list.length * POINT_HEIGHT * 0.5);
-
-                // Set container min-height to allow scrolling if needed
-                container.style.minHeight = estimatedHeight + 'px';
+                // Height logic: calculate required scrolling height if needed
+                // But we need to spread them out. 
+                // Let's ensure min-height covers the visual requirement.
 
                 const existingPoints = [];
+
+                // Calculate a virtual height that fits all if cramped
+                // But user wants "scattered". 
+                // We use the full container height (which is large now).
+                // If overflow, scroll works.
+
+                const h = container.offsetHeight;
 
                 list.forEach(stock => {
                     const point = document.createElement('div');
@@ -291,7 +312,8 @@
 
                     const label = document.createElement('div');
                     label.className = 'stock-label';
-                    label.innerText = stock.Company; // Show full company name
+                    // USE COMPANY NAME
+                    label.innerText = stock.Company;
 
                     point.appendChild(dot);
                     point.appendChild(label);
@@ -300,8 +322,7 @@
                     point.onmouseleave = hideTooltip;
                     point.onclick = () => window.location.href = `charts.html?symbol=${stock.Symbol}`;
 
-                    // Find free position with more attempts
-                    const pos = findFreePosition(w, estimatedHeight, existingPoints);
+                    const pos = findFreePosition(w, h, existingPoints);
 
                     if (pos) {
                         point.style.left = pos.x + 'px';
@@ -310,13 +331,13 @@
                         existingPoints.push({
                             x: pos.x,
                             y: pos.y,
-                            w: LABEL_AVG_WIDTH,
+                            w: LABEL_AVG_WIDTH, // Approximation for overlap check
                             h: POINT_HEIGHT
                         });
                     } else {
-                        // Fallback: place anyway in a grid-like pattern
-                        const fallbackX = PADDING + (existingPoints.length % 3) * (w / 3);
-                        const fallbackY = PADDING + Math.floor(existingPoints.length / 3) * POINT_HEIGHT;
+                        // Fallback
+                        const fallbackX = PADDING + (Math.random() * (w - 100));
+                        const fallbackY = PADDING + (Math.random() * (h - 20));
                         point.style.left = fallbackX + 'px';
                         point.style.top = fallbackY + 'px';
                         container.appendChild(point);
@@ -325,17 +346,18 @@
             }
 
             function findFreePosition(w, h, rects) {
-                const maxAttempts = 150;
+                const maxAttempts = 100;
                 for (let i = 0; i < maxAttempts; i++) {
                     const x = Math.random() * (w - LABEL_AVG_WIDTH - PADDING * 2) + PADDING;
                     const y = Math.random() * (h - POINT_HEIGHT - PADDING * 2) + PADDING;
 
                     let overlap = false;
                     for (let r of rects) {
-                        if (!(x + LABEL_AVG_WIDTH < r.x ||
-                            x > r.x + r.w ||
-                            y + POINT_HEIGHT < r.y ||
-                            y > r.y + r.h)) {
+                        // Simple AABB overlap
+                        if (x < r.x + r.w &&
+                            x + LABEL_AVG_WIDTH > r.x &&
+                            y < r.y + r.h &&
+                            y + POINT_HEIGHT > r.y) {
                             overlap = true;
                             break;
                         }
@@ -355,8 +377,10 @@
                 moveTooltip(e);
             }
             function moveTooltip(e) {
-                tooltip.style.left = (e.clientX + 10) + 'px';
-                tooltip.style.top = (e.clientY + 10) + 'px';
+                // Adjust for scale? 
+                // e.clientX is screen coords. Tooltip is fixed. No scale adjustment needed for fixed tooltip.
+                tooltip.style.left = (e.clientX + 15) + 'px';
+                tooltip.style.top = (e.clientY + 15) + 'px';
             }
             function hideTooltip() {
                 tooltip.style.display = 'none';
