@@ -4,17 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RS Matrix - Weekly vs Monthly</title>
+    <title>RS Matrix Phases</title>
     <link rel="icon" type="image/jpeg" href="favicon.jpg?v=2">
     <style>
         body {
             margin: 0;
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: #131722;
             color: #d1d4dc;
             height: 100vh;
             display: flex;
             flex-direction: column;
+            overflow: hidden;
         }
 
         .header {
@@ -22,17 +23,15 @@
             padding: 15px 20px;
             border-bottom: 1px solid #2a2e39;
             flex-shrink: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
         .header h1 {
             margin: 0;
             color: #fff;
-            display: inline;
             font-size: 1.5rem;
-        }
-
-        .nav-links {
-            float: right;
         }
 
         .nav-links a {
@@ -42,31 +41,144 @@
             padding: 8px 16px;
             margin-left: 10px;
             border-radius: 4px;
+            font-size: 0.9rem;
         }
 
         .nav-links a.active {
             background: #f23645;
         }
 
-        .chart-container {
+        /* Matrix Grid Layout */
+        .matrix-container {
             flex-grow: 1;
-            position: relative;
-            padding: 20px;
-            box-sizing: border-box;
-            background: #ffffff;
-            /* White background as per image request for the chart area */
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 2px;
+            background-color: #2a2e39;
+            /* Grid line color */
+            padding: 2px;
+            overflow: hidden;
         }
 
-        /* Tooltip customization */
-        #chartjs-tooltip {
-            opacity: 1;
-            position: absolute;
-            background: rgba(0, 0, 0, 0.7);
-            color: white;
-            border-radius: 3px;
-            pointer-events: none;
-            transform: translate(-50%, 0);
-            transition: all .1s ease;
+        .quadrant {
+            position: relative;
+            padding: 15px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Quadrant Colors & Positions */
+
+        /* Top Left: Weakening (70 < RS <= 80) */
+        #q-weakening {
+            background-color: rgba(255, 230, 230, 0.95);
+            /* Light Pink */
+            color: #333;
+        }
+
+        /* Top Right: Strong (RS > 90) */
+        #q-strong {
+            background-color: rgba(220, 255, 220, 0.95);
+            /* Light Green */
+            color: #333;
+        }
+
+        /* Bottom Left: Weak (RS <= 70) */
+        #q-weak {
+            background-color: rgba(255, 200, 200, 0.95);
+            /* Light Red */
+            color: #333;
+        }
+
+        /* Bottom Right: Improving (80 < RS <= 90) */
+        #q-improving {
+            background-color: rgba(235, 255, 255, 0.95);
+            /* Light Cyan/Greenish */
+            color: #333;
+        }
+
+        .quadrant-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            padding-bottom: 5px;
+            border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            background: inherit;
+            z-index: 10;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .stock-list {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .stock-card {
+            background: rgba(255, 255, 255, 0.6);
+            padding: 8px 12px;
+            border-radius: 4px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: background 0.2s;
+            color: #000;
+        }
+
+        .stock-card:hover {
+            background: rgba(255, 255, 255, 0.9);
+            transform: translateX(2px);
+        }
+
+        .stock-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .stock-symbol {
+            font-weight: bold;
+            font-size: 0.95rem;
+        }
+
+        .stock-name {
+            font-size: 0.8rem;
+            color: #555;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 200px;
+        }
+
+        .stock-rs-badge {
+            background: #333;
+            color: #fff;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-weight: bold;
+            font-size: 0.85rem;
+            min-width: 30px;
+            text-align: center;
+        }
+
+        /* Scrollbar styling */
+        .quadrant::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .quadrant::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.05);
+        }
+
+        .quadrant::-webkit-scrollbar-thumb {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 4px;
         }
     </style>
 </head>
@@ -74,28 +186,56 @@
 <body>
 
     <div class="header">
-        <h1>📉 RS Matrix (Weekly Vs Monthly)</h1>
+        <h1>💠 RS Matrix Phases</h1>
         <div class="nav-links">
-            <a href="index.html">Table</a>
-            <a href="charts.html">Charts</a>
-            <a href="rs_matrix.html" class="active">Matrix</a>
+            <a href="index.html">📋 Table View</a>
+            <a href="charts.html">📈 Charts View</a>
+            <a href="rs_matrix.html" class="active">💠 Matrix View</a>
         </div>
     </div>
 
-    <div class="chart-container">
-        <canvas id="matrixChart"></canvas>
+    <div class="matrix-container">
+        <!-- Top Left: WEAKENING -->
+        <div id="q-weakening" class="quadrant">
+            <div class="quadrant-title">
+                <span>Weakening (70-80)</span>
+                <span id="count-weakening" style="font-size:0.9rem; opacity:0.7">0</span>
+            </div>
+            <div id="list-weakening" class="stock-list"></div>
+        </div>
+
+        <!-- Top Right: STRONG -->
+        <div id="q-strong" class="quadrant">
+            <div class="quadrant-title">
+                <span>Strong (>90)</span>
+                <span id="count-strong" style="font-size:0.9rem; opacity:0.7">0</span>
+            </div>
+            <div id="list-strong" class="stock-list"></div>
+        </div>
+
+        <!-- Bottom Left: WEAK -->
+        <div id="q-weak" class="quadrant">
+            <div class="quadrant-title">
+                <span>Weak (<70)< /span>
+                        <span id="count-weak" style="font-size:0.9rem; opacity:0.7">0</span>
+            </div>
+            <div id="list-weak" class="stock-list"></div>
+        </div>
+
+        <!-- Bottom Right: IMPROVING -->
+        <div id="q-improving" class="quadrant">
+            <div class="quadrant-title">
+                <span>Improving (80-90)</span>
+                <span id="count-improving" style="font-size:0.9rem; opacity:0.7">0</span>
+            </div>
+            <div id="list-improving" class="stock-list"></div>
+        </div>
     </div>
 
-    <!-- Chart.js -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
-    <!-- Chart.js Datalabels Plugin (for showing labels on points) -->
-    <script
-        src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0/dist/chartjs-plugin-datalabels.min.js"></script>
     <!-- PapaParse -->
-    <script src="papaparse.min.js"></script> <!-- Utilizing local file if available as per previous fix -->
-
+    <script src="papaparse.min.js"></script>
     <script>
-        // Check if local papaparse failed, fallback to CDN just in case
+        // Fallback if local file missing
         if (typeof Papa === 'undefined') {
             document.write('<script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"><\/script>');
         }
@@ -106,151 +246,83 @@
                 header: true,
                 skipEmptyLines: true,
                 complete: function (results) {
-                    processData(results.data);
+                    renderMatrix(results.data);
                 },
                 error: function (err) {
                     console.error('Error loading CSV:', err);
-                    alert('Error loading data. Make sure saudiexchange_rs_analysis.csv exists.');
                 }
             });
         });
 
-        function processData(data) {
-            // Filter valid data
-            const points = data
-                .filter(d => d.Company && d.RS_3Months && d.RS_1Year) // Using 3M as Weekly proxy, 1Y as Monthly proxy
-                .map(d => ({
-                    x: parseFloat(d.RS_3Months), // "Weekly" (Short Term)
-                    y: parseFloat(d.RS_1Year),   // "Monthly" (Long Term)
-                    company: d.Company,
-                    symbol: d.Symbol
-                }));
+        function renderMatrix(data) {
+            // Buckets
+            const strong = [];     // > 90
+            const improving = [];  // > 80 and <= 90
+            const weakening = [];  // > 70 and <= 80
+            const weak = [];       // <= 70
 
-            renderChart(points);
+            data.forEach(stock => {
+                if (!stock.Company || !stock.RS) return;
+
+                const rs = parseFloat(stock.RS);
+
+                // User Logic:
+                // Strong: > 90
+                // Improving: <= 90 but > 80
+                // Weakening: <= 80 but > 70
+                // Weak: <= 70
+
+                if (rs > 90) {
+                    strong.push(stock);
+                } else if (rs > 80) {
+                    improving.push(stock);
+                } else if (rs > 70) {
+                    weakening.push(stock);
+                } else {
+                    weak.push(stock);
+                }
+            });
+
+            // Sort all buckets by RS descending
+            const sortFn = (a, b) => parseFloat(b.RS) - parseFloat(a.RS);
+            strong.sort(sortFn);
+            improving.sort(sortFn);
+            weakening.sort(sortFn);
+            weak.sort(sortFn);
+
+            // Render
+            fillList('list-strong', 'count-strong', strong);
+            fillList('list-improving', 'count-improving', improving);
+            fillList('list-weakening', 'count-weakening', weakening);
+            fillList('list-weak', 'count-weak', weak);
         }
 
-        function renderChart(points) {
-            const ctx = document.getElementById('matrixChart').getContext('2d');
+        function fillList(elementId, countId, stocks) {
+            const container = document.getElementById(elementId);
+            const countEl = document.getElementById(countId);
 
-            // Background Quadrants Plugin
-            const quadrantPlugin = {
-                id: 'quadrants',
-                beforeDraw: (chart) => {
-                    const { ctx, chartArea: { left, top, right, bottom }, scales: { x, y } } = chart;
-                    const midX = x.getPixelForValue(50);
-                    const midY = y.getPixelForValue(50);
+            countEl.textContent = `${stocks.length} Stocks`;
+            container.innerHTML = '';
 
-                    ctx.save();
+            stocks.forEach(s => {
+                const rs = parseFloat(s.RS);
+                // Color code the badge slightly just for flair, though background handles main grouping
+                let badgeColor = '#333';
+                if (rs > 95) badgeColor = '#006400';
 
-                    // Top Right (Strong) - Green
-                    ctx.fillStyle = 'rgba(220, 255, 235, 0.6)'; // Light Green
-                    ctx.fillRect(midX, top, right - midX, midY - top);
+                const div = document.createElement('div');
+                div.className = 'stock-card';
+                div.innerHTML = `
+                    <div class="stock-info">
+                        <span class="stock-symbol">${s.Symbol || ''}</span>
+                        <span class="stock-name">${s.Company}</span>
+                    </div>
+                    <div class="stock-rs-badge" style="background:${badgeColor}">${s.RS}</div>
+                `;
+                // Add click to verify? Maybe link to charts later
+                div.onclick = () => window.location.href = `charts.html?symbol=${s.Symbol}`;
 
-                    // Top Left (Weakening) - Light Red/Pink
-                    ctx.fillStyle = 'rgba(255, 225, 225, 0.6)'; // Light Pink
-                    ctx.fillRect(left, top, midX - left, midY - top);
-
-                    // Bottom Right (Improving) - Light Green/Yellowish mostly Green per image
-                    ctx.fillStyle = 'rgba(235, 255, 240, 0.4)'; // Very light green
-                    ctx.fillRect(midX, midY, right - midX, bottom - midY);
-
-                    // Bottom Left (Weak) - Red
-                    ctx.fillStyle = 'rgba(255, 200, 200, 0.5)'; // Reddish
-                    ctx.fillRect(left, midY, midX - left, bottom - midY);
-
-                    // Draw Labels for Quadrants
-                    ctx.font = 'bold 24px Arial';
-                    ctx.fillStyle = 'rgba(0,0,0,0.5)';
-                    ctx.textAlign = 'center';
-                    ctx.textBaseline = 'middle';
-
-                    // Strong
-                    ctx.fillText('Strong', (midX + right) / 2, (top + midY) / 2);
-                    // Weakening
-                    ctx.fillText('Weakening', (left + midX) / 2, (top + midY) / 2);
-                    // Improving
-                    ctx.fillText('Improving', (midX + right) / 2, (midY + bottom) / 2);
-                    // Weak
-                    ctx.fillText('Weak', (left + midX) / 2, (midY + bottom) / 2);
-
-                    ctx.restore();
-                }
-            };
-
-            new Chart(ctx, {
-                type: 'scatter',
-                data: {
-                    datasets: [{
-                        label: 'Stocks',
-                        data: points,
-                        backgroundColor: '#2962ff',
-                        borderColor: '#1e222d',
-                        borderWidth: 1,
-                        pointRadius: 4,
-                        pointHoverRadius: 6
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    scales: {
-                        x: {
-                            type: 'linear',
-                            position: 'bottom',
-                            min: 0,
-                            max: 100,
-                            title: {
-                                display: true,
-                                text: 'Weekly RS (Proxy: 3 Month RS)',
-                                font: { size: 14, weight: 'bold' },
-                                color: '#333'
-                            },
-                            grid: { color: '#ddd' },
-                            ticks: { color: '#333' }
-                        },
-                        y: {
-                            type: 'linear',
-                            min: 0,
-                            max: 100,
-                            title: {
-                                display: true,
-                                text: 'Monthly RS (Proxy: 1 Year RS)',
-                                font: { size: 14, weight: 'bold' },
-                                color: '#333'
-                            },
-                            grid: { color: '#ddd' },
-                            ticks: { color: '#333' }
-                        }
-                    },
-                    plugins: {
-                        legend: { display: false },
-                        tooltip: {
-                            backgroundColor: 'rgba(0,0,0,0.8)',
-                            titleColor: '#fff',
-                            bodyColor: '#fff',
-                            callbacks: {
-                                label: (ctx) => {
-                                    const p = ctx.raw;
-                                    return `${p.company} (${p.symbol}): W=${p.x}, M=${p.y}`;
-                                }
-                            }
-                        },
-                        datalabels: {
-                            align: 'right',
-                            anchor: 'center',
-                            formatter: (value, ctx) => value.symbol,
-                            font: { size: 9 },
-                            color: '#333',
-                            offset: 4,
-                            clip: false,
-                            display: function (context) {
-                                // Only show label if the point is somewhat isolated or importance (simplified: show all for now)
-                                return true;
-                            }
-                        }
-                    }
-                },
-                plugins: [quadrantPlugin, ChartDataLabels]
+                container.appendChild(div);
             });
         }
     </script>
