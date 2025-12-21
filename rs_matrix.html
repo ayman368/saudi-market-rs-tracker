@@ -12,12 +12,10 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: #ffffff;
             color: #333;
-            /* Allow scrolling for more space */
-            min-height: 100vh;
+            height: 100vh;
             display: flex;
             flex-direction: column;
-            overflow-x: hidden;
-            overflow-y: auto;
+            overflow: hidden;
         }
 
         .header {
@@ -28,9 +26,6 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
         }
 
         .header h1 {
@@ -59,9 +54,8 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             grid-template-rows: 1fr 1fr;
+            height: 100%;
             width: 100%;
-            /* Make it tall enough to give bubbles space */
-            min-height: 180vh;
             position: relative;
         }
 
@@ -76,8 +70,7 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            font-size: 4rem;
-            /* Bigger label since area is bigger */
+            font-size: 3rem;
             font-weight: bold;
             opacity: 0.07;
             text-transform: uppercase;
@@ -87,15 +80,12 @@
 
         .quadrant-info {
             position: absolute;
-            top: 20px;
-            left: 20px;
+            top: 10px;
+            left: 15px;
             font-weight: bold;
-            font-size: 1.1rem;
+            font-size: 0.9rem;
             opacity: 0.6;
             z-index: 1;
-            background: rgba(255, 255, 255, 0.5);
-            padding: 5px 10px;
-            border-radius: 4px;
         }
 
         #q-weakening {
@@ -123,43 +113,42 @@
             align-items: center;
             text-align: center;
             font-weight: bold;
-            font-size: 0.8rem;
-            /* Bigger Font (was 0.6rem) */
+            font-size: 0.55rem;
+            /* Small font to fit names */
             color: white;
             cursor: pointer;
-            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
             transition: transform 0.2s, z-index 0.2s;
             z-index: 10;
-            width: 80px;
-            /* Bigger Size (was 60px) */
-            height: 80px;
+            width: 55px;
+            /* Compact size */
+            height: 55px;
             line-height: 1.1;
-            padding: 4px;
+            padding: 2px;
             box-sizing: border-box;
-            word-break: break-word;
+            word-break: break-all;
             overflow: hidden;
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
         }
 
         .bubble:hover {
-            transform: scale(1.3);
-            z-index: 100 !important;
-            /* Force on top */
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            transform: scale(1.5);
+            z-index: 100;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            white-space: normal;
+            word-break: normal;
         }
 
         #tooltip {
             position: absolute;
-            background: rgba(0, 0, 0, 0.9);
+            background: rgba(0, 0, 0, 0.85);
             color: white;
-            padding: 10px 15px;
-            border-radius: 6px;
-            font-size: 1rem;
+            padding: 8px 12px;
+            border-radius: 4px;
+            font-size: 0.9rem;
             pointer-events: none;
             display: none;
-            z-index: 2000;
+            z-index: 1000;
             white-space: nowrap;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
         }
     </style>
 </head>
@@ -220,8 +209,8 @@
                         });
                     });
 
-                    const BUBBLE_SIZE = 80; // Bigger bubbles
-                    const PADDING = 10; // More space between bubbles (was 2)
+                    const BUBBLE_SIZE = 55; // Compact but enough for name
+                    const PADDING = 2;
 
                     function initMatrix(data) {
                         const qStrong = document.getElementById('q-strong');
@@ -247,13 +236,10 @@
                             else stocks.weak.push(d);
                         });
 
-                        // Wait slight delay for containers to render size correctly
-                        setTimeout(() => {
-                            placeBubbles(qStrong, stocks.strong, '#2e7d32');
-                            placeBubbles(qImp, stocks.improving, '#0277bd');
-                            placeBubbles(qWkng, stocks.weakening, '#c62828');
-                            placeBubbles(qWeak, stocks.weak, '#880e4f');
-                        }, 100);
+                        placeBubbles(qStrong, stocks.strong, '#2e7d32');
+                        placeBubbles(qImp, stocks.improving, '#0277bd');
+                        placeBubbles(qWkng, stocks.weakening, '#c62828');
+                        placeBubbles(qWeak, stocks.weak, '#880e4f');
                     }
 
                     function placeBubbles(container, list, color) {
@@ -261,16 +247,12 @@
                         const h = container.offsetHeight;
                         const existingBubbles = [];
 
-                        // Shuffle list for random distribution or keep sorted?
-                        // Random distribution looks more organic
-                        list.sort(() => Math.random() - 0.5);
-
                         list.forEach(stock => {
                             const bubble = document.createElement('div');
                             bubble.className = 'bubble';
                             bubble.style.backgroundColor = color;
 
-                            // Show Company Name
+                            // Content: Company Name
                             bubble.innerText = stock.Company;
 
                             bubble.onmouseenter = (e) => showTooltip(e, stock);
@@ -286,16 +268,14 @@
                                 existingBubbles.push({
                                     x: pos.x + BUBBLE_SIZE / 2,
                                     y: pos.y + BUBBLE_SIZE / 2,
-                                    r: (BUBBLE_SIZE / 2) + (PADDING / 2) // Include half padding in radius check
+                                    r: BUBBLE_SIZE / 2 + 2
                                 });
-                            } else {
-                                console.log('Could not place:', stock.Company);
                             }
                         });
                     }
 
                     function findFreePosition(w, h, size, circles) {
-                        const maxAttempts = 100; // Increased attempts
+                        const maxAttempts = 50;
                         for (let i = 0; i < maxAttempts; i++) {
                             const x = Math.random() * (w - size - PADDING * 2) + PADDING;
                             const y = Math.random() * (h - size - PADDING * 2) + PADDING;
@@ -309,7 +289,6 @@
                                 const dx = centerX - c.x;
                                 const dy = centerY - c.y;
                                 const dist = Math.sqrt(dx * dx + dy * dy);
-                                // Check distance vs sum of radii
                                 if (dist < (r + c.r)) {
                                     overlap = true;
                                     break;
@@ -330,8 +309,8 @@
                         moveTooltip(e);
                     }
                     function moveTooltip(e) {
-                        const x = e.pageX + 15;
-                        const y = e.pageY + 15;
+                        const x = e.pageX + 10;
+                        const y = e.pageY + 10;
                         tooltip.style.left = x + 'px';
                         tooltip.style.top = y + 'px';
                     }
@@ -343,7 +322,6 @@
                     }
 
                     let resizeTimer;
-                    // Reload on resize to recalculate positions correctly
                     window.onresize = () => {
                         clearTimeout(resizeTimer);
                         resizeTimer = setTimeout(() => location.reload(), 500);
