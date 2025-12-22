@@ -60,12 +60,15 @@
             height: calc((100vh - 60px) * 1.42857);
 
             display: grid;
+            /* Default, will be overridden by JS */
             grid-template-columns: 1fr 1fr;
             grid-template-rows: 1fr 1fr;
             gap: 0;
 
             transform: scale(0.7);
             transform-origin: 0 0;
+            transition: all 0.5s ease-in-out;
+            /* Smooth transition when resizing */
         }
 
         .quadrant {
@@ -260,6 +263,7 @@
             });
 
             function initMatrix(data) {
+                const container = document.querySelector('.matrix-container');
                 const qStrong = document.getElementById('q-strong');
                 const qImp = document.getElementById('q-improving');
                 const qWkng = document.getElementById('q-weakening');
@@ -283,7 +287,47 @@
                     else stocks.weak.push(d);
                 });
 
-                // Sort to make it look nicer (optional)
+                // --- Dynamic Grid Resizing ---
+                // Count items
+                const nStrong = stocks.strong.length;
+                const nImp = stocks.improving.length;
+                const nWkng = stocks.weakening.length;
+                const nWeak = stocks.weak.length;
+
+                // Calculate demand
+                // Row 1 (Top) = max(Weakening, Strong)
+                // Row 2 (Bottom) = max(Weak, Improving)
+                const row1Demand = Math.max(nWkng, nStrong);
+                const row2Demand = Math.max(nWeak, nImp);
+
+                // Col 1 (Left) = max(Weakening, Weak)
+                // Col 2 (Right) = max(Strong, Improving)
+                const col1Demand = Math.max(nWkng, nWeak);
+                const col2Demand = Math.max(nStrong, nImp);
+
+                const MIN_PCT = 25; // Minimum size percentage
+
+                // Rows
+                const totalRow = row1Demand + row2Demand || 1;
+                let r1 = (row1Demand / totalRow) * 100;
+                if (r1 < MIN_PCT) r1 = MIN_PCT;
+                if (r1 > 100 - MIN_PCT) r1 = 100 - MIN_PCT;
+                let r2 = 100 - r1;
+
+                // Cols
+                const totalCol = col1Demand + col2Demand || 1;
+                let c1 = (col1Demand / totalCol) * 100;
+                if (c1 < MIN_PCT) c1 = MIN_PCT;
+                if (c1 > 100 - MIN_PCT) c1 = 100 - MIN_PCT;
+                let c2 = 100 - c1;
+
+                // Apply size
+                container.style.gridTemplateRows = `${r1}% ${r2}%`;
+                container.style.gridTemplateColumns = `${c1}% ${c2}%`;
+
+                console.log(`Dynamic Grid: Rows ${r1.toFixed(1)}%/${r2.toFixed(1)}%, Cols ${c1.toFixed(1)}%/${c2.toFixed(1)}%`);
+
+                // Sort
                 const sortFn = (a, b) => b._rs - a._rs;
                 stocks.strong.sort(sortFn);
                 stocks.improving.sort(sortFn);
@@ -297,9 +341,6 @@
             }
 
             function placeGridPoints(container, list, color) {
-                // "Scattered Grid" logic:
-                // Create cells, but offset the content inside randomly.
-
                 list.forEach(stock => {
                     const cell = document.createElement('div');
                     cell.className = 'stock-cell';
@@ -307,14 +348,11 @@
                     const point = document.createElement('div');
                     point.className = 'stock-point';
 
-                    // Random offset within the cell to simulate scattering
-                    // Cell is 140x30. Point is small.
-                    // We add some randomness to top/left relative to cell.
-                    const randomX = Math.random() * 20; // 0-20px shift right
-                    const randomY = (Math.random() - 0.5) * 10; // -5 to +5px shift up/down
+                    const randomX = Math.random() * 20;
+                    const randomY = (Math.random() - 0.5) * 10;
 
                     point.style.left = randomX + 'px';
-                    point.style.top = (15 + randomY - 5) + 'px'; // Center roughly
+                    point.style.top = (15 + randomY - 5) + 'px';
 
                     const dot = document.createElement('div');
                     dot.className = 'stock-dot';
