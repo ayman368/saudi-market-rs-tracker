@@ -313,7 +313,8 @@
             rsEl.className = 'rs-score-display ' + (rs >= 80 ? 'rs-high' : rs >= 50 ? 'rs-medium' : 'rs-low');
 
             document.getElementById('statsPanel').innerHTML = `
-                <div class="stat"><div class="stat-label">3M</div><div class="stat-value">${stock.RS_3Months || '-'}</div></div>
+                <div clas
+                 s="stat"><div class="stat-label">3M</div><div class="stat-value">${stock.RS_3Months || '-'}</div></div>
                 <div class="stat"><div class="stat-label">6M</div><div class="stat-value">${stock.RS_6Months || '-'}</div></div>
                 <div class="stat"><div class="stat-label">9M</div><div class="stat-value">${stock.RS_9Months || '-'}</div></div>
                 <div class="stat"><div class="stat-label">1Y</div><div class="stat-value">${stock.RS_1Year || '-'}</div></div>
