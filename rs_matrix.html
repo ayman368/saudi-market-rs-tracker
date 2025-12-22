@@ -64,10 +64,7 @@
 
         .nav-links a.active {
             background: #f23645;
-            /* Active tab overrides color if class is applied later, but here rely on specific classes */
         }
-
-        /* Specific override for active matrix tab if needed, but classes handle it */
 
         /* Matrix Container */
         .matrix-container {
@@ -76,7 +73,6 @@
             height: calc((100vh - 60px) * 1.42857);
 
             display: grid;
-            /* Default, will be overridden by JS */
             grid-template-columns: 1fr 1fr;
             grid-template-rows: 1fr 1fr;
             gap: 0;
@@ -217,47 +213,6 @@
             background: rgba(0, 0, 0, 0.2);
             border-radius: 4px;
         }
-
-        /* PRINT PDF OPTIMIZATION */
-        @media print {
-            @page {
-                size: landscape;
-                margin: 0;
-            }
-
-            body {
-                -webkit-print-color-adjust: exact !important;
-                print-color-adjust: exact !important;
-                height: 100vh;
-                width: 100vw;
-                overflow: hidden;
-            }
-
-            .header {
-                display: none;
-            }
-
-            .matrix-container {
-                width: 100vw !important;
-                height: 100vh !important;
-                transform: none !important;
-                /* Remove zoom for print */
-                position: absolute;
-                top: 0;
-                left: 0;
-            }
-
-            .quadrant {
-                overflow: hidden !important;
-                /* Hide scrollbars */
-                border: 1px solid #ddd !important;
-            }
-
-            /* Adjust font sizes for print if needed */
-            .stock-label {
-                font-size: 8pt;
-            }
-        }
     </style>
 </head>
 
@@ -266,8 +221,7 @@
     <div class="header">
         <h1>💠 RS Matrix Map</h1>
         <div class="nav-links">
-            <!-- Save as PDF Button -->
-            <a onclick="window.print()" class="btn-green">📥 Save as PDF</a>
+            <a id="btn-save" onclick="captureImage()" class="btn-green">� Save as Image</a>
             <a href="index.html" class="btn-blue">📋 Table</a>
             <a href="charts.html" class="btn-blue">📈 Charts</a>
             <a href="rs_matrix.html" class="btn-red active">💠 Matrix</a>
@@ -275,23 +229,23 @@
     </div>
 
     <div class="matrix-container">
-        <!-- Top Left: Weakening -> NEUTRAL -->
+        <!-- Top Left -->
         <div id="q-weakening" class="quadrant">
             <div class="quadrant-info">70-80 RS</div>
             <div class="quadrant-bg-label">NEUTRAL</div>
         </div>
-        <!-- Top Right: Strong -> STRONG -->
+        <!-- Top Right -->
         <div id="q-strong" class="quadrant">
             <div class="quadrant-info">>90 RS</div>
             <div class="quadrant-bg-label">STRONG</div>
         </div>
-        <!-- Bottom Left: Weak -> WEAK -->
+        <!-- Bottom Left -->
         <div id="q-weak" class="quadrant">
             <div class="quadrant-info">
                 <70 RS</div>
                     <div class="quadrant-bg-label">WEAK</div>
             </div>
-            <!-- Bottom Right: Improving -> IMPROVE -->
+            <!-- Bottom Right -->
             <div id="q-improving" class="quadrant">
                 <div class="quadrant-info">80-90 RS</div>
                 <div class="quadrant-bg-label">IMPROVE</div>
@@ -300,6 +254,8 @@
 
         <div id="tooltip"></div>
 
+        <!-- Html2Canvas for screenshot -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
         <script src="papaparse.min.js"></script>
         <script>
             if (typeof Papa === 'undefined') {
@@ -319,6 +275,66 @@
                     }
                 });
             });
+
+            // --- Screenshot Logic ---
+            function captureImage() {
+                const btn = document.getElementById('btn-save');
+                const originalText = btn.innerText;
+                btn.innerText = '📸 Capturing...';
+
+                const container = document.querySelector('.matrix-container');
+                const quadrants = document.querySelectorAll('.quadrant');
+
+                // Store original styles
+                const origHeight = container.style.height;
+                const origWidth = container.style.width;
+                const origTransform = container.style.transform;
+                const origRows = container.style.gridTemplateRows;
+                const origOverflow = document.body.style.overflow;
+
+                // 1. Expand to fit ALL content
+                document.body.style.overflow = 'visible';
+
+                // Force layout reset to render EVERYTHING
+                container.style.height = 'auto';
+                // We set a huge width because we want high res, but let's stick to 100% or user screen expanded
+                // Actually, keep 142% width logic? No, let's make it fixed wide to avoid wrapping issues
+                container.style.width = '2500px';
+                container.style.transform = 'none';
+                container.style.gridTemplateRows = 'auto auto'; // Auto grow rows
+
+                quadrants.forEach(q => {
+                    q.style.overflow = 'visible';
+                    q.style.height = 'auto';
+                });
+
+                // Wait a moment for layout to repaint
+                setTimeout(() => {
+                    html2canvas(document.querySelector('.matrix-container'), {
+                        windowWidth: 2500,
+                        scrollY: -window.scrollY,
+                        scale: 1 // Default scale
+                    }).then(canvas => {
+                        // Download
+                        const link = document.createElement('a');
+                        link.download = `RS_Matrix_${new Date().toISOString().slice(0, 10)}.png`;
+                        link.href = canvas.toDataURL();
+                        link.click();
+
+                        // Restore
+                        btn.innerText = originalText;
+                        document.body.style.overflow = origOverflow;
+                        container.style.height = origHeight;
+                        container.style.width = origWidth;
+                        container.style.transform = origTransform;
+                        container.style.gridTemplateRows = origRows;
+                        quadrants.forEach(q => {
+                            q.style.overflow = '';
+                            q.style.height = '';
+                        });
+                    });
+                }, 100);
+            }
 
             function initMatrix(data) {
                 const container = document.querySelector('.matrix-container');
@@ -374,8 +390,6 @@
 
                 container.style.gridTemplateRows = `${r1}% ${r2}%`;
                 container.style.gridTemplateColumns = `${c1}% ${c2}%`;
-
-                console.log(`Dynamic Grid: Rows ${r1.toFixed(1)}%/${r2.toFixed(1)}%, Cols ${c1.toFixed(1)}%/${c2.toFixed(1)}%`);
 
                 // Sort
                 const sortFn = (a, b) => b._rs - a._rs;
