@@ -42,16 +42,32 @@
         .nav-links a {
             text-decoration: none;
             color: white;
-            background: #2962ff;
             padding: 6px 14px;
             margin-left: 8px;
             border-radius: 4px;
             font-size: 0.85rem;
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        .btn-blue {
+            background: #2962ff;
+        }
+
+        .btn-red {
+            background: #f23645;
+        }
+
+        .btn-green {
+            background: #4caf50;
         }
 
         .nav-links a.active {
             background: #f23645;
+            /* Active tab overrides color if class is applied later, but here rely on specific classes */
         }
+
+        /* Specific override for active matrix tab if needed, but classes handle it */
 
         /* Matrix Container */
         .matrix-container {
@@ -68,7 +84,6 @@
             transform: scale(0.7);
             transform-origin: 0 0;
             transition: all 0.5s ease-in-out;
-            /* Smooth transition when resizing */
         }
 
         .quadrant {
@@ -202,6 +217,47 @@
             background: rgba(0, 0, 0, 0.2);
             border-radius: 4px;
         }
+
+        /* PRINT PDF OPTIMIZATION */
+        @media print {
+            @page {
+                size: landscape;
+                margin: 0;
+            }
+
+            body {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+                height: 100vh;
+                width: 100vw;
+                overflow: hidden;
+            }
+
+            .header {
+                display: none;
+            }
+
+            .matrix-container {
+                width: 100vw !important;
+                height: 100vh !important;
+                transform: none !important;
+                /* Remove zoom for print */
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+
+            .quadrant {
+                overflow: hidden !important;
+                /* Hide scrollbars */
+                border: 1px solid #ddd !important;
+            }
+
+            /* Adjust font sizes for print if needed */
+            .stock-label {
+                font-size: 8pt;
+            }
+        }
     </style>
 </head>
 
@@ -210,33 +266,35 @@
     <div class="header">
         <h1>💠 RS Matrix Map</h1>
         <div class="nav-links">
-            <a href="index.html">📋 Table</a>
-            <a href="charts.html">📈 Charts</a>
-            <a href="rs_matrix.html" class="active">💠 Matrix</a>
+            <!-- Save as PDF Button -->
+            <a onclick="window.print()" class="btn-green">📥 Save as PDF</a>
+            <a href="index.html" class="btn-blue">📋 Table</a>
+            <a href="charts.html" class="btn-blue">📈 Charts</a>
+            <a href="rs_matrix.html" class="btn-red active">💠 Matrix</a>
         </div>
     </div>
 
     <div class="matrix-container">
-        <!-- Top Left: Weakening -->
+        <!-- Top Left: Weakening -> NEUTRAL -->
         <div id="q-weakening" class="quadrant">
             <div class="quadrant-info">70-80 RS</div>
-            <div class="quadrant-bg-label">Weakening</div>
+            <div class="quadrant-bg-label">NEUTRAL</div>
         </div>
-        <!-- Top Right: Strong -->
+        <!-- Top Right: Strong -> STRONG -->
         <div id="q-strong" class="quadrant">
             <div class="quadrant-info">>90 RS</div>
-            <div class="quadrant-bg-label">Strong</div>
+            <div class="quadrant-bg-label">STRONG</div>
         </div>
-        <!-- Bottom Left: Weak -->
+        <!-- Bottom Left: Weak -> WEAK -->
         <div id="q-weak" class="quadrant">
             <div class="quadrant-info">
                 <70 RS</div>
-                    <div class="quadrant-bg-label">Weak</div>
+                    <div class="quadrant-bg-label">WEAK</div>
             </div>
-            <!-- Bottom Right: Improving -->
+            <!-- Bottom Right: Improving -> IMPROVE -->
             <div id="q-improving" class="quadrant">
                 <div class="quadrant-info">80-90 RS</div>
-                <div class="quadrant-bg-label">Improving</div>
+                <div class="quadrant-bg-label">IMPROVE</div>
             </div>
         </div>
 
@@ -288,24 +346,17 @@
                 });
 
                 // --- Dynamic Grid Resizing ---
-                // Count items
                 const nStrong = stocks.strong.length;
                 const nImp = stocks.improving.length;
                 const nWkng = stocks.weakening.length;
                 const nWeak = stocks.weak.length;
 
-                // Calculate demand
-                // Row 1 (Top) = max(Weakening, Strong)
-                // Row 2 (Bottom) = max(Weak, Improving)
                 const row1Demand = Math.max(nWkng, nStrong);
                 const row2Demand = Math.max(nWeak, nImp);
-
-                // Col 1 (Left) = max(Weakening, Weak)
-                // Col 2 (Right) = max(Strong, Improving)
                 const col1Demand = Math.max(nWkng, nWeak);
                 const col2Demand = Math.max(nStrong, nImp);
 
-                const MIN_PCT = 25; // Minimum size percentage
+                const MIN_PCT = 25;
 
                 // Rows
                 const totalRow = row1Demand + row2Demand || 1;
@@ -321,7 +372,6 @@
                 if (c1 > 100 - MIN_PCT) c1 = 100 - MIN_PCT;
                 let c2 = 100 - c1;
 
-                // Apply size
                 container.style.gridTemplateRows = `${r1}% ${r2}%`;
                 container.style.gridTemplateColumns = `${c1}% ${c2}%`;
 
