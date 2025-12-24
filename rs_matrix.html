@@ -361,12 +361,25 @@
                     else stocks.weak.push(d);
                 });
 
-                // --- Dynamic Grid Resizing ---
+                // --- Calculate Percentages ---
                 const nStrong = stocks.strong.length;
                 const nImp = stocks.improving.length;
                 const nWkng = stocks.weakening.length;
                 const nWeak = stocks.weak.length;
+                const totalStocks = nStrong + nImp + nWkng + nWeak;
 
+                const pctStrong = totalStocks > 0 ? ((nStrong / totalStocks) * 100).toFixed(1) : 0;
+                const pctImp = totalStocks > 0 ? ((nImp / totalStocks) * 100).toFixed(1) : 0;
+                const pctWkng = totalStocks > 0 ? ((nWkng / totalStocks) * 100).toFixed(1) : 0;
+                const pctWeak = totalStocks > 0 ? ((nWeak / totalStocks) * 100).toFixed(1) : 0;
+
+                // Update background labels with percentages
+                qStrong.querySelector('.quadrant-bg-label').innerHTML = `STRONG<br><span style="font-size: 2rem;">${pctStrong}%</span>`;
+                qImp.querySelector('.quadrant-bg-label').innerHTML = `IMPROVE<br><span style="font-size: 2rem;">${pctImp}%</span>`;
+                qWkng.querySelector('.quadrant-bg-label').innerHTML = `NEUTRAL<br><span style="font-size: 2rem;">${pctWkng}%</span>`;
+                qWeak.querySelector('.quadrant-bg-label').innerHTML = `WEAK<br><span style="font-size: 2rem;">${pctWeak}%</span>`;
+
+                // --- Dynamic Grid Resizing ---
                 const row1Demand = Math.max(nWkng, nStrong);
                 const row2Demand = Math.max(nWeak, nImp);
                 const col1Demand = Math.max(nWkng, nWeak);
