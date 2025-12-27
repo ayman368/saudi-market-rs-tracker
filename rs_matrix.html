@@ -92,7 +92,7 @@
             padding: 20px;
         }
 
-        /* Background Label (Restored) */
+        /* Background Label - Now ABOVE stocks for visibility */
         .quadrant-bg-label {
             position: absolute;
             top: 50%;
@@ -102,11 +102,18 @@
             font-weight: bold;
             text-transform: uppercase;
             pointer-events: none;
-            z-index: 0;
+            z-index: 100;
+            /* ABOVE stocks (stocks are z-index: 5) */
 
-            /* High visibility with Shadow */
-            opacity: 0.15;
-            text-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            /* Semi-transparent background for readability */
+            background-color: rgba(255, 255, 255, 0.85);
+            padding: 15px 30px;
+            border-radius: 8px;
+
+            /* Dark text for contrast */
+            color: rgba(0, 0, 0, 0.7);
+            text-shadow: none;
+            /* Remove shadow since we have background */
             text-align: center;
         }
 
