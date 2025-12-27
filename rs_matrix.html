@@ -92,28 +92,31 @@
             padding: 20px;
         }
 
-        /* Background Label - Now ABOVE stocks for visibility */
+        /* Background Label - ABOVE stocks but transparent to show them */
         .quadrant-bg-label {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
             font-size: 3rem;
-            font-weight: bold;
+            font-weight: 900;
+            /* Extra bold */
             text-transform: uppercase;
             pointer-events: none;
             z-index: 100;
-            /* ABOVE stocks (stocks are z-index: 5) */
+            /* ABOVE stocks */
 
-            /* Semi-transparent background for readability */
-            background-color: rgba(255, 255, 255, 0.85);
+            /* Very light background - just enough for slight contrast */
+            background-color: rgba(255, 255, 255, 0.3);
             padding: 15px 30px;
             border-radius: 8px;
 
-            /* Dark text for contrast */
-            color: rgba(0, 0, 0, 0.7);
-            text-shadow: none;
-            /* Remove shadow since we have background */
+            /* Dark text with strong shadow for readability */
+            color: #000000;
+            text-shadow:
+                0 0 8px rgba(255, 255, 255, 0.9),
+                0 0 12px rgba(255, 255, 255, 0.7),
+                2px 2px 4px rgba(255, 255, 255, 0.8);
             text-align: center;
         }
 
@@ -121,6 +124,7 @@
             display: block;
             font-size: 2rem;
             margin-top: 5px;
+            font-weight: 700;
         }
 
         .quadrant-info {
