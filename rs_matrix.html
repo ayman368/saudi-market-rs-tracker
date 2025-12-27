@@ -86,41 +86,34 @@
             border: 1px solid rgba(0, 0, 0, 0.1);
             overflow-y: auto;
             overflow-x: hidden;
-            background-color: #ffffff;
-            /* All White */
+            display: flex;
+            flex-wrap: wrap;
+            align-content: flex-start;
+            padding: 20px;
         }
 
-        /* Center Label: Clean Black Text, NO Background Box needed now */
-        .quadrant-center-label {
+        /* Background Label (Restored) */
+        .quadrant-bg-label {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            /* Defines the "Keep Out" zone dimensions for JS calculation */
-            width: 420px;
-            height: 160px;
-
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-
-            font-size: 3.5rem;
-            /* Larger */
-            font-weight: 900;
-            color: #000000;
+            font-size: 3rem;
+            font-weight: bold;
             text-transform: uppercase;
             pointer-events: none;
-            z-index: 1000;
+            z-index: 0;
 
-            /* No background, let the white quadrant show through */
-            background-color: transparent;
+            /* High visibility with Shadow */
+            opacity: 0.15;
+            text-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
         }
 
-        .quadrant-center-label .percentage {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-top: 0px;
+        .quadrant-bg-label .percentage {
+            display: block;
+            font-size: 2rem;
+            margin-top: 5px;
         }
 
         .quadrant-info {
@@ -129,22 +122,44 @@
             left: 10px;
             font-weight: bold;
             font-size: 0.75rem;
-            opacity: 0.8;
-            color: #000;
+            opacity: 0.5;
             z-index: 10;
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(255, 255, 255, 0.8);
             padding: 3px 8px;
-            border: 1px solid #eee;
             border-radius: 3px;
             display: inline-block;
             margin-bottom: 10px;
         }
 
-        /* Stock Item - Absolute Positioning controlled by JS */
-        .stock-item {
+        /* White Backgrounds as requested */
+        #q-weakening {
+            background-color: #ffffff;
+        }
+
+        #q-strong {
+            background-color: #ffffff;
+        }
+
+        #q-weak {
+            background-color: #ffffff;
+        }
+
+        #q-improving {
+            background-color: #ffffff;
+        }
+
+        /* Stock Item Cell */
+        .stock-cell {
+            position: relative;
+            width: 140px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .stock-point {
             position: absolute;
-            width: 130px;
-            height: 28px;
             display: flex;
             align-items: center;
             gap: 4px;
@@ -153,13 +168,9 @@
             transition: transform 0.15s;
         }
 
-        .stock-item:hover {
+        .stock-point:hover {
             transform: scale(1.15);
             z-index: 100;
-            background: white;
-            /* helper for hover readability */
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            border-radius: 4px;
         }
 
         .stock-dot {
@@ -175,8 +186,10 @@
             font-weight: 600;
             white-space: nowrap;
             color: #222;
+            text-shadow: 0 0 3px rgba(255, 255, 255, 0.5);
             overflow: hidden;
             text-overflow: ellipsis;
+            max-width: 130px;
         }
 
         #tooltip {
@@ -224,34 +237,34 @@
         <!-- Top Left: NEUTRAL -->
         <div id="q-weakening" class="quadrant">
             <div class="quadrant-info">70-79 RS</div>
-            <div class="quadrant-center-label">
-                <div class="title">NEUTRAL</div>
-                <div class="percentage">0%</div>
+            <div class="quadrant-bg-label">
+                NEUTRAL
+                <span class="percentage">0%</span>
             </div>
         </div>
         <!-- Top Right: STRONG -->
         <div id="q-strong" class="quadrant">
             <div class="quadrant-info">≥90 RS</div>
-            <div class="quadrant-center-label">
-                <div class="title">STRONG</div>
-                <div class="percentage">0%</div>
+            <div class="quadrant-bg-label">
+                STRONG
+                <span class="percentage">0%</span>
             </div>
         </div>
         <!-- Bottom Left: WEAK -->
         <div id="q-weak" class="quadrant">
             <div class="quadrant-info">
                 <70 RS</div>
-                    <div class="quadrant-center-label">
-                        <div class="title">WEAK</div>
-                        <div class="percentage">0%</div>
+                    <div class="quadrant-bg-label">
+                        WEAK
+                        <span class="percentage">0%</span>
                     </div>
             </div>
             <!-- Bottom Right: IMPROVE -->
             <div id="q-improving" class="quadrant">
                 <div class="quadrant-info">80-89 RS</div>
-                <div class="quadrant-center-label">
-                    <div class="title">IMPROVE</div>
-                    <div class="percentage">0%</div>
+                <div class="quadrant-bg-label">
+                    IMPROVE
+                    <span class="percentage">0%</span>
                 </div>
             </div>
         </div>
@@ -310,7 +323,7 @@
                         windowWidth: 2500,
                         scrollY: -window.scrollY,
                         scale: 1,
-                        backgroundColor: '#ffffff'
+                        // Remove forced white background to allow colors
                     }).then(canvas => {
                         const link = document.createElement('a');
                         link.download = `RS_Matrix_${new Date().toISOString().slice(0, 10)}.png`;
@@ -350,6 +363,7 @@
                     const rs = parseFloat(d.RS);
                     d._rs = rs;
 
+                    // Thresholds >= 90
                     if (rs >= 90) stocks.strong.push(d);
                     else if (rs >= 80) stocks.improving.push(d);
                     else if (rs >= 70) stocks.weakening.push(d);
@@ -368,7 +382,7 @@
                 const pctWkng = totalStocks > 0 ? ((nWkng / totalStocks) * 100).toFixed(1) : 0;
                 const pctWeak = totalStocks > 0 ? ((nWeak / totalStocks) * 100).toFixed(1) : 0;
 
-                // Update center labels
+                // Update background labels
                 qStrong.querySelector('.percentage').innerText = `${pctStrong}%`;
                 qImp.querySelector('.percentage').innerText = `${pctImp}%`;
                 qWkng.querySelector('.percentage').innerText = `${pctWkng}%`;
@@ -404,91 +418,27 @@
                 stocks.weakening.sort(sortFn);
                 stocks.weak.sort(sortFn);
 
-                // Wait for layout slightly then place points
-                setTimeout(() => {
-                    placeDistributedPoints(qStrong, stocks.strong, '#2e7d32');
-                    placeDistributedPoints(qImp, stocks.improving, '#0277bd');
-                    placeDistributedPoints(qWkng, stocks.weakening, '#c62828');
-                    placeDistributedPoints(qWeak, stocks.weak, '#880e4f');
-                }, 50);
+                // Use original Grid Points (Overlapping text allowed)
+                placeGridPoints(qStrong, stocks.strong, '#2e7d32');
+                placeGridPoints(qImp, stocks.improving, '#0277bd');
+                placeGridPoints(qWkng, stocks.weakening, '#c62828');
+                placeGridPoints(qWeak, stocks.weak, '#880e4f');
             }
 
-            function placeDistributedPoints(container, list, color) {
-                // New Algorithm: Absolute Positioning with "Reserved Center"
-
-                // 1. Get container dimensions
-                const w = container.offsetWidth;
-                // Minimum height to fit all items if crowded? 
-                // We'll trust overflow-y auto to handle it, but we need ample virtual height for slots.
-                // Let's estimate required height based on count.
-                const cellW = 140;
-                const cellH = 30;
-                const cols = Math.floor(w / cellW);
-
-                // Needed Rows = Count / Cols (roughly) + Buffer
-                // Plus center exclusion.
-                let h = container.offsetHeight;
-
-                // Center Zone (Visual Text)
-                // It is centered in the *Visible* View area (container).
-                // But if we scroll, where should it be?
-                // The Label is Absolute Center.
-                // To ensure stocks don't overlap, we must map out the center zone pixels.
-
-                const cx = w / 2;
-                const cy = h / 2;
-                const zoneHalfW = 210 + 20; // 420px width / 2 + padding
-                const zoneHalfH = 80 + 20;  // 160px height / 2 + padding
-
-                const slots = [];
-
-                // We generate enough grid slots to fit everyone
-                // We'll scan row by row until we have enough slots
-
-                let row = 0;
-                while (slots.length < list.length) {
-                    for (let col = 0; col < cols; col++) {
-                        const x = col * cellW + 10; // +padding
-                        const y = row * cellH + 40; // +top padding
-
-                        // Check intersection with Center Zone
-                        // Center Zone is relative to the Container's Top Left?
-                        // NOTE: Container might scroll. But Label is absolute centered.
-                        // If content grows huge, label stays in center of VIEW.
-                        // So we must reserve slots in the center of the first 'h' pixels.
-
-                        // Simple AABB check
-                        // Current Slot Center
-                        const sx = x + cellW / 2;
-                        const sy = y + cellH / 2;
-
-                        const inCenterZone = (
-                            sx > (cx - zoneHalfW) &&
-                            sx < (cx + zoneHalfW) &&
-                            sy > (cy - zoneHalfH) &&
-                            sy < (cy + zoneHalfH)
-                        );
-
-                        if (!inCenterZone) {
-                            slots.push({ x, y });
-                        }
-                    }
-                    row++;
-                    // Safety break for infinite
-                    if (row > 1000) break;
-                }
-
-                // Shuffle slots for "Scattered" look but still aligned
-                shuffleArray(slots);
-
-                list.forEach((stock, i) => {
-                    if (i >= slots.length) return; // Should not happen with dynamic rows
-                    const slot = slots[i];
+            // Restored Simple Grid Placement
+            function placeGridPoints(container, list, color) {
+                list.forEach(stock => {
+                    const cell = document.createElement('div');
+                    cell.className = 'stock-cell';
 
                     const point = document.createElement('div');
-                    point.className = 'stock-item';
-                    point.style.left = slot.x + 'px';
-                    point.style.top = slot.y + 'px';
+                    point.className = 'stock-point';
+
+                    const randomX = Math.random() * 20;
+                    const randomY = (Math.random() - 0.5) * 10;
+
+                    point.style.left = randomX + 'px';
+                    point.style.top = (15 + randomY - 5) + 'px';
 
                     const dot = document.createElement('div');
                     dot.className = 'stock-dot';
@@ -505,33 +455,9 @@
                     point.onmouseleave = hideTooltip;
                     point.onclick = () => window.location.href = `charts.html?symbol=${stock.Symbol}`;
 
-                    // Add a small random jitter to make it look less robotic
-                    const jitterX = (Math.random() - 0.5) * 10;
-                    const jitterY = (Math.random() - 0.5) * 5;
-                    point.style.transform = `translate(${jitterX}px, ${jitterY}px)`;
-
-                    container.appendChild(point);
+                    cell.appendChild(point);
+                    container.appendChild(cell);
                 });
-
-                // Update container height if we went deeper than original
-                // Because absolute children don't push height
-                const lastSlotY = slots[list.length - 1]?.y || 0;
-                if (lastSlotY > h) {
-                    // We need to force container to be scrollable
-                    const dummy = document.createElement('div');
-                    dummy.style.position = 'absolute';
-                    dummy.style.top = (lastSlotY + 50) + 'px';
-                    dummy.style.width = '1px';
-                    dummy.style.height = '1px';
-                    container.appendChild(dummy);
-                }
-            }
-
-            function shuffleArray(array) {
-                for (let i = array.length - 1; i > 0; i--) {
-                    const j = Math.floor(Math.random() * (i + 1));
-                    [array[i], array[j]] = [array[j], array[i]];
-                }
             }
 
             const tooltip = document.getElementById('tooltip');
