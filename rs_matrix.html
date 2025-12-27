@@ -68,7 +68,6 @@
 
         /* Matrix Container */
         .matrix-container {
-            /* Full Screen Zoomed Logic */
             width: 142.857%;
             height: calc((100vh - 60px) * 1.42857);
 
@@ -90,25 +89,43 @@
             display: flex;
             flex-wrap: wrap;
             align-content: flex-start;
-            /* Stack from top */
             padding: 20px;
-            /* Padding for grid items */
         }
 
-        .quadrant-bg-label {
+        /* Protected Center Zone for Label - NO stocks here */
+        .quadrant-center-label {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
+
+            /* Fixed size protected zone */
+            width: 400px;
+            height: 180px;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
             font-size: 3rem;
             font-weight: bold;
-            opacity: 0.15;
-            /* Increased from 0.06 */
+            color: rgba(0, 0, 0, 0.2);
+            /* Visible but subtle */
             text-transform: uppercase;
             pointer-events: none;
-            z-index: 0;
-            text-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            /* Added shadow for depth */
+            z-index: 1000;
+            /* Above all stocks */
+
+            /* Optional: subtle background to make it stand out more */
+            background: radial-gradient(ellipse, rgba(255, 255, 255, 0.6) 0%, transparent 70%);
+            border-radius: 20px;
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+        }
+
+        .quadrant-center-label .percentage {
+            font-size: 2rem;
+            margin-top: 10px;
         }
 
         .quadrant-info {
@@ -142,22 +159,18 @@
             background-color: #e1f5fe;
         }
 
-        /* Stock Item Cell - Invisible grid cell */
+        /* Stock Item Cell */
         .stock-cell {
             position: relative;
-            /* Fixed width/height cell to guarantee no overlap */
             width: 140px;
             height: 30px;
             display: flex;
             align-items: center;
             justify-content: flex-start;
-            /* Align left */
         }
 
-        /* The actual visual point inside the cell */
         .stock-point {
             position: absolute;
-            /* Relative to cell */
             display: flex;
             align-items: center;
             gap: 4px;
@@ -224,7 +237,7 @@
     <div class="header">
         <h1>💠 RS Matrix Map</h1>
         <div class="nav-links">
-            <a id="btn-save" onclick="captureImage()" class="btn-green">� Save as Image</a>
+            <a id="btn-save" onclick="captureImage()" class="btn-green">📸 Save as Image</a>
             <a href="index.html" class="btn-blue">📋 Table</a>
             <a href="charts.html" class="btn-blue">📈 Charts</a>
             <a href="rs_matrix.html" class="btn-red active">💠 Matrix</a>
@@ -232,26 +245,38 @@
     </div>
 
     <div class="matrix-container">
-        <!-- Top Left -->
+        <!-- Top Left: NEUTRAL -->
         <div id="q-weakening" class="quadrant">
-            <div class="quadrant-info">70-80 RS</div>
-            <div class="quadrant-bg-label">NEUTRAL</div>
+            <div class="quadrant-info">70-79 RS</div>
+            <div class="quadrant-center-label">
+                <div class="title">NEUTRAL</div>
+                <div class="percentage">0%</div>
+            </div>
         </div>
-        <!-- Top Right -->
+        <!-- Top Right: STRONG -->
         <div id="q-strong" class="quadrant">
-            <div class="quadrant-info">>90 RS</div>
-            <div class="quadrant-bg-label">STRONG</div>
+            <div class="quadrant-info">≥90 RS</div>
+            <div class="quadrant-center-label">
+                <div class="title">STRONG</div>
+                <div class="percentage">0%</div>
+            </div>
         </div>
-        <!-- Bottom Left -->
+        <!-- Bottom Left: WEAK -->
         <div id="q-weak" class="quadrant">
             <div class="quadrant-info">
                 <70 RS</div>
-                    <div class="quadrant-bg-label">WEAK</div>
+                    <div class="quadrant-center-label">
+                        <div class="title">WEAK</div>
+                        <div class="percentage">0%</div>
+                    </div>
             </div>
-            <!-- Bottom Right -->
+            <!-- Bottom Right: IMPROVE -->
             <div id="q-improving" class="quadrant">
-                <div class="quadrant-info">80-90 RS</div>
-                <div class="quadrant-bg-label">IMPROVE</div>
+                <div class="quadrant-info">80-89 RS</div>
+                <div class="quadrant-center-label">
+                    <div class="title">IMPROVE</div>
+                    <div class="percentage">0%</div>
+                </div>
             </div>
         </div>
 
@@ -288,43 +313,34 @@
                 const container = document.querySelector('.matrix-container');
                 const quadrants = document.querySelectorAll('.quadrant');
 
-                // Store original styles
                 const origHeight = container.style.height;
                 const origWidth = container.style.width;
                 const origTransform = container.style.transform;
                 const origRows = container.style.gridTemplateRows;
                 const origOverflow = document.body.style.overflow;
 
-                // 1. Expand to fit ALL content
                 document.body.style.overflow = 'visible';
-
-                // Force layout reset to render EVERYTHING
                 container.style.height = 'auto';
-                // We set a huge width because we want high res, but let's stick to 100% or user screen expanded
-                // Actually, keep 142% width logic? No, let's make it fixed wide to avoid wrapping issues
                 container.style.width = '2500px';
                 container.style.transform = 'none';
-                container.style.gridTemplateRows = 'auto auto'; // Auto grow rows
+                container.style.gridTemplateRows = 'auto auto';
 
                 quadrants.forEach(q => {
                     q.style.overflow = 'visible';
                     q.style.height = 'auto';
                 });
 
-                // Wait a moment for layout to repaint
                 setTimeout(() => {
                     html2canvas(document.querySelector('.matrix-container'), {
                         windowWidth: 2500,
                         scrollY: -window.scrollY,
-                        scale: 1 // Default scale
+                        scale: 1
                     }).then(canvas => {
-                        // Download
                         const link = document.createElement('a');
                         link.download = `RS_Matrix_${new Date().toISOString().slice(0, 10)}.png`;
                         link.href = canvas.toDataURL();
                         link.click();
 
-                        // Restore
                         btn.innerText = originalText;
                         document.body.style.overflow = origOverflow;
                         container.style.height = origHeight;
@@ -358,13 +374,14 @@
                     const rs = parseFloat(d.RS);
                     d._rs = rs;
 
-                    if (rs > 90) stocks.strong.push(d);
-                    else if (rs > 80) stocks.improving.push(d);
-                    else if (rs > 70) stocks.weakening.push(d);
-                    else stocks.weak.push(d);
+                    // Updated thresholds with >= instead of >
+                    if (rs >= 90) stocks.strong.push(d);
+                    else if (rs >= 80) stocks.improving.push(d);  // 80-89
+                    else if (rs >= 70) stocks.weakening.push(d);  // 70-79
+                    else stocks.weak.push(d);  // <70
                 });
 
-                // --- Calculate Percentages ---
+                // Calculate Percentages
                 const nStrong = stocks.strong.length;
                 const nImp = stocks.improving.length;
                 const nWkng = stocks.weakening.length;
@@ -376,13 +393,13 @@
                 const pctWkng = totalStocks > 0 ? ((nWkng / totalStocks) * 100).toFixed(1) : 0;
                 const pctWeak = totalStocks > 0 ? ((nWeak / totalStocks) * 100).toFixed(1) : 0;
 
-                // Update background labels with percentages
-                qStrong.querySelector('.quadrant-bg-label').innerHTML = `STRONG<br><span style="font-size: 2rem;">${pctStrong}%</span>`;
-                qImp.querySelector('.quadrant-bg-label').innerHTML = `IMPROVE<br><span style="font-size: 2rem;">${pctImp}%</span>`;
-                qWkng.querySelector('.quadrant-bg-label').innerHTML = `NEUTRAL<br><span style="font-size: 2rem;">${pctWkng}%</span>`;
-                qWeak.querySelector('.quadrant-bg-label').innerHTML = `WEAK<br><span style="font-size: 2rem;">${pctWeak}%</span>`;
+                // Update center labels with percentages
+                qStrong.querySelector('.percentage').innerText = `${pctStrong}%`;
+                qImp.querySelector('.percentage').innerText = `${pctImp}%`;
+                qWkng.querySelector('.percentage').innerText = `${pctWkng}%`;
+                qWeak.querySelector('.percentage').innerText = `${pctWeak}%`;
 
-                // --- Dynamic Grid Resizing ---
+                // Dynamic Grid Resizing
                 const row1Demand = Math.max(nWkng, nStrong);
                 const row2Demand = Math.max(nWeak, nImp);
                 const col1Demand = Math.max(nWkng, nWeak);
@@ -390,14 +407,12 @@
 
                 const MIN_PCT = 25;
 
-                // Rows
                 const totalRow = row1Demand + row2Demand || 1;
                 let r1 = (row1Demand / totalRow) * 100;
                 if (r1 < MIN_PCT) r1 = MIN_PCT;
                 if (r1 > 100 - MIN_PCT) r1 = 100 - MIN_PCT;
                 let r2 = 100 - r1;
 
-                // Cols
                 const totalCol = col1Demand + col2Demand || 1;
                 let c1 = (col1Demand / totalCol) * 100;
                 if (c1 < MIN_PCT) c1 = MIN_PCT;
@@ -421,6 +436,17 @@
             }
 
             function placeGridPoints(container, list, color) {
+                const w = container.offsetWidth;
+                const h = container.offsetHeight;
+
+                // Define protected center zone (same as CSS dimensions)
+                const protectedZone = {
+                    x: (w / 2) - 200,  // 400px width centered
+                    y: (h / 2) - 90,   // 180px height centered
+                    w: 400,
+                    h: 180
+                };
+
                 list.forEach(stock => {
                     const cell = document.createElement('div');
                     cell.className = 'stock-cell';
@@ -450,6 +476,11 @@
                     point.onclick = () => window.location.href = `charts.html?symbol=${stock.Symbol}`;
 
                     cell.appendChild(point);
+
+                    // Try to position the cell avoiding the protected zone
+                    // This is approximate - the flexbox will wrap naturally
+                    // But we can add margin logic if cell position is detected to overlap
+
                     container.appendChild(cell);
                 });
             }
