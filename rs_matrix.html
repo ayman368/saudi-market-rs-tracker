@@ -90,9 +90,12 @@
             flex-wrap: wrap;
             align-content: flex-start;
             padding: 20px;
+
+            /* WHITE BACKGROUND FOR ALL QUADRANTS */
+            background-color: #ffffff !important;
         }
 
-        /* Center Label with clear background */
+        /* Center Label: Clean Black Text on White Background */
         .quadrant-center-label {
             position: absolute;
             top: 50%;
@@ -105,24 +108,25 @@
             align-items: center;
 
             font-size: 3rem;
-            font-weight: bold;
-            color: rgba(0, 0, 0, 0.6);
-            /* Darker for better contrast */
+            font-weight: 900;
+            /* Extra Bold */
+            color: #000000;
+            /* Solid Black */
             text-transform: uppercase;
             pointer-events: none;
             z-index: 1000;
-            /* Above all stocks */
 
-            /* Semi-transparent white background - the KEY change */
-            background-color: rgba(255, 255, 255, 0.85);
-            padding: 20px 40px;
-            border-radius: 12px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            /* Solid White Background Mask */
+            background-color: #ffffff;
+            padding: 15px 30px;
+            border-radius: 8px;
+            /* No shadow, creating a flat "clearance" effect */
         }
 
         .quadrant-center-label .percentage {
-            font-size: 2rem;
-            margin-top: 10px;
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-top: 5px;
         }
 
         .quadrant-info {
@@ -131,29 +135,15 @@
             left: 10px;
             font-weight: bold;
             font-size: 0.75rem;
-            opacity: 0.5;
+            opacity: 0.8;
+            color: #000;
             z-index: 10;
-            background: rgba(255, 255, 255, 0.8);
+            background: rgba(255, 255, 255, 0.95);
             padding: 3px 8px;
+            border: 1px solid #eee;
             border-radius: 3px;
             display: inline-block;
             margin-bottom: 10px;
-        }
-
-        #q-weakening {
-            background-color: #ffebee;
-        }
-
-        #q-strong {
-            background-color: #e8f5e9;
-        }
-
-        #q-weak {
-            background-color: #ffcdd2;
-        }
-
-        #q-improving {
-            background-color: #e1f5fe;
         }
 
         /* Stock Item Cell */
@@ -371,11 +361,11 @@
                     const rs = parseFloat(d.RS);
                     d._rs = rs;
 
-                    // Updated thresholds with >= instead of >
+                    // Thresholds updated to >= 
                     if (rs >= 90) stocks.strong.push(d);
-                    else if (rs >= 80) stocks.improving.push(d);  // 80-89
-                    else if (rs >= 70) stocks.weakening.push(d);  // 70-79
-                    else stocks.weak.push(d);  // <70
+                    else if (rs >= 80) stocks.improving.push(d);
+                    else if (rs >= 70) stocks.weakening.push(d);
+                    else stocks.weak.push(d);
                 });
 
                 // Calculate Percentages
@@ -433,17 +423,6 @@
             }
 
             function placeGridPoints(container, list, color) {
-                const w = container.offsetWidth;
-                const h = container.offsetHeight;
-
-                // Define protected center zone (same as CSS dimensions)
-                const protectedZone = {
-                    x: (w / 2) - 200,  // 400px width centered
-                    y: (h / 2) - 90,   // 180px height centered
-                    w: 400,
-                    h: 180
-                };
-
                 list.forEach(stock => {
                     const cell = document.createElement('div');
                     cell.className = 'stock-cell';
@@ -473,11 +452,6 @@
                     point.onclick = () => window.location.href = `charts.html?symbol=${stock.Symbol}`;
 
                     cell.appendChild(point);
-
-                    // Try to position the cell avoiding the protected zone
-                    // This is approximate - the flexbox will wrap naturally
-                    // But we can add margin logic if cell position is detected to overlap
-
                     container.appendChild(cell);
                 });
             }
