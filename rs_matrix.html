@@ -65,27 +65,29 @@
             background: #f23645;
         }
 
-        /* Cards Container */
+        /* Cards Container - Fill Screen Width */
         .cards-container {
             display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            gap: 20px;
-            padding: 30px 20px;
-            flex-wrap: wrap;
-            max-width: 1400px;
-            margin: 0 auto;
+            justify-content: space-between;
+            align-items: stretch;
+            gap: 10px;
+            padding: 20px 10px;
+            width: 100%;
+            height: calc(100vh - 60px);
+            /* Full height minus header */
         }
 
-        /* Category Card */
+        /* Category Card - Expand to fill available space */
         .category-card {
-            width: 300px;
-            min-height: 400px;
+            flex: 1;
+            min-width: 250px;
             background: white;
             border-radius: 12px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             overflow: hidden;
             transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            flex-direction: column;
         }
 
         .category-card:hover {
@@ -151,11 +153,12 @@
             color: #c62828;
         }
 
-        /* Card Body */
+        /* Card Body - Fill remaining space */
         .card-body {
             padding: 16px;
-            max-height: 500px;
             overflow-y: auto;
+            flex: 1;
+            /* Fill remaining card height */
         }
 
         /* Stock Item */
@@ -213,6 +216,30 @@
             background: white;
             padding: 2px 8px;
             border-radius: 4px;
+        }
+
+        /* Movement Indicators */
+        .movement-indicator {
+            font-size: 1rem;
+            margin-left: 4px;
+        }
+
+        .movement-up {
+            color: #2e7d32;
+        }
+
+        .movement-down {
+            color: #c62828;
+        }
+
+        .from-badge {
+            font-size: 0.7rem;
+            background: #e0e0e0;
+            color: #666;
+            padding: 2px 6px;
+            border-radius: 3px;
+            margin-left: 4px;
+            white-space: nowrap;
         }
 
         /* Scrollbar */
@@ -282,18 +309,29 @@
             document.write('<script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"><\/script>');
         }
 
+        let previousCategories = {};
+
         document.addEventListener('DOMContentLoaded', function () {
-            Papa.parse('saudiexchange_rs_analysis.csv', {
-                download: true,
-                header: true,
-                skipEmptyLines: true,
-                complete: function (results) {
-                    initCards(results.data);
-                },
-                error: function (err) {
-                    console.error('Error loading CSV:', err);
-                }
-            });
+            // Load previous day's categories first (if exists)
+            fetch('previous_categories.json')
+                .then(res => res.ok ? res.json() : {})
+                .catch(() => ({}))
+                .then(prevCats => {
+                    previousCategories = prevCats;
+
+                    // Then load current data
+                    Papa.parse('saudiexchange_rs_analysis.csv', {
+                        download: true,
+                        header: true,
+                        skipEmptyLines: true,
+                        complete: function (results) {
+                            initCards(results.data);
+                        },
+                        error: function (err) {
+                            console.error('Error loading CSV:', err);
+                        }
+                    });
+                });
         });
 
         function captureImage() {
@@ -378,12 +416,32 @@
             body.className = 'card-body';
 
             stockList.forEach(stock => {
+                // Check if stock moved from another category
+                const prevCategory = previousCategories[stock.Symbol];
+                const currentCategory = title;
+
+                let movementHTML = '';
+                if (prevCategory && prevCategory !== currentCategory) {
+                    const categoryOrder = ['WEAK', 'NEUTRAL', 'IMPROVE', 'STRONG'];
+                    const prevIndex = categoryOrder.indexOf(prevCategory);
+                    const currIndex = categoryOrder.indexOf(currentCategory);
+
+                    if (currIndex > prevIndex) {
+                        // Moved up
+                        movementHTML = `<span class="movement-indicator movement-up">↑</span><span class="from-badge">من ${prevCategory}</span>`;
+                    } else if (currIndex < prevIndex) {
+                        // Moved down
+                        movementHTML = `<span class="movement-indicator movement-down">↓</span><span class="from-badge">من ${prevCategory}</span>`;
+                    }
+                }
+
                 const item = document.createElement('div');
                 item.className = 'stock-item';
                 item.innerHTML = `
                     <div class="stock-dot"></div>
                     <div class="stock-name">${stock.Company}</div>
                     <div class="stock-rs">${stock._rs}</div>
+                    ${movementHTML}
                 `;
 
                 item.onmouseenter = (e) => showTooltip(e, stock);
