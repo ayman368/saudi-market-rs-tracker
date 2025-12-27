@@ -31,6 +31,9 @@ jobs:
       - name: Run Scraper
         run: python saudi_exchange_scraper.py
 
+      - name: Save Previous Categories
+        run: python save_categories.py
+
       - name: Recalculate RS Analysis
         run: python recalculate_rs.py
 
@@ -43,5 +46,5 @@ jobs:
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           # Force update to show activity
           date > last_update.txt
-          git add saudiexchange*.csv saudiexchange*.json saudiexchange*.txt saudi_rs_auto_generated.pine saudi_rs_auto_metadata.json last_update.txt
+          git add saudiexchange*.csv saudiexchange*.json saudiexchange*.txt saudi_rs_auto_generated.pine saudi_rs_auto_metadata.json previous_categories.json last_update.txt
           git diff --quiet && git diff --staged --quiet || (git commit -m "Update market data $(date +'%Y-%m-%d')" && git push)
