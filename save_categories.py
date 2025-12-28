@@ -25,8 +25,14 @@ def save_previous_categories():
         categories = {}
         
         for _, row in df.iterrows():
-            symbol = str(row.get('Symbol', '')).strip()
             rs = float(row.get('RS', 0))
+            
+            # Ensure symbol is treated as int then str to remove .0
+            try:
+                val = row.get('Symbol', '')
+                symbol = str(int(float(val)))
+            except:
+                symbol = str(val).strip()
             
             if not symbol:
                 continue
