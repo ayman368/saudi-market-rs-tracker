@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RS Matrix Chart</title>
+    <link rel="icon" type="image/jpeg" href="favicon.jpg?v=2">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #ffffff;
+            color: #333;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .header {
+            background: #1e222d;
+            padding: 12px 20px;
+            border-bottom: 1px solid #2a2e39;
+            flex-shrink: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 60px;
+            z-index: 1000;
+        }
+
+        .header h1 {
+            margin: 0;
+            color: #fff;
+            font-size: 1.3rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            padding: 6px 14px;
+            margin-left: 8px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        .btn-blue {
+            background: #2962ff;
+        }
+
+        .btn-red {
+            background: #f23645;
+        }
+
+        .btn-green {
+            background: #4caf50;
+        }
+
+        .btn-orange {
+            background: #ff9800;
+        }
+
+        .nav-links a.active {
+            filter: brightness(1.2);
+            text-decoration: underline;
+        }
+
+        /* Matrix Grid Container */
+        .chart-container {
+            width: 100%;
+            height: calc(100vh - 60px);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            position: relative;
+        }
+
+        /* Quadrants */
+        .quadrant {
+            position: relative;
+            padding: 20px;
+            overflow: hidden;
+            /* Points scattered inside */
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        /* Colors mimicking the RRG Image */
+        /* Top-Left: NEUTRAL (Weakening pos) - Pinkish */
+        #q-neutral {
+            background-color: #ffebee;
+            border-right: 2px solid #ccc;
+            border-bottom: 2px solid #ccc;
+        }
+
+        /* Top-Right: STRONG - Light Green */
+        #q-strong {
+            background-color: #e8f5e9;
+            border-left: 2px solid #ccc;
+            border-bottom: 2px solid #ccc;
+        }
+
+        /* Bottom-Left: WEAK - Reddish */
+        #q-weak {
+            background-color: #ffcdd2;
+            border-right: 2px solid #ccc;
+            border-top: 2px solid #ccc;
+        }
+
+        /* Bottom-Right: IMPROVE - Light Blue/Greenish */
+        #q-improve {
+            background-color: #e0f2f1;
+            border-left: 2px solid #ccc;
+            border-top: 2px solid #ccc;
+        }
+
+        /* Quadrant Labels */
+        .quadrant-label {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        .quadrant-label .name {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: rgba(0, 0, 0, 0.4);
+            text-transform: uppercase;
+        }
+
+        .quadrant-label .percentage {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: rgba(0, 0, 0, 0.5);
+        }
+
+        /* Stock Dot */
+        .stock-point {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            cursor: pointer;
+            z-index: 20;
+            transition: transform 0.2s;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #333;
+            text-shadow: 0 0 2px rgba(255, 255, 255, 0.8);
+            white-space: nowrap;
+        }
+
+        .stock-point:hover {
+            transform: scale(1.2);
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 2px 6px;
+            border-radius: 4px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            border: 1px solid rgba(0, 0, 0, 0.2);
+        }
+
+        .stock-point.strong .dot {
+            background: #2e7d32;
+        }
+
+        .stock-point.improve .dot {
+            background: #00838f;
+        }
+
+        .stock-point.neutral .dot {
+            background: #ef6c00;
+        }
+
+        .stock-point.weak .dot {
+            background: #c62828;
+        }
+
+        /* Movement Indicators in Chart */
+        .move-indicator {
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .move-up {
+            color: #2e7d32;
+        }
+
+        .move-down {
+            color: #c62828;
+        }
+
+        #tooltip {
+            position: fixed;
+            background: rgba(0, 0, 0, 0.9);
+            color: white;
+            padding: 8px 12px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            pointer-events: none;
+            display: none;
+            z-index: 10000;
+            white-space: nowrap;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="header">
+        <h1>💠 RS Matrix Chart</h1>
+        <div class="nav-links">
+            <a id="btn-save" onclick="captureImage()" class="btn-green">📸 Save Chart</a>
+            <a href="index.html" class="btn-blue">📋 Table</a>
+            <a href="charts.html" class="btn-blue">📈 Charts</a>
+            <a href="rs_matrix.html" class="btn-red">💠 Cards</a>
+            <a href="matrix_chart.html" class="btn-orange active">📊 Chart</a>
+        </div>
+    </div>
+
+    <div class="chart-container">
+        <!-- Top Left: NEUTRAL (70-79) -->
+        <div id="q-neutral" class="quadrant">
+            <div class="quadrant-label">
+                <div class="name">NEUTRAL</div>
+                <div class="percentage">0%</div>
+            </div>
+        </div>
+
+        <!-- Top Right: STRONG (>=90) -->
+        <div id="q-strong" class="quadrant">
+            <div class="quadrant-label">
+                <div class="name">STRONG</div>
+                <div class="percentage">0%</div>
+            </div>
+        </div>
+
+        <!-- Bottom Left: WEAK (<70) -->
+        <div id="q-weak" class="quadrant">
+            <div class="quadrant-label">
+                <div class="name">WEAK</div>
+                <div class="percentage">0%</div>
+            </div>
+        </div>
+
+        <!-- Bottom Right: IMPROVE (80-89) -->
+        <div id="q-improve" class="quadrant">
+            <div class="quadrant-label">
+                <div class="name">IMPROVE</div>
+                <div class="percentage">0%</div>
+            </div>
+        </div>
+    </div>
+
+    <div id="tooltip"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="papaparse.min.js"></script>
+    <script>
+        if (typeof Papa === 'undefined') {
+            document.write('<script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"><\/script>');
+        }
+
+        let previousCategories = {};
+
+        document.addEventListener('DOMContentLoaded', function () {
+            // Load previous categories for movement indicators
+            fetch('previous_categories.json')
+                .then(res => res.ok ? res.json() : {})
+                .catch(() => ({}))
+                .then(prevCats => {
+                    previousCategories = prevCats;
+
+                    Papa.parse('saudiexchange_rs_analysis.csv', {
+                        download: true,
+                        header: true,
+                        skipEmptyLines: true,
+                        complete: function (results) {
+                            initChart(results.data);
+                        },
+                        error: function (err) { console.error('Error loading CSV:', err); }
+                    });
+                });
+        });
+
+        function initChart(data) {
+            const stocks = { strong: [], improve: [], neutral: [], weak: [] };
+
+            let validCount = 0;
+            data.forEach(d => {
+                if (!d.Company || !d.RS) return;
+                const rs = parseFloat(d.RS);
+                d._rs = rs;
+                validCount++;
+
+                if (rs >= 90) stocks.strong.push(d);
+                else if (rs >= 80) stocks.improve.push(d);
+                else if (rs >= 70) stocks.neutral.push(d);
+                else stocks.weak.push(d);
+            });
+
+            // Update Labels
+            updateLabel('q-strong', stocks.strong.length, validCount);
+            updateLabel('q-improve', stocks.improve.length, validCount);
+            updateLabel('q-neutral', stocks.neutral.length, validCount);
+            updateLabel('q-weak', stocks.weak.length, validCount);
+
+            // Render Scatter Points
+            renderPoints('q-strong', stocks.strong, 'strong');
+            renderPoints('q-improve', stocks.improve, 'improve');
+            renderPoints('q-neutral', stocks.neutral, 'neutral');
+            renderPoints('q-weak', stocks.weak, 'weak');
+        }
+
+        function updateLabel(id, count, total) {
+            const el = document.getElementById(id);
+            const pct = total > 0 ? ((count / total) * 100).toFixed(1) : 0;
+            el.querySelector('.percentage').innerText = `${pct}%`;
+        }
+
+        function renderPoints(containerId, list, type) {
+            const container = document.getElementById(containerId);
+            const width = container.clientWidth;
+            const height = container.clientHeight;
+
+            // simple collision avoidance or random scatter
+            // using "oil and water" concept: avoid center
+
+            list.forEach(stock => {
+                const el = document.createElement('div');
+                el.className = `stock-point ${type}`;
+
+                // Movement check
+                const prevCat = previousCategories[stock.Symbol];
+                const currentCat = type.toUpperCase(); // STRONG, IMPROVE...
+                // mapping type to Category name usually simple
+
+                let arrow = '';
+                if (prevCat) {
+                    // Normalize prevCat if needed
+                    // Simple check if Category changed
+                    const catMap = { 'STRONG': 3, 'IMPROVE': 2, 'NEUTRAL': 1, 'WEAK': 0 };
+                    const currVal = catMap[currentCat === 'IMPROVE' ? 'IMPROVE' : currentCat.toUpperCase()];
+                    const prevVal = catMap[prevCat];
+
+                    if (currVal > prevVal) arrow = '<span class="move-indicator move-up">↑</span>';
+                    if (currVal < prevVal) arrow = '<span class="move-indicator move-down">↓</span>';
+                }
+
+                el.innerHTML = `<div class="dot"></div>${stock.Company} ${arrow}`;
+
+                // Random Position
+                // Avoid sticking to edges (padding 20px)
+                const x = Math.random() * (90) + 5; // 5% to 95%
+                const y = Math.random() * (90) + 5;
+
+                el.style.left = `${x}%`;
+                el.style.top = `${y}%`;
+
+                // Tooltip
+                el.onmouseenter = (e) => showTooltip(e, stock);
+                el.onmouseleave = hideTooltip;
+
+                container.appendChild(el);
+            });
+        }
+
+        const tooltip = document.getElementById('tooltip');
+        function showTooltip(e, stock) {
+            tooltip.style.display = 'block';
+            tooltip.innerHTML = `<strong>${stock.Company}</strong><br>Symbol: ${stock.Symbol}<br>RS: ${stock._rs}`;
+            moveTooltip(e);
+        }
+        function moveTooltip(e) {
+            tooltip.style.left = (e.clientX + 15) + 'px';
+            tooltip.style.top = (e.clientY + 15) + 'px';
+        }
+        function hideTooltip() { tooltip.style.display = 'none'; }
+
+        function captureImage() {
+            const btn = document.getElementById('btn-save');
+            const originalText = btn.innerText;
+            btn.innerText = 'Capturing...';
+            html2canvas(document.body).then(canvas => {
+                const link = document.createElement('a');
+                link.download = `Matrix_Chart_${new Date().toISOString().slice(0, 10)}.png`;
+                link.href = canvas.toDataURL();
+                link.click();
+                btn.innerText = originalText;
+            });
+        }
+
+    </script>
+</body>
+
+</html>
