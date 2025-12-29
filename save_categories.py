@@ -30,11 +30,13 @@ def save_previous_categories():
             # Ensure symbol is treated as int then str to remove .0
             try:
                 val = row.get('Symbol', '')
+                if pd.isna(val) or str(val).strip().lower() == 'nan':
+                    continue
                 symbol = str(int(float(val)))
             except:
                 symbol = str(val).strip()
             
-            if not symbol:
+            if not symbol or symbol.lower() == 'nan':
                 continue
             
             # Determine category based on RS
