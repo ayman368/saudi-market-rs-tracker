@@ -353,13 +353,13 @@
                 // Proportional Widths
                 const col1Weight = nNeutral + nWeak;
                 let col1Pct = (col1Weight / total) * 100;
-                col1Pct = Math.max(30, Math.min(70, col1Pct)); // Clamp between 30% and 70%
+                col1Pct = Math.max(15, Math.min(85, col1Pct)); // Allow up to 85% width
                 const col2Pct = 100 - col1Pct;
 
                 // Proportional Heights (Heuristic based on row dominance)
                 const row1Weight = nNeutral + nStrong;
                 let row1Pct = (row1Weight / total) * 100;
-                row1Pct = Math.max(30, Math.min(70, row1Pct));
+                row1Pct = Math.max(15, Math.min(85, row1Pct)); // Allow up to 85% height
                 const row2Pct = 100 - row1Pct;
 
                 const container = document.getElementById('chart-container');
