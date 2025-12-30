@@ -20,36 +20,45 @@ def save_previous_categories():
     
     try:
         df = pd.read_csv(csv_path, encoding='utf-8-sig')
+        print(f"[info] Read {len(df)} rows from {csv_path}")
         
         # Create category mapping
         categories = {}
         
-        for _, row in df.iterrows():
-            rs = float(row.get('RS', 0))
-            
-            # Ensure symbol is treated as int then str to remove .0
+        for idx, row in df.iterrows():
             try:
-                val = row.get('Symbol', '')
-                if pd.isna(val) or str(val).strip().lower() == 'nan':
+                # Handle RS Validation
+                rs_val = row.get('RS', 0)
+                if pd.isna(rs_val) or str(rs_val).strip() == '':
                     continue
-                symbol = str(int(float(val)))
-            except:
-                symbol = str(val).strip()
-            
-            if not symbol or symbol.lower() == 'nan':
+                rs = float(rs_val)
+                
+                # Handle Symbol Validation
+                val = row.get('Symbol', '')
+                if pd.isna(val) or str(val).strip().lower() in ['nan', '']:
+                    continue
+                
+                # Clean Symbol
+                try:
+                    symbol = str(int(float(val)))
+                except:
+                    symbol = str(val).strip()
+                
+                # Determine Category
+                if rs >= 90: category = 'STRONG'
+                elif rs >= 80: category = 'IMPROVE'
+                elif rs >= 70: category = 'NEUTRAL'
+                else: category = 'WEAK'
+                
+                categories[symbol] = category
+                
+            except Exception as e:
+                print(f"[warn] Failed to process row {idx}: {e}")
                 continue
-            
-            # Determine category based on RS
-            if rs >= 90:
-                category = 'STRONG'
-            elif rs >= 80:
-                category = 'IMPROVE'
-            elif rs >= 70:
-                category = 'NEUTRAL'
-            else:
-                category = 'WEAK'
-            
-            categories[symbol] = category
+        
+        if not categories:
+            print("[error] No categories extracted! Checking first few rows of CSV:")
+            print(df.head())
         
         # Save to JSON
         with open(json_path, 'w', encoding='utf-8') as f:
