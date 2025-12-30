@@ -15,23 +15,20 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #ffffff;
+            background: #f5f5f5;
             color: #333;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
+            min-height: 100vh;
         }
 
         .header {
             background: #1e222d;
             padding: 12px 20px;
             border-bottom: 1px solid #2a2e39;
-            flex-shrink: 0;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            height: 60px;
+            position: sticky;
+            top: 0;
             z-index: 1000;
         }
 
@@ -69,158 +66,197 @@
         }
 
         .nav-links a.active {
-            filter: brightness(1.2);
-            box-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+            background: #f23645;
         }
 
-        /* Dynamic Grid Container */
-        .matrix-container {
-            flex: 1;
-            display: grid;
-            /* Initial values, will be updated by JS */
-            grid-template-columns: 50% 50%;
-            grid-template-rows: 50% 50%;
+        /* Cards Container - Fill Screen Width */
+        .cards-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: stretch;
+            gap: 10px;
+            padding: 20px 10px;
             width: 100%;
             height: calc(100vh - 60px);
-            transition: all 0.5s ease-in-out;
+            /* Full height minus header */
         }
 
-        .quadrant {
-            position: relative;
-            padding: 10px;
-            overflow-y: auto;
-            overflow-x: hidden;
+        /* Category Card - Expand to fill available space */
+        .category-card {
+            flex: 1;
+            min-width: 250px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.2s, box-shadow 0.2s;
             display: flex;
-            flex-wrap: wrap;
-            align-content: flex-start;
-            border: 1px solid rgba(0, 0, 0, 0.05);
+            flex-direction: column;
         }
 
-        /* Use colors from image */
-        #q-neutral {
-            background-color: #ffebee;
+        .category-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
         }
 
-        /* Weakening (Top Left) - Pinkish */
-        #q-strong {
-            background-color: #e8f5e9;
+        /* Card Header */
+        .card-header {
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid rgba(0, 0, 0, 0.1);
         }
 
-        /* Leading (Top Right) - Greenish */
-        #q-weak {
-            background-color: #ffcdd2;
-        }
-
-        /* Lagging (Bottom Left) - Reddish */
-        #q-improve {
-            background-color: #e1f5fe;
-        }
-
-        /* Improving (Bottom Right) - Bluish */
-
-        /* Quadrant Labels */
-        .quadrant-bg-label {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 4rem;
+        .card-header .title {
+            font-size: 1.5rem;
             font-weight: 900;
             text-transform: uppercase;
-            color: rgba(0, 0, 0, 0.04);
-            /* Very subtle watermark */
-            pointer-events: none;
-            z-index: 0;
-            white-space: nowrap;
         }
 
-        .quadrant-info {
-            position: absolute;
-            top: 5px;
-            left: 5px;
-            font-size: 0.7rem;
-            opacity: 0.6;
-            font-weight: bold;
-            z-index: 10;
+        .card-header .stats {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 4px;
         }
 
-        /* Stock Item - LIST Style */
-        .stock-item {
-            display: inline-flex;
-            align-items: center;
-            background: rgba(255, 255, 255, 0.6);
-            padding: 3px 8px;
-            margin: 2px;
-            border-radius: 4px;
-            font-size: 0.75rem;
-            /* Compact font */
-            font-weight: 600;
-            cursor: pointer;
-            z-index: 5;
-            transition: transform 0.1s, background 0.1s;
-            white-space: nowrap;
-            max-width: 160px;
-            overflow: hidden;
-            text-overflow: ellipsis;
+        .card-header .percentage {
+            font-size: 1.8rem;
+            font-weight: 700;
         }
 
-        .stock-item:hover {
-            transform: scale(1.05);
-            z-index: 100;
-            background: #fff;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        .card-header .count {
+            font-size: 0.85rem;
+            opacity: 0.7;
         }
 
-        .stock-dot {
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            margin-right: 5px;
-            flex-shrink: 0;
+        .card-header .arrow {
+            font-size: 2rem;
+            line-height: 1;
         }
 
-        .stock-item.strong .stock-dot {
-            background: #2e7d32;
-        }
-
-        .stock-item.improve .stock-dot {
-            background: #0277bd;
-        }
-
-        .stock-item.neutral .stock-dot {
-            background: #e65100;
-        }
-
-        .stock-item.weak .stock-dot {
-            background: #c62828;
-        }
-
-        /* Movement Arrows */
-        .move-arrow {
-            font-size: 0.75rem;
-            margin-left: 4px;
-            font-weight: bold;
-        }
-
-        .move-up {
+        /* Color Schemes */
+        .card-strong .card-header {
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
             color: #2e7d32;
         }
 
-        .move-down {
+        .card-improve .card-header {
+            background: linear-gradient(135deg, #e1f5fe 0%, #b3e5fc 100%);
+            color: #0277bd;
+        }
+
+        .card-neutral .card-header {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+            color: #e65100;
+        }
+
+        .card-weak .card-header {
+            background: linear-gradient(135deg, #ffebee 0%, #ffcdd2 100%);
             color: #c62828;
         }
 
+        /* Card Body - Fill remaining space */
+        .card-body {
+            padding: 16px;
+            overflow-y: auto;
+            flex: 1;
+            /* Fill remaining card height */
+        }
+
+        /* Stock Item */
+        .stock-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 12px;
+            margin-bottom: 6px;
+            border-radius: 6px;
+            background: #f9f9f9;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .stock-item:hover {
+            background: #e3f2fd;
+            transform: translateX(4px);
+        }
+
+        .stock-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .card-strong .stock-dot {
+            background: #2e7d32;
+        }
+
+        .card-improve .stock-dot {
+            background: #0277bd;
+        }
+
+        .card-neutral .stock-dot {
+            background: #e65100;
+        }
+
+        .card-weak .stock-dot {
+            background: #c62828;
+        }
+
+        .stock-name {
+            flex: 1;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #333;
+        }
+
+        .stock-rs {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #666;
+            background: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+
+        /* Movement Indicators */
+        .movement-indicator {
+            font-size: 1rem;
+            margin-left: 4px;
+        }
+
+        .movement-up {
+            color: #2e7d32;
+        }
+
+        .movement-down {
+            color: #c62828;
+        }
+
+        .from-badge {
+            font-size: 0.7rem;
+            background: #e0e0e0;
+            color: #666;
+            padding: 2px 6px;
+            border-radius: 3px;
+            margin-left: 4px;
+            white-space: nowrap;
+        }
+
         /* Scrollbar */
-        .quadrant::-webkit-scrollbar {
+        .card-body::-webkit-scrollbar {
             width: 6px;
         }
 
-        .quadrant::-webkit-scrollbar-track {
-            background: transparent;
+        .card-body::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.05);
         }
 
-        .quadrant::-webkit-scrollbar-thumb {
-            background: rgba(0, 0, 0, 0.1);
+        .card-body::-webkit-scrollbar-thumb {
+            background: rgba(0, 0, 0, 0.2);
             border-radius: 3px;
         }
 
@@ -228,12 +264,26 @@
             position: fixed;
             background: rgba(0, 0, 0, 0.9);
             color: white;
-            padding: 5px 10px;
-            border-radius: 3px;
-            font-size: 0.8rem;
+            padding: 8px 12px;
+            border-radius: 4px;
+            font-size: 0.85rem;
             pointer-events: none;
             display: none;
             z-index: 10000;
+            white-space: nowrap;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .cards-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .category-card {
+                width: 100%;
+                max-width: 400px;
+            }
         }
     </style>
 </head>
@@ -243,7 +293,7 @@
     <div class="header">
         <h1>💠 RS Matrix Map</h1>
         <div class="nav-links">
-            <a id="btn-save" onclick="captureImage()" class="btn-green">📸 Save Image</a>
+            <a id="btn-save" onclick="captureImage()" class="btn-green">📸 Save as Image</a>
             <a href="index.html" class="btn-blue">📋 Table</a>
             <a href="charts.html" class="btn-blue">📈 Charts</a>
             <a href="rs_matrix.html" class="btn-red active">💠 Matrix</a>
@@ -251,186 +301,185 @@
         </div>
     </div>
 
-    <div class="matrix-container" id="matrix-container">
-        <!-- Top Left: NEUTRAL (70-80) -->
-        <div id="q-neutral" class="quadrant">
-            <div class="quadrant-info">NEUTRAL (70-79)</div>
-            <div class="quadrant-bg-label">NEUTRAL</div>
-        </div>
-        <!-- Top Right: STRONG (>90) -->
-        <div id="q-strong" class="quadrant">
-            <div class="quadrant-info">STRONG (>90)</div>
-            <div class="quadrant-bg-label">STRONG</div>
-        </div>
-        <!-- Bottom Left: WEAK (<70) -->
-        <div id="q-weak" class="quadrant">
-            <div class="quadrant-info">WEAK (<70)< /div>
-                    <div class="quadrant-bg-label">WEAK</div>
-            </div>
-            <!-- Bottom Right: IMPROVE (80-90) -->
-            <div id="q-improve" class="quadrant">
-                <div class="quadrant-info">IMPROVE (80-89)</div>
-                <div class="quadrant-bg-label">IMPROVE</div>
-            </div>
-        </div>
+    <div class="cards-container" id="cards-container">
+        <!-- Cards will be generated here -->
+    </div>
 
-        <div id="tooltip"></div>
+    <div id="tooltip"></div>
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-        <script src="papaparse.min.js"></script>
-        <script>
-            if (typeof Papa === 'undefined') {
-                document.write('<script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"><\/script>');
-            }
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="papaparse.min.js"></script>
+    <script>
+        if (typeof Papa === 'undefined') {
+            document.write('<script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"><\/script>');
+        }
 
-            let previousCategories = {};
+        let previousCategories = {};
 
-            document.addEventListener('DOMContentLoaded', function () {
-                // Load previous categories
-                fetch('previous_categories.json')
-                    .then(res => res.ok ? res.json() : {})
-                    .catch(() => ({}))
-                    .then(prevCats => {
-                        previousCategories = prevCats;
+        document.addEventListener('DOMContentLoaded', function () {
+            // Load previous day's categories first (if exists)
+            fetch('previous_categories.json')
+                .then(res => res.ok ? res.json() : {})
+                .catch(() => ({}))
+                .then(prevCats => {
+                    previousCategories = prevCats;
 
-                        Papa.parse('saudiexchange_rs_analysis.csv', {
-                            download: true,
-                            header: true,
-                            skipEmptyLines: true,
-                            complete: function (results) {
-                                initMatrix(results.data);
-                            },
-                            error: function (err) { console.error('Error loading CSV:', err); }
-                        });
+                    // Then load current data
+                    Papa.parse('saudiexchange_rs_analysis.csv', {
+                        download: true,
+                        header: true,
+                        skipEmptyLines: true,
+                        complete: function (results) {
+                            initCards(results.data);
+                        },
+                        error: function (err) {
+                            console.error('Error loading CSV:', err);
+                        }
                     });
-            });
-
-            function initMatrix(data) {
-                const stocks = { strong: [], improve: [], neutral: [], weak: [] };
-
-                data.forEach(d => {
-                    if (!d.Company || !d.RS) return;
-                    const rs = parseFloat(d.RS);
-                    d._rs = rs;
-
-                    if (rs >= 90) stocks.strong.push(d);
-                    else if (rs >= 80) stocks.improve.push(d);
-                    else if (rs >= 70) stocks.neutral.push(d);
-                    else stocks.weak.push(d);
                 });
+        });
 
-                // Sort by RS descending
-                const sortFn = (a, b) => b._rs - a._rs;
-                Object.values(stocks).forEach(list => list.sort(sortFn));
+        function captureImage() {
+            const btn = document.getElementById('btn-save');
+            const originalText = btn.innerText;
+            btn.innerText = '📸 Capturing...';
 
-                // Populate Quadrants
-                populateQuadrant('q-strong', stocks.strong, 'strong');
-                populateQuadrant('q-improve', stocks.improve, 'improve');
-                populateQuadrant('q-neutral', stocks.neutral, 'neutral');
-                populateQuadrant('q-weak', stocks.weak, 'weak');
-
-                // Dynamic Sizing
-                resizeGrid(stocks);
-            }
-
-            function resizeGrid(stocks) {
-                // Calculate lengths
-                const nStrong = stocks.strong.length;
-                const nImprove = stocks.improve.length;
-                const nNeutral = stocks.neutral.length;
-                const nWeak = stocks.weak.length;
-
-                // We want to adjust rows/cols based on volume
-                // Grid Layout:
-                // NEUTRAL (Q2) | STRONG (Q1)
-                // WEAK (Q3)    | IMPROVE (Q4)
-
-                // Row 1 Height: driven by max(Neutral, Strong)
-                // Row 2 Height: driven by max(Weak, Improve)
-                // But this is 2D. 
-                // Better heuristic: 
-                // Col 1 width propto volume(Neutral + Weak)
-                // Col 2 width propto volume(Strong + Improve)
-                // Row 1 height propto volume(Neutral + Strong)
-                // Row 2 height propto volume(Weak + Improve)
-
-                const total = nStrong + nImprove + nNeutral + nWeak || 1;
-
-                const col1Weight = nNeutral + nWeak;
-                const col2Weight = nStrong + nImprove;
-                let col1Pct = (col1Weight / total) * 100;
-
-                // Clamp percentages to avoid tiny quadrants (min 25%)
-                col1Pct = Math.max(25, Math.min(75, col1Pct));
-                const col2Pct = 100 - col1Pct;
-
-                const row1Weight = nNeutral + nStrong;
-                const row2Weight = nWeak + nImprove;
-                let row1Pct = (row1Weight / total) * 100;
-
-                row1Pct = Math.max(25, Math.min(75, row1Pct));
-                const row2Pct = 100 - row1Pct;
-
-                const container = document.getElementById('matrix-container');
-                container.style.gridTemplateColumns = `${col1Pct}% ${col2Pct}%`;
-                container.style.gridTemplateRows = `${row1Pct}% ${row2Pct}%`;
-            }
-
-            function populateQuadrant(id, list, type) {
-                const container = document.getElementById(id);
-                // Label is index 1, keep it (index 0 is info)
-
-                list.forEach(stock => {
-                    const el = document.createElement('div');
-                    el.className = `stock-item ${type}`;
-
-                    // Movement
-                    let arrow = '';
-                    const prevCat = previousCategories[stock.Symbol];
-                    const typeMap = { 'strong': 'STRONG', 'improve': 'IMPROVE', 'neutral': 'NEUTRAL', 'weak': 'WEAK' };
-                    const currentCat = typeMap[type];
-
-                    if (prevCat && prevCat !== currentCat) {
-                        const catOrder = ['WEAK', 'NEUTRAL', 'IMPROVE', 'STRONG'];
-                        const pIdx = catOrder.indexOf(prevCat);
-                        const cIdx = catOrder.indexOf(currentCat);
-
-                        if (cIdx > pIdx) arrow = '<span class="move-arrow move-up">↑</span>';
-                        if (cIdx < pIdx) arrow = '<span class="move-arrow move-down">↓</span>';
-                    }
-
-                    el.innerHTML = `<div class="stock-dot"></div>${stock.Company}${arrow}`;
-
-                    el.onmouseenter = (e) => showTooltip(e, stock);
-                    el.onmouseleave = hideTooltip;
-                    el.onclick = () => window.location.href = `charts.html?symbol=${stock.Symbol}`;
-
-                    container.appendChild(el);
-                });
-            }
-
-            const tooltip = document.getElementById('tooltip');
-            function showTooltip(e, stock) {
-                tooltip.style.display = 'block';
-                tooltip.innerHTML = `${stock.Company} (${stock.Symbol})<br>RS: ${stock._rs}`;
-                tooltip.style.left = (e.clientX + 10) + 'px';
-                tooltip.style.top = (e.clientY + 10) + 'px';
-            }
-            function hideTooltip() { tooltip.style.display = 'none'; }
-
-            function captureImage() {
-                const btn = document.getElementById('btn-save');
-                btn.innerText = 'Wait...';
-                html2canvas(document.body).then(canvas => {
+            setTimeout(() => {
+                html2canvas(document.querySelector('.cards-container'), {
+                    scale: 2,
+                    backgroundColor: '#f5f5f5'
+                }).then(canvas => {
                     const link = document.createElement('a');
-                    link.download = `RS_Matrix_Grid_${new Date().toISOString().slice(0, 10)}.png`;
+                    link.download = `RS_Matrix_${new Date().toISOString().slice(0, 10)}.png`;
                     link.href = canvas.toDataURL();
                     link.click();
-                    btn.innerText = '📸 Save Image';
+                    btn.innerText = originalText;
                 });
-            }
+            }, 100);
+        }
 
-        </script>
+        function initCards(data) {
+            const container = document.getElementById('cards-container');
+
+            const stocks = {
+                strong: [],
+                improving: [],
+                weakening: [],
+                weak: []
+            };
+
+            data.forEach(d => {
+                if (!d.Company || !d.RS) return;
+                const rs = parseFloat(d.RS);
+                d._rs = rs;
+
+                if (rs >= 90) stocks.strong.push(d);
+                else if (rs >= 80) stocks.improving.push(d);
+                else if (rs >= 70) stocks.weakening.push(d);
+                else stocks.weak.push(d);
+            });
+
+            // Sort
+            const sortFn = (a, b) => b._rs - a._rs;
+            stocks.strong.sort(sortFn);
+            stocks.improving.sort(sortFn);
+            stocks.weakening.sort(sortFn);
+            stocks.weak.sort(sortFn);
+
+            // Calculate percentages
+            const totalStocks = stocks.strong.length + stocks.improving.length +
+                stocks.weakening.length + stocks.weak.length;
+
+            // Create Cards
+            container.appendChild(createCard('STRONG', '↑', stocks.strong, totalStocks, 'card-strong'));
+            container.appendChild(createCard('IMPROVE', '↗', stocks.improving, totalStocks, 'card-improve'));
+            container.appendChild(createCard('NEUTRAL', '→', stocks.weakening, totalStocks, 'card-neutral'));
+            container.appendChild(createCard('WEAK', '↓', stocks.weak, totalStocks, 'card-weak'));
+        }
+
+        function createCard(title, arrow, stockList, totalStocks, className) {
+            const card = document.createElement('div');
+            card.className = `category-card ${className}`;
+
+            const percentage = totalStocks > 0 ? ((stockList.length / totalStocks) * 100).toFixed(1) : 0;
+            const count = stockList.length;
+
+            // Header
+            const header = document.createElement('div');
+            header.className = 'card-header';
+            header.innerHTML = `
+                <div class="title">${title}</div>
+                <div class="stats">
+                    <div class="percentage">${percentage}%</div>
+                    <div class="count">${count} stocks</div>
+                </div>
+                <div class="arrow">${arrow}</div>
+            `;
+
+            // Body
+            const body = document.createElement('div');
+            body.className = 'card-body';
+
+            stockList.forEach(stock => {
+                // Check if stock moved from another category
+                const prevCategory = previousCategories[stock.Symbol];
+                const currentCategory = title;
+
+                let movementHTML = '';
+                if (prevCategory && prevCategory !== currentCategory) {
+                    const categoryOrder = ['WEAK', 'NEUTRAL', 'IMPROVE', 'STRONG'];
+                    const prevIndex = categoryOrder.indexOf(prevCategory);
+                    const currIndex = categoryOrder.indexOf(currentCategory);
+
+                    if (currIndex > prevIndex) {
+                        // Moved up
+                        movementHTML = `<span class="movement-indicator movement-up">↑</span><span class="from-badge">من ${prevCategory}</span>`;
+                    } else if (currIndex < prevIndex) {
+                        // Moved down
+                        movementHTML = `<span class="movement-indicator movement-down">↓</span><span class="from-badge">من ${prevCategory}</span>`;
+                    }
+                }
+
+                const item = document.createElement('div');
+                item.className = 'stock-item';
+                item.innerHTML = `
+                    <div class="stock-dot"></div>
+                    <div class="stock-name">${stock.Company}</div>
+                    <div class="stock-rs">${stock._rs}</div>
+                    ${movementHTML}
+                `;
+
+                item.onmouseenter = (e) => showTooltip(e, stock);
+                item.onmouseleave = hideTooltip;
+                item.onclick = () => window.location.href = `charts.html?symbol=${stock.Symbol}`;
+
+                body.appendChild(item);
+            });
+
+            card.appendChild(header);
+            card.appendChild(body);
+
+            return card;
+        }
+
+        const tooltip = document.getElementById('tooltip');
+        function showTooltip(e, stock) {
+            tooltip.style.display = 'block';
+            tooltip.innerHTML = `<strong>${stock.Company}</strong><br>Symbol: ${stock.Symbol}<br>RS: ${stock._rs}`;
+            moveTooltip(e);
+        }
+        function moveTooltip(e) {
+            tooltip.style.left = (e.clientX + 15) + 'px';
+            tooltip.style.top = (e.clientY + 15) + 'px';
+        }
+        function hideTooltip() {
+            tooltip.style.display = 'none';
+        }
+        document.onmousemove = (e) => {
+            if (tooltip.style.display === 'block') moveTooltip(e);
+        }
+
+    </script>
 </body>
 
 </html>

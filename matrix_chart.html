@@ -18,6 +18,8 @@
             background: #ffffff;
             color: #333;
             height: 100vh;
+            display: flex;
+            flex-direction: column;
             overflow: hidden;
         }
 
@@ -68,133 +70,144 @@
 
         .nav-links a.active {
             filter: brightness(1.2);
-            text-decoration: underline;
+            box-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
         }
 
-        /* Matrix Grid Container */
+        /* Dynamic Grid Container */
         .chart-container {
+            flex: 1;
+            display: grid;
+            /* Initial values, will be updated by JS */
+            grid-template-columns: 50% 50%;
+            grid-template-rows: 50% 50%;
             width: 100%;
             height: calc(100vh - 60px);
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            grid-template-rows: 1fr 1fr;
-            position: relative;
+            transition: all 0.5s ease-in-out;
+            background: white;
         }
 
-        /* Quadrants */
         .quadrant {
             position: relative;
-            padding: 20px;
-            overflow: hidden;
-            /* Points scattered inside */
-            border: 1px solid rgba(0, 0, 0, 0.05);
-            transition: all 0.3s ease;
+            padding: 15px;
+            overflow-y: auto;
+            overflow-x: hidden;
+            display: flex;
+            flex-wrap: wrap;
+            align-content: flex-start;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            /* Subtle border */
         }
 
-        /* Colors mimicking the RRG Image */
-        /* Top-Left: NEUTRAL (Weakening pos) - Pinkish */
+        /* Colors mimicking the Image */
+        /* Top-Left: NEUTRAL (Weakening) - Pinkish/Beige */
         #q-neutral {
-            background-color: #ffebee;
-            border-right: 2px solid #ccc;
-            border-bottom: 2px solid #ccc;
+            background-color: #fff3e0;
         }
 
-        /* Top-Right: STRONG - Light Green */
+        /* Top-Right: STRONG (Leading) - Light Green */
         #q-strong {
             background-color: #e8f5e9;
-            border-left: 2px solid #ccc;
-            border-bottom: 2px solid #ccc;
         }
 
-        /* Bottom-Left: WEAK - Reddish */
+        /* Bottom-Left: WEAK (Lagging) - Reddish */
         #q-weak {
             background-color: #ffcdd2;
-            border-right: 2px solid #ccc;
-            border-top: 2px solid #ccc;
         }
 
-        /* Bottom-Right: IMPROVE - Light Blue/Greenish */
+        /* Bottom-Right: IMPROVE (Improving) - Light Blue */
         #q-improve {
-            background-color: #e0f2f1;
-            border-left: 2px solid #ccc;
-            border-top: 2px solid #ccc;
+            background-color: #e1f5fe;
         }
 
-        /* Quadrant Labels */
-        .quadrant-label {
+        /* Quadrant Labels (Watermark Style) */
+        .quadrant-bg-label {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            text-align: center;
-            pointer-events: none;
-            z-index: 10;
-        }
-
-        .quadrant-label .name {
-            font-size: 2.5rem;
+            font-size: 3.5rem;
             font-weight: 900;
-            color: rgba(0, 0, 0, 0.4);
             text-transform: uppercase;
-        }
-
-        .quadrant-label .percentage {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: rgba(0, 0, 0, 0.5);
-        }
-
-        /* Stock Dot */
-        .stock-point {
-            position: absolute;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            cursor: pointer;
-            z-index: 20;
-            transition: transform 0.2s;
-            font-size: 0.75rem;
-            font-weight: 600;
-            color: #333;
-            text-shadow: 0 0 2px rgba(255, 255, 255, 0.8);
+            color: rgba(0, 0, 0, 0.05);
+            /* Very subtle watermark */
+            pointer-events: none;
+            z-index: 0;
             white-space: nowrap;
         }
 
-        .stock-point:hover {
-            transform: scale(1.2);
-            z-index: 100;
-            background: rgba(255, 255, 255, 0.9);
+        .quadrant-info {
+            position: absolute;
+            top: 5px;
+            left: 8px;
+            font-size: 0.75rem;
+            opacity: 0.7;
+            font-weight: bold;
+            z-index: 10;
+            background: rgba(255, 255, 255, 0.5);
             padding: 2px 6px;
             border-radius: 4px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
         }
 
-        .dot {
-            width: 8px;
-            height: 8px;
+        /* Stock Item - Grid/List Style */
+        .stock-item {
+            display: inline-flex;
+            align-items: center;
+            background: transparent;
+            /* No background for cleaner look like image */
+            padding: 4px 8px;
+            margin: 2px;
+            border-radius: 0;
+            /* No radius */
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: #222;
+            cursor: pointer;
+            z-index: 5;
+            transition: transform 0.1s;
+            white-space: nowrap;
+            max-width: 140px;
+            overflow: hidden;
+        }
+
+        .stock-item:hover {
+            transform: scale(1.1);
+            z-index: 100;
+            background: #fff;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+            border-radius: 4px;
+        }
+
+        .stock-dot {
+            width: 5px;
+            height: 5px;
             border-radius: 50%;
-            border: 1px solid rgba(0, 0, 0, 0.2);
+            margin-right: 6px;
+            flex-shrink: 0;
+            background: #333;
+            /* Default dot color */
         }
 
-        .stock-point.strong .dot {
+        /* Specific Dot Colors */
+        .stock-item.strong .stock-dot {
             background: #2e7d32;
         }
 
-        .stock-point.improve .dot {
-            background: #00838f;
+        .stock-item.improve .stock-dot {
+            background: #0277bd;
         }
 
-        .stock-point.neutral .dot {
-            background: #ef6c00;
+        .stock-item.neutral .stock-dot {
+            background: #e65100;
         }
 
-        .stock-point.weak .dot {
+        .stock-item.weak .stock-dot {
             background: #c62828;
         }
 
-        /* Movement Indicators in Chart */
-        .move-indicator {
-            font-size: 0.8rem;
+        /* Movement Arrows */
+        .move-arrow {
+            font-size: 0.7rem;
+            margin-left: 3px;
             font-weight: bold;
         }
 
@@ -206,17 +219,30 @@
             color: #c62828;
         }
 
+        /* Scrollbar */
+        .quadrant::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        .quadrant::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .quadrant::-webkit-scrollbar-thumb {
+            background: rgba(0, 0, 0, 0.1);
+            border-radius: 3px;
+        }
+
         #tooltip {
             position: fixed;
             background: rgba(0, 0, 0, 0.9);
             color: white;
-            padding: 8px 12px;
+            padding: 6px 10px;
             border-radius: 4px;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             pointer-events: none;
             display: none;
             z-index: 10000;
-            white-space: nowrap;
         }
     </style>
 </head>
@@ -234,179 +260,168 @@
         </div>
     </div>
 
-    <div class="chart-container">
-        <!-- Top Left: NEUTRAL (70-79) -->
+    <div class="chart-container" id="chart-container">
+        <!-- Top Left: NEUTRAL (70-80) -->
         <div id="q-neutral" class="quadrant">
-            <div class="quadrant-label">
-                <div class="name">NEUTRAL</div>
-                <div class="percentage">0%</div>
-            </div>
+            <div class="quadrant-info">NEUTRAL (70-79)</div>
+            <div class="quadrant-bg-label">NEUTRAL</div>
         </div>
-
-        <!-- Top Right: STRONG (>=90) -->
+        <!-- Top Right: STRONG (>90) -->
         <div id="q-strong" class="quadrant">
-            <div class="quadrant-label">
-                <div class="name">STRONG</div>
-                <div class="percentage">0%</div>
-            </div>
+            <div class="quadrant-info">STRONG (>90)</div>
+            <div class="quadrant-bg-label">STRONG</div>
         </div>
-
         <!-- Bottom Left: WEAK (<70) -->
         <div id="q-weak" class="quadrant">
-            <div class="quadrant-label">
-                <div class="name">WEAK</div>
-                <div class="percentage">0%</div>
+            <div class="quadrant-info">WEAK (<70)< /div>
+                    <div class="quadrant-bg-label">WEAK</div>
+            </div>
+            <!-- Bottom Right: IMPROVE (80-90) -->
+            <div id="q-improve" class="quadrant">
+                <div class="quadrant-info">IMPROVE (80-89)</div>
+                <div class="quadrant-bg-label">IMPROVE</div>
             </div>
         </div>
 
-        <!-- Bottom Right: IMPROVE (80-89) -->
-        <div id="q-improve" class="quadrant">
-            <div class="quadrant-label">
-                <div class="name">IMPROVE</div>
-                <div class="percentage">0%</div>
-            </div>
-        </div>
-    </div>
+        <div id="tooltip"></div>
 
-    <div id="tooltip"></div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+        <script src="papaparse.min.js"></script>
+        <script>
+            if (typeof Papa === 'undefined') {
+                document.write('<script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"><\/script>');
+            }
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-    <script src="papaparse.min.js"></script>
-    <script>
-        if (typeof Papa === 'undefined') {
-            document.write('<script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"><\/script>');
-        }
+            let previousCategories = {};
 
-        let previousCategories = {};
+            document.addEventListener('DOMContentLoaded', function () {
+                // Load previous categories
+                fetch('previous_categories.json')
+                    .then(res => res.ok ? res.json() : {})
+                    .catch(() => ({}))
+                    .then(prevCats => {
+                        previousCategories = prevCats;
 
-        document.addEventListener('DOMContentLoaded', function () {
-            // Load previous categories for movement indicators
-            fetch('previous_categories.json')
-                .then(res => res.ok ? res.json() : {})
-                .catch(() => ({}))
-                .then(prevCats => {
-                    previousCategories = prevCats;
-
-                    Papa.parse('saudiexchange_rs_analysis.csv', {
-                        download: true,
-                        header: true,
-                        skipEmptyLines: true,
-                        complete: function (results) {
-                            initChart(results.data);
-                        },
-                        error: function (err) { console.error('Error loading CSV:', err); }
+                        Papa.parse('saudiexchange_rs_analysis.csv', {
+                            download: true,
+                            header: true,
+                            skipEmptyLines: true,
+                            complete: function (results) {
+                                initMatrix(results.data);
+                            },
+                            error: function (err) { console.error('Error loading CSV:', err); }
+                        });
                     });
+            });
+
+            function initMatrix(data) {
+                const stocks = { strong: [], improve: [], neutral: [], weak: [] };
+
+                data.forEach(d => {
+                    if (!d.Company || !d.RS) return;
+                    const rs = parseFloat(d.RS);
+                    d._rs = rs;
+
+                    if (rs >= 90) stocks.strong.push(d);
+                    else if (rs >= 80) stocks.improve.push(d);
+                    else if (rs >= 70) stocks.neutral.push(d);
+                    else stocks.weak.push(d);
                 });
-        });
 
-        function initChart(data) {
-            const stocks = { strong: [], improve: [], neutral: [], weak: [] };
+                // Sort by RS descending
+                const sortFn = (a, b) => b._rs - a._rs;
+                Object.values(stocks).forEach(list => list.sort(sortFn));
 
-            let validCount = 0;
-            data.forEach(d => {
-                if (!d.Company || !d.RS) return;
-                const rs = parseFloat(d.RS);
-                d._rs = rs;
-                validCount++;
+                // Populate Quadrants
+                populateQuadrant('q-strong', stocks.strong, 'strong');
+                populateQuadrant('q-improve', stocks.improve, 'improve');
+                populateQuadrant('q-neutral', stocks.neutral, 'neutral');
+                populateQuadrant('q-weak', stocks.weak, 'weak');
 
-                if (rs >= 90) stocks.strong.push(d);
-                else if (rs >= 80) stocks.improve.push(d);
-                else if (rs >= 70) stocks.neutral.push(d);
-                else stocks.weak.push(d);
-            });
+                // Dynamic Sizing
+                resizeGrid(stocks);
+            }
 
-            // Update Labels
-            updateLabel('q-strong', stocks.strong.length, validCount);
-            updateLabel('q-improve', stocks.improve.length, validCount);
-            updateLabel('q-neutral', stocks.neutral.length, validCount);
-            updateLabel('q-weak', stocks.weak.length, validCount);
+            function resizeGrid(stocks) {
+                const nStrong = stocks.strong.length;
+                const nImprove = stocks.improve.length;
+                const nNeutral = stocks.neutral.length;
+                const nWeak = stocks.weak.length;
 
-            // Render Scatter Points
-            renderPoints('q-strong', stocks.strong, 'strong');
-            renderPoints('q-improve', stocks.improve, 'improve');
-            renderPoints('q-neutral', stocks.neutral, 'neutral');
-            renderPoints('q-weak', stocks.weak, 'weak');
-        }
+                const total = nStrong + nImprove + nNeutral + nWeak || 1;
 
-        function updateLabel(id, count, total) {
-            const el = document.getElementById(id);
-            const pct = total > 0 ? ((count / total) * 100).toFixed(1) : 0;
-            el.querySelector('.percentage').innerText = `${pct}%`;
-        }
+                // Proportional Widths
+                const col1Weight = nNeutral + nWeak;
+                let col1Pct = (col1Weight / total) * 100;
+                col1Pct = Math.max(30, Math.min(70, col1Pct)); // Clamp between 30% and 70%
+                const col2Pct = 100 - col1Pct;
 
-        function renderPoints(containerId, list, type) {
-            const container = document.getElementById(containerId);
-            const width = container.clientWidth;
-            const height = container.clientHeight;
+                // Proportional Heights (Heuristic based on row dominance)
+                const row1Weight = nNeutral + nStrong;
+                let row1Pct = (row1Weight / total) * 100;
+                row1Pct = Math.max(30, Math.min(70, row1Pct));
+                const row2Pct = 100 - row1Pct;
 
-            // simple collision avoidance or random scatter
-            // using "oil and water" concept: avoid center
+                const container = document.getElementById('chart-container');
+                container.style.gridTemplateColumns = `${col1Pct}% ${col2Pct}%`;
+                container.style.gridTemplateRows = `${row1Pct}% ${row2Pct}%`;
+            }
 
-            list.forEach(stock => {
-                const el = document.createElement('div');
-                el.className = `stock-point ${type}`;
+            function populateQuadrant(id, list, type) {
+                const container = document.getElementById(id);
 
-                // Movement check
-                const prevCat = previousCategories[stock.Symbol];
-                const currentCat = type.toUpperCase(); // STRONG, IMPROVE...
-                // mapping type to Category name usually simple
+                list.forEach(stock => {
+                    const el = document.createElement('div');
+                    el.className = `stock-item ${type}`;
 
-                let arrow = '';
-                if (prevCat) {
-                    // Normalize prevCat if needed
-                    // Simple check if Category changed
-                    const catMap = { 'STRONG': 3, 'IMPROVE': 2, 'NEUTRAL': 1, 'WEAK': 0 };
-                    const currVal = catMap[currentCat === 'IMPROVE' ? 'IMPROVE' : currentCat.toUpperCase()];
-                    const prevVal = catMap[prevCat];
+                    // Movement
+                    let arrow = '';
+                    const prevCat = previousCategories[stock.Symbol];
+                    const typeMap = { 'strong': 'STRONG', 'improve': 'IMPROVE', 'neutral': 'NEUTRAL', 'weak': 'WEAK' };
+                    const currentCat = typeMap[type];
 
-                    if (currVal > prevVal) arrow = '<span class="move-indicator move-up">↑</span>';
-                    if (currVal < prevVal) arrow = '<span class="move-indicator move-down">↓</span>';
-                }
+                    if (prevCat && prevCat !== currentCat) {
+                        const catOrder = ['WEAK', 'NEUTRAL', 'IMPROVE', 'STRONG'];
+                        const pIdx = catOrder.indexOf(prevCat);
+                        const cIdx = catOrder.indexOf(currentCat);
 
-                el.innerHTML = `<div class="dot"></div>${stock.Company} ${arrow}`;
+                        if (cIdx > pIdx) arrow = '<span class="move-arrow move-up">↑</span>';
+                        if (cIdx < pIdx) arrow = '<span class="move-arrow move-down">↓</span>';
+                    }
 
-                // Random Position
-                // Avoid sticking to edges (padding 20px)
-                const x = Math.random() * (90) + 5; // 5% to 95%
-                const y = Math.random() * (90) + 5;
+                    el.innerHTML = `<div class="stock-dot"></div>${stock.Company}${arrow}`;
 
-                el.style.left = `${x}%`;
-                el.style.top = `${y}%`;
+                    el.onmouseenter = (e) => showTooltip(e, stock);
+                    el.onmouseleave = hideTooltip;
+                    el.onclick = () => window.location.href = `charts.html?symbol=${stock.Symbol}`;
 
-                // Tooltip
-                el.onmouseenter = (e) => showTooltip(e, stock);
-                el.onmouseleave = hideTooltip;
+                    container.appendChild(el);
+                });
+            }
 
-                container.appendChild(el);
-            });
-        }
+            const tooltip = document.getElementById('tooltip');
+            function showTooltip(e, stock) {
+                tooltip.style.display = 'block';
+                tooltip.innerHTML = `<strong>${stock.Company}</strong> (${stock.Symbol})<br>RS: ${stock._rs}`;
+                tooltip.style.left = (e.clientX + 15) + 'px';
+                tooltip.style.top = (e.clientY + 15) + 'px';
+            }
+            function hideTooltip() { tooltip.style.display = 'none'; }
 
-        const tooltip = document.getElementById('tooltip');
-        function showTooltip(e, stock) {
-            tooltip.style.display = 'block';
-            tooltip.innerHTML = `<strong>${stock.Company}</strong><br>Symbol: ${stock.Symbol}<br>RS: ${stock._rs}`;
-            moveTooltip(e);
-        }
-        function moveTooltip(e) {
-            tooltip.style.left = (e.clientX + 15) + 'px';
-            tooltip.style.top = (e.clientY + 15) + 'px';
-        }
-        function hideTooltip() { tooltip.style.display = 'none'; }
+            function captureImage() {
+                const btn = document.getElementById('btn-save');
+                const orig = btn.innerText;
+                btn.innerText = 'Capturing...';
+                html2canvas(document.body).then(canvas => {
+                    const link = document.createElement('a');
+                    link.download = `Matrix_Chart_Grid_${new Date().toISOString().slice(0, 10)}.png`;
+                    link.href = canvas.toDataURL();
+                    link.click();
+                    btn.innerText = orig;
+                });
+            }
 
-        function captureImage() {
-            const btn = document.getElementById('btn-save');
-            const originalText = btn.innerText;
-            btn.innerText = 'Capturing...';
-            html2canvas(document.body).then(canvas => {
-                const link = document.createElement('a');
-                link.download = `Matrix_Chart_${new Date().toISOString().slice(0, 10)}.png`;
-                link.href = canvas.toDataURL();
-                link.click();
-                btn.innerText = originalText;
-            });
-        }
-
-    </script>
+        </script>
 </body>
 
 </html>
