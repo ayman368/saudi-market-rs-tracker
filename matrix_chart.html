@@ -355,15 +355,22 @@
             const total = nStrong + nImprove + nNeutral + nWeak || 1;
 
             // Proportional Widths (Weights: Weak+Neutral vs Strong+Improve)
+            // Shift divider LEFT to give more space to Strong+Improve
             const col1Weight = nNeutral + nWeak;
             let col1Pct = (col1Weight / total) * 100;
             col1Pct = Math.max(15, Math.min(85, col1Pct));
+            // Reduce left column by 10% to shift divider left
+            col1Pct = col1Pct * 0.85; // Shift left
             const col2Pct = 100 - col1Pct;
 
             // Proportional Heights (Weights: Neutral+Strong vs Weak+Improve)
+            // Shift divider DOWN to give more space to Strong (top row)
             const row1Weight = nNeutral + nStrong;
             let row1Pct = (row1Weight / total) * 100;
             row1Pct = Math.max(15, Math.min(85, row1Pct));
+            // Increase top row by 15% to shift divider down
+            row1Pct = row1Pct * 1.15; // Shift down
+            row1Pct = Math.min(85, row1Pct); // Cap at 85%
             const row2Pct = 100 - row1Pct;
 
             const container = document.getElementById('chart-container');
