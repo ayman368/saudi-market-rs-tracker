@@ -46,82 +46,53 @@
         }
 
         .nav-links {
-            text-align: center;
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 6px;
+            border-radius: 12px;
             margin-bottom: 30px;
+            flex-wrap: wrap;
         }
 
-        .nav-links a {
-            margin: 0 10px;
-            padding: 10px 20px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
+        .nav-btn {
             text-decoration: none;
-            border-radius: 25px;
-            transition: transform 0.2s;
-        }
-
-        .nav-links a:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
-        }
-
-        .nav-links a.active {
-            background: #2c3e50;
-        }
-
-        .btn-export {
-            margin: 0 10px;
-            padding: 10px 20px;
-            background: #27ae60;
             color: white;
-            text-decoration: none;
-            border-radius: 25px;
-            transition: transform 0.2s;
-            border: none;
-            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 0.95rem;
             font-weight: 500;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border: 1px solid transparent;
+            opacity: 0.8;
         }
 
-        .btn-export:hover {
-            background: #219150;
-            color: white;
+        .nav-btn:hover {
+            color: #fff;
+            background: rgba(255, 255, 255, 0.2);
+            opacity: 1;
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(39, 174, 96, 0.4);
         }
 
-        table.dataTable thead th {
-            background-color: #2c3e50;
+        .nav-btn.active {
+            background: #2c3e50;
             color: white;
-            font-weight: 600;
+            opacity: 1;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            border-color: rgba(255, 255, 255, 0.1);
         }
 
-        table.dataTable thead th:first-child,
-        table.dataTable tbody td:first-child {
-            text-align: left;
+        .action-btn {
+            background: #27ae60 !important;
         }
 
-        .rs-badge {
-            display: inline-block;
-            padding: 5px 10px;
-            border-radius: 20px;
-            font-weight: bold;
-            min-width: 50px;
-            text-align: center;
-        }
-
-        .rs-high {
-            background: #d4edda;
-            color: #155724;
-        }
-
-        .rs-medium {
-            background: #fff3cd;
-            color: #856404;
-        }
-
-        .rs-low {
-            background: #f8d7da;
-            color: #721c24;
+        .action-btn:hover {
+            background: #219150 !important;
+            box-shadow: 0 4px 15px rgba(39, 174, 96, 0.4);
         }
     </style>
 </head>
@@ -134,12 +105,12 @@
 
         <!-- Navigation -->
         <div class="nav-links">
-            <a href="index.html" class="active">📋 Table View</a>
-            <a href="charts.html">📈 Charts View</a>
-            <a href="rs_matrix.html">💠 Matrix View</a>
-            <a href="matrix_chart.html">📊 Chart View</a>
-            <a href="saudiexchange_rs_analysis.csv" download="saudi_market_rs_analysis.csv" class="btn-export">📥 Export
-                CSV</a>
+            <a href="index.html" class="nav-btn active">📋 Data Table</a>
+            <a href="charts.html" class="nav-btn">📈 Comparisons</a>
+            <a href="rs_matrix.html" class="nav-btn">💠 Matrix Cards</a>
+            <a href="matrix_chart.html" class="nav-btn">📊 Heatmap</a>
+            <a href="saudiexchange_rs_analysis.csv" download="saudi_market_rs_analysis.csv"
+                class="nav-btn action-btn">📥 Export CSV</a>
         </div>
 
         <!-- Data Table -->

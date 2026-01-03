@@ -27,20 +27,37 @@
         }
 
         .nav-links {
-            float: right;
+            display: flex;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 4px;
+            border-radius: 8px;
         }
 
-        .nav-links a {
+        .nav-btn {
             text-decoration: none;
-            color: white;
-            background: #2962ff;
+            color: #b0b3b8;
             padding: 8px 16px;
-            margin-left: 10px;
-            border-radius: 4px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            border: 1px solid transparent;
         }
 
-        .nav-links a.active {
-            background: #f23645;
+        .nav-btn:hover {
+            color: #fff;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-btn.active {
+            background: #2962ff;
+            color: white;
+            border-color: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 12px rgba(41, 98, 255, 0.3);
         }
 
         .container {
@@ -198,12 +215,14 @@
 <body>
 
     <div class="header">
-        <h1>📈 Saudi Market RS</h1>
-        <div class="nav-links">
-            <a href="index.html">Table</a>
-            <a href="charts.html" class="active">Charts</a>
-            <a href="rs_matrix.html">Matrix</a>
-            <a href="matrix_chart.html">Chart Map</a>
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+            <h1>📈 Saudi Market RS</h1>
+            <div class="nav-links">
+                <a href="index.html" class="nav-btn">📋 Data Table</a>
+                <a href="charts.html" class="nav-btn active">📈 Comparisons</a>
+                <a href="rs_matrix.html" class="nav-btn">💠 Matrix Cards</a>
+                <a href="matrix_chart.html" class="nav-btn">📊 Heatmap</a>
+            </div>
         </div>
     </div>
 

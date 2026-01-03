@@ -37,11 +37,14 @@ jobs:
       - name: Recalculate RS Analysis
         run: python recalculate_rs.py
 
+      - name: Generate Pine Script
+        run: python generate_pine_script.py
+
       - name: Commit and Push changes
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           # Force update to show activity
           date > last_update.txt
-          git add saudiexchange*.csv saudiexchange*.json saudiexchange*.txt previous_categories.json last_update.txt
+          git add saudiexchange*.csv saudiexchange*.json saudiexchange*.txt previous_categories.json last_update.txt saudi_rs_auto_generated.pine saudi_rs_auto_metadata.json
           git diff --quiet && git diff --staged --quiet || (git commit -m "Update market data $(date +'%Y-%m-%d')" && git push)

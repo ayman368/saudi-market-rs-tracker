@@ -41,36 +41,47 @@
             font-size: 1.3rem;
         }
 
-        .nav-links a {
+        .nav-links {
+            display: flex;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 4px;
+            border-radius: 8px;
+        }
+
+        .nav-btn {
             text-decoration: none;
-            color: white;
-            padding: 6px 14px;
-            margin-left: 8px;
-            border-radius: 4px;
-            font-size: 0.85rem;
-            cursor: pointer;
-            display: inline-block;
+            color: #b0b3b8;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            border: 1px solid transparent;
         }
 
-        .btn-blue {
+        .nav-btn:hover {
+            color: #fff;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-btn.active {
             background: #2962ff;
+            color: white;
+            border-color: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 12px rgba(41, 98, 255, 0.3);
         }
 
-        .btn-red {
-            background: #f23645;
-        }
-
-        .btn-green {
+        .action-btn {
             background: #4caf50;
+            color: white !important;
         }
 
-        .btn-orange {
-            background: #ff9800;
-        }
-
-        .nav-links a.active {
-            filter: brightness(1.2);
-            box-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+        .action-btn:hover {
+            background: #43a047;
         }
 
         /* Dynamic Grid Container */
@@ -252,11 +263,11 @@
     <div class="header">
         <h1>💠 RS Matrix Chart</h1>
         <div class="nav-links">
-            <a id="btn-save" onclick="captureImage()" class="btn-green">📸 Save Chart</a>
-            <a href="index.html" class="btn-blue">📋 Table</a>
-            <a href="charts.html" class="btn-blue">📈 Charts</a>
-            <a href="rs_matrix.html" class="btn-red">💠 Cards</a>
-            <a href="matrix_chart.html" class="btn-orange active">📊 Chart</a>
+            <a id="btn-save" onclick="captureImage()" class="nav-btn action-btn">📸 Save Image</a>
+            <a href="index.html" class="nav-btn">📋 Data Table</a>
+            <a href="charts.html" class="nav-btn">📈 Comparisons</a>
+            <a href="rs_matrix.html" class="nav-btn">💠 Matrix Cards</a>
+            <a href="matrix_chart.html" class="nav-btn active">📊 Heatmap</a>
         </div>
     </div>
 
