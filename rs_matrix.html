@@ -435,10 +435,10 @@
                 stocks.weakening.length + stocks.weak.length;
 
             // Create Cards
-            container.appendChild(createCard('STRONG', '↑', stocks.strong, totalStocks, 'card-strong'));
-            container.appendChild(createCard('IMPROVE', '↗', stocks.improving, totalStocks, 'card-improve'));
-            container.appendChild(createCard('NEUTRAL', '→', stocks.weakening, totalStocks, 'card-neutral'));
-            container.appendChild(createCard('WEAK', '↓', stocks.weak, totalStocks, 'card-weak'));
+            container.appendChild(createCard('STRONG (>= 90)', '↑', stocks.strong, totalStocks, 'card-strong'));
+            container.appendChild(createCard('IMPROVE (80 - 89)', '↗', stocks.improving, totalStocks, 'card-improve'));
+            container.appendChild(createCard('NEUTRAL (70 - 79)', '→', stocks.weakening, totalStocks, 'card-neutral'));
+            container.appendChild(createCard('WEAK (< 70)', '↓', stocks.weak, totalStocks, 'card-weak'));
         }
 
         function createCard(title, arrow, stockList, totalStocks, className) {

@@ -135,7 +135,7 @@
             font-size: 3rem;
             font-weight: 900;
             text-transform: uppercase;
-            color: rgba(0, 0, 0, 0.05);
+            color: rgba(0, 0, 0, 0.1);
             pointer-events: none;
             z-index: 0;
             text-align: center;
@@ -337,10 +337,10 @@
             const getPct = (n) => validStocks > 0 ? ((n / validStocks) * 100).toFixed(1) + '%' : '0%';
 
             // Populate Quadrants
-            populateQuadrant('q-strong', stocks.strong, 'strong', `STRONG (>90)`, getPct(stocks.strong.length), stocks.strong.length);
-            populateQuadrant('q-improve', stocks.improve, 'improve', `IMPROVE (80-89)`, getPct(stocks.improve.length), stocks.improve.length);
-            populateQuadrant('q-neutral', stocks.neutral, 'neutral', `NEUTRAL (70-79)`, getPct(stocks.neutral.length), stocks.neutral.length);
-            populateQuadrant('q-weak', stocks.weak, 'weak', `WEAK (<70)`, getPct(stocks.weak.length), stocks.weak.length);
+            populateQuadrant('q-strong', stocks.strong, 'strong', `STRONG (>= 90)`, getPct(stocks.strong.length), stocks.strong.length);
+            populateQuadrant('q-improve', stocks.improve, 'improve', `IMPROVE (80 - 89)`, getPct(stocks.improve.length), stocks.improve.length);
+            populateQuadrant('q-neutral', stocks.neutral, 'neutral', `NEUTRAL (70 - 79)`, getPct(stocks.neutral.length), stocks.neutral.length);
+            populateQuadrant('q-weak', stocks.weak, 'weak', `WEAK (< 70)`, getPct(stocks.weak.length), stocks.weak.length);
 
             // Dynamic Sizing
             resizeGrid(stocks);
@@ -388,10 +388,10 @@
             info.innerHTML = `${title} <span style="font-weight:normal; margin-left:5px;">${percentage}</span>`;
             container.appendChild(info);
 
-            // Background Watermark
+            // Background Watermark (Count removed)
             const bgLabel = document.createElement('div');
             bgLabel.className = 'quadrant-bg-label';
-            bgLabel.innerHTML = `${type.toUpperCase()}<br><span style="font-size:50%">${count}</span>`;
+            bgLabel.innerHTML = `${type.toUpperCase()}`;
             container.appendChild(bgLabel);
 
             // Stock Items
