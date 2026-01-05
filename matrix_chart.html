@@ -401,6 +401,7 @@
 
                 // Movement
                 let arrow = '';
+                let movedFrom = '';
                 const prevCat = previousCategories[stock.Symbol];
                 const typeMap = { 'strong': 'STRONG', 'improve': 'IMPROVE', 'neutral': 'NEUTRAL', 'weak': 'WEAK' };
                 const currentCat = typeMap[type];
@@ -410,13 +411,19 @@
                     const pIdx = catOrder.indexOf(prevCat);
                     const cIdx = catOrder.indexOf(currentCat);
 
-                    if (cIdx > pIdx) arrow = '<span class="move-arrow move-up">↑</span>';
-                    if (cIdx < pIdx) arrow = '<span class="move-arrow move-down">↓</span>';
+                    if (cIdx > pIdx) {
+                        arrow = '<span class="move-arrow move-up">↑</span>';
+                        movedFrom = `From ${prevCat}`;
+                    }
+                    if (cIdx < pIdx) {
+                        arrow = '<span class="move-arrow move-down">↓</span>';
+                        movedFrom = `From ${prevCat}`;
+                    }
                 }
 
                 el.innerHTML = `<div class="stock-dot"></div>${stock.Company}${arrow}`;
 
-                el.onmouseenter = (e) => showTooltip(e, stock);
+                el.onmouseenter = (e) => showTooltip(e, stock, movedFrom);
                 el.onmouseleave = hideTooltip;
                 el.onclick = () => window.location.href = `charts.html?symbol=${stock.Symbol}`;
 
@@ -425,9 +432,13 @@
         }
 
         const tooltip = document.getElementById('tooltip');
-        function showTooltip(e, stock) {
+        function showTooltip(e, stock, movedFrom) {
             tooltip.style.display = 'block';
-            tooltip.innerHTML = `<strong>${stock.Company}</strong> (${stock.Symbol})<br>RS: ${stock._rs}`;
+            let content = `<strong>${stock.Company}</strong> (${stock.Symbol})<br>RS: ${stock._rs}`;
+            if (movedFrom) {
+                content += `<br><span style="color:#ffd700; font-weight:bold;">${movedFrom}</span>`;
+            }
+            tooltip.innerHTML = content;
             tooltip.style.left = (e.clientX + 15) + 'px';
             tooltip.style.top = (e.clientY + 15) + 'px';
         }
