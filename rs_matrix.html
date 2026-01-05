@@ -435,13 +435,13 @@
                 stocks.weakening.length + stocks.weak.length;
 
             // Create Cards
-            container.appendChild(createCard('STRONG (>= 90)', '↑', stocks.strong, totalStocks, 'card-strong'));
-            container.appendChild(createCard('IMPROVE (80 - 89)', '↗', stocks.improving, totalStocks, 'card-improve'));
-            container.appendChild(createCard('NEUTRAL (70 - 79)', '→', stocks.weakening, totalStocks, 'card-neutral'));
-            container.appendChild(createCard('WEAK (< 70)', '↓', stocks.weak, totalStocks, 'card-weak'));
+            container.appendChild(createCard('STRONG', 'STRONG (>= 90)', '↑', stocks.strong, totalStocks, 'card-strong'));
+            container.appendChild(createCard('IMPROVE', 'IMPROVE (80 - 89)', '↗', stocks.improving, totalStocks, 'card-improve'));
+            container.appendChild(createCard('NEUTRAL', 'NEUTRAL (70 - 79)', '→', stocks.weakening, totalStocks, 'card-neutral'));
+            container.appendChild(createCard('WEAK', 'WEAK (< 70)', '↓', stocks.weak, totalStocks, 'card-weak'));
         }
 
-        function createCard(title, arrow, stockList, totalStocks, className) {
+        function createCard(key, title, arrow, stockList, totalStocks, className) {
             const card = document.createElement('div');
             card.className = `category-card ${className}`;
 
@@ -467,7 +467,7 @@
             stockList.forEach(stock => {
                 // Check if stock moved from another category
                 const prevCategory = previousCategories[stock.Symbol];
-                const currentCategory = title;
+                const currentCategory = key; // Use the logic key (STRONG, WEAK..) not the title
 
                 let movementHTML = '';
                 if (prevCategory && prevCategory !== currentCategory) {
