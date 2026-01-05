@@ -28,11 +28,11 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Run Scraper
-        run: python saudi_exchange_scraper.py
-
       - name: Save Previous Categories
         run: python save_categories.py
+
+      - name: Run Scraper
+        run: python saudi_exchange_scraper.py
 
       - name: Recalculate RS Analysis
         run: python recalculate_rs.py
