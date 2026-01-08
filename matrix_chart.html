@@ -233,9 +233,43 @@
         }
 
         /* Vivid Orange */
+        /* Vivid Orange */
         .arrow-dest-weak {
             color: #d50000;
             text-shadow: 0 0 2px rgba(213, 0, 0, 0.3);
+        }
+
+        /* Moved Item Highlighting (Box/Pill style) */
+        .stock-item.moved-dest-strong {
+            background: #fff;
+            border: 2px solid #00c853;
+            box-shadow: 0 4px 8px rgba(0, 200, 83, 0.2);
+            transform: scale(1.05);
+            z-index: 20;
+        }
+
+        .stock-item.moved-dest-improve {
+            background: #fff;
+            border: 2px solid #2962ff;
+            box-shadow: 0 4px 8px rgba(41, 158, 255, 0.2);
+            transform: scale(1.05);
+            z-index: 20;
+        }
+
+        .stock-item.moved-dest-neutral {
+            background: #fff;
+            border: 2px solid #ff6d00;
+            box-shadow: 0 4px 8px rgba(255, 109, 0, 0.2);
+            transform: scale(1.05);
+            z-index: 20;
+        }
+
+        .stock-item.moved-dest-weak {
+            background: #fff;
+            border: 2px solid #d50000;
+            box-shadow: 0 4px 8px rgba(213, 0, 0, 0.2);
+            transform: scale(1.05);
+            z-index: 20;
         }
 
         /* Vivid Red */
@@ -456,6 +490,10 @@
                     // Determine Color Class based on DESTINATION (currentCat)
                     // type is 'strong', 'improve', 'neutral', 'weak'
                     const colorClass = `arrow-dest-${type}`;
+
+                    // Add highlight class to the ITEM itself
+                    const itemMoveClass = `moved-dest-${type}`;
+                    el.classList.add(itemMoveClass); // Highlight the box
 
                     arrow = `<span class="move-arrow ${colorClass}">${arrowIcon}</span>`;
                     movedFrom = `From ${prevCat}`;

@@ -279,13 +279,31 @@
         }
 
         .from-badge {
-            font-size: 0.7rem;
-            background: #e0e0e0;
-            color: #666;
-            padding: 2px 6px;
-            border-radius: 3px;
-            margin-left: 4px;
+            font-size: 0.75rem;
+            padding: 3px 8px;
+            border-radius: 4px;
+            margin-left: 6px;
             white-space: nowrap;
+            font-weight: 600;
+            color: #fff;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Badge Colors based on Destination */
+        .badge-dest-strong {
+            background: #00c853;
+        }
+
+        .badge-dest-improve {
+            background: #2962ff;
+        }
+
+        .badge-dest-neutral {
+            background: #ff6d00;
+        }
+
+        .badge-dest-weak {
+            background: #d50000;
         }
 
         /* Header Stats */
@@ -511,7 +529,6 @@
                     else if (currIndex < prevIndex) arrowIcon = '↓';
                     else arrowIcon = '→';
 
-                    // Map key (STRONG, IMPROVE, NEUTRAL, WEAK) to css class suffix
                     const classMap = {
                         'STRONG': 'strong',
                         'IMPROVE': 'improve',
@@ -519,8 +536,9 @@
                         'WEAK': 'weak'
                     };
                     const colorClass = `arrow-dest-${classMap[key]}`;
+                    const badgeClass = `badge-dest-${classMap[key]}`;
 
-                    movementHTML = `<span class="movement-indicator ${colorClass}">${arrowIcon}</span><span class="from-badge">From ${prevCategory}</span>`;
+                    movementHTML = `<span class="movement-indicator ${colorClass}">${arrowIcon}</span><span class="from-badge ${badgeClass}">From ${prevCategory}</span>`;
                 }
 
                 const item = document.createElement('div');
