@@ -232,25 +232,15 @@
             text-align: center;
         }
 
-        /* Destination-based Colors for Arrows */
-        .arrow-dest-strong {
+        /* Direction-based Colors for Arrows */
+        .arrow-up {
             color: #00c853;
-            text-shadow: 0 0 2px rgba(0, 200, 83, 0.3);
+            text-shadow: 0 0 3px rgba(0, 200, 83, 0.4);
         }
 
-        .arrow-dest-improve {
-            color: #2962ff;
-            text-shadow: 0 0 2px rgba(41, 98, 255, 0.3);
-        }
-
-        .arrow-dest-neutral {
-            color: #ff6d00;
-            text-shadow: 0 0 2px rgba(255, 109, 0, 0.3);
-        }
-
-        .arrow-dest-weak {
+        .arrow-down {
             color: #d50000;
-            text-shadow: 0 0 2px rgba(213, 0, 0, 0.3);
+            text-shadow: 0 0 3px rgba(213, 0, 0, 0.4);
         }
 
         @keyframes pulse-arrow {
@@ -289,20 +279,12 @@
             box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
         }
 
-        /* Badge Colors based on Destination */
-        .badge-dest-strong {
+        /* Badge Colors based on Direction */
+        .badge-up {
             background: #00c853;
         }
 
-        .badge-dest-improve {
-            background: #2962ff;
-        }
-
-        .badge-dest-neutral {
-            background: #ff6d00;
-        }
-
-        .badge-dest-weak {
+        .badge-down {
             background: #d50000;
         }
 
@@ -525,18 +507,18 @@
                     const currIndex = categoryOrder.indexOf(currentCategory);
 
                     let arrowIcon = '';
-                    if (currIndex > prevIndex) arrowIcon = '↑';
-                    else if (currIndex < prevIndex) arrowIcon = '↓';
-                    else arrowIcon = '→';
+                    let colorClass = '';
+                    let badgeClass = '';
 
-                    const classMap = {
-                        'STRONG': 'strong',
-                        'IMPROVE': 'improve',
-                        'NEUTRAL': 'neutral',
-                        'WEAK': 'weak'
-                    };
-                    const colorClass = `arrow-dest-${classMap[key]}`;
-                    const badgeClass = `badge-dest-${classMap[key]}`;
+                    if (currIndex > prevIndex) {
+                        arrowIcon = '↑';
+                        colorClass = 'arrow-up';
+                        badgeClass = 'badge-up';
+                    } else {
+                        arrowIcon = '↓';
+                        colorClass = 'arrow-down';
+                        badgeClass = 'badge-down';
+                    }
 
                     movementHTML = `<span class="movement-indicator ${colorClass}">${arrowIcon}</span><span class="from-badge ${badgeClass}">From ${prevCategory}</span>`;
                 }

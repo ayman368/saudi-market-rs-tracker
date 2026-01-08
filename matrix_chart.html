@@ -214,65 +214,35 @@
             animation: pulse-arrow 2s infinite;
         }
 
-        /* Destination-based Colors */
-        .arrow-dest-strong {
+        /* Direction-based Colors */
+        .arrow-up {
             color: #00c853;
-            text-shadow: 0 0 2px rgba(0, 200, 83, 0.3);
+            text-shadow: 0 0 3px rgba(0, 200, 83, 0.4);
         }
 
-        /* Vivid Green */
-        .arrow-dest-improve {
-            color: #2962ff;
-            text-shadow: 0 0 2px rgba(41, 98, 255, 0.3);
-        }
-
-        /* Vivid Blue */
-        .arrow-dest-neutral {
-            color: #ff6d00;
-            text-shadow: 0 0 2px rgba(255, 109, 0, 0.3);
-        }
-
-        /* Vivid Orange */
-        /* Vivid Orange */
-        .arrow-dest-weak {
+        .arrow-down {
             color: #d50000;
-            text-shadow: 0 0 2px rgba(213, 0, 0, 0.3);
+            text-shadow: 0 0 3px rgba(213, 0, 0, 0.4);
         }
 
         /* Moved Item Highlighting (Box/Pill style) */
-        .stock-item.moved-dest-strong {
+        .stock-item.moved-up {
             background: #fff;
             border: 2px solid #00c853;
-            box-shadow: 0 4px 8px rgba(0, 200, 83, 0.2);
+            box-shadow: 0 4px 8px rgba(0, 200, 83, 0.25);
+            border-radius: 6px;
             transform: scale(1.05);
             z-index: 20;
         }
 
-        .stock-item.moved-dest-improve {
-            background: #fff;
-            border: 2px solid #2962ff;
-            box-shadow: 0 4px 8px rgba(41, 158, 255, 0.2);
-            transform: scale(1.05);
-            z-index: 20;
-        }
-
-        .stock-item.moved-dest-neutral {
-            background: #fff;
-            border: 2px solid #ff6d00;
-            box-shadow: 0 4px 8px rgba(255, 109, 0, 0.2);
-            transform: scale(1.05);
-            z-index: 20;
-        }
-
-        .stock-item.moved-dest-weak {
+        .stock-item.moved-down {
             background: #fff;
             border: 2px solid #d50000;
-            box-shadow: 0 4px 8px rgba(213, 0, 0, 0.2);
+            box-shadow: 0 4px 8px rgba(213, 0, 0, 0.25);
+            border-radius: 6px;
             transform: scale(1.05);
             z-index: 20;
         }
-
-        /* Vivid Red */
 
         @keyframes pulse-arrow {
             0% {
@@ -482,19 +452,22 @@
                     const pIdx = catOrder.indexOf(prevCat);
                     const cIdx = catOrder.indexOf(currentCat);
 
-                    // Determine Arrow Direction
-                    let arrowIcon = '→'; // Default just in case
-                    if (cIdx > pIdx) arrowIcon = '↑';
-                    else if (cIdx < pIdx) arrowIcon = '↓';
+                    // Determine Arrow Direction and Color
+                    let arrowIcon = '';
+                    let colorClass = '';
+                    let itemMoveClass = '';
 
-                    // Determine Color Class based on DESTINATION (currentCat)
-                    // type is 'strong', 'improve', 'neutral', 'weak'
-                    const colorClass = `arrow-dest-${type}`;
+                    if (cIdx > pIdx) {
+                        arrowIcon = '↑';
+                        colorClass = 'arrow-up';
+                        itemMoveClass = 'moved-up';
+                    } else {
+                        arrowIcon = '↓';
+                        colorClass = 'arrow-down';
+                        itemMoveClass = 'moved-down';
+                    }
 
-                    // Add highlight class to the ITEM itself
-                    const itemMoveClass = `moved-dest-${type}`;
                     el.classList.add(itemMoveClass); // Highlight the box
-
                     arrow = `<span class="move-arrow ${colorClass}">${arrowIcon}</span>`;
                     movedFrom = `From ${prevCat}`;
                 }
