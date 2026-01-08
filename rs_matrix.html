@@ -232,19 +232,50 @@
             text-align: center;
         }
 
-        /* Movement Indicators */
+        /* Destination-based Colors for Arrows */
+        .arrow-dest-strong {
+            color: #00c853;
+            text-shadow: 0 0 2px rgba(0, 200, 83, 0.3);
+        }
+
+        .arrow-dest-improve {
+            color: #2962ff;
+            text-shadow: 0 0 2px rgba(41, 98, 255, 0.3);
+        }
+
+        .arrow-dest-neutral {
+            color: #ff6d00;
+            text-shadow: 0 0 2px rgba(255, 109, 0, 0.3);
+        }
+
+        .arrow-dest-weak {
+            color: #d50000;
+            text-shadow: 0 0 2px rgba(213, 0, 0, 0.3);
+        }
+
+        @keyframes pulse-arrow {
+            0% {
+                transform: scale(1);
+                opacity: 0.8;
+            }
+
+            50% {
+                transform: scale(1.3);
+                opacity: 1;
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 0.8;
+            }
+        }
+
         .movement-indicator {
             font-size: 1rem;
             margin-left: 4px;
-            font-weight: bold;
-        }
-
-        .movement-up {
-            color: #1b5e20;
-        }
-
-        .movement-down {
-            color: #b71c1c;
+            font-weight: 900;
+            display: inline-block;
+            animation: pulse-arrow 2s infinite;
         }
 
         .from-badge {
@@ -475,13 +506,21 @@
                     const prevIndex = categoryOrder.indexOf(prevCategory);
                     const currIndex = categoryOrder.indexOf(currentCategory);
 
-                    if (currIndex > prevIndex) {
-                        // Moved up
-                        movementHTML = `<span class="movement-indicator movement-up">↑</span><span class="from-badge">From ${prevCategory}</span>`;
-                    } else if (currIndex < prevIndex) {
-                        // Moved down
-                        movementHTML = `<span class="movement-indicator movement-down">↓</span><span class="from-badge">From ${prevCategory}</span>`;
-                    }
+                    let arrowIcon = '';
+                    if (currIndex > prevIndex) arrowIcon = '↑';
+                    else if (currIndex < prevIndex) arrowIcon = '↓';
+                    else arrowIcon = '→';
+
+                    // Map key (STRONG, IMPROVE, NEUTRAL, WEAK) to css class suffix
+                    const classMap = {
+                        'STRONG': 'strong',
+                        'IMPROVE': 'improve',
+                        'NEUTRAL': 'neutral',
+                        'WEAK': 'weak'
+                    };
+                    const colorClass = `arrow-dest-${classMap[key]}`;
+
+                    movementHTML = `<span class="movement-indicator ${colorClass}">${arrowIcon}</span><span class="from-badge">From ${prevCategory}</span>`;
                 }
 
                 const item = document.createElement('div');

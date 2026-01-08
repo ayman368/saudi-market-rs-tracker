@@ -207,17 +207,54 @@
         }
 
         .move-arrow {
-            font-size: 0.7rem;
-            margin-left: 3px;
-            font-weight: bold;
+            font-size: 0.8rem;
+            margin-left: 4px;
+            font-weight: 900;
+            display: inline-block;
+            animation: pulse-arrow 2s infinite;
         }
 
-        .move-up {
-            color: #2e7d32;
+        /* Destination-based Colors */
+        .arrow-dest-strong {
+            color: #00c853;
+            text-shadow: 0 0 2px rgba(0, 200, 83, 0.3);
         }
 
-        .move-down {
-            color: #c62828;
+        /* Vivid Green */
+        .arrow-dest-improve {
+            color: #2962ff;
+            text-shadow: 0 0 2px rgba(41, 98, 255, 0.3);
+        }
+
+        /* Vivid Blue */
+        .arrow-dest-neutral {
+            color: #ff6d00;
+            text-shadow: 0 0 2px rgba(255, 109, 0, 0.3);
+        }
+
+        /* Vivid Orange */
+        .arrow-dest-weak {
+            color: #d50000;
+            text-shadow: 0 0 2px rgba(213, 0, 0, 0.3);
+        }
+
+        /* Vivid Red */
+
+        @keyframes pulse-arrow {
+            0% {
+                transform: scale(1);
+                opacity: 0.8;
+            }
+
+            50% {
+                transform: scale(1.3);
+                opacity: 1;
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 0.8;
+            }
         }
 
         .quadrant::-webkit-scrollbar {
@@ -411,14 +448,17 @@
                     const pIdx = catOrder.indexOf(prevCat);
                     const cIdx = catOrder.indexOf(currentCat);
 
-                    if (cIdx > pIdx) {
-                        arrow = '<span class="move-arrow move-up">↑</span>';
-                        movedFrom = `From ${prevCat}`;
-                    }
-                    if (cIdx < pIdx) {
-                        arrow = '<span class="move-arrow move-down">↓</span>';
-                        movedFrom = `From ${prevCat}`;
-                    }
+                    // Determine Arrow Direction
+                    let arrowIcon = '→'; // Default just in case
+                    if (cIdx > pIdx) arrowIcon = '↑';
+                    else if (cIdx < pIdx) arrowIcon = '↓';
+
+                    // Determine Color Class based on DESTINATION (currentCat)
+                    // type is 'strong', 'improve', 'neutral', 'weak'
+                    const colorClass = `arrow-dest-${type}`;
+
+                    arrow = `<span class="move-arrow ${colorClass}">${arrowIcon}</span>`;
+                    movedFrom = `From ${prevCat}`;
                 }
 
                 el.innerHTML = `<div class="stock-dot"></div>${stock.Company}${arrow}`;
