@@ -23,4 +23,4 @@ HOW TO USE:
 6. Click OK
 
 These thresholds are updated daily by GitHub Actions.
-Last update: 2026-05-24 15:09:07
+Last update: 2026-05-25 16:26:56
