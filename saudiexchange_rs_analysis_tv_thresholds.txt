@@ -5,13 +5,13 @@ TradingView RS Rating Thresholds for Saudi Market
 Copy these values to your TradingView indicator settings:
 (Saudi Market Calibration section)
 
-For 99 Rating (Top 1%):   159.17
-For 90+ Rating (Top 10%): 119.29
-For 70+ Rating:           107.75
+For 99 Rating (Top 1%):   158.89
+For 90+ Rating (Top 10%): 117.84
+For 70+ Rating:           108.48
 For 50+ Rating (Median):  100.00
-For 30+ Rating:           92.23
-For 10+ Rating:           80.85
-For 1 Rating (Bottom):    65.11
+For 30+ Rating:           92.73
+For 10+ Rating:           81.91
+For 1 Rating (Bottom):    65.62
 
 ============================================================
 HOW TO USE:
@@ -23,4 +23,4 @@ HOW TO USE:
 6. Click OK
 
 These thresholds are updated daily by GitHub Actions.
-Last update: 2026-10-04 18:04:33
+Last update: 2026-10-05 21:27:20
